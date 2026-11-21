@@ -1,0 +1,406 @@
+{
+  "episodeId": "EP04",
+  "caseNumber": "CASE-2026-047",
+  "title": "독립영화 촬영장 소품실 사망 사건",
+  "crimeType": "안전사고 위장 계획 살인",
+  "startDateTimeIso": "2026-12-10T18:00:00",
+  "volatileDeadlineMinutes": 840,
+  "submissionDeadlineMinutes": 1200,
+  "startNodeId": "NODE_STATION",
+  "briefingSummary": "2026.12.10 파주 청람 스튜디오 촬영 중 소품 단검이 진품과 뒤바뀌어 주연 배우 최도윤(31)이 사망했습니다. 초동 수사팀은 스턴트 대역 이태양(29)과 소품 팀장 박미영(34)의 과실치사로 송치하고 20시간 뒤 현장 보존을 해제할 예정입니다.",
+  "documents": [
+    {
+      "docId": "EV_EP4_INITIAL_REPORT",
+      "title": "초동 변사 사건 수사 보고서",
+      "category": "REPORT",
+      "isInitial": true,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "[사건 개요] 2026.12.10 15:55경 파주 청람 스튜디오 촬영 중, 대역 배우 이태양(29)이 휘두른 단검에 주연 배우 최도윤(31)이 복부를 찔려 16:40 사망. 현장에서 수거된 단검은 칼날이 들어가지 않는 진품 금속 단검으로 확인됨.\n[초동 결론] 소품 팀장 박미영(34)의 관리 소홀 및 이태양(29)의 확인 부주의에 의한 업무상 과실치사(안전사고)로 송치 예정. 20시간 뒤 스튜디오 현장 보존 해제 예정.\n[특이사항] 감독 윤재호(41)가 사건 당일 11:00 갑자기 해당 씬의 동선을 바꾸는 수정 대본을 배포함.",
+      "metadata": {
+        "createdAt": "2026-12-10 17:10:00",
+        "modifiedAt": "2026-12-10 17:45:00",
+        "author": "강력1팀 초동반",
+        "sourceFile": "CASE_2026_047_INIT.pdf"
+      },
+      "hiddenTags": []
+    },
+    {
+      "docId": "EV_EP4_DOC_SCRIPT_PDF",
+      "title": "당일 11:00 배포 수정 대본 (메타데이터 확인 가능)",
+      "category": "REPORT",
+      "isInitial": true,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "[씬 #42 수정 지시]\n15:55 휴식 없이 원테이크 클로즈업 돌입. 소품 점검 생략하고 직전 리허설 소품 그대로 사용. 카메라 A는 피해자 등 뒤 45도 사각지대 배치.",
+      "metadata": {
+        "createdAt": "2026-12-10 09:18:00",
+        "modifiedAt": "2026-12-10 10:58:00",
+        "author": "HSW_Lumen",
+        "sourceFile": "SCENE42_REV_FINAL.pdf",
+        "metadataEvidenceId": "EV_EP4_META_SCRIPT"
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "소품 점검 생략하고 직전 리허설 소품 그대로 사용",
+          "evidenceId": "EV_EP4_TAG_SKIP_CHECK"
+        }
+      ]
+    },
+    {
+      "docId": "EV_EP4_STATEMENT_A",
+      "title": "피의자 진술서 - 이태양(29, 대역 배우)",
+      "category": "STATEMENT",
+      "isInitial": true,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "제가 미쳤다고 촬영장에서 사람을 찌릅니까! 손에 쥐었을 때 평소 쓰던 트릭 단검이랑 무게랑 색깔이 똑같았어요. 최도윤 형이랑 한 달 전에 합 때문에 좀 다툰 건 맞지만 그날 바로 풀었다고요!",
+      "metadata": {
+        "createdAt": "2026-12-10 17:00:00",
+        "modifiedAt": "2026-12-10 17:00:00",
+        "author": "강력1팀",
+        "sourceFile": "STMT_LEE_A.pdf"
+      },
+      "hiddenTags": []
+    },
+    {
+      "docId": "EV_EP4_STATEMENT_C",
+      "title": "참고인 진술서 - 윤재호(41, 감독)",
+      "category": "STATEMENT",
+      "isInitial": true,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "대본을 당일 오전에 바꾼 건... 연출적인 판단이었습니다. 최도윤 씨랑 최근 작품 방향 때문에 언쟁이 좀 있긴 했지만, 사고를 낼 이유가 전혀 없어요.",
+      "metadata": {
+        "createdAt": "2026-12-10 17:20:00",
+        "modifiedAt": "2026-12-10 17:20:00",
+        "author": "강력1팀",
+        "sourceFile": "STMT_YOON_C.pdf"
+      },
+      "hiddenTags": []
+    },
+    {
+      "docId": "EV_EP4_STATEMENT_D",
+      "title": "참고인 진술서 - 한승우(46, 루멘 픽처스 대표)",
+      "category": "STATEMENT",
+      "isInitial": true,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "안타까운 사고입니다. 전 촬영장 뒷편 VIP 대기실에서 커피만 마시고 있었어요. 소품실이나 세트장 안쪽엔 발도 안 들였습니다.",
+      "metadata": {
+        "createdAt": "2026-12-10 17:35:00",
+        "modifiedAt": "2026-12-10 17:35:00",
+        "author": "강력1팀",
+        "sourceFile": "STMT_HAN_D.pdf"
+      },
+      "hiddenTags": []
+    },
+    {
+      "docId": "EV_EP4_DOC_KNIFE_LAB",
+      "title": "진품 단검 나사 틈 정밀 감식서",
+      "category": "LOG",
+      "isInitial": false,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "[진품 금속 단검 손잡이 내부 나사 틈 감식]\n라텍스 장갑 파우더 잔류물 및 희귀 고급 우드 계열 향수 성분 검출.\n※ 소품 팀장(B) 및 대역 배우(A)의 소지품·향수와는 불일치.",
+      "metadata": {
+        "createdAt": "2026-12-10 20:10:00",
+        "modifiedAt": "2026-12-10 20:10:00",
+        "author": "과학수사 감식반",
+        "sourceFile": "KNIFE_LAB.pdf"
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "희귀 고급 우드 계열 향수 성분 검출",
+          "evidenceId": "EV_EP4_DOC_KNIFE_LAB"
+        }
+      ]
+    },
+    {
+      "docId": "EV_EP4_DOC_COERCION_MAIL",
+      "title": "윤재호 감독 PC 압수 - 한승우 협박 이메일",
+      "category": "LOG",
+      "isInitial": false,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "[발신: 한승우 (루멘 픽처스) → 수신: 윤재호 감독 / 2026.12.10 09:30]\n\"투자금 전액 철회당하기 싫으면 첨부한 수정 대본 그대로 11시에 배포해. 15시 55분에 쉬지 말고 바로 원테이크 들어가.\"",
+      "metadata": {
+        "createdAt": "2026-12-10 09:30:11",
+        "modifiedAt": "2026-12-10 09:30:11",
+        "author": "한승우",
+        "sourceFile": "MAIL_COERCION.eml"
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "투자금 전액 철회당하기 싫으면 첨부한 수정 대본 그대로 11시에 배포해",
+          "evidenceId": "EV_EP4_DOC_COERCION_MAIL"
+        }
+      ]
+    },
+    {
+      "docId": "EV_EP4_DOC_FRAUD_LEDGER",
+      "title": "루멘 픽처스 22억 횡령 이중 장부 & 최도윤 폭로 문자",
+      "category": "LOG",
+      "isInitial": false,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "[루멘 픽처스 압수 이중 장부]\n영화 제작비 30억 원 중 22억 원을 한승우 실소유 유령 법인 3곳으로 허위 용역 처리해 횡령.\n\n[피해자 최도윤 → 한승우 문자 (사건 3일 전)]\n\"회계 이중 장부 다 확보했습니다. 촬영 마지막 날 기자회견에서 전부 공개하겠습니다.\"",
+      "metadata": {
+        "createdAt": "2026-12-10 21:30:00",
+        "modifiedAt": "2026-12-10 21:30:00",
+        "author": "강민호 경사 압수",
+        "sourceFile": "LUMEN_FRAUD.pdf"
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "제작비 30억 원 중 22억 원을 한승우 실소유 유령 법인 3곳으로",
+          "evidenceId": "EV_EP4_DOC_FRAUD_LEDGER"
+        }
+      ]
+    },
+    {
+      "docId": "EV_EP4_DOC_PROP_SPEC",
+      "title": "특수소품 공방 규격서 & 진품 단검 구매 기록",
+      "category": "LOG",
+      "isInitial": false,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "[트릭 단검 규격서]\n금속 손잡이 + 내부 스프링 무게추 적용 → 트릭 단검 무게 280g vs 동일 외형 진품 295g (15g 차이로 육안·체감 구분 불가).\n[구매 기록] 사건 전날 한승우 측 대리인이 동일 외형 흑색 무광 진품 단검 1정 현금 구매.",
+      "metadata": {
+        "createdAt": "2026-12-10 22:00:00",
+        "modifiedAt": "2026-12-10 22:00:00",
+        "author": "특수소품 공방",
+        "sourceFile": "PROP_SPEC.pdf"
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "트릭 단검 무게 280g vs 동일 외형 진품 295g",
+          "evidenceId": "EV_EP4_DOC_PROP_SPEC"
+        }
+      ]
+    },
+    {
+      "docId": "EV_META_EP04_SIGNATURE",
+      "title": "[휘발성 원본] 익명 컨설팅 메일 원본 헤더 (SJW_KDFC_09)",
+      "category": "LOG",
+      "isInitial": false,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "[14시간 골든 타임 확보 - 해외 VPN 우회 전 원본 메일 헤더]\n한승우에게 '사고 위장 동선 변경 및 소품 교체 타이밍'을 지시한 익명 메일 원본 서명:\nX-Forensic-Author-Key: SJW_KDFC_09\n※ 주인공 한도현 확인: 5년 전 파면된 전직 사수 서진우의 고유 개발자 서명!\n※ EP 7 최종장 아카이브 자동 연동 단서 #4",
+      "metadata": {
+        "createdAt": "2026-12-07 23:40:00",
+        "modifiedAt": "2026-12-07 23:40:00",
+        "author": "메일 서버 영장 회신",
+        "sourceFile": "META_EP04_HEADER.eml"
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "X-Forensic-Author-Key: SJW_KDFC_09",
+          "evidenceId": "EV_META_EP04_SIGNATURE"
+        }
+      ]
+    }
+  ],
+  "photos": [
+    {
+      "photoId": "EV_EP4_PHOTO_INIT_SET",
+      "title": "[초동] 세트장 및 대기실 소품 테이블·벽면 거울 사진",
+      "isInitial": true,
+      "imagePath": "EP04/EP04_PHOTO_INIT_SET.png",
+      "hitboxes": []
+    },
+    {
+      "photoId": "EV_EP4_PHOTO_INIT_KNIFE",
+      "title": "[초동] 현장 수거 진품 단검 사진",
+      "isInitial": true,
+      "imagePath": "EP04/EP04_PHOTO_INIT_KNIFE.png",
+      "hitboxes": []
+    },
+    {
+      "photoId": "EV_EP4_PHOTO_PERFUME",
+      "title": "[압수] 한승우 대표실 책상 위 고급 우드 향수 & 은색 커프스링크",
+      "isInitial": false,
+      "imagePath": "EP04/EP04_PHOTO_PERFUME.png",
+      "hitboxes": [
+        {
+          "startSec": 0,
+          "endSec": 0,
+          "normalizedRect": { "x": 0.3, "y": 0.3, "width": 0.4, "height": 0.4 },
+          "evidenceId": "EV_EP4_PHOTO_PERFUME"
+        }
+      ]
+    }
+  ],
+  "cctvClips": [
+    {
+      "clipId": "EV_EP4_CAM_NG1",
+      "title": "B팀 카메라 NG 컷 #1 (15:38 소품 팀장 트릭 단검 정상 작동 확인)",
+      "isInitial": false,
+      "videoPath": "EP04/EP04_CAM_NG1.mp4",
+      "displayTimestamp": "2026-12-10 15:38:15",
+      "hitboxes": [
+        {
+          "startSec": 1.0,
+          "endSec": 4.0,
+          "normalizedRect": { "x": 0.40, "y": 0.38, "width": 0.20, "height": 0.20 },
+          "evidenceId": "EV_EP4_CAP_FAKE_OK"
+        }
+      ]
+    },
+    {
+      "clipId": "EV_EP4_CAM_NG3",
+      "title": "B팀 카메라 NG 컷 #3 (15:52:10 조명 테스트 중 거울 반사 포착)",
+      "isInitial": false,
+      "videoPath": "EP04/EP04_CAM_NG3.mp4",
+      "displayTimestamp": "2026-12-10 15:52:10",
+      "requiresBrightnessAdjust": true,
+      "hitboxes": [
+        {
+          "startSec": 1.5,
+          "endSec": 4.5,
+          "normalizedRect": { "x": 0.72, "y": 0.48, "width": 0.14, "height": 0.16 },
+          "evidenceId": "EV_EP4_CAP_NG_SWAP"
+        }
+      ]
+    }
+  ],
+  "mapNodes": [
+    { "nodeId": "NODE_STATION", "name": "경찰서", "x": 180, "y": 540, "isInitiallyUnlocked": true, "description": "대상 선택 메일 서버 영장 집행 거점" },
+    { "nodeId": "NODE_STUDIO", "name": "파주 청람 스튜디오", "x": 520, "y": 220, "isInitiallyUnlocked": true, "description": "사망 사건 촬영 세트장 및 소품실" },
+    { "nodeId": "NODE_DIRECTOR_LAB", "name": "윤재호(C) 감독 작업실", "x": 480, "y": 520, "isInitiallyUnlocked": true, "description": "수정 대본 배포 감독 작업실" },
+    { "nodeId": "NODE_LUMEN", "name": "루멘 픽처스 사무실", "x": 760, "y": 640, "isInitiallyUnlocked": true, "description": "투자자 한승우(D) 본사" },
+    { "nodeId": "NODE_STUNT_GYM", "name": "이태양(A) 액션스쿨", "x": 840, "y": 280, "isInitiallyUnlocked": true, "description": "대역 배우 소속 훈련장" },
+    { "nodeId": "NODE_PROP_SHOP", "name": "특수소품 공방", "x": 420, "y": 820, "isInitiallyUnlocked": true, "description": "트릭 단검 납품 공방" }
+  ],
+  "travelEdges": [
+    { "nodeA": "NODE_STATION", "nodeB": "NODE_STUDIO", "minutes": 35 },
+    { "nodeA": "NODE_STATION", "nodeB": "NODE_DIRECTOR_LAB", "minutes": 25 },
+    { "nodeA": "NODE_STATION", "nodeB": "NODE_LUMEN", "minutes": 20 },
+    { "nodeA": "NODE_STATION", "nodeB": "NODE_STUNT_GYM", "minutes": 30 },
+    { "nodeA": "NODE_STATION", "nodeB": "NODE_PROP_SHOP", "minutes": 25 },
+    { "nodeA": "NODE_STUDIO", "nodeB": "NODE_DIRECTOR_LAB", "minutes": 25 },
+    { "nodeA": "NODE_STUDIO", "nodeB": "NODE_LUMEN", "minutes": 40 },
+    { "nodeA": "NODE_STUDIO", "nodeB": "NODE_STUNT_GYM", "minutes": 20 },
+    { "nodeA": "NODE_STUDIO", "nodeB": "NODE_PROP_SHOP", "minutes": 35 },
+    { "nodeA": "NODE_DIRECTOR_LAB", "nodeB": "NODE_LUMEN", "minutes": 20 },
+    { "nodeA": "NODE_DIRECTOR_LAB", "nodeB": "NODE_STUNT_GYM", "minutes": 25 },
+    { "nodeA": "NODE_DIRECTOR_LAB", "nodeB": "NODE_PROP_SHOP", "minutes": 20 },
+    { "nodeA": "NODE_LUMEN", "nodeB": "NODE_STUNT_GYM", "minutes": 35 },
+    { "nodeA": "NODE_LUMEN", "nodeB": "NODE_PROP_SHOP", "minutes": 30 },
+    { "nodeA": "NODE_STUNT_GYM", "nodeB": "NODE_PROP_SHOP", "minutes": 25 }
+  ],
+  "actions": [
+    {
+      "actionId": "ACT_EP4_STUDIO",
+      "nodeId": "NODE_STUDIO",
+      "title": "B팀 카메라 메모리칩(NG 컷 포함) 확보 & 단검 정밀 감식",
+      "category": "FORENSIC",
+      "baseWorkMinutes": 90,
+      "reportMinutes": 15,
+      "rewardDocIds": ["EV_EP4_DOC_KNIFE_LAB"],
+      "rewardCctvIds": ["EV_EP4_CAM_NG1", "EV_EP4_CAM_NG3"],
+      "partnerReportMessage": "B팀 메모리칩에 조명 테스트 중 녹화된 NG 컷이 들어 있습니다! 단검 나사 틈에선 희귀 고급 우드 향수 성분이 나왔고요."
+    },
+    {
+      "actionId": "ACT_EP4_DIRECTOR",
+      "nodeId": "NODE_DIRECTOR_LAB",
+      "title": "윤재호(C) PC 압수 및 수정 대본 수신 메일 확인",
+      "category": "INVESTIGATION",
+      "baseWorkMinutes": 60,
+      "reportMinutes": 15,
+      "rewardDocIds": ["EV_EP4_DOC_COERCION_MAIL"],
+      "partnerReportMessage": "윤재호 감독은 누명이었습니다! 09시 30분에 한승우 대표가 투자 끊겠다며 수정 대본을 강제로 뿌리게 시킨 협박 메일이 나왔습니다."
+    },
+    {
+      "actionId": "ACT_EP4_LUMEN",
+      "nodeId": "NODE_LUMEN",
+      "title": "루멘 픽처스 회계 장부 압수 및 한승우(D) 대표실 수색",
+      "category": "FORENSIC",
+      "baseWorkMinutes": 90,
+      "reportMinutes": 15,
+      "rewardDocIds": ["EV_EP4_DOC_FRAUD_LEDGER"],
+      "rewardPhotoIds": ["EV_EP4_PHOTO_PERFUME"],
+      "partnerReportMessage": "22억 횡령 이중 장부랑 최도윤 씨 폭로 예고 문자 확보했습니다. 대표실 책상 위에 단검에서 검출된 것과 똑같은 우드 향수랑 은색 커프스링크가 놓여 있었습니다!"
+    },
+    {
+      "actionId": "ACT_EP4_STUNT",
+      "nodeId": "NODE_STUNT_GYM",
+      "title": "이태양(A) 동료 탐문 및 동선 검증",
+      "category": "INVESTIGATION",
+      "baseWorkMinutes": 60,
+      "reportMinutes": 15,
+      "rewardDocIds": [],
+      "partnerReportMessage": "[특이사항 없음] 한 달 전 다툼은 당일 화해했고, 사건 당일 대기실 소품 테이블엔 근처도 안 갔습니다. 이태양은 지우셔도 됩니다."
+    },
+    {
+      "actionId": "ACT_EP4_PROP",
+      "nodeId": "NODE_PROP_SHOP",
+      "title": "트릭 단검 무게 규격서 및 진품 구매 기록 확인",
+      "category": "INVESTIGATION",
+      "baseWorkMinutes": 60,
+      "reportMinutes": 15,
+      "rewardDocIds": ["EV_EP4_DOC_PROP_SPEC"],
+      "partnerReportMessage": "트릭 단검 280g, 진품 295g이라 손으로 구분이 안 됩니다. 사건 전날 한승우 측 대리인이 똑같은 진품 단검을 현금으로 사 갔네요."
+    },
+    {
+      "actionId": "ACT_EP4_MAIL_WARRANT",
+      "nodeId": "NODE_STATION",
+      "title": "대상 선택 삭제 이메일 서버 헤더 영장 집행",
+      "category": "EXTERNAL_AGENCY",
+      "baseWorkMinutes": 90,
+      "reportMinutes": 15,
+      "requiresTargetSelect": true,
+      "targetOptions": [
+        { "targetId": "SUSPECT_C", "label": "윤재호 (감독)", "rewardDocIds": [], "partnerReportMessage": "[특이사항 없음] 외부 컨설팅 메일 흔적이 없습니다." },
+        { "targetId": "SUSPECT_D", "label": "한승우 (루멘 대표)", "rewardDocIds": [], "volatileBonusDocId": "EV_META_EP04_SIGNATURE", "partnerReportMessage": "경위님... 한승우 메일 원본 헤더에서 SJW_KDFC_09 서명이 나왔습니다. 5년 전 서진우 선배님 고유 서명 아닙니까?" }
+      ]
+    }
+  ],
+  "dbEntries": [
+    {
+      "keywords": ["한승우", "루멘픽처스", "루멘 픽처스"],
+      "displayName": "한승우 (46세) / 루멘 픽처스",
+      "recordText": "법인 DB 조회: 최근 2년간 설립된 무실적 유령 법인 3곳의 실소유주로 확인됨."
+    },
+    {
+      "keywords": ["이태양"],
+      "displayName": "이태양 (29세, 남)",
+      "recordText": "전과: 7년 전 단순 폭행 기소유예 1건."
+    }
+  ],
+  "answerRule": {
+    "correctCulpritId": "SUSPECT_D",
+    "culpritOptions": [
+      { "id": "SUSPECT_A", "label": "이태양 (대역 배우)", "wrongFeedback": "트릭 단검(280g)과 진품(295g) 무게가 거의 같고 소품실에 접근한 적도 없습니다." },
+      { "id": "SUSPECT_C", "label": "윤재호 (감독)", "wrongFeedback": "윤재호 감독은 한승우의 투자 철회 협박에 못 이겨 대본을 배포했습니다." },
+      { "id": "SUSPECT_D", "label": "한승우 (루멘 픽처스 대표)", "wrongFeedback": "" }
+    ],
+    "slots": [
+      {
+        "slotId": "SLOT_REFUTE_ACCIDENT",
+        "label": "안전사고(과실) 반박",
+        "acceptedEvidenceIds": ["EV_EP4_CAP_FAKE_OK", "EV_EP4_DOC_PROP_SPEC"],
+        "wrongFeedback": "15:40까지는 정상 트릭 단검이었으며 무게 차이로 구분 불가였다는 증거가 필요합니다."
+      },
+      {
+        "slotId": "SLOT_SWAP_PROOF",
+        "label": "진범의 소품 바꿔치기 물증",
+        "acceptedEvidenceIds": ["EV_EP4_CAP_NG_SWAP", "EV_EP4_DOC_KNIFE_LAB", "EV_EP4_PHOTO_PERFUME"],
+        "wrongFeedback": "NG 컷 #3 거울 반사 확대 캡처나 단검 나사 틈 우드 향수 감식 결과를 연결해 주십시오."
+      },
+      {
+        "slotId": "SLOT_MOTIVE_SCRIPT",
+        "label": "범행 동기 및 대본 조작 입증",
+        "acceptedEvidenceIds": ["EV_EP4_DOC_FRAUD_LEDGER", "EV_EP4_DOC_COERCION_MAIL", "EV_EP4_META_SCRIPT"],
+        "wrongFeedback": "22억 횡령 장부와 수정 대본 강제 배포 증거를 첨부해 주십시오."
+      }
+    ]
+  },
+  "arrestReports": [
+    {
+      "maxElapsedMinutes": 840,
+      "headline": "[현장 체포 보고] 2026.12.10 {TIME}경, 루멘 픽처스 대표실에서 유령 법인 이중 회계 장부를 파쇄하려던 피의자 한승우(46)를 살인 및 횡령 혐의로 기습 체포함.",
+      "partnerClosing": "경위님, 안전사고로 끝날 줄 알고 서류만 정리하다가 그대로 잡혔습니다. 익명 메일 원본 헤더에서 SJW_KDFC_09 서명까지 삭제 전에 확보했습니다... 설마 서진우 선배님 맞습니까?"
+    },
+    {
+      "maxElapsedMinutes": 1200,
+      "headline": "[현장 체포 보고] 2026.12.10 {TIME}경, 파주 청람 스튜디오 철수 현장에서 소품 폐기를 지시하며 도주하려던 피의자 한승우(46)를 긴급 체포함.",
+      "partnerClosing": "스튜디오 정리하는 척 증거 인멸하려던 놈을 현장에서 덮쳤습니다. 대역 배우 이태양 씨와 소품 팀장님도 살인 혐의는 완전히 벗었습니다."
+    },
+    {
+      "maxElapsedMinutes": 99999,
+      "headline": "[현장 체포 보고] 2026.12.10 {TIME}경, 지방 개인 별장으로 잠적해 횡령 자금의 해외 송금을 시도하던 피의자 한승우(46)를 긴급 추적 끝에 검거함.",
+      "partnerClosing": "별장까지 쫓아가서 겨우 잡았습니다. 익명 메일 서버 헤더가 일부 파기된 게 아쉽지만 진범은 확실히 넣었습니다."
+    }
+  ]
+}

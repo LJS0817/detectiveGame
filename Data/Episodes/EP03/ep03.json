@@ -1,0 +1,389 @@
+{
+  "episodeId": "EP03",
+  "caseNumber": "CASE-2026-033",
+  "title": "구도심 물류창고 심야 화재 사건",
+  "crimeType": "현주건조물 방화 및 횡령 은폐",
+  "startDateTimeIso": "2026-12-02T09:00:00",
+  "volatileDeadlineMinutes": 780,
+  "submissionDeadlineMinutes": 1080,
+  "startNodeId": "NODE_STATION",
+  "briefingSummary": "2026.12.02 02:08경 청명물류 제2창고 B구역에서 화재가 발생해 야간 경비원이 입원했습니다. 민간 감정사 나기철(49)이 '노후 배전반 누전' 소견서를 제출해 18시간 뒤 단순 실화 종결 및 화재보험금 24억 지급 통보가 예정되어 있습니다.",
+  "documents": [
+    {
+      "docId": "EV_EP3_INITIAL_REPORT",
+      "title": "초동 화재 조사 보고서",
+      "category": "REPORT",
+      "isInitial": true,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "[사건 개요] 2026.12.02 02:08경 구도심 청명물류 제2창고 B구역에서 화재 발생(열감지기 02:08 최초 작동). 야간 경비원 김봉수(61)는 연기 흡입으로 입원(48시간 진술 불가). 이송 직전 \"02시에 순찰 돌 땐 배전반 쪽에 아무 이상 없었는데... B구역 안쪽에서 이상한 시계 초침 같은 소리가 났다\"고 진술.\n[초동 결론] 민간 가디언 방재감정원 나기철 감정사의 소견에 따라 노후 배전반 합선(누전)에 의한 단순 실화로 내사 종결 예정. 18시간 뒤 동방화재보험에 종결 확인서 송부 예정(보험금 24억 원 청구됨).\n[참고 사항] 창고 대표 한상철(54)은 최근 자금난으로 부도 위기였으며, 화재 전날 밤 21시경 창고에 방문한 기록이 있음.",
+      "metadata": {
+        "createdAt": "2026-12-02 06:10:00",
+        "modifiedAt": "2026-12-02 08:20:00",
+        "author": "화재조사계 초동반",
+        "sourceFile": "CASE_2026_033_INIT.pdf"
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "B구역 안쪽에서 이상한 시계 초침 같은 소리가 났다",
+          "evidenceId": "EV_EP3_TAG_TIMER_SOUND"
+        }
+      ]
+    },
+    {
+      "docId": "EV_EP3_DOC_INIT_FIRELOG",
+      "title": "소방서 열감지기 최초 작동 기록",
+      "category": "LOG",
+      "isInitial": true,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "[소방서 자동 경보 로그]\n2026-12-02 02:08:11 : 청명물류 제2창고 B구역 3번 열감지기 최초 경보 발신\n2026-12-02 02:22:04 : 관할 소방대 현장 도착 및 경비원 김봉수 구조",
+      "metadata": {
+        "createdAt": "2026-12-02 02:30:00",
+        "modifiedAt": "2026-12-02 02:30:00",
+        "author": "소방관제센터",
+        "sourceFile": "FIRE_ALARM_1202.log"
+      },
+      "hiddenTags": []
+    },
+    {
+      "docId": "EV_EP3_DOC_EXPERT_PDF",
+      "title": "나기철 감정사 누전 소견서 (메타데이터 확인 가능)",
+      "category": "REPORT",
+      "isInitial": true,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "[가디언 방재감정원 소견서]\n현장 B구역 벽면 메인 배전반의 피복 노후화로 인한 단락(누전)이 최초 발화 원인으로 판단됨. 방화 흔적 및 인화물질 미검출.\n작성자: 나기철 수석 감정사",
+      "metadata": {
+        "createdAt": "2026-12-01 23:10:14",
+        "modifiedAt": "2026-12-02 10:15:02",
+        "author": "나기철",
+        "sourceFile": "B구역_배전반_누전_초안.docx",
+        "metadataEvidenceId": "EV_EP3_META_PDF_TIME"
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "작성자: 나기철 수석 감정사",
+          "evidenceId": "EV_EP3_TAG_EXPERT_NAME"
+        }
+      ]
+    },
+    {
+      "docId": "EV_EP3_STATEMENT_A",
+      "title": "참고인 진술서 - 한상철(54, 창고 대표)",
+      "category": "STATEMENT",
+      "isInitial": true,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "제가 돈이 급한 건 맞지만, 제 창고에 불을 지르다니 말도 안 됩니다! B구역엔 신성테크의 고가 반도체 부품이 15억 원어치나 들어 있었어요. 보험 약관 좀 보세요, 전 이번에 완전히 망했다고요! 21시에 들른 건 내일 출고할 A구역 물량 체크하러 간 겁니다.",
+      "metadata": {
+        "createdAt": "2026-12-02 05:20:00",
+        "modifiedAt": "2026-12-02 05:20:00",
+        "author": "화재조사계",
+        "sourceFile": "STMT_HAN_A.pdf"
+      },
+      "hiddenTags": []
+    },
+    {
+      "docId": "EV_EP3_STATEMENT_B",
+      "title": "참고인 진술서 - 조현우(38, 신성테크 물류팀장)",
+      "category": "STATEMENT",
+      "isInitial": true,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "우리 회사 부품 15억 원어치가 한순간에 다 타버렸습니다. 전날 저녁 18시에 정상 퇴근해서 집에서 쉬고 있었는데 새벽에 연락받고 뛰어나왔어요. 한상철 대표가 요즘 자금난이 심하다더니 설마...",
+      "metadata": {
+        "createdAt": "2026-12-02 05:45:00",
+        "modifiedAt": "2026-12-02 05:45:00",
+        "author": "화재조사계",
+        "sourceFile": "STMT_JO_B.pdf"
+      },
+      "hiddenTags": []
+    },
+    {
+      "docId": "EV_EP3_DOC_WAREHOUSE_LAB",
+      "title": "스마트 전력 계량기 로그 & B구역 잔해물 성분 감식서",
+      "category": "LOG",
+      "isInitial": false,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "[건물 스마트 전력 계량기 차단 로그]\n2026-12-02 02:19:03 : B구역 배전반 누전차단기 트립(전력 차단)\n※ 최초 발화 경보(02:08:11)보다 11분 뒤에 차단기 작동 → 누전 발화 아님, 외부 방화 확정!\n\n[B구역 화재 잔해물 정밀 성분 감식]\n15억 원 상당 반도체·전자부품 금속 잔해 거의 미검출. 불탄 박스 내부에서 무게 맞추기용 폐지 및 깨진 벽돌 조각만 대량 검출됨.",
+      "metadata": {
+        "createdAt": "2026-12-02 11:30:00",
+        "modifiedAt": "2026-12-02 11:30:00",
+        "author": "과학수사 감식반",
+        "sourceFile": "WAREHOUSE_LAB.pdf"
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "최초 발화 경보(02:08:11)보다 11분 뒤에 차단기 작동",
+          "evidenceId": "EV_EP3_DOC_POWER_LOG"
+        },
+        {
+          "matchSubstring": "무게 맞추기용 폐지 및 깨진 벽돌 조각만 대량 검출됨",
+          "evidenceId": "EV_EP3_DOC_DEBRIS"
+        }
+      ]
+    },
+    {
+      "docId": "EV_EP3_DOC_POLICY",
+      "title": "동방화재보험 청명물류 화재보험 약관 제14조",
+      "category": "REPORT",
+      "isInitial": false,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "[동방화재보험 계약서 제14조 - 면책 조항]\n임대 창고 내 보관 중인 타사 위탁 화물은 보험금 지급 대상에서 제외됨. 건물 보험금 24억 원은 1순위 근저당 은행 대출 상환으로 우선 귀속되며, 창고 대표 한상철(A)은 신성테크 위탁 화물 소실에 대해 18억 원 배상 위약금을 물어야 함.",
+      "metadata": {
+        "createdAt": "2025-04-10 10:00:00",
+        "modifiedAt": "2025-04-10 10:00:00",
+        "author": "동방화재보험 본사",
+        "sourceFile": "POLICY_14.pdf"
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "타사 위탁 화물은 보험금 지급 대상에서 제외됨",
+          "evidenceId": "EV_EP3_DOC_POLICY"
+        }
+      ]
+    },
+    {
+      "docId": "EV_EP3_DOC_CARD_LOG",
+      "title": "신성테크 B구역 출입 카드 로그 & 정기 실사 공문",
+      "category": "LOG",
+      "isInitial": false,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "[B구역 독립 전자키 출입 로그]\n2026-12-01 23:36:12 : 출입 승인 (사원증: 조현우 물류팀장)\n2026-12-01 23:51:40 : 퇴실 태그 (사원증: 조현우 물류팀장)\n\n[신성테크 본사 감사팀 공문]\n2026.12.08(다음 주 월요일) 청명물류 B구역 위탁 반도체 재고 전수 실사 예정.",
+      "metadata": {
+        "createdAt": "2026-12-02 12:10:00",
+        "modifiedAt": "2026-12-02 12:10:00",
+        "author": "신성테크 보안팀",
+        "sourceFile": "SHINSUNG_CARD.log"
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "2026-12-01 23:36:12 : 출입 승인 (사원증: 조현우 물류팀장)",
+          "evidenceId": "EV_EP3_DOC_CARD_LOG"
+        }
+      ]
+    },
+    {
+      "docId": "EV_EP3_DOC_BRIBE",
+      "title": "조현우 계좌 추적 결과 (장물 처분 & 뇌물 5,000만 원)",
+      "category": "LOG",
+      "isInitial": false,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "[금융 영장 회신 - 피의자 조현우(38)]\n최근 6개월간 암시장 장물 처분 대금 현금 분산 입금(약 9억 원) 및 해외 카지노 송금 확인.\n2026-11-30 : 차명 계좌 경유, 가디언 방재감정원 나기철(49) 측에 5,000만 원 송금 완료.",
+      "metadata": {
+        "createdAt": "2026-12-02 14:00:00",
+        "modifiedAt": "2026-12-02 14:00:00",
+        "author": "금융 영장 회신",
+        "sourceFile": "FINANCE_JO.pdf"
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "나기철(49) 측에 5,000만 원 송금 완료",
+          "evidenceId": "EV_EP3_DOC_BRIBE"
+        }
+      ]
+    },
+    {
+      "docId": "EV_META_EP03_EXPERT",
+      "title": "[휘발성 원본] 나기철 2021년 남부항만 조작 기록 & 대포차 공급선",
+      "category": "LOG",
+      "isInitial": false,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "[13시간 골든 타임 확보 - 기밀 아카이브 대조 결과]\n감정사 나기철(49)은 5년 전 '2021년 남부항만 비자금 수사 증거 조작 사건'(서진우 파면 사건) 당시 허위 감식 보고서를 작성한 외부 감정사와 동일인물!\n회색 대형 승합차(58모 4192)는 성수동 대포차 공급선 소속 말소 차량.\n※ EP 7 최종장 아카이브 자동 연동 단서 #3",
+      "metadata": {
+        "createdAt": "2026-12-02 13:20:00",
+        "modifiedAt": "2026-12-02 13:20:00",
+        "author": "K-POL 기밀 아카이브",
+        "sourceFile": "META_EP03_EXPERT.log"
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "2021년 남부항만 비자금 수사 증거 조작 사건",
+          "evidenceId": "EV_META_EP03_EXPERT"
+        }
+      ]
+    }
+  ],
+  "photos": [
+    {
+      "photoId": "EV_EP3_PHOTO_INIT_BZONE",
+      "title": "[초동] B구역 화재 잔해 전경 사진",
+      "isInitial": true,
+      "imagePath": "EP03/EP03_PHOTO_INIT_BZONE.png",
+      "hitboxes": []
+    }
+  ],
+  "cctvClips": [
+    {
+      "clipId": "EV_EP3_CCTV_ALLEY",
+      "title": "창고 뒷골목 방범 CCTV (12.01 23:35 대포차 진입 및 상차)",
+      "isInitial": false,
+      "videoPath": "EP03/EP03_CCTV_ALLEY.mp4",
+      "displayTimestamp": "2026-12-01 23:35:10",
+      "requiresBrightnessAdjust": true,
+      "hitboxes": [
+        {
+          "startSec": 0.5,
+          "endSec": 2.5,
+          "normalizedRect": { "x": 0.25, "y": 0.45, "width": 0.16, "height": 0.12 },
+          "evidenceId": "EV_EP3_CAP_VAN_PLATE"
+        },
+        {
+          "startSec": 2.6,
+          "endSec": 5.0,
+          "normalizedRect": { "x": 0.58, "y": 0.32, "width": 0.15, "height": 0.15 },
+          "evidenceId": "EV_EP3_CAP_LOGO"
+        }
+      ]
+    }
+  ],
+  "mapNodes": [
+    { "nodeId": "NODE_STATION", "name": "경찰서", "x": 180, "y": 540, "isInitiallyUnlocked": true, "description": "대상 선택 금융 영장 집행 거점" },
+    { "nodeId": "NODE_WAREHOUSE", "name": "청명물류 제2창고", "x": 540, "y": 320, "isInitiallyUnlocked": true, "description": "화재 현장 및 뒷골목 CCTV" },
+    { "nodeId": "NODE_INSURANCE", "name": "동방화재보험 본사", "x": 420, "y": 760, "isInitiallyUnlocked": true, "description": "화재보험 24억 약관 심사 기관" },
+    { "nodeId": "NODE_CEO_OFFICE", "name": "한상철(A) 대표 사무실", "x": 280, "y": 820, "isInitiallyUnlocked": true, "description": "창고 대표 개인 사무실" },
+    { "nodeId": "NODE_SHINSUNG", "name": "신성테크 물류센터", "x": 860, "y": 360, "isInitiallyUnlocked": true, "description": "위탁 화주사 및 조현우(B) 근무지" },
+    { "nodeId": "NODE_FORENSIC_LAB", "name": "가디언 방재감정원", "x": 740, "y": 780, "isInitiallyUnlocked": true, "description": "감정사 나기철(C) 사무실" }
+  ],
+  "travelEdges": [
+    { "nodeA": "NODE_STATION", "nodeB": "NODE_WAREHOUSE", "minutes": 25 },
+    { "nodeA": "NODE_STATION", "nodeB": "NODE_INSURANCE", "minutes": 20 },
+    { "nodeA": "NODE_STATION", "nodeB": "NODE_CEO_OFFICE", "minutes": 20 },
+    { "nodeA": "NODE_STATION", "nodeB": "NODE_SHINSUNG", "minutes": 35 },
+    { "nodeA": "NODE_STATION", "nodeB": "NODE_FORENSIC_LAB", "minutes": 25 },
+    { "nodeA": "NODE_WAREHOUSE", "nodeB": "NODE_INSURANCE", "minutes": 30 },
+    { "nodeA": "NODE_WAREHOUSE", "nodeB": "NODE_CEO_OFFICE", "minutes": 25 },
+    { "nodeA": "NODE_WAREHOUSE", "nodeB": "NODE_SHINSUNG", "minutes": 15 },
+    { "nodeA": "NODE_WAREHOUSE", "nodeB": "NODE_FORENSIC_LAB", "minutes": 30 },
+    { "nodeA": "NODE_INSURANCE", "nodeB": "NODE_CEO_OFFICE", "minutes": 10 },
+    { "nodeA": "NODE_INSURANCE", "nodeB": "NODE_SHINSUNG", "minutes": 40 },
+    { "nodeA": "NODE_INSURANCE", "nodeB": "NODE_FORENSIC_LAB", "minutes": 15 },
+    { "nodeA": "NODE_CEO_OFFICE", "nodeB": "NODE_SHINSUNG", "minutes": 35 },
+    { "nodeA": "NODE_CEO_OFFICE", "nodeB": "NODE_FORENSIC_LAB", "minutes": 20 },
+    { "nodeA": "NODE_SHINSUNG", "nodeB": "NODE_FORENSIC_LAB", "minutes": 35 }
+  ],
+  "actions": [
+    {
+      "actionId": "ACT_EP3_WAREHOUSE",
+      "nodeId": "NODE_WAREHOUSE",
+      "title": "B구역 잔해물 성분 감식, 전력 로그 및 뒷골목 CCTV 확보",
+      "category": "FORENSIC",
+      "baseWorkMinutes": 90,
+      "reportMinutes": 15,
+      "rewardDocIds": ["EV_EP3_DOC_WAREHOUSE_LAB"],
+      "rewardCctvIds": ["EV_EP3_CCTV_ALLEY"],
+      "partnerReportMessage": "누전차단기가 발화 11분 뒤에 떨어졌습니다! 누전이 아니라 방화고, 불탄 박스 안엔 반도체 대신 벽돌과 폐지만 가득했습니다."
+    },
+    {
+      "actionId": "ACT_EP3_INSURANCE",
+      "nodeId": "NODE_INSURANCE",
+      "title": "화재보험 약관 원본 확인",
+      "category": "EXTERNAL_AGENCY",
+      "baseWorkMinutes": 60,
+      "reportMinutes": 15,
+      "rewardDocIds": ["EV_EP3_DOC_POLICY"],
+      "partnerReportMessage": "약관 제14조 확인했습니다. 위탁 화물은 면책이라 한상철 대표는 불이 나면 오히려 18억 물어주고 파산합니다."
+    },
+    {
+      "actionId": "ACT_EP3_CEO",
+      "nodeId": "NODE_CEO_OFFICE",
+      "title": "한상철(A) 자금 장부 및 개인 통장 조사",
+      "category": "INVESTIGATION",
+      "baseWorkMinutes": 60,
+      "reportMinutes": 15,
+      "rewardDocIds": [],
+      "partnerReportMessage": "[특이사항 없음] 자금난은 맞지만 화재 직전까지 은행 대출 연장 합의서를 작성 중이었습니다. 한상철은 용의선상에서 지우셔도 됩니다."
+    },
+    {
+      "actionId": "ACT_EP3_SHINSUNG",
+      "nodeId": "NODE_SHINSUNG",
+      "title": "B구역 출입 카드 로그 및 재고 실사 공문 확보",
+      "category": "INVESTIGATION",
+      "baseWorkMinutes": 60,
+      "reportMinutes": 15,
+      "rewardDocIds": ["EV_EP3_DOC_CARD_LOG"],
+      "partnerReportMessage": "18시에 퇴근했다던 조현우 팀장, 전날 밤 23시 36분에 본인 사원증으로 B구역에 들어갔습니다! 게다가 다음 주가 정기 재고 실사네요."
+    },
+    {
+      "actionId": "ACT_EP3_LAB",
+      "nodeId": "NODE_FORENSIC_LAB",
+      "title": "나기철(C) PC 원본 압수 및 기밀 이력 대조",
+      "category": "FORENSIC",
+      "baseWorkMinutes": 90,
+      "reportMinutes": 15,
+      "rewardDocIds": [],
+      "volatileBonusDocId": "EV_META_EP03_EXPERT",
+      "partnerReportMessage": "나기철 PC에서 화재 3시간 전에 작성된 누전 소견서 초안 파일 확보했습니다. 게다가 기밀 아카이브 대조 결과 2021년 서진우 선배님 파면 사건 조작 감정사와 동일인물입니다!"
+    },
+    {
+      "actionId": "ACT_EP3_FINANCE",
+      "nodeId": "NODE_STATION",
+      "title": "용의자 대상 선택 금융 계좌 추적 영장",
+      "category": "EXTERNAL_AGENCY",
+      "baseWorkMinutes": 90,
+      "reportMinutes": 15,
+      "requiresTargetSelect": true,
+      "targetOptions": [
+        { "targetId": "SUSPECT_A", "label": "한상철 (창고 대표)", "rewardDocIds": [], "partnerReportMessage": "[특이사항 없음] 연체 대출 연장 서류만 확인됩니다." },
+        { "targetId": "SUSPECT_B", "label": "조현우 (신성테크 팀장)", "rewardDocIds": ["EV_EP3_DOC_BRIBE"], "partnerReportMessage": "조현우 계좌에서 암시장 장물 처분금과 나기철 감정사에게 보낸 5,000만 원 차명 송금이 포착됐습니다!" }
+      ]
+    }
+  ],
+  "dbEntries": [
+    {
+      "keywords": ["58모4192", "58모 4192"],
+      "displayName": "차량 58모 4192 (말소 대포차)",
+      "recordText": "차종: 회색 대형 승합차. 2025년 9월 말소 등록된 불법 대포차. 성수동 일대 유통 정황."
+    },
+    {
+      "keywords": ["조현우"],
+      "displayName": "조현우 (38세, 남)",
+      "recordText": "전과: 없음. FIU 참고 기록: 최근 6개월간 해외 카지노 출입 및 고액 현금 분산 입금 의심."
+    },
+    {
+      "keywords": ["나기철"],
+      "displayName": "나기철 (49세, 남)",
+      "recordText": "가디언 방재감정원 수석 감정사. 기밀 참고: 2021년 남부항만 비자금 사건 외부 자문 이력."
+    }
+  ],
+  "answerRule": {
+    "correctCulpritId": "SUSPECT_B",
+    "culpritOptions": [
+      { "id": "SUSPECT_A", "label": "한상철 (창고 대표)", "wrongFeedback": "동방화재 약관 제14조상 한상철은 불이 나면 오히려 18억을 배상하고 파산합니다." },
+      { "id": "SUSPECT_B", "label": "조현우 (신성테크 팀장 / 공범 나기철)", "wrongFeedback": "" }
+    ],
+    "slots": [
+      {
+        "slotId": "SLOT_REFUTE_ACCIDENT",
+        "label": "단순 누전 반박 (전력 로그 또는 PDF 조작)",
+        "acceptedEvidenceIds": ["EV_EP3_DOC_POWER_LOG", "EV_EP3_META_PDF_TIME"],
+        "wrongFeedback": "발화 11분 뒤에 떨어진 차단기 전력 로그나, 화재 3시간 전 작성된 소견서 PDF 메타데이터를 제시해야 합니다."
+      },
+      {
+        "slotId": "SLOT_TRESPASS",
+        "label": "야간 침입 및 방화 물증",
+        "acceptedEvidenceIds": ["EV_EP3_DOC_CARD_LOG", "EV_EP3_CAP_LOGO", "EV_EP3_CAP_VAN_PLATE"],
+        "wrongFeedback": "18시에 퇴근했다던 조현우가 그날 밤 창고에 들어갔다는 출입 기록이나 뒷골목 CCTV 캡처가 필요합니다."
+      },
+      {
+        "slotId": "SLOT_MOTIVE",
+        "label": "횡령 은폐 동기 및 공범 매수",
+        "acceptedEvidenceIds": ["EV_EP3_DOC_DEBRIS", "EV_EP3_DOC_BRIBE"],
+        "wrongFeedback": "부품 대신 벽돌·폐지만 남은 잔해 감식 결과나 나기철 매수 5,000만 원 송금 내역을 첨부해 주십시오."
+      }
+    ]
+  },
+  "arrestReports": [
+    {
+      "maxElapsedMinutes": 780,
+      "headline": "[현장 체포 보고] 2026.12.02 {TIME}경, 신성테크 물류센터 사무실에서 재고 실사 대조표를 허위로 꾸미고 있던 피의자 조현우(38)와 방재감정원 사무실에 있던 공범 나기철(49)을 현주건조물방화 및 업무상횡령 혐의로 동시 기습 체포함.",
+      "partnerClosing": "경위님, 둘 다 단순 누전으로 종결될 줄 알고 태연하게 출근해 있었습니다. 나기철 PC에서 5년 전 서진우 파면 조작 기록까지 삭제 전에 온전히 건졌습니다!"
+    },
+    {
+      "maxElapsedMinutes": 1080,
+      "headline": "[현장 체포 보고] 2026.12.02 {TIME}경, 공항 리무진 승강장에서 장물 처분 자금을 챙겨 해외 출국을 시도하던 피의자 조현우(38)와 PC 하드를 파기하려던 공범 나기철(49)을 긴급 체포함.",
+      "partnerClosing": "한 발 늦었으면 비행기 탈 뻔했습니다. 동방화재보험 쪽 종결 통보도 제시간에 막았습니다."
+    },
+    {
+      "maxElapsedMinutes": 99999,
+      "headline": "[현장 체포 보고] 2026.12.02 {TIME}경, 보험금 지급 보류 직후 잠적해 지방 항구 인근 모텔에 은신 중이던 피의자 조현우(38)와 공범 나기철(49)을 긴급 추적 끝에 검거함.",
+      "partnerClosing": "간신히 지방 모텔에서 덮쳤습니다. 나기철 쪽 기밀 기록이 일부 날아간 건 아쉽지만 방화범 둘 다 확실히 넣었습니다."
+    }
+  ]
+}
