@@ -20,8 +20,8 @@ namespace ColdCaseOS.Apps.FileViewer
         private const float OverlapThreshold = 0.60f;
 
         [SerializeField] private FloatingClueToolbar floatingToolbar;
-        [SerializeField] private Color32 selectionHighlightColor = new Color32(235, 195, 75, 255);
-        [SerializeField] private Color32 defaultTextColor = new Color32(225, 230, 236, 255);
+        [SerializeField] private Color32 selectionHighlightColor = new Color32(184, 134, 24, 255); // #B88618 머스타드
+        [SerializeField] private Color32 defaultTextColor = new Color32(28, 27, 25, 255);          // #1C1B19 먹색
 
         private TMP_Text _tmpText;
         private Canvas _rootCanvas;

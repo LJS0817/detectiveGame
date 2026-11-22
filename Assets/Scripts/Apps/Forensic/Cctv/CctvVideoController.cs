@@ -34,7 +34,8 @@ namespace ColdCaseOS.Apps.Forensic
         [SerializeField] private TMP_Text timestampText;
         [SerializeField] private TMP_Text zoomLabelText;
 
-        [Header("Forensic Tools")]
+        [Header("Forensic Tools & Loupe Preview (Layout F)")]
+        [SerializeField] private RawImage loupePreviewImage;
         [SerializeField] private Slider brightnessSlider;
         [SerializeField] private Slider contrastSlider;
         [SerializeField] private Button captureButton;
@@ -111,7 +112,10 @@ namespace ColdCaseOS.Apps.Forensic
                 videoPlayer.url = EpisodeLoader.GetMediaFullPath(clip.videoPath);
                 videoPlayer.Prepare();
                 videoPlayer.Play();
+                if (loupePreviewImage != null && videoPlayer.targetTexture != null)
+                    loupePreviewImage.texture = videoPlayer.targetTexture;
             }
+            UpdateLoupePreview();
 
             if (AppRoot.Instance != null)
             {
@@ -175,6 +179,13 @@ namespace ColdCaseOS.Apps.Forensic
             }
             if (zoomLabelText != null) zoomLabelText.text = $"{_currentZoom:0.0}x";
             if (captureButton != null) captureButton.interactable = _currentZoom >= CaptureRectValidator.MinZoomForCapture;
+            UpdateLoupePreview();
+        }
+
+        private void UpdateLoupePreview()
+        {
+            if (loupePreviewImage == null) return;
+            loupePreviewImage.uvRect = CalculateVisibleNormalizedRect().ToUnityRect();
         }
 
         private void ClampContentPan()
@@ -185,6 +196,7 @@ namespace ColdCaseOS.Apps.Forensic
             contentRect.anchoredPosition = new Vector2(
                 Mathf.Clamp(p.x, -maxOffset.x, maxOffset.x),
                 Mathf.Clamp(p.y, -maxOffset.y, maxOffset.y));
+            UpdateLoupePreview();
         }
 
         private void ApplyForensicShader()

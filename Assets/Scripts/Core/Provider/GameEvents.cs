@@ -34,6 +34,7 @@ namespace ColdCaseOS.Core
         // 보고서 및 정산 / 다음 사건 배정 이벤트
         public static event Action<ArrestReportTier, int, VolatileClueState> OnEpisodeCleared;
         public static event Action<string, string, string> OnNewCaseOrderReceived; // (nextEpisodeId, caseNumber, summary)
+        public static event Action<string> OnCaseFilesDownloaded;                  // episodeId
 
         public static void RaiseTimeAdvanced(int delta, int total) => OnTimeAdvanced?.Invoke(delta, total);
         public static void RaiseVolatileDeadlinePassed() => OnVolatileDeadlinePassed?.Invoke();
@@ -59,6 +60,9 @@ namespace ColdCaseOS.Core
         public static void RaiseNewCaseOrderReceived(string nextEpisodeId, string caseNumber, string summary)
             => OnNewCaseOrderReceived?.Invoke(nextEpisodeId, caseNumber, summary);
 
+        public static void RaiseCaseFilesDownloaded(string episodeId)
+            => OnCaseFilesDownloaded?.Invoke(episodeId);
+
         public static void ClearAll()
         {
             OnTimeAdvanced = null;
@@ -77,6 +81,7 @@ namespace ColdCaseOS.Core
             OnSfxRequested = null;
             OnEpisodeCleared = null;
             OnNewCaseOrderReceived = null;
+            OnCaseFilesDownloaded = null;
         }
     }
 }

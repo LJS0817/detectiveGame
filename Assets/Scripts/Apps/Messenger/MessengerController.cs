@@ -11,28 +11,40 @@ using UnityEngine.UI;
 namespace ColdCaseOS.Apps.Messenger
 {
     /// <summary>
-    /// OSWindow를 직접 상속하는 파트너(강민호 경사) 및 상부 지시 메신저 앱 창.
-    /// 대기 중인 다음 사건 배정(HasPendingEpisode)이 있을 때 플레이어가 이 창을 열면
-    /// 수락 버튼 없이 즉시 다음 에피소드가 로드되고 마감 시한이 시작됩니다.
+    /// OSWindow를 직접 상속하는 K-POL 내부 메신저 앱 창 (확정 A안 — 좌측 2채널 사이드바 + 우측 대화창).
+    /// - HQ 채널: 서울청 수사심의관 사건 배정 공지 및 [사건 파일 다운로드] 첨부 버튼
+    /// - PARTNER 채널: 강민호 경사 현장 보고, 시한 알림, 2단계 힌트 요청
     /// </summary>
     public class MessengerController : OSWindow
     {
-        [Header("Messenger UI")]
+        public const string ChannelHq = "HQ";
+        public const string ChannelPartner = "PARTNER";
+
+        [Header("Left Channel Sidebar")]
+        [SerializeField] private Button hqChannelButton;
+        [SerializeField] private Button partnerChannelButton;
+        [SerializeField] private GameObject hqUnreadBadge;
+        [SerializeField] private GameObject partnerUnreadBadge;
+
+        [Header("Right Chat UI")]
         [SerializeField] private Transform messageListContainer;
         [SerializeField] private GameObject messageItemPrefab;
+        [SerializeField] private Button downloadButtonPrefab;
         [SerializeField] private ScrollRect scrollRect;
         [SerializeField] private Button askPartnerHintButton;
         [SerializeField] private TMP_Text headerStatusText;
 
         private readonly List<GameObject> _spawnedItems = new List<GameObject>();
+        private string _activeChannelId = ChannelHq;
         private int _hintStage;
         private bool _isStartingPendingEpisode;
 
         protected override void Awake()
         {
             base.Awake();
-            if (askPartnerHintButton != null)
-                askPartnerHintButton.onClick.AddListener(OnAskPartnerHintClicked);
+            if (hqChannelButton != null) hqChannelButton.onClick.AddListener(() => SelectChannel(ChannelHq));
+            if (partnerChannelButton != null) partnerChannelButton.onClick.AddListener(() => SelectChannel(ChannelPartner));
+            if (askPartnerHintButton != null) askPartnerHintButton.onClick.AddListener(OnAskPartnerHintClicked);
         }
 
         private void OnEnable()
@@ -41,6 +53,7 @@ namespace ColdCaseOS.Apps.Messenger
                 AppRoot.Instance.OnEpisodeLoaded += HandleEpisodeLoaded;
 
             GameEvents.OnMessengerMessageAdded += HandleMessageAdded;
+            GameEvents.OnCaseFilesDownloaded += HandleCaseFilesDownloaded;
             RebuildMessageList();
         }
 
@@ -50,6 +63,7 @@ namespace ColdCaseOS.Apps.Messenger
                 AppRoot.Instance.OnEpisodeLoaded -= HandleEpisodeLoaded;
 
             GameEvents.OnMessengerMessageAdded -= HandleMessageAdded;
+            GameEvents.OnCaseFilesDownloaded -= HandleCaseFilesDownloaded;
         }
 
         protected override void OnWindowFocused()
@@ -70,7 +84,7 @@ namespace ColdCaseOS.Apps.Messenger
                 if (started)
                 {
                     _hintStage = 0;
-                    RebuildMessageList();
+                    SelectChannel(ChannelHq);
                 }
             }
             finally
@@ -79,18 +93,50 @@ namespace ColdCaseOS.Apps.Messenger
             }
         }
 
-        private void HandleEpisodeLoaded(EpisodeData episode)
+        public void SelectChannel(string channelId)
         {
-            _hintStage = 0;
-            if (headerStatusText != null && episode != null)
-                headerStatusText.text = $"강민호 경사 / 서울청 수사심의관 ({episode.caseNumber})";
+            _activeChannelId = string.IsNullOrEmpty(channelId) ? ChannelHq : channelId;
+            if (_activeChannelId == ChannelHq && hqUnreadBadge != null) hqUnreadBadge.SetActive(false);
+            if (_activeChannelId == ChannelPartner && partnerUnreadBadge != null) partnerUnreadBadge.SetActive(false);
+
+            UpdateHeader();
+            if (askPartnerHintButton != null)
+                askPartnerHintButton.gameObject.SetActive(_activeChannelId == ChannelPartner);
+
             RebuildMessageList();
         }
 
+        private void HandleEpisodeLoaded(EpisodeData _)
+        {
+            _hintStage = 0;
+            SelectChannel(ChannelHq);
+        }
+
+        private void HandleCaseFilesDownloaded(string _) => RebuildMessageList();
+
         private void HandleMessageAdded(MessengerMessageData msg)
         {
-            SpawnMessageItem(msg);
-            ScrollToBottom();
+            string msgChannel = string.IsNullOrEmpty(msg.channelId) ? ChannelPartner : msg.channelId;
+            if (msgChannel == _activeChannelId)
+            {
+                SpawnMessageItem(msg);
+                ScrollToBottom();
+            }
+            else
+            {
+                if (msgChannel == ChannelHq && hqUnreadBadge != null) hqUnreadBadge.SetActive(true);
+                if (msgChannel == ChannelPartner && partnerUnreadBadge != null) partnerUnreadBadge.SetActive(true);
+            }
+        }
+
+        private void UpdateHeader()
+        {
+            if (headerStatusText == null) return;
+            var ep = AppRoot.Instance?.RuntimeState?.Episode;
+            string caseTag = ep != null ? $" ({ep.caseNumber})" : string.Empty;
+            headerStatusText.text = _activeChannelId == ChannelHq
+                ? $"서울청 수사심의관 — 공식 사건 배정{caseTag}"
+                : $"강민호 경사 — 현장 수사 파트너{caseTag}";
         }
 
         public void RebuildMessageList()
@@ -103,7 +149,11 @@ namespace ColdCaseOS.Apps.Messenger
             if (logs == null) return;
 
             foreach (var msg in logs)
-                SpawnMessageItem(msg);
+            {
+                string ch = string.IsNullOrEmpty(msg.channelId) ? ChannelPartner : msg.channelId;
+                if (ch == _activeChannelId)
+                    SpawnMessageItem(msg);
+            }
 
             ScrollToBottom();
         }
@@ -116,10 +166,40 @@ namespace ColdCaseOS.Apps.Messenger
             var text = go.GetComponentInChildren<TMP_Text>();
             if (text != null)
             {
-                string prefix = msg.isSystemAlert ? "[공지] " : string.Empty;
+                string prefix = msg.isSystemAlert ? "[공식 지시] " : string.Empty;
                 text.text = $"<b>{prefix}{msg.sender}</b> <size=80%>({msg.timestamp})</size>\n{msg.body}";
             }
             _spawnedItems.Add(go);
+
+            // 사건 파일 다운로드 첨부 버튼
+            if (!string.IsNullOrEmpty(msg.downloadableEpisodeId) && downloadButtonPrefab != null)
+            {
+                var app = AppRoot.Instance;
+                var state = app?.RuntimeState;
+                bool downloaded = state != null && state.IsCaseFilesDownloaded &&
+                                  state.Episode?.episodeId == msg.downloadableEpisodeId;
+
+                var dlBtn = Instantiate(downloadButtonPrefab, messageListContainer);
+                var dlLabel = dlBtn.GetComponentInChildren<TMP_Text>();
+                if (dlLabel != null)
+                {
+                    string epTitle = state?.Episode != null ? $"{state.Episode.title} ({state.Episode.caseNumber})" : msg.downloadableEpisodeId;
+                    dlLabel.text = downloaded
+                        ? $"다운로드 완료 — {epTitle}"
+                        : $"사건 파일 다운로드 — {epTitle}";
+                }
+
+                dlBtn.interactable = !downloaded;
+                dlBtn.onClick.AddListener(() =>
+                {
+                    if (AppRoot.Instance == null) return;
+                    if (AppRoot.Instance.RuntimeState.DownloadCurrentCaseFiles())
+                    {
+                        AppRoot.Instance.Campaign.AutoSaveActiveState(AppRoot.Instance.RuntimeState);
+                    }
+                });
+                _spawnedItems.Add(dlBtn.gameObject);
+            }
         }
 
         private void ScrollToBottom()
@@ -129,10 +209,6 @@ namespace ColdCaseOS.Apps.Messenger
             scrollRect.verticalNormalizedPosition = 0f;
         }
 
-        /// <summary>
-        /// [강민호 경사에게 의견 묻기] 2단계 상황 맞춤형 힌트.
-        /// 1단계: 미열람 파일 / 미발견 인물 안내, 2단계: 미완료 현장 지시 / 증거판 조합 안내.
-        /// </summary>
         private void OnAskPartnerHintClicked()
         {
             var app = AppRoot.Instance;
@@ -141,19 +217,18 @@ namespace ColdCaseOS.Apps.Messenger
             if (app == null || state == null || episode == null) return;
 
             string hintBody;
-            if (_hintStage == 0)
+            if (!state.IsCaseFilesDownloaded)
+            {
+                hintBody = "경위님, 먼저 서울청 수사심의관 채널에서 [사건 파일 다운로드]를 눌러 초동 자료부터 받으셔야 합니다.";
+            }
+            else if (_hintStage == 0)
             {
                 var unreadDoc = episode.documents.FirstOrDefault(d =>
                     state.UnlockedDocIds.Contains(d.docId) && !state.ReadItemIds.Contains(d.docId));
 
-                if (unreadDoc != null)
-                {
-                    hintBody = $"경위님, 아직 확인하지 않은 문서 [{unreadDoc.title}]가 있습니다. 핵심 인물이나 단서가 있을 수 있으니 먼저 훑어보시죠.";
-                }
-                else
-                {
-                    hintBody = "현재 확보한 문서는 다 보신 것 같습니다. 의심되는 이름이나 차량 번호가 있다면 경찰 DB에서 조회해 보시는 게 좋겠습니다.";
-                }
+                hintBody = unreadDoc != null
+                    ? $"경위님, 아직 확인하지 않은 문서 [{unreadDoc.title}]가 있습니다. 핵심 인물이나 단서가 있을 수 있으니 먼저 훑어보시죠."
+                    : "현재 확보한 문서는 다 보신 것 같습니다. 의심되는 이름이나 차량 번호가 있다면 경찰 DB에서 조회해 보시는 게 좋겠습니다.";
                 _hintStage = 1;
             }
             else
@@ -176,7 +251,7 @@ namespace ColdCaseOS.Apps.Messenger
                 _hintStage = 0;
             }
 
-            state.AddMessengerMessage("강민호 경사", hintBody, app.Time.FormattedCurrentClock, isSystemAlert: false);
+            state.AddMessengerMessage("강민호 경사", hintBody, app.Time.FormattedCurrentClock, isSystemAlert: false, channelId: ChannelPartner);
         }
     }
 }

@@ -19,10 +19,10 @@ namespace ColdCaseOS.OS
         [SerializeField] private TMP_Text partnerLocationText;
 
         [Header("Colors")]
-        [SerializeField] private Color normalDeadlineColor = Color.white;
-        [SerializeField] private Color overtimeColor = new Color(0.95f, 0.32f, 0.32f, 1f);
-        [SerializeField] private Color volatileActiveColor = new Color(0.95f, 0.78f, 0.25f, 1f);
-        [SerializeField] private Color volatileExpiredColor = new Color(0.55f, 0.58f, 0.62f, 1f);
+        [SerializeField] private Color normalDeadlineColor = new Color(0.965f, 0.953f, 0.925f, 1f); // #F6F3EC
+        [SerializeField] private Color overtimeColor = new Color(0.85f, 0.30f, 0.30f, 1f);
+        [SerializeField] private Color volatileActiveColor = new Color(0.788f, 0.604f, 0.180f, 1f); // #C99A2E
+        [SerializeField] private Color volatileExpiredColor = new Color(0.55f, 0.53f, 0.50f, 1f);
 
         [Header("App Toggle Buttons")]
         [SerializeField] private Button fileExplorerButton;

@@ -168,14 +168,7 @@ namespace ColdCaseOS.Core
                 keepOSAlive: true,
                 keepOpenWindowIds: keepOpenWindowIds);
 
-            if (episode == null) return false;
-
-            string orderBody = $"신규 재수사 사건 배정: {episode.caseNumber} ({episode.title})\n" +
-                               $"{episode.briefingSummary}\n" +
-                               $"지금 시점부터 마감 시한({TimeManager.FormatMinutesKorean(episode.submissionDeadlineMinutes)})이 적용됩니다. 즉시 착수하십시오.";
-
-            RuntimeState.AddMessengerMessage("서울청 수사심의관", orderBody, Time.FormattedCurrentClock, isSystemAlert: true);
-            return true;
+            return episode != null;
         }
 
         private async UniTask<EpisodeData> LoadEpisodeInternalAsync(
@@ -196,13 +189,26 @@ namespace ColdCaseOS.Core
             else
                 windowManager?.CloseAllWindowsImmediate();
 
-            if (resumeSnapshot && Campaign.HasActiveSnapshot(episodeId))
+            bool restored = resumeSnapshot && Campaign.HasActiveSnapshot(episodeId);
+            if (restored)
             {
                 RuntimeState.RestoreFromSnapshot(episode, Campaign.SaveData.activeEpisodeSnapshot);
             }
             else
             {
                 RuntimeState.InitializeNew(episode);
+                string orderBody = $"신규 재수사 사건 배정: {episode.caseNumber} ({episode.title})\n" +
+                                   $"{episode.briefingSummary}\n" +
+                                   $"지금 시점부터 마감 시한({TimeManager.FormatMinutesKorean(episode.submissionDeadlineMinutes)})이 적용됩니다. 아래 첨부 사건 파일을 다운로드해 즉시 착수하십시오.";
+
+                RuntimeState.AddMessengerMessage(
+                    sender: "서울청 수사심의관",
+                    body: orderBody,
+                    timestamp: Time.FormattedCurrentClock,
+                    isSystemAlert: true,
+                    channelId: "HQ",
+                    downloadableEpisodeId: episode.episodeId);
+
                 Campaign.AutoSaveActiveState(RuntimeState);
             }
 
@@ -212,7 +218,7 @@ namespace ColdCaseOS.Core
             }
 
             OnEpisodeLoaded?.Invoke(episode);
-            GameEvents.RaiseToastRequested("신규 사건 배정 및 파일 수신", $"{episode.caseNumber} — {episode.title}");
+            GameEvents.RaiseToastRequested("신규 사건 배정", $"메신저에서 [{episode.title}] 사건 파일을 다운로드하세요.");
             return episode;
         }
 

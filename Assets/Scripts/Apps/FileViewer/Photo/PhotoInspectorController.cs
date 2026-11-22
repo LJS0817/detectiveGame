@@ -17,8 +17,9 @@ namespace ColdCaseOS.Apps.FileViewer
     /// </summary>
     public class PhotoInspectorController : OSWindow, IScrollHandler, IDragHandler
     {
-        [Header("Photo Inspector UI")]
+        [Header("Photo Inspector UI (Layout F Loupe)")]
         [SerializeField] private RawImage photoImage;
+        [SerializeField] private RawImage loupePreviewImage;
         [SerializeField] private RectTransform viewportRect;
         [SerializeField] private RectTransform contentRect;
         [SerializeField] private TMP_Text titleText;
@@ -56,6 +57,8 @@ namespace ColdCaseOS.Apps.FileViewer
             if (_loadedTex != null) Destroy(_loadedTex);
             _loadedTex = tex;
             if (photoImage != null) photoImage.texture = _loadedTex;
+            if (loupePreviewImage != null) loupePreviewImage.texture = _loadedTex;
+            UpdateLoupePreview();
 
             if (AppRoot.Instance != null)
             {
@@ -87,6 +90,13 @@ namespace ColdCaseOS.Apps.FileViewer
             }
             if (zoomLabelText != null) zoomLabelText.text = $"{_currentZoom:0.0}x";
             if (captureButton != null) captureButton.interactable = _currentZoom >= CaptureRectValidator.MinZoomForCapture;
+            UpdateLoupePreview();
+        }
+
+        private void UpdateLoupePreview()
+        {
+            if (loupePreviewImage == null) return;
+            loupePreviewImage.uvRect = CalculateVisibleNormalizedRect().ToUnityRect();
         }
 
         private void ClampContentPan()
@@ -97,6 +107,7 @@ namespace ColdCaseOS.Apps.FileViewer
             contentRect.anchoredPosition = new Vector2(
                 Mathf.Clamp(p.x, -maxOffset.x, maxOffset.x),
                 Mathf.Clamp(p.y, -maxOffset.y, maxOffset.y));
+            UpdateLoupePreview();
         }
 
         private void CaptureCurrentViewport()

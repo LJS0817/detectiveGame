@@ -65,6 +65,7 @@ namespace ColdCaseOS.Data
         [JsonProperty("elapsedMinutes")] public int elapsedMinutes;
         [JsonProperty("isOvertime")] public bool isOvertime;
         [JsonProperty("volatileDeadlineNotified")] public bool volatileDeadlineNotified;
+        [JsonProperty("isCaseFilesDownloaded")] public bool isCaseFilesDownloaded;
         [JsonProperty("currentPartnerNodeId")] public string currentPartnerNodeId;
 
         [JsonProperty("unlockedNodeIds")] public List<string> unlockedNodeIds = new List<string>();
@@ -73,6 +74,7 @@ namespace ColdCaseOS.Data
         [JsonProperty("unlockedCctvIds")] public List<string> unlockedCctvIds = new List<string>();
         [JsonProperty("unlockedAudioIds")] public List<string> unlockedAudioIds = new List<string>();
         [JsonProperty("discoveredSuspectIds")] public List<string> discoveredSuspectIds = new List<string>();
+        [JsonProperty("queriedDbDisplayNames")] public List<string> queriedDbDisplayNames = new List<string>();
         [JsonProperty("readItemIds")] public List<string> readItemIds = new List<string>();
 
         [JsonProperty("completedActionKeys")] public List<string> completedActionKeys = new List<string>();
@@ -84,10 +86,12 @@ namespace ColdCaseOS.Data
     [Serializable]
     public class MessengerMessageData
     {
+        [JsonProperty("channelId")] public string channelId = "PARTNER"; // "HQ" (서울청 수사심의관) | "PARTNER" (강민호 경사)
         [JsonProperty("sender")] public string sender;
         [JsonProperty("timestamp")] public string timestamp;
         [JsonProperty("body")] public string body;
         [JsonProperty("isSystemAlert")] public bool isSystemAlert;
+        [JsonProperty("downloadableEpisodeId")] public string downloadableEpisodeId; // 비어있지 않으면 [사건 파일 다운로드] 버튼 표시
         [JsonProperty("revealsSuspectIds")] public List<string> revealsSuspectIds = new List<string>();
     }
 }

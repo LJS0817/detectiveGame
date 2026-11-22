@@ -16,6 +16,7 @@ namespace ColdCaseOS.Core
         public int ElapsedMinutes { get; set; }
         public bool IsOvertime { get; set; }
         public bool VolatileDeadlineNotified { get; set; }
+        public bool IsCaseFilesDownloaded { get; private set; }
         public string CurrentPartnerNodeId { get; set; }
         public VolatileClueState CurrentVolatileClueState { get; set; } = VolatileClueState.None;
 
@@ -25,6 +26,7 @@ namespace ColdCaseOS.Core
         public HashSet<string> UnlockedCctvIds { get; } = new HashSet<string>();
         public HashSet<string> UnlockedAudioIds { get; } = new HashSet<string>();
         public HashSet<string> DiscoveredSuspectIds { get; } = new HashSet<string>();
+        public List<string> QueriedDbDisplayNames { get; } = new List<string>();
         public HashSet<string> ReadItemIds { get; } = new HashSet<string>();
         public HashSet<string> CompletedActionKeys { get; } = new HashSet<string>();
 
@@ -38,6 +40,7 @@ namespace ColdCaseOS.Core
             ElapsedMinutes = 0;
             IsOvertime = false;
             VolatileDeadlineNotified = false;
+            IsCaseFilesDownloaded = false;
             CurrentPartnerNodeId = episode.startNodeId;
             CurrentVolatileClueState = VolatileClueState.None;
 
@@ -47,6 +50,7 @@ namespace ColdCaseOS.Core
             UnlockedCctvIds.Clear();
             UnlockedAudioIds.Clear();
             DiscoveredSuspectIds.Clear();
+            QueriedDbDisplayNames.Clear();
             ReadItemIds.Clear();
             CompletedActionKeys.Clear();
             ClueCards.Clear();
@@ -56,24 +60,46 @@ namespace ColdCaseOS.Core
             foreach (var n in episode.mapNodes)
                 if (n.isInitiallyUnlocked) UnlockedNodeIds.Add(n.nodeId);
 
-            foreach (var d in episode.documents)
-                if (d.isInitial) UnlockedDocIds.Add(d.docId);
-
-            foreach (var p in episode.photos)
-                if (p.isInitial) UnlockedPhotoIds.Add(p.photoId);
-
-            foreach (var c in episode.cctvClips)
-                if (c.isInitial) UnlockedCctvIds.Add(c.clipId);
-
-            foreach (var a in episode.audioClips)
-                if (a.isInitial) UnlockedAudioIds.Add(a.audioId);
-
             foreach (var act in episode.actions)
             {
                 if (act.targetOptions == null) continue;
                 foreach (var opt in act.targetOptions)
                     if (opt.isInitiallyDiscovered) DiscoveredSuspectIds.Add(opt.targetId);
             }
+        }
+
+        /// <summary>
+        /// 메신저 사건 배정 메시지 내 [사건 파일 다운로드] 클릭 시 호출.
+        /// 초기 문서·사진·CCTV·오디오를 해금하고 파일 탐색기 좌측 사건 목록에 등록합니다.
+        /// </summary>
+        public bool DownloadCurrentCaseFiles()
+        {
+            if (Episode == null || IsCaseFilesDownloaded) return false;
+            IsCaseFilesDownloaded = true;
+
+            foreach (var d in Episode.documents)
+                if (d.isInitial) UnlockedDocIds.Add(d.docId);
+
+            foreach (var p in Episode.photos)
+                if (p.isInitial) UnlockedPhotoIds.Add(p.photoId);
+
+            foreach (var c in Episode.cctvClips)
+                if (c.isInitial) UnlockedCctvIds.Add(c.clipId);
+
+            foreach (var a in Episode.audioClips)
+                if (a.isInitial) UnlockedAudioIds.Add(a.audioId);
+
+            GameEvents.RaiseCaseFilesDownloaded(Episode.episodeId);
+            GameEvents.RaiseSfxRequested("SFX_MOUSE_CLICK");
+            GameEvents.RaiseToastRequested("사건 파일 다운로드 완료", $"{Episode.title} ({Episode.caseNumber})");
+            return true;
+        }
+
+        public void RecordDbQuery(string displayName)
+        {
+            if (string.IsNullOrEmpty(displayName)) return;
+            QueriedDbDisplayNames.Remove(displayName);
+            QueriedDbDisplayNames.Insert(0, displayName);
         }
 
         public void RestoreFromSnapshot(EpisodeData episode, EpisodeRuntimeSnapshot snap)
@@ -84,6 +110,7 @@ namespace ColdCaseOS.Core
             ElapsedMinutes = snap.elapsedMinutes;
             IsOvertime = snap.isOvertime;
             VolatileDeadlineNotified = snap.volatileDeadlineNotified;
+            IsCaseFilesDownloaded = snap.isCaseFilesDownloaded;
             CurrentPartnerNodeId = string.IsNullOrEmpty(snap.currentPartnerNodeId) ? episode.startNodeId : snap.currentPartnerNodeId;
 
             UnlockedNodeIds.UnionWith(snap.unlockedNodeIds);
@@ -92,6 +119,7 @@ namespace ColdCaseOS.Core
             UnlockedCctvIds.UnionWith(snap.unlockedCctvIds);
             UnlockedAudioIds.UnionWith(snap.unlockedAudioIds);
             if (snap.discoveredSuspectIds != null) DiscoveredSuspectIds.UnionWith(snap.discoveredSuspectIds);
+            if (snap.queriedDbDisplayNames != null) QueriedDbDisplayNames.AddRange(snap.queriedDbDisplayNames);
             ReadItemIds.UnionWith(snap.readItemIds);
             CompletedActionKeys.UnionWith(snap.completedActionKeys);
 
@@ -108,6 +136,7 @@ namespace ColdCaseOS.Core
                 elapsedMinutes = ElapsedMinutes,
                 isOvertime = IsOvertime,
                 volatileDeadlineNotified = VolatileDeadlineNotified,
+                isCaseFilesDownloaded = IsCaseFilesDownloaded,
                 currentPartnerNodeId = CurrentPartnerNodeId,
                 unlockedNodeIds = UnlockedNodeIds.ToList(),
                 unlockedDocIds = UnlockedDocIds.ToList(),
@@ -115,6 +144,7 @@ namespace ColdCaseOS.Core
                 unlockedCctvIds = UnlockedCctvIds.ToList(),
                 unlockedAudioIds = UnlockedAudioIds.ToList(),
                 discoveredSuspectIds = DiscoveredSuspectIds.ToList(),
+                queriedDbDisplayNames = new List<string>(QueriedDbDisplayNames),
                 readItemIds = ReadItemIds.ToList(),
                 completedActionKeys = CompletedActionKeys.ToList(),
                 clueCards = new List<UserClueCard>(ClueCards),
@@ -264,14 +294,18 @@ namespace ColdCaseOS.Core
             string body,
             string timestamp,
             bool isSystemAlert = false,
-            List<string> revealsSuspectIds = null)
+            List<string> revealsSuspectIds = null,
+            string channelId = "PARTNER",
+            string downloadableEpisodeId = "")
         {
             var msg = new MessengerMessageData
             {
+                channelId = string.IsNullOrEmpty(channelId) ? "PARTNER" : channelId,
                 sender = sender,
                 body = body,
                 timestamp = timestamp,
                 isSystemAlert = isSystemAlert,
+                downloadableEpisodeId = downloadableEpisodeId ?? string.Empty,
                 revealsSuspectIds = revealsSuspectIds ?? new List<string>()
             };
             MessengerLogs.Add(msg);

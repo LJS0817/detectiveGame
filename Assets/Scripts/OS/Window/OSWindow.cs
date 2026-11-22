@@ -26,8 +26,8 @@ namespace ColdCaseOS.OS
         [Header("Window Identity")]
         [SerializeField] private string windowId;
         [SerializeField] private Image titleBarBackground;
-        [SerializeField] private Color focusedTitleColor = new Color(0.16f, 0.24f, 0.34f, 1f);
-        [SerializeField] private Color unfocusedTitleColor = new Color(0.10f, 0.13f, 0.17f, 1f);
+        [SerializeField] private Color focusedTitleColor = new Color(0.173f, 0.173f, 0.173f, 1f);   // #2C2C2C
+        [SerializeField] private Color unfocusedTitleColor = new Color(0.353f, 0.337f, 0.314f, 1f); // #5A5650
         [SerializeField] private float animDuration = 0.16f;
 
         public string WindowId => windowId;
