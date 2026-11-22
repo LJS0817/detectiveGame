@@ -22,7 +22,12 @@
         "author": "광역수사대 초동반",
         "sourceFile": "CASE_2026_059_INIT.pdf"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_B"
+      ]
     },
     {
       "docId": "EV_EP5_DOC_INIT_DISPATCH",
@@ -37,7 +42,13 @@
         "author": "에이스가드 관제실",
         "sourceFile": "DISPATCH_1218.pdf"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_B",
+        "SUSPECT_C"
+      ]
     },
     {
       "docId": "EV_EP5_STATEMENT_A",
@@ -52,7 +63,9 @@
         "author": "광역수사대",
         "sourceFile": "STMT_JANG_A.pdf"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ]
     },
     {
       "docId": "EV_EP5_STATEMENT_B",
@@ -67,7 +80,12 @@
         "author": "광역수사대",
         "sourceFile": "STMT_OH_B.pdf"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_B"
+      ]
     },
     {
       "docId": "EV_EP5_STATEMENT_C",
@@ -82,7 +100,12 @@
         "author": "광역수사대",
         "sourceFile": "STMT_CHOI_C.pdf"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_C"
+      ]
     },
     {
       "docId": "EV_EP5_DOC_GATE_LOG",
@@ -171,7 +194,9 @@
       "title": "[초동] 지하 2층 하역장 및 벽면 독립 LED 시계 전경 사진",
       "isInitial": true,
       "imagePath": "EP05/EP05_PHOTO_INIT_BAY.png",
-      "hitboxes": []
+      "hitboxes": [
+
+      ]
     }
   ],
   "cctvClips": [
@@ -186,7 +211,12 @@
         {
           "startSec": 0.5,
           "endSec": 3.0,
-          "normalizedRect": { "x": 0.28, "y": 0.48, "width": 0.16, "height": 0.12 },
+          "normalizedRect": {
+            "x": 0.28,
+            "y": 0.48,
+            "width": 0.16,
+            "height": 0.12
+          },
           "evidenceId": "EV_EP5_CAP_VAN_58"
         }
       ]
@@ -201,7 +231,12 @@
         {
           "startSec": 0.0,
           "endSec": 5.0,
-          "normalizedRect": { "x": 0.70, "y": 0.78, "width": 0.16, "height": 0.12 },
+          "normalizedRect": {
+            "x": 0.7,
+            "y": 0.78,
+            "width": 0.16,
+            "height": 0.12
+          },
           "evidenceId": "EV_EP5_CAP_TIME_SHIFT"
         }
       ]
@@ -219,29 +254,131 @@
     }
   ],
   "mapNodes": [
-    { "nodeId": "NODE_STATION", "name": "경찰서", "x": 180, "y": 540, "isInitiallyUnlocked": true, "description": "금융 영장 & 청사 내부 감사 로그 조회" },
-    { "nodeId": "NODE_TOWER", "name": "센트럴타워 지하주차장", "x": 520, "y": 420, "isInitiallyUnlocked": true, "description": "습격 현장 (카메라 A/B & 차단기 로그)" },
-    { "nodeId": "NODE_ACE_HQ", "name": "에이스가드 관제본부", "x": 460, "y": 720, "isInitiallyUnlocked": true, "description": "비상 무전 백업 및 최진혁 PC" },
-    { "nodeId": "NODE_HIDEOUT", "name": "장기태(A) 은신처", "x": 760, "y": 580, "isInitiallyUnlocked": true, "description": "검거된 운전책 원룸" },
-    { "nodeId": "NODE_B_HOME", "name": "오세훈(B) 자택", "x": 720, "y": 820, "isInitiallyUnlocked": true, "description": "후임 요원 거주지" },
-    { "nodeId": "NODE_VAN_LOT", "name": "외곽 대포차 폐차장", "x": 960, "y": 300, "isInitiallyUnlocked": false, "description": "58모 4195 유통 거점 (DB 검색 해금)" }
+    {
+      "nodeId": "NODE_STATION",
+      "name": "경찰서",
+      "x": 180,
+      "y": 540,
+      "isInitiallyUnlocked": true,
+      "description": "금융 영장 & 청사 내부 감사 로그 조회"
+    },
+    {
+      "nodeId": "NODE_TOWER",
+      "name": "센트럴타워 지하주차장",
+      "x": 520,
+      "y": 420,
+      "isInitiallyUnlocked": true,
+      "description": "습격 현장 (카메라 A/B & 차단기 로그)"
+    },
+    {
+      "nodeId": "NODE_ACE_HQ",
+      "name": "에이스가드 관제본부",
+      "x": 460,
+      "y": 720,
+      "isInitiallyUnlocked": true,
+      "description": "비상 무전 백업 및 최진혁 PC"
+    },
+    {
+      "nodeId": "NODE_HIDEOUT",
+      "name": "장기태(A) 은신처",
+      "x": 760,
+      "y": 580,
+      "isInitiallyUnlocked": true,
+      "description": "검거된 운전책 원룸"
+    },
+    {
+      "nodeId": "NODE_B_HOME",
+      "name": "오세훈(B) 자택",
+      "x": 720,
+      "y": 820,
+      "isInitiallyUnlocked": true,
+      "description": "후임 요원 거주지"
+    },
+    {
+      "nodeId": "NODE_VAN_LOT",
+      "name": "외곽 대포차 폐차장",
+      "x": 960,
+      "y": 300,
+      "isInitiallyUnlocked": false,
+      "description": "58모 4195 유통 거점 (DB 검색 해금)"
+    }
   ],
   "travelEdges": [
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_TOWER", "minutes": 25 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_ACE_HQ", "minutes": 20 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_HIDEOUT", "minutes": 30 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_B_HOME", "minutes": 25 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_VAN_LOT", "minutes": 35 },
-    { "nodeA": "NODE_TOWER", "nodeB": "NODE_ACE_HQ", "minutes": 20 },
-    { "nodeA": "NODE_TOWER", "nodeB": "NODE_HIDEOUT", "minutes": 25 },
-    { "nodeA": "NODE_TOWER", "nodeB": "NODE_B_HOME", "minutes": 20 },
-    { "nodeA": "NODE_TOWER", "nodeB": "NODE_VAN_LOT", "minutes": 40 },
-    { "nodeA": "NODE_ACE_HQ", "nodeB": "NODE_HIDEOUT", "minutes": 30 },
-    { "nodeA": "NODE_ACE_HQ", "nodeB": "NODE_B_HOME", "minutes": 25 },
-    { "nodeA": "NODE_ACE_HQ", "nodeB": "NODE_VAN_LOT", "minutes": 35 },
-    { "nodeA": "NODE_HIDEOUT", "nodeB": "NODE_B_HOME", "minutes": 15 },
-    { "nodeA": "NODE_HIDEOUT", "nodeB": "NODE_VAN_LOT", "minutes": 35 },
-    { "nodeA": "NODE_B_HOME", "nodeB": "NODE_VAN_LOT", "minutes": 40 }
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_TOWER",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_ACE_HQ",
+      "minutes": 20
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_HIDEOUT",
+      "minutes": 30
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_B_HOME",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_VAN_LOT",
+      "minutes": 35
+    },
+    {
+      "nodeA": "NODE_TOWER",
+      "nodeB": "NODE_ACE_HQ",
+      "minutes": 20
+    },
+    {
+      "nodeA": "NODE_TOWER",
+      "nodeB": "NODE_HIDEOUT",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_TOWER",
+      "nodeB": "NODE_B_HOME",
+      "minutes": 20
+    },
+    {
+      "nodeA": "NODE_TOWER",
+      "nodeB": "NODE_VAN_LOT",
+      "minutes": 40
+    },
+    {
+      "nodeA": "NODE_ACE_HQ",
+      "nodeB": "NODE_HIDEOUT",
+      "minutes": 30
+    },
+    {
+      "nodeA": "NODE_ACE_HQ",
+      "nodeB": "NODE_B_HOME",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_ACE_HQ",
+      "nodeB": "NODE_VAN_LOT",
+      "minutes": 35
+    },
+    {
+      "nodeA": "NODE_HIDEOUT",
+      "nodeB": "NODE_B_HOME",
+      "minutes": 15
+    },
+    {
+      "nodeA": "NODE_HIDEOUT",
+      "nodeB": "NODE_VAN_LOT",
+      "minutes": 35
+    },
+    {
+      "nodeA": "NODE_B_HOME",
+      "nodeB": "NODE_VAN_LOT",
+      "minutes": 40
+    }
   ],
   "actions": [
     {
@@ -251,8 +388,13 @@
       "category": "FORENSIC",
       "baseWorkMinutes": 90,
       "reportMinutes": 15,
-      "rewardDocIds": ["EV_EP5_DOC_GATE_LOG"],
-      "rewardCctvIds": ["EV_EP5_CCTV_CAM_A", "EV_EP5_CCTV_CAM_B"],
+      "rewardDocIds": [
+        "EV_EP5_DOC_GATE_LOG"
+      ],
+      "rewardCctvIds": [
+        "EV_EP5_CCTV_CAM_A",
+        "EV_EP5_CCTV_CAM_B"
+      ],
       "partnerReportMessage": "차단기 오류는 우연이 아니라 03:10에 최진혁 팀장 계정으로 원격 발동한 겁니다! 카메라 A·B 영상도 올려놨으니 벽면 시계를 꼭 확대해 보시죠."
     },
     {
@@ -262,7 +404,9 @@
       "category": "FORENSIC",
       "baseWorkMinutes": 90,
       "reportMinutes": 15,
-      "rewardAudioIds": ["EV_EP5_AUDIO_RADIO"],
+      "rewardAudioIds": [
+        "EV_EP5_AUDIO_RADIO"
+      ],
       "partnerReportMessage": "무전 백업 파일 확보했습니다. 잡음이 심한데 고주파 필터로 걸러보시면 최진혁 목소리가 그대로 나옵니다."
     },
     {
@@ -272,7 +416,9 @@
       "category": "INVESTIGATION",
       "baseWorkMinutes": 90,
       "reportMinutes": 15,
-      "rewardDocIds": ["EV_EP5_DOC_PATROL_MAP"],
+      "rewardDocIds": [
+        "EV_EP5_DOC_PATROL_MAP"
+      ],
       "partnerReportMessage": "경위님, 장기태 방에서 우리 강남권 심야 순찰 시간표 코팅본이 나왔습니다! 하단 워터마크가 K-POL 내부 출력물입니다!"
     },
     {
@@ -282,7 +428,9 @@
       "category": "INVESTIGATION",
       "baseWorkMinutes": 60,
       "reportMinutes": 15,
-      "rewardDocIds": [],
+      "rewardDocIds": [
+
+      ],
       "partnerReportMessage": "[특이사항 없음] 2년 전 도박 빚은 야간 대리운전으로 거의 다 갚았고 외부 공범 접점이 전혀 없습니다. 오세훈은 지우셔도 됩니다."
     },
     {
@@ -292,7 +440,9 @@
       "category": "INVESTIGATION",
       "baseWorkMinutes": 60,
       "reportMinutes": 15,
-      "rewardDocIds": [],
+      "rewardDocIds": [
+
+      ],
       "partnerReportMessage": "58모 4195 차량, EP 3 물류창고 화재 때 찍힌 58모 4192와 똑같은 성수동 대포차 공급선 물건입니다!"
     },
     {
@@ -304,52 +454,95 @@
       "reportMinutes": 15,
       "requiresTargetSelect": true,
       "targetOptions": [
-        { "targetId": "SUSPECT_B", "label": "오세훈 (후임 요원)", "rewardDocIds": [], "volatileBonusDocId": "EV_META_EP05_LEAK", "partnerReportMessage": "오세훈 계좌는 깨끗합니다. 대신 청사 감사 로그에서 순찰표 출력 부서가 '서울청 수사국 간부실'로 떴습니다!" },
-        { "targetId": "SUSPECT_C", "label": "최진혁 (관제 팀장)", "rewardDocIds": ["EV_EP5_DOC_DEBT_C"], "volatileBonusDocId": "EV_META_EP05_LEAK", "partnerReportMessage": "최진혁 6억 사채 채무 확인됐습니다! 그리고 청사 감사 로그에서 순찰표 출력 부서가 '서울청 수사국 간부실'로 떴습니다!" }
+        {
+          "targetId": "SUSPECT_B",
+          "label": "오세훈 (후임 요원)",
+          "rewardDocIds": [
+
+          ],
+          "volatileBonusDocId": "EV_META_EP05_LEAK",
+          "partnerReportMessage": "오세훈 계좌는 깨끗합니다. 대신 청사 감사 로그에서 순찰표 출력 부서가 '서울청 수사국 간부실'로 떴습니다!",
+          "isInitiallyDiscovered": false
+        },
+        {
+          "targetId": "SUSPECT_C",
+          "label": "최진혁 (관제 팀장)",
+          "rewardDocIds": [
+            "EV_EP5_DOC_DEBT_C"
+          ],
+          "volatileBonusDocId": "EV_META_EP05_LEAK",
+          "partnerReportMessage": "최진혁 6억 사채 채무 확인됐습니다! 그리고 청사 감사 로그에서 순찰표 출력 부서가 '서울청 수사국 간부실'로 떴습니다!",
+          "isInitiallyDiscovered": false
+        }
       ]
     }
   ],
   "dbEntries": [
     {
-      "keywords": ["58모4195", "58모 4195"],
+      "keywords": [
+        "58모4195",
+        "58모 4195"
+      ],
       "displayName": "차량 58모 4195 (말소 대포차)",
       "recordText": "EP 3 대포차(58모 4192)와 동일 유통망. 외곽 대포차 폐차장 거점 확인.",
       "unlocksNodeId": "NODE_VAN_LOT"
     },
     {
-      "keywords": ["최진혁"],
+      "keywords": [
+        "최진혁"
+      ],
       "displayName": "최진혁 (44세, 남)",
-      "recordText": "전과: 없음. 최근 3개월간 급여 압류 예고 및 사채업자 고소 이력."
+      "recordText": "전과: 없음. 최근 3개월간 급여 압류 예고 및 사채업자 고소 이력.",
+      "revealsSuspectId": "SUSPECT_C"
     },
     {
-      "keywords": ["오세훈"],
+      "keywords": [
+        "오세훈"
+      ],
       "displayName": "오세훈 (28세, 남)",
-      "recordText": "전과: 2년 전 불법 도박 벌금형 1건."
+      "recordText": "전과: 2년 전 불법 도박 벌금형 1건.",
+      "revealsSuspectId": "SUSPECT_B"
     }
   ],
   "answerRule": {
     "correctCulpritId": "SUSPECT_C",
     "culpritOptions": [
-      { "id": "SUSPECT_B", "label": "오세훈 (후임 요원)", "wrongFeedback": "오세훈은 차단기 원격 오류에 속아 내렸고 무전으로 신고하려다 제지당했습니다." },
-      { "id": "SUSPECT_C", "label": "최진혁 (관제·배차 팀장)", "wrongFeedback": "" }
+      {
+        "id": "SUSPECT_B",
+        "label": "오세훈 (후임 요원)",
+        "wrongFeedback": "오세훈은 차단기 원격 오류에 속아 내렸고 무전으로 신고하려다 제지당했습니다."
+      },
+      {
+        "id": "SUSPECT_C",
+        "label": "최진혁 (관제·배차 팀장)",
+        "wrongFeedback": ""
+      }
     ],
     "slots": [
       {
         "slotId": "SLOT_TIME_SHIFT",
         "label": "90초 타임스탬프 조작 입증",
-        "acceptedEvidenceIds": ["EV_EP5_CAP_TIME_SHIFT"],
+        "acceptedEvidenceIds": [
+          "EV_EP5_CAP_TIME_SHIFT"
+        ],
         "wrongFeedback": "카메라 B 벽면 LED 시계(03:11:00)와 CCTV 타임스탬프(03:09:30)의 90초 시차를 확대 캡처해 주십시오."
       },
       {
         "slotId": "SLOT_SABOTAGE",
         "label": "고의적 유인 및 비상 신고 방해 물증",
-        "acceptedEvidenceIds": ["EV_EP5_DOC_GATE_LOG", "EV_EP5_AUDIO_RADIO"],
+        "acceptedEvidenceIds": [
+          "EV_EP5_DOC_GATE_LOG",
+          "EV_EP5_AUDIO_RADIO"
+        ],
         "wrongFeedback": "최진혁의 차단기 원격 오류 로그나 비상 무전 방해 녹취를 첨부해 주십시오."
       },
       {
         "slotId": "SLOT_MOTIVE_LEAK",
         "label": "범행 동기 및 배후 연계",
-        "acceptedEvidenceIds": ["EV_EP5_DOC_DEBT_C", "EV_EP5_DOC_PATROL_MAP"],
+        "acceptedEvidenceIds": [
+          "EV_EP5_DOC_DEBT_C",
+          "EV_EP5_DOC_PATROL_MAP"
+        ],
         "wrongFeedback": "최진혁의 6억 채무 기록이나 경찰 순찰 시간표 출력물을 첨부해 주십시오."
       }
     ]

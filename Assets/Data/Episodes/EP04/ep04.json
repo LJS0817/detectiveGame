@@ -22,7 +22,12 @@
         "author": "강력1팀 초동반",
         "sourceFile": "CASE_2026_047_INIT.pdf"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_A"
+      ]
     },
     {
       "docId": "EV_EP4_DOC_SCRIPT_PDF",
@@ -43,6 +48,9 @@
           "matchSubstring": "소품 점검 생략하고 직전 리허설 소품 그대로 사용",
           "evidenceId": "EV_EP4_TAG_SKIP_CHECK"
         }
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_C"
       ]
     },
     {
@@ -58,7 +66,12 @@
         "author": "강력1팀",
         "sourceFile": "STMT_LEE_A.pdf"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_A"
+      ]
     },
     {
       "docId": "EV_EP4_STATEMENT_C",
@@ -73,7 +86,12 @@
         "author": "강력1팀",
         "sourceFile": "STMT_YOON_C.pdf"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_C"
+      ]
     },
     {
       "docId": "EV_EP4_STATEMENT_D",
@@ -88,7 +106,12 @@
         "author": "강력1팀",
         "sourceFile": "STMT_HAN_D.pdf"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_D"
+      ]
     },
     {
       "docId": "EV_EP4_DOC_KNIFE_LAB",
@@ -197,14 +220,18 @@
       "title": "[초동] 세트장 및 대기실 소품 테이블·벽면 거울 사진",
       "isInitial": true,
       "imagePath": "EP04/EP04_PHOTO_INIT_SET.png",
-      "hitboxes": []
+      "hitboxes": [
+
+      ]
     },
     {
       "photoId": "EV_EP4_PHOTO_INIT_KNIFE",
       "title": "[초동] 현장 수거 진품 단검 사진",
       "isInitial": true,
       "imagePath": "EP04/EP04_PHOTO_INIT_KNIFE.png",
-      "hitboxes": []
+      "hitboxes": [
+
+      ]
     },
     {
       "photoId": "EV_EP4_PHOTO_PERFUME",
@@ -215,7 +242,12 @@
         {
           "startSec": 0,
           "endSec": 0,
-          "normalizedRect": { "x": 0.3, "y": 0.3, "width": 0.4, "height": 0.4 },
+          "normalizedRect": {
+            "x": 0.3,
+            "y": 0.3,
+            "width": 0.4,
+            "height": 0.4
+          },
           "evidenceId": "EV_EP4_PHOTO_PERFUME"
         }
       ]
@@ -232,7 +264,12 @@
         {
           "startSec": 1.0,
           "endSec": 4.0,
-          "normalizedRect": { "x": 0.40, "y": 0.38, "width": 0.20, "height": 0.20 },
+          "normalizedRect": {
+            "x": 0.4,
+            "y": 0.38,
+            "width": 0.2,
+            "height": 0.2
+          },
           "evidenceId": "EV_EP4_CAP_FAKE_OK"
         }
       ]
@@ -248,36 +285,143 @@
         {
           "startSec": 1.5,
           "endSec": 4.5,
-          "normalizedRect": { "x": 0.72, "y": 0.48, "width": 0.14, "height": 0.16 },
+          "normalizedRect": {
+            "x": 0.72,
+            "y": 0.48,
+            "width": 0.14,
+            "height": 0.16
+          },
           "evidenceId": "EV_EP4_CAP_NG_SWAP"
         }
       ]
     }
   ],
   "mapNodes": [
-    { "nodeId": "NODE_STATION", "name": "경찰서", "x": 180, "y": 540, "isInitiallyUnlocked": true, "description": "대상 선택 메일 서버 영장 집행 거점" },
-    { "nodeId": "NODE_STUDIO", "name": "파주 청람 스튜디오", "x": 520, "y": 220, "isInitiallyUnlocked": true, "description": "사망 사건 촬영 세트장 및 소품실" },
-    { "nodeId": "NODE_DIRECTOR_LAB", "name": "윤재호(C) 감독 작업실", "x": 480, "y": 520, "isInitiallyUnlocked": true, "description": "수정 대본 배포 감독 작업실" },
-    { "nodeId": "NODE_LUMEN", "name": "루멘 픽처스 사무실", "x": 760, "y": 640, "isInitiallyUnlocked": true, "description": "투자자 한승우(D) 본사" },
-    { "nodeId": "NODE_STUNT_GYM", "name": "이태양(A) 액션스쿨", "x": 840, "y": 280, "isInitiallyUnlocked": true, "description": "대역 배우 소속 훈련장" },
-    { "nodeId": "NODE_PROP_SHOP", "name": "특수소품 공방", "x": 420, "y": 820, "isInitiallyUnlocked": true, "description": "트릭 단검 납품 공방" }
+    {
+      "nodeId": "NODE_STATION",
+      "name": "경찰서",
+      "x": 180,
+      "y": 540,
+      "isInitiallyUnlocked": true,
+      "description": "대상 선택 메일 서버 영장 집행 거점"
+    },
+    {
+      "nodeId": "NODE_STUDIO",
+      "name": "파주 청람 스튜디오",
+      "x": 520,
+      "y": 220,
+      "isInitiallyUnlocked": true,
+      "description": "사망 사건 촬영 세트장 및 소품실"
+    },
+    {
+      "nodeId": "NODE_DIRECTOR_LAB",
+      "name": "윤재호(C) 감독 작업실",
+      "x": 480,
+      "y": 520,
+      "isInitiallyUnlocked": true,
+      "description": "수정 대본 배포 감독 작업실"
+    },
+    {
+      "nodeId": "NODE_LUMEN",
+      "name": "루멘 픽처스 사무실",
+      "x": 760,
+      "y": 640,
+      "isInitiallyUnlocked": true,
+      "description": "투자자 한승우(D) 본사"
+    },
+    {
+      "nodeId": "NODE_STUNT_GYM",
+      "name": "이태양(A) 액션스쿨",
+      "x": 840,
+      "y": 280,
+      "isInitiallyUnlocked": true,
+      "description": "대역 배우 소속 훈련장"
+    },
+    {
+      "nodeId": "NODE_PROP_SHOP",
+      "name": "특수소품 공방",
+      "x": 420,
+      "y": 820,
+      "isInitiallyUnlocked": true,
+      "description": "트릭 단검 납품 공방"
+    }
   ],
   "travelEdges": [
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_STUDIO", "minutes": 35 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_DIRECTOR_LAB", "minutes": 25 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_LUMEN", "minutes": 20 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_STUNT_GYM", "minutes": 30 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_PROP_SHOP", "minutes": 25 },
-    { "nodeA": "NODE_STUDIO", "nodeB": "NODE_DIRECTOR_LAB", "minutes": 25 },
-    { "nodeA": "NODE_STUDIO", "nodeB": "NODE_LUMEN", "minutes": 40 },
-    { "nodeA": "NODE_STUDIO", "nodeB": "NODE_STUNT_GYM", "minutes": 20 },
-    { "nodeA": "NODE_STUDIO", "nodeB": "NODE_PROP_SHOP", "minutes": 35 },
-    { "nodeA": "NODE_DIRECTOR_LAB", "nodeB": "NODE_LUMEN", "minutes": 20 },
-    { "nodeA": "NODE_DIRECTOR_LAB", "nodeB": "NODE_STUNT_GYM", "minutes": 25 },
-    { "nodeA": "NODE_DIRECTOR_LAB", "nodeB": "NODE_PROP_SHOP", "minutes": 20 },
-    { "nodeA": "NODE_LUMEN", "nodeB": "NODE_STUNT_GYM", "minutes": 35 },
-    { "nodeA": "NODE_LUMEN", "nodeB": "NODE_PROP_SHOP", "minutes": 30 },
-    { "nodeA": "NODE_STUNT_GYM", "nodeB": "NODE_PROP_SHOP", "minutes": 25 }
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_STUDIO",
+      "minutes": 35
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_DIRECTOR_LAB",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_LUMEN",
+      "minutes": 20
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_STUNT_GYM",
+      "minutes": 30
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_PROP_SHOP",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_STUDIO",
+      "nodeB": "NODE_DIRECTOR_LAB",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_STUDIO",
+      "nodeB": "NODE_LUMEN",
+      "minutes": 40
+    },
+    {
+      "nodeA": "NODE_STUDIO",
+      "nodeB": "NODE_STUNT_GYM",
+      "minutes": 20
+    },
+    {
+      "nodeA": "NODE_STUDIO",
+      "nodeB": "NODE_PROP_SHOP",
+      "minutes": 35
+    },
+    {
+      "nodeA": "NODE_DIRECTOR_LAB",
+      "nodeB": "NODE_LUMEN",
+      "minutes": 20
+    },
+    {
+      "nodeA": "NODE_DIRECTOR_LAB",
+      "nodeB": "NODE_STUNT_GYM",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_DIRECTOR_LAB",
+      "nodeB": "NODE_PROP_SHOP",
+      "minutes": 20
+    },
+    {
+      "nodeA": "NODE_LUMEN",
+      "nodeB": "NODE_STUNT_GYM",
+      "minutes": 35
+    },
+    {
+      "nodeA": "NODE_LUMEN",
+      "nodeB": "NODE_PROP_SHOP",
+      "minutes": 30
+    },
+    {
+      "nodeA": "NODE_STUNT_GYM",
+      "nodeB": "NODE_PROP_SHOP",
+      "minutes": 25
+    }
   ],
   "actions": [
     {
@@ -287,8 +431,13 @@
       "category": "FORENSIC",
       "baseWorkMinutes": 90,
       "reportMinutes": 15,
-      "rewardDocIds": ["EV_EP4_DOC_KNIFE_LAB"],
-      "rewardCctvIds": ["EV_EP4_CAM_NG1", "EV_EP4_CAM_NG3"],
+      "rewardDocIds": [
+        "EV_EP4_DOC_KNIFE_LAB"
+      ],
+      "rewardCctvIds": [
+        "EV_EP4_CAM_NG1",
+        "EV_EP4_CAM_NG3"
+      ],
       "partnerReportMessage": "B팀 메모리칩에 조명 테스트 중 녹화된 NG 컷이 들어 있습니다! 단검 나사 틈에선 희귀 고급 우드 향수 성분이 나왔고요."
     },
     {
@@ -298,7 +447,9 @@
       "category": "INVESTIGATION",
       "baseWorkMinutes": 60,
       "reportMinutes": 15,
-      "rewardDocIds": ["EV_EP4_DOC_COERCION_MAIL"],
+      "rewardDocIds": [
+        "EV_EP4_DOC_COERCION_MAIL"
+      ],
       "partnerReportMessage": "윤재호 감독은 누명이었습니다! 09시 30분에 한승우 대표가 투자 끊겠다며 수정 대본을 강제로 뿌리게 시킨 협박 메일이 나왔습니다."
     },
     {
@@ -308,8 +459,12 @@
       "category": "FORENSIC",
       "baseWorkMinutes": 90,
       "reportMinutes": 15,
-      "rewardDocIds": ["EV_EP4_DOC_FRAUD_LEDGER"],
-      "rewardPhotoIds": ["EV_EP4_PHOTO_PERFUME"],
+      "rewardDocIds": [
+        "EV_EP4_DOC_FRAUD_LEDGER"
+      ],
+      "rewardPhotoIds": [
+        "EV_EP4_PHOTO_PERFUME"
+      ],
       "partnerReportMessage": "22억 횡령 이중 장부랑 최도윤 씨 폭로 예고 문자 확보했습니다. 대표실 책상 위에 단검에서 검출된 것과 똑같은 우드 향수랑 은색 커프스링크가 놓여 있었습니다!"
     },
     {
@@ -319,7 +474,9 @@
       "category": "INVESTIGATION",
       "baseWorkMinutes": 60,
       "reportMinutes": 15,
-      "rewardDocIds": [],
+      "rewardDocIds": [
+
+      ],
       "partnerReportMessage": "[특이사항 없음] 한 달 전 다툼은 당일 화해했고, 사건 당일 대기실 소품 테이블엔 근처도 안 갔습니다. 이태양은 지우셔도 됩니다."
     },
     {
@@ -329,7 +486,9 @@
       "category": "INVESTIGATION",
       "baseWorkMinutes": 60,
       "reportMinutes": 15,
-      "rewardDocIds": ["EV_EP4_DOC_PROP_SPEC"],
+      "rewardDocIds": [
+        "EV_EP4_DOC_PROP_SPEC"
+      ],
       "partnerReportMessage": "트릭 단검 280g, 진품 295g이라 손으로 구분이 안 됩니다. 사건 전날 한승우 측 대리인이 똑같은 진품 단검을 현금으로 사 갔네요."
     },
     {
@@ -341,47 +500,95 @@
       "reportMinutes": 15,
       "requiresTargetSelect": true,
       "targetOptions": [
-        { "targetId": "SUSPECT_C", "label": "윤재호 (감독)", "rewardDocIds": [], "partnerReportMessage": "[특이사항 없음] 외부 컨설팅 메일 흔적이 없습니다." },
-        { "targetId": "SUSPECT_D", "label": "한승우 (루멘 대표)", "rewardDocIds": [], "volatileBonusDocId": "EV_META_EP04_SIGNATURE", "partnerReportMessage": "경위님... 한승우 메일 원본 헤더에서 SJW_KDFC_09 서명이 나왔습니다. 5년 전 서진우 선배님 고유 서명 아닙니까?" }
+        {
+          "targetId": "SUSPECT_C",
+          "label": "윤재호 (감독)",
+          "rewardDocIds": [
+
+          ],
+          "partnerReportMessage": "[특이사항 없음] 외부 컨설팅 메일 흔적이 없습니다.",
+          "isInitiallyDiscovered": false
+        },
+        {
+          "targetId": "SUSPECT_D",
+          "label": "한승우 (루멘 대표)",
+          "rewardDocIds": [
+
+          ],
+          "volatileBonusDocId": "EV_META_EP04_SIGNATURE",
+          "partnerReportMessage": "경위님... 한승우 메일 원본 헤더에서 SJW_KDFC_09 서명이 나왔습니다. 5년 전 서진우 선배님 고유 서명 아닙니까?",
+          "isInitiallyDiscovered": false
+        }
       ]
     }
   ],
   "dbEntries": [
     {
-      "keywords": ["한승우", "루멘픽처스", "루멘 픽처스"],
+      "keywords": [
+        "한승우",
+        "루멘픽처스",
+        "루멘 픽처스"
+      ],
       "displayName": "한승우 (46세) / 루멘 픽처스",
-      "recordText": "법인 DB 조회: 최근 2년간 설립된 무실적 유령 법인 3곳의 실소유주로 확인됨."
+      "recordText": "법인 DB 조회: 최근 2년간 설립된 무실적 유령 법인 3곳의 실소유주로 확인됨.",
+      "revealsSuspectId": "SUSPECT_D"
     },
     {
-      "keywords": ["이태양"],
+      "keywords": [
+        "이태양"
+      ],
       "displayName": "이태양 (29세, 남)",
-      "recordText": "전과: 7년 전 단순 폭행 기소유예 1건."
+      "recordText": "전과: 7년 전 단순 폭행 기소유예 1건.",
+      "revealsSuspectId": "SUSPECT_A"
     }
   ],
   "answerRule": {
     "correctCulpritId": "SUSPECT_D",
     "culpritOptions": [
-      { "id": "SUSPECT_A", "label": "이태양 (대역 배우)", "wrongFeedback": "트릭 단검(280g)과 진품(295g) 무게가 거의 같고 소품실에 접근한 적도 없습니다." },
-      { "id": "SUSPECT_C", "label": "윤재호 (감독)", "wrongFeedback": "윤재호 감독은 한승우의 투자 철회 협박에 못 이겨 대본을 배포했습니다." },
-      { "id": "SUSPECT_D", "label": "한승우 (루멘 픽처스 대표)", "wrongFeedback": "" }
+      {
+        "id": "SUSPECT_A",
+        "label": "이태양 (대역 배우)",
+        "wrongFeedback": "트릭 단검(280g)과 진품(295g) 무게가 거의 같고 소품실에 접근한 적도 없습니다."
+      },
+      {
+        "id": "SUSPECT_C",
+        "label": "윤재호 (감독)",
+        "wrongFeedback": "윤재호 감독은 한승우의 투자 철회 협박에 못 이겨 대본을 배포했습니다."
+      },
+      {
+        "id": "SUSPECT_D",
+        "label": "한승우 (루멘 픽처스 대표)",
+        "wrongFeedback": ""
+      }
     ],
     "slots": [
       {
         "slotId": "SLOT_REFUTE_ACCIDENT",
         "label": "안전사고(과실) 반박",
-        "acceptedEvidenceIds": ["EV_EP4_CAP_FAKE_OK", "EV_EP4_DOC_PROP_SPEC"],
+        "acceptedEvidenceIds": [
+          "EV_EP4_CAP_FAKE_OK",
+          "EV_EP4_DOC_PROP_SPEC"
+        ],
         "wrongFeedback": "15:40까지는 정상 트릭 단검이었으며 무게 차이로 구분 불가였다는 증거가 필요합니다."
       },
       {
         "slotId": "SLOT_SWAP_PROOF",
         "label": "진범의 소품 바꿔치기 물증",
-        "acceptedEvidenceIds": ["EV_EP4_CAP_NG_SWAP", "EV_EP4_DOC_KNIFE_LAB", "EV_EP4_PHOTO_PERFUME"],
+        "acceptedEvidenceIds": [
+          "EV_EP4_CAP_NG_SWAP",
+          "EV_EP4_DOC_KNIFE_LAB",
+          "EV_EP4_PHOTO_PERFUME"
+        ],
         "wrongFeedback": "NG 컷 #3 거울 반사 확대 캡처나 단검 나사 틈 우드 향수 감식 결과를 연결해 주십시오."
       },
       {
         "slotId": "SLOT_MOTIVE_SCRIPT",
         "label": "범행 동기 및 대본 조작 입증",
-        "acceptedEvidenceIds": ["EV_EP4_DOC_FRAUD_LEDGER", "EV_EP4_DOC_COERCION_MAIL", "EV_EP4_META_SCRIPT"],
+        "acceptedEvidenceIds": [
+          "EV_EP4_DOC_FRAUD_LEDGER",
+          "EV_EP4_DOC_COERCION_MAIL",
+          "EV_EP4_META_SCRIPT"
+        ],
         "wrongFeedback": "22억 횡령 장부와 수정 대본 강제 배포 증거를 첨부해 주십시오."
       }
     ]

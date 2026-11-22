@@ -27,6 +27,9 @@
           "matchSubstring": "피해자의 휴대폰은 발견되지 않음",
           "evidenceId": "EV_EP2_TAG_MISSING_PHONE"
         }
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_A"
       ]
     },
     {
@@ -42,7 +45,12 @@
         "author": "MARE_HOTEL_POS",
         "sourceFile": "RECEIPT_MARE.png"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_B"
+      ]
     },
     {
       "docId": "EV_EP2_STATEMENT_A",
@@ -57,7 +65,12 @@
         "author": "교통조사계",
         "sourceFile": "STMT_OH_A.pdf"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_A"
+      ]
     },
     {
       "docId": "EV_EP2_STATEMENT_B",
@@ -72,7 +85,12 @@
         "author": "교통조사계",
         "sourceFile": "STMT_SEO_B.pdf"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_B"
+      ]
     },
     {
       "docId": "EV_EP2_STATEMENT_C",
@@ -87,7 +105,12 @@
         "author": "교통조사계",
         "sourceFile": "STMT_YOON_C.pdf"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_C"
+      ]
     },
     {
       "docId": "EV_EP2_STATEMENT_D",
@@ -107,6 +130,9 @@
           "matchSubstring": "택시를 타고 바로 귀가했습니다",
           "evidenceId": "EV_EP2_TAG_TAXI_LIE"
         }
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_D"
       ]
     },
     {
@@ -175,6 +201,9 @@
           "matchSubstring": "발명자 이름 빼는 데 불만 있으면 계약 위반으로 손해배상 소송 걸겠다",
           "evidenceId": "EV_EP2_DOC_PATENT_DEV"
         }
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_D"
       ]
     },
     {
@@ -228,7 +257,9 @@
       "title": "[초동] 강변 국도 사고 현장 갓길 전경",
       "isInitial": true,
       "imagePath": "EP02/EP02_PHOTO_INIT_ROAD.png",
-      "hitboxes": []
+      "hitboxes": [
+
+      ]
     },
     {
       "photoId": "EV_EP2_PHOTO_BUMPER",
@@ -239,7 +270,12 @@
         {
           "startSec": 0,
           "endSec": 0,
-          "normalizedRect": { "x": 0.3, "y": 0.3, "width": 0.4, "height": 0.4 },
+          "normalizedRect": {
+            "x": 0.3,
+            "y": 0.3,
+            "width": 0.4,
+            "height": 0.4
+          },
           "evidenceId": "EV_EP2_PHOTO_BUMPER"
         }
       ]
@@ -257,7 +293,12 @@
         {
           "startSec": 1.0,
           "endSec": 4.0,
-          "normalizedRect": { "x": 0.18, "y": 0.42, "width": 0.15, "height": 0.12 },
+          "normalizedRect": {
+            "x": 0.18,
+            "y": 0.42,
+            "width": 0.15,
+            "height": 0.12
+          },
           "evidenceId": "EV_EP2_CAP_PLATE"
         }
       ]
@@ -272,7 +313,12 @@
         {
           "startSec": 0.5,
           "endSec": 4.5,
-          "normalizedRect": { "x": 0.62, "y": 0.20, "width": 0.24, "height": 0.22 },
+          "normalizedRect": {
+            "x": 0.62,
+            "y": 0.2,
+            "width": 0.24,
+            "height": 0.22
+          },
           "evidenceId": "EV_EP2_CAP_SKIDMARK"
         }
       ]
@@ -290,29 +336,131 @@
     }
   ],
   "mapNodes": [
-    { "nodeId": "NODE_STATION", "name": "경찰서", "x": 180, "y": 540, "isInitiallyUnlocked": true, "description": "대상 선택 금융/통신 영장 집행 거점" },
-    { "nodeId": "NODE_HIGHWAY", "name": "강변 국도 사고 현장", "x": 620, "y": 240, "isInitiallyUnlocked": true, "description": "2차선 갓길 및 배수구" },
-    { "nodeId": "NODE_HOTEL", "name": "강남 마레 호텔", "x": 460, "y": 640, "isInitiallyUnlocked": true, "description": "서동훈(B) 알리바이 검증 장소" },
-    { "nodeId": "NODE_OFFICE", "name": "넥스트코어 사무실", "x": 620, "y": 720, "isInitiallyUnlocked": true, "description": "피해자·서동훈·강태민 근무지" },
-    { "nodeId": "NODE_WIFE_HOME", "name": "윤미라(C) 자택", "x": 480, "y": 860, "isInitiallyUnlocked": true, "description": "피해자 배우자 거주지" },
-    { "nodeId": "NODE_SUV_GARAGE", "name": "박지성 공업사", "x": 900, "y": 320, "isInitiallyUnlocked": false, "description": "34너 8821 소유주 공업사 (DB 조회로 해금)" }
+    {
+      "nodeId": "NODE_STATION",
+      "name": "경찰서",
+      "x": 180,
+      "y": 540,
+      "isInitiallyUnlocked": true,
+      "description": "대상 선택 금융/통신 영장 집행 거점"
+    },
+    {
+      "nodeId": "NODE_HIGHWAY",
+      "name": "강변 국도 사고 현장",
+      "x": 620,
+      "y": 240,
+      "isInitiallyUnlocked": true,
+      "description": "2차선 갓길 및 배수구"
+    },
+    {
+      "nodeId": "NODE_HOTEL",
+      "name": "강남 마레 호텔",
+      "x": 460,
+      "y": 640,
+      "isInitiallyUnlocked": true,
+      "description": "서동훈(B) 알리바이 검증 장소"
+    },
+    {
+      "nodeId": "NODE_OFFICE",
+      "name": "넥스트코어 사무실",
+      "x": 620,
+      "y": 720,
+      "isInitiallyUnlocked": true,
+      "description": "피해자·서동훈·강태민 근무지"
+    },
+    {
+      "nodeId": "NODE_WIFE_HOME",
+      "name": "윤미라(C) 자택",
+      "x": 480,
+      "y": 860,
+      "isInitiallyUnlocked": true,
+      "description": "피해자 배우자 거주지"
+    },
+    {
+      "nodeId": "NODE_SUV_GARAGE",
+      "name": "박지성 공업사",
+      "x": 900,
+      "y": 320,
+      "isInitiallyUnlocked": false,
+      "description": "34너 8821 소유주 공업사 (DB 조회로 해금)"
+    }
   ],
   "travelEdges": [
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_HIGHWAY", "minutes": 30 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_HOTEL", "minutes": 20 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_OFFICE", "minutes": 25 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_WIFE_HOME", "minutes": 25 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_SUV_GARAGE", "minutes": 35 },
-    { "nodeA": "NODE_HIGHWAY", "nodeB": "NODE_HOTEL", "minutes": 35 },
-    { "nodeA": "NODE_HIGHWAY", "nodeB": "NODE_OFFICE", "minutes": 40 },
-    { "nodeA": "NODE_HIGHWAY", "nodeB": "NODE_WIFE_HOME", "minutes": 30 },
-    { "nodeA": "NODE_HIGHWAY", "nodeB": "NODE_SUV_GARAGE", "minutes": 20 },
-    { "nodeA": "NODE_HOTEL", "nodeB": "NODE_OFFICE", "minutes": 15 },
-    { "nodeA": "NODE_HOTEL", "nodeB": "NODE_WIFE_HOME", "minutes": 20 },
-    { "nodeA": "NODE_HOTEL", "nodeB": "NODE_SUV_GARAGE", "minutes": 40 },
-    { "nodeA": "NODE_OFFICE", "nodeB": "NODE_WIFE_HOME", "minutes": 15 },
-    { "nodeA": "NODE_OFFICE", "nodeB": "NODE_SUV_GARAGE", "minutes": 45 },
-    { "nodeA": "NODE_WIFE_HOME", "nodeB": "NODE_SUV_GARAGE", "minutes": 40 }
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_HIGHWAY",
+      "minutes": 30
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_HOTEL",
+      "minutes": 20
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_OFFICE",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_WIFE_HOME",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_SUV_GARAGE",
+      "minutes": 35
+    },
+    {
+      "nodeA": "NODE_HIGHWAY",
+      "nodeB": "NODE_HOTEL",
+      "minutes": 35
+    },
+    {
+      "nodeA": "NODE_HIGHWAY",
+      "nodeB": "NODE_OFFICE",
+      "minutes": 40
+    },
+    {
+      "nodeA": "NODE_HIGHWAY",
+      "nodeB": "NODE_WIFE_HOME",
+      "minutes": 30
+    },
+    {
+      "nodeA": "NODE_HIGHWAY",
+      "nodeB": "NODE_SUV_GARAGE",
+      "minutes": 20
+    },
+    {
+      "nodeA": "NODE_HOTEL",
+      "nodeB": "NODE_OFFICE",
+      "minutes": 15
+    },
+    {
+      "nodeA": "NODE_HOTEL",
+      "nodeB": "NODE_WIFE_HOME",
+      "minutes": 20
+    },
+    {
+      "nodeA": "NODE_HOTEL",
+      "nodeB": "NODE_SUV_GARAGE",
+      "minutes": 40
+    },
+    {
+      "nodeA": "NODE_OFFICE",
+      "nodeB": "NODE_WIFE_HOME",
+      "minutes": 15
+    },
+    {
+      "nodeA": "NODE_OFFICE",
+      "nodeB": "NODE_SUV_GARAGE",
+      "minutes": 45
+    },
+    {
+      "nodeA": "NODE_WIFE_HOME",
+      "nodeB": "NODE_SUV_GARAGE",
+      "minutes": 40
+    }
   ],
   "actions": [
     {
@@ -322,8 +470,12 @@
       "category": "FORENSIC",
       "baseWorkMinutes": 90,
       "reportMinutes": 15,
-      "rewardDocIds": ["EV_EP2_DOC_HIGHWAY_RESULT"],
-      "rewardAudioIds": ["EV_EP2_AUDIO_PHONE"],
+      "rewardDocIds": [
+        "EV_EP2_DOC_HIGHWAY_RESULT"
+      ],
+      "rewardAudioIds": [
+        "EV_EP2_AUDIO_PHONE"
+      ],
       "partnerReportMessage": "배수구에서 피해자 휴대폰 건졌습니다! 00:55에 서동훈 이름으로 불러낸 문자랑 01:15에 112 오작동 녹음 파일이 남아 있습니다. 빗소리가 심하니 오디오 파형 필터로 걸러보시죠."
     },
     {
@@ -333,7 +485,9 @@
       "category": "INVESTIGATION",
       "baseWorkMinutes": 60,
       "reportMinutes": 15,
-      "rewardDocIds": ["EV_EP2_DOC_HOTEL_CARD"],
+      "rewardDocIds": [
+        "EV_EP2_DOC_HOTEL_CARD"
+      ],
       "partnerReportMessage": "서동훈이 범인이 아니었습니다! 그 1시간 동안 마레 호텔 604호에서 경쟁사 이사랑 지분 매각 밀약을 하고 있었고, 호텔 밖으로 한 발짝도 안 나갔습니다."
     },
     {
@@ -343,7 +497,9 @@
       "category": "FORENSIC",
       "baseWorkMinutes": 90,
       "reportMinutes": 15,
-      "rewardDocIds": ["EV_EP2_DOC_PATENT_DEV"],
+      "rewardDocIds": [
+        "EV_EP2_DOC_PATENT_DEV"
+      ],
       "partnerReportMessage": "사무실 서버 까보니 진짜 특허 개발자는 강태민 수석이었습니다. 김영수 대표가 발명자에서 이름 빼고 소송 건다고 협박한 메일이 나왔습니다."
     },
     {
@@ -353,7 +509,9 @@
       "category": "INVESTIGATION",
       "baseWorkMinutes": 60,
       "reportMinutes": 15,
-      "rewardDocIds": [],
+      "rewardDocIds": [
+
+      ],
       "partnerReportMessage": "[특이사항 없음] 아파트 CCTV상 밤새 외출 기록 0건, 10억 보험도 2년 전 피해자가 직접 가입했습니다. 윤미라는 지우셔도 됩니다."
     },
     {
@@ -363,8 +521,12 @@
       "category": "FORENSIC",
       "baseWorkMinutes": 90,
       "reportMinutes": 15,
-      "rewardDocIds": ["EV_EP2_DOC_RENTAL_LEDGER"],
-      "rewardPhotoIds": ["EV_EP2_PHOTO_BUMPER"],
+      "rewardDocIds": [
+        "EV_EP2_DOC_RENTAL_LEDGER"
+      ],
+      "rewardPhotoIds": [
+        "EV_EP2_PHOTO_BUMPER"
+      ],
       "partnerReportMessage": "경위님, 대반전입니다! 34너 8821 하부에서 피해자 혈흔이 나왔고 GPS도 35분 조작됐는데... 사건 당일 이 차를 대차해 간 사람이 서동훈이 아니라 강태민입니다!"
     },
     {
@@ -379,73 +541,120 @@
         {
           "targetId": "SUSPECT_B",
           "label": "서동훈 (공동대표)",
-          "rewardDocIds": [],
-          "partnerReportMessage": "[특이사항 없음] 서동훈 계좌에는 마레 호텔 604호 투숙비 결제 외 특이 자금 흐름이 없습니다."
+          "rewardDocIds": [
+
+          ],
+          "partnerReportMessage": "[특이사항 없음] 서동훈 계좌에는 마레 호텔 604호 투숙비 결제 외 특이 자금 흐름이 없습니다.",
+          "isInitiallyDiscovered": false
         },
         {
           "targetId": "SUSPECT_C",
           "label": "윤미라 (배우자)",
-          "rewardDocIds": [],
-          "partnerReportMessage": "[특이사항 없음] 윤미라 계좌에서 범죄 관련 송금 내역이 전혀 발견되지 않았습니다."
+          "rewardDocIds": [
+
+          ],
+          "partnerReportMessage": "[특이사항 없음] 윤미라 계좌에서 범죄 관련 송금 내역이 전혀 발견되지 않았습니다.",
+          "isInitiallyDiscovered": false
         },
         {
           "targetId": "SUSPECT_D",
           "label": "강태민 (수석 엔지니어)",
-          "rewardDocIds": [],
+          "rewardDocIds": [
+
+          ],
           "volatileBonusDocId": "EV_META_EP02_ACCOUNT",
-          "partnerReportMessage": "강태민 계좌에서 GPS 재부팅 모듈 구매 송금이 떴습니다! 계좌번호가 302-XXXX-9912... EP 1 편의점 USB 계좌랑 똑같습니다!"
+          "partnerReportMessage": "강태민 계좌에서 GPS 재부팅 모듈 구매 송금이 떴습니다! 계좌번호가 302-XXXX-9912... EP 1 편의점 USB 계좌랑 똑같습니다!",
+          "isInitiallyDiscovered": false
         }
       ]
     }
   ],
   "dbEntries": [
     {
-      "keywords": ["34너8821", "34너 8821", "박지성"],
+      "keywords": [
+        "34너8821",
+        "34너 8821",
+        "박지성"
+      ],
       "displayName": "차량 34너 8821 / 소유주 박지성 (41세)",
       "recordText": "차종: 회색 중형 SUV. 소유주: 박지성 (서동훈의 처남). 사업장: 서울 외곽 박지성 공업사.",
       "unlocksNodeId": "NODE_SUV_GARAGE"
     },
     {
-      "keywords": ["서동훈"],
+      "keywords": [
+        "서동훈"
+      ],
       "displayName": "서동훈 (45세, 남)",
-      "recordText": "전과: 3년 전 경쟁사 기술 유출 혐의(불기소). 가족관계: 처남 박지성(공업사 운영, 34너 8821 소유)."
+      "recordText": "전과: 3년 전 경쟁사 기술 유출 혐의(불기소). 가족관계: 처남 박지성(공업사 운영, 34너 8821 소유).",
+      "revealsSuspectId": "SUSPECT_B"
     },
     {
-      "keywords": ["강태민"],
+      "keywords": [
+        "강태민"
+      ],
       "displayName": "강태민 (33세, 남)",
-      "recordText": "전과: 없음. 특이사항: 사건 5일 전 특허청 공동 발명자 분쟁 조정 신청(독소 조항으로 기각됨)."
+      "recordText": "전과: 없음. 특이사항: 사건 5일 전 특허청 공동 발명자 분쟁 조정 신청(독소 조항으로 기각됨).",
+      "revealsSuspectId": "SUSPECT_D"
     },
     {
-      "keywords": ["오만수"],
+      "keywords": [
+        "오만수"
+      ],
       "displayName": "오만수 (51세, 남)",
-      "recordText": "전과: 5년 전 단순 음주운전 벌금형 1회 (인명피해 없음)."
+      "recordText": "전과: 5년 전 단순 음주운전 벌금형 1회 (인명피해 없음).",
+      "revealsSuspectId": "SUSPECT_A"
     }
   ],
   "answerRule": {
     "correctCulpritId": "SUSPECT_D",
     "culpritOptions": [
-      { "id": "SUSPECT_A", "label": "오만수 (화물차 기사)", "wrongFeedback": "화물차가 도착하기 전에 이미 피해자는 쓰러져 있었습니다." },
-      { "id": "SUSPECT_B", "label": "서동훈 (공동대표)", "wrongFeedback": "마레 호텔 604호 출입 로그상 서동훈은 호텔 밖으로 나간 적이 없습니다. 34너 8821 대차 장부를 확인해 보시죠!" },
-      { "id": "SUSPECT_C", "label": "윤미라 (배우자)", "wrongFeedback": "윤미라는 밤새 자택 알리바이가 확실합니다." },
-      { "id": "SUSPECT_D", "label": "강태민 (수석 엔지니어)", "wrongFeedback": "" }
+      {
+        "id": "SUSPECT_A",
+        "label": "오만수 (화물차 기사)",
+        "wrongFeedback": "화물차가 도착하기 전에 이미 피해자는 쓰러져 있었습니다."
+      },
+      {
+        "id": "SUSPECT_B",
+        "label": "서동훈 (공동대표)",
+        "wrongFeedback": "마레 호텔 604호 출입 로그상 서동훈은 호텔 밖으로 나간 적이 없습니다. 34너 8821 대차 장부를 확인해 보시죠!"
+      },
+      {
+        "id": "SUSPECT_C",
+        "label": "윤미라 (배우자)",
+        "wrongFeedback": "윤미라는 밤새 자택 알리바이가 확실합니다."
+      },
+      {
+        "id": "SUSPECT_D",
+        "label": "강태민 (수석 엔지니어)",
+        "wrongFeedback": ""
+      }
     ],
     "slots": [
       {
         "slotId": "SLOT_REFUTE_ACCIDENT",
         "label": "초동 가설 반박 & 고의 살인 입증",
-        "acceptedEvidenceIds": ["EV_EP2_CAP_SKIDMARK", "EV_EP2_AUDIO_REVERSE"],
+        "acceptedEvidenceIds": [
+          "EV_EP2_CAP_SKIDMARK",
+          "EV_EP2_AUDIO_REVERSE"
+        ],
         "wrongFeedback": "화물차 단순 뺑소니가 아닌 고의적인 2차 후진 충돌이었음을 입증하는 블랙박스 캡처나 오디오 파형 증거가 필요합니다."
       },
       {
         "slotId": "SLOT_VEHICLE_DRIVER",
         "label": "범행 차량 및 실제 운전자 특정",
-        "acceptedEvidenceIds": ["EV_EP2_PHOTO_BUMPER", "EV_EP2_DOC_RENTAL_LEDGER", "EV_EP2_DOC_GPS_LOG"],
+        "acceptedEvidenceIds": [
+          "EV_EP2_PHOTO_BUMPER",
+          "EV_EP2_DOC_RENTAL_LEDGER",
+          "EV_EP2_DOC_GPS_LOG"
+        ],
         "wrongFeedback": "범행 차량(34너 8821)의 혈흔과 '택시를 탔다'던 진술을 뒤집는 공업사 대차 장부가 필요합니다."
       },
       {
         "slotId": "SLOT_MOTIVE",
         "label": "범행 동기 입증",
-        "acceptedEvidenceIds": ["EV_EP2_DOC_PATENT_DEV"],
+        "acceptedEvidenceIds": [
+          "EV_EP2_DOC_PATENT_DEV"
+        ],
         "wrongFeedback": "강태민이 대표를 살해해야 했던 결정적 동기(코드 기여도 98.4% 및 소송 협박 메일)를 첨부해 주십시오."
       }
     ]

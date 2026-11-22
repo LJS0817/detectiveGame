@@ -42,7 +42,12 @@
         "author": "루체르나 관리사무소",
         "sourceFile": "DOORLOCK_1804.log"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_C"
+      ]
     },
     {
       "docId": "EV_EP6_DOC_SUICIDE_NOTE",
@@ -58,7 +63,9 @@
         "sourceFile": "유서.txt (2초 만에 812자 작성 - 복사/붙여넣기 조작)",
         "metadataEvidenceId": "EV_EP6_META_NOTE_2SEC"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ]
     },
     {
       "docId": "EV_EP6_STATEMENT_A",
@@ -73,7 +80,12 @@
         "author": "서초서",
         "sourceFile": "STMT_KANG_A.pdf"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_A"
+      ]
     },
     {
       "docId": "EV_EP6_STATEMENT_B",
@@ -88,7 +100,12 @@
         "author": "서초서",
         "sourceFile": "STMT_NAM_B.pdf"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_B"
+      ]
     },
     {
       "docId": "EV_EP6_DOC_IOT_LOG",
@@ -112,6 +129,9 @@
           "matchSubstring": "임차인: 주식회사 델타홀딩스",
           "evidenceId": "EV_EP6_DOC_TENANT_LIST"
         }
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_A"
       ]
     },
     {
@@ -181,7 +201,9 @@
       "title": "[초동] 1804호 안전고리 & 베란다 공용 실외기실 칸막이 사진",
       "isInitial": true,
       "imagePath": "EP06/EP06_PHOTO_INIT_BALCONY.png",
-      "hitboxes": []
+      "hitboxes": [
+
+      ]
     },
     {
       "photoId": "EV_EP6_PHOTO_PANEL",
@@ -192,7 +214,12 @@
         {
           "startSec": 0,
           "endSec": 0,
-          "normalizedRect": { "x": 0.25, "y": 0.25, "width": 0.5, "height": 0.5 },
+          "normalizedRect": {
+            "x": 0.25,
+            "y": 0.25,
+            "width": 0.5,
+            "height": 0.5
+          },
           "evidenceId": "EV_EP6_PHOTO_SHOEPRINT"
         }
       ]
@@ -209,36 +236,143 @@
         {
           "startSec": 2.5,
           "endSec": 5.0,
-          "normalizedRect": { "x": 0.45, "y": 0.15, "width": 0.22, "height": 0.20 },
+          "normalizedRect": {
+            "x": 0.45,
+            "y": 0.15,
+            "width": 0.22,
+            "height": 0.2
+          },
           "evidenceId": "EV_EP6_CAP_DRONE_LOOP"
         }
       ]
     }
   ],
   "mapNodes": [
-    { "nodeId": "NODE_STATION", "name": "경찰서", "x": 180, "y": 540, "isInitiallyUnlocked": true, "description": "금융 영장 & K-POL 내부 감사 로그 조회" },
-    { "nodeId": "NODE_APT_1804", "name": "루체르나 1804호 (현장)", "x": 540, "y": 420, "isInitiallyUnlocked": true, "description": "밀실 추락 현장" },
-    { "nodeId": "NODE_APT_SEC", "name": "루체르나 보안실", "x": 600, "y": 460, "isInitiallyUnlocked": true, "description": "보안 드론 관제 및 경비실 CCTV" },
-    { "nodeId": "NODE_APT_1805", "name": "루체르나 1805호 (옆집)", "x": 580, "y": 360, "isInitiallyUnlocked": false, "description": "델타홀딩스 단기 임대 빈집 (법인 DB 검색 해금)" },
-    { "nodeId": "NODE_HANSUNG", "name": "한성바이오 본사", "x": 860, "y": 540, "isInitiallyUnlocked": true, "description": "강현석(A) 법무팀장 근무지" },
-    { "nodeId": "NODE_C_HOME", "name": "이수진(C) 자택", "x": 480, "y": 780, "isInitiallyUnlocked": true, "description": "마지막 방문자 동료 거주지" }
+    {
+      "nodeId": "NODE_STATION",
+      "name": "경찰서",
+      "x": 180,
+      "y": 540,
+      "isInitiallyUnlocked": true,
+      "description": "금융 영장 & K-POL 내부 감사 로그 조회"
+    },
+    {
+      "nodeId": "NODE_APT_1804",
+      "name": "루체르나 1804호 (현장)",
+      "x": 540,
+      "y": 420,
+      "isInitiallyUnlocked": true,
+      "description": "밀실 추락 현장"
+    },
+    {
+      "nodeId": "NODE_APT_SEC",
+      "name": "루체르나 보안실",
+      "x": 600,
+      "y": 460,
+      "isInitiallyUnlocked": true,
+      "description": "보안 드론 관제 및 경비실 CCTV"
+    },
+    {
+      "nodeId": "NODE_APT_1805",
+      "name": "루체르나 1805호 (옆집)",
+      "x": 580,
+      "y": 360,
+      "isInitiallyUnlocked": false,
+      "description": "델타홀딩스 단기 임대 빈집 (법인 DB 검색 해금)"
+    },
+    {
+      "nodeId": "NODE_HANSUNG",
+      "name": "한성바이오 본사",
+      "x": 860,
+      "y": 540,
+      "isInitiallyUnlocked": true,
+      "description": "강현석(A) 법무팀장 근무지"
+    },
+    {
+      "nodeId": "NODE_C_HOME",
+      "name": "이수진(C) 자택",
+      "x": 480,
+      "y": 780,
+      "isInitiallyUnlocked": true,
+      "description": "마지막 방문자 동료 거주지"
+    }
   ],
   "travelEdges": [
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_APT_1804", "minutes": 25 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_APT_SEC", "minutes": 25 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_APT_1805", "minutes": 25 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_HANSUNG", "minutes": 25 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_C_HOME", "minutes": 30 },
-    { "nodeA": "NODE_APT_1804", "nodeB": "NODE_APT_SEC", "minutes": 5 },
-    { "nodeA": "NODE_APT_1804", "nodeB": "NODE_APT_1805", "minutes": 5 },
-    { "nodeA": "NODE_APT_1804", "nodeB": "NODE_HANSUNG", "minutes": 25 },
-    { "nodeA": "NODE_APT_1804", "nodeB": "NODE_C_HOME", "minutes": 20 },
-    { "nodeA": "NODE_APT_SEC", "nodeB": "NODE_APT_1805", "minutes": 5 },
-    { "nodeA": "NODE_APT_SEC", "nodeB": "NODE_HANSUNG", "minutes": 25 },
-    { "nodeA": "NODE_APT_SEC", "nodeB": "NODE_C_HOME", "minutes": 20 },
-    { "nodeA": "NODE_APT_1805", "nodeB": "NODE_HANSUNG", "minutes": 25 },
-    { "nodeA": "NODE_APT_1805", "nodeB": "NODE_C_HOME", "minutes": 20 },
-    { "nodeA": "NODE_HANSUNG", "nodeB": "NODE_C_HOME", "minutes": 30 }
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_APT_1804",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_APT_SEC",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_APT_1805",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_HANSUNG",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_C_HOME",
+      "minutes": 30
+    },
+    {
+      "nodeA": "NODE_APT_1804",
+      "nodeB": "NODE_APT_SEC",
+      "minutes": 5
+    },
+    {
+      "nodeA": "NODE_APT_1804",
+      "nodeB": "NODE_APT_1805",
+      "minutes": 5
+    },
+    {
+      "nodeA": "NODE_APT_1804",
+      "nodeB": "NODE_HANSUNG",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_APT_1804",
+      "nodeB": "NODE_C_HOME",
+      "minutes": 20
+    },
+    {
+      "nodeA": "NODE_APT_SEC",
+      "nodeB": "NODE_APT_1805",
+      "minutes": 5
+    },
+    {
+      "nodeA": "NODE_APT_SEC",
+      "nodeB": "NODE_HANSUNG",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_APT_SEC",
+      "nodeB": "NODE_C_HOME",
+      "minutes": 20
+    },
+    {
+      "nodeA": "NODE_APT_1805",
+      "nodeB": "NODE_HANSUNG",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_APT_1805",
+      "nodeB": "NODE_C_HOME",
+      "minutes": 20
+    },
+    {
+      "nodeA": "NODE_HANSUNG",
+      "nodeB": "NODE_C_HOME",
+      "minutes": 30
+    }
   ],
   "actions": [
     {
@@ -248,7 +382,9 @@
       "category": "FORENSIC",
       "baseWorkMinutes": 90,
       "reportMinutes": 15,
-      "rewardDocIds": ["EV_EP6_DOC_IOT_LOG"],
+      "rewardDocIds": [
+        "EV_EP6_DOC_IOT_LOG"
+      ],
       "partnerReportMessage": "21:36에 실외기 과전류가 튀었고 21:40:20에 허브가 강제 재부팅됐습니다. 옆집 1805호가 일주일 전 '델타홀딩스'라는 법인으로 단기 임대됐네요. DB에 조회해 보시죠!"
     },
     {
@@ -258,8 +394,12 @@
       "category": "INVESTIGATION",
       "baseWorkMinutes": 60,
       "reportMinutes": 15,
-      "rewardDocIds": ["EV_EP6_DOC_SEC_ALIBI"],
-      "rewardCctvIds": ["EV_EP6_DRONE_CLIP"],
+      "rewardDocIds": [
+        "EV_EP6_DOC_SEC_ALIBI"
+      ],
+      "rewardCctvIds": [
+        "EV_EP6_DRONE_CLIP"
+      ],
       "partnerReportMessage": "남궁현 실장은 지하 경비실 CCTV에 계속 찍혀 있었고 드론은 외부 해킹이었습니다. 드론 영상 21:35랑 21:39 배경 구름과 도로 빨간 차를 확대해 보십시오!"
     },
     {
@@ -269,7 +409,9 @@
       "category": "FORENSIC",
       "baseWorkMinutes": 90,
       "reportMinutes": 15,
-      "rewardPhotoIds": ["EV_EP6_PHOTO_PANEL"],
+      "rewardPhotoIds": [
+        "EV_EP6_PHOTO_PANEL"
+      ],
       "partnerReportMessage": "빙고입니다! 1805호 실외기실 방화 칸막이 나사가 풀려 있고, 실외기 위에 고급 수제 구두 흙 자국이 선명하게 남았습니다!"
     },
     {
@@ -279,7 +421,9 @@
       "category": "FORENSIC",
       "baseWorkMinutes": 90,
       "reportMinutes": 15,
-      "rewardDocIds": ["EV_EP6_DOC_STOLEN_FILE"],
+      "rewardDocIds": [
+        "EV_EP6_DOC_STOLEN_FILE"
+      ],
       "partnerReportMessage": "강현석 금고에서 피해자가 들고 있던 400억 임상 조작 고발 문건 원본이 그대로 나왔습니다! 구두 밑창도 1805호 실외기 자국과 100% 일치합니다."
     },
     {
@@ -289,7 +433,9 @@
       "category": "INVESTIGATION",
       "baseWorkMinutes": 60,
       "reportMinutes": 15,
-      "rewardDocIds": [],
+      "rewardDocIds": [
+
+      ],
       "partnerReportMessage": "[특이사항 없음] 20:22 자택 귀가 후 아침까지 외출 기록 없습니다. 이수진은 지우셔도 됩니다."
     },
     {
@@ -299,48 +445,78 @@
       "category": "EXTERNAL_AGENCY",
       "baseWorkMinutes": 90,
       "reportMinutes": 15,
-      "rewardDocIds": [],
+      "rewardDocIds": [
+
+      ],
       "volatileBonusDocId": "EV_META_EP06_PJT",
       "partnerReportMessage": "경위님... 신변보호를 사건 2시간 전에 직권 해제한 계정이 떴습니다. ADMIN_PJT... 서울청 수사국 박정태 총경입니다!"
     }
   ],
   "dbEntries": [
     {
-      "keywords": ["델타홀딩스", "1805호", "강현석"],
+      "keywords": [
+        "델타홀딩스",
+        "1805호",
+        "강현석"
+      ],
       "displayName": "(주)델타홀딩스 — 등기 감사 강현석(48)",
       "recordText": "유령 법인 의심. 루체르나 오피스텔 1805호 단기 임대 계약 주체. 등기 감사: 한성바이오 법무팀장 강현석.",
-      "unlocksNodeId": "NODE_APT_1805"
+      "unlocksNodeId": "NODE_APT_1805",
+      "revealsSuspectId": "SUSPECT_A"
     },
     {
-      "keywords": ["남궁현"],
+      "keywords": [
+        "남궁현"
+      ],
       "displayName": "남궁현 (39세, 남)",
-      "recordText": "전과: 8년 전 정보통신망법 위반 집행유예 1회."
+      "recordText": "전과: 8년 전 정보통신망법 위반 집행유예 1회.",
+      "revealsSuspectId": "SUSPECT_B"
     }
   ],
   "answerRule": {
     "correctCulpritId": "SUSPECT_A",
     "culpritOptions": [
-      { "id": "SUSPECT_A", "label": "강현석 (한성바이오 법무팀장)", "wrongFeedback": "" },
-      { "id": "SUSPECT_B", "label": "남궁현 (오피스텔 보안 실장)", "wrongFeedback": "남궁현 실장은 지하 경비실 알리바이가 확실합니다. 옆집 1805호 임차 법인을 조회해 보시죠." },
-      { "id": "SUSPECT_C", "label": "이수진 (직장 동료)", "wrongFeedback": "이수진은 20:22 귀가 후 외출 기록이 없습니다." }
+      {
+        "id": "SUSPECT_A",
+        "label": "강현석 (한성바이오 법무팀장)",
+        "wrongFeedback": ""
+      },
+      {
+        "id": "SUSPECT_B",
+        "label": "남궁현 (오피스텔 보안 실장)",
+        "wrongFeedback": "남궁현 실장은 지하 경비실 알리바이가 확실합니다. 옆집 1805호 임차 법인을 조회해 보시죠."
+      },
+      {
+        "id": "SUSPECT_C",
+        "label": "이수진 (직장 동료)",
+        "wrongFeedback": "이수진은 20:22 귀가 후 외출 기록이 없습니다."
+      }
     ],
     "slots": [
       {
         "slotId": "SLOT_REFUTE_SUICIDE",
         "label": "단순 자살 반박 (유서 조작)",
-        "acceptedEvidenceIds": ["EV_EP6_META_NOTE_2SEC"],
+        "acceptedEvidenceIds": [
+          "EV_EP6_META_NOTE_2SEC"
+        ],
         "wrongFeedback": "PC 유서 파일의 메타데이터(2초 만에 812자 작성)를 확인해 증거판에 올려주십시오."
       },
       {
         "slotId": "SLOT_LOCKED_ROOM",
         "label": "밀실 침입 트릭 입증",
-        "acceptedEvidenceIds": ["EV_EP6_CAP_DRONE_LOOP", "EV_EP6_DOC_IOT_LOG"],
+        "acceptedEvidenceIds": [
+          "EV_EP6_CAP_DRONE_LOOP",
+          "EV_EP6_DOC_IOT_LOG"
+        ],
         "wrongFeedback": "드론 5분 루프 합성 캡처나 스마트홈 실외기 과전류·허브 재부팅 로그가 필요합니다."
       },
       {
         "slotId": "SLOT_PROOF_MOTIVE",
         "label": "진범 특정 물증 및 동기",
-        "acceptedEvidenceIds": ["EV_EP6_DOC_STOLEN_FILE", "EV_EP6_PHOTO_SHOEPRINT"],
+        "acceptedEvidenceIds": [
+          "EV_EP6_DOC_STOLEN_FILE",
+          "EV_EP6_PHOTO_SHOEPRINT"
+        ],
         "wrongFeedback": "1805호 실외기 구두 자국 사진이나 강현석 금고에서 압수한 400억 고발 문건을 첨부해 주십시오."
       }
     ]

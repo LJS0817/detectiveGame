@@ -31,6 +31,10 @@
           "matchSubstring": "뒤에서 익숙한 목소리가 불러서 돌아보려는데...",
           "evidenceId": "EV_TAG_FAMILIAR_VOICE"
         }
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_A",
+        "SUSPECT_B"
       ]
     },
     {
@@ -51,6 +55,9 @@
           "matchSubstring": "퇴근 태그: 2026-11-18 01:50:12",
           "evidenceId": "EV_TAG_B_TIMECARD"
         }
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_B"
       ]
     },
     {
@@ -66,7 +73,12 @@
         "author": "강력2팀 조사관",
         "sourceFile": "STMT_KIM_A.pdf"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_A"
+      ]
     },
     {
       "docId": "EV_DOC_STATEMENT_B",
@@ -81,7 +93,12 @@
         "author": "강력2팀 조사관",
         "sourceFile": "STMT_LEE_B.pdf"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_B"
+      ]
     },
     {
       "docId": "EV_DOC_STATEMENT_C",
@@ -96,7 +113,12 @@
         "author": "강력2팀 조사관",
         "sourceFile": "STMT_CHOI_C.pdf"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_C"
+      ]
     },
     {
       "docId": "EV_DOC_EMBEZZLE_MEMO",
@@ -201,7 +223,12 @@
         {
           "startSec": 0,
           "endSec": 0,
-          "normalizedRect": { "x": 0.72, "y": 0.12, "width": 0.1, "height": 0.1 },
+          "normalizedRect": {
+            "x": 0.72,
+            "y": 0.12,
+            "width": 0.1,
+            "height": 0.1
+          },
           "evidenceId": "EV_TAG_INIT_GLINT"
         }
       ]
@@ -211,7 +238,9 @@
       "title": "[초동] 카운터 및 잠긴 개인 서랍 사진",
       "isInitial": true,
       "imagePath": "EP01/EP01_PHOTO_INIT_COUNTER.png",
-      "hitboxes": []
+      "hitboxes": [
+
+      ]
     },
     {
       "photoId": "EV_PHOTO_TAPE",
@@ -222,7 +251,12 @@
         {
           "startSec": 0,
           "endSec": 0,
-          "normalizedRect": { "x": 0.35, "y": 0.35, "width": 0.3, "height": 0.3 },
+          "normalizedRect": {
+            "x": 0.35,
+            "y": 0.35,
+            "width": 0.3,
+            "height": 0.3
+          },
           "evidenceId": "EV_PHOTO_TAPE"
         }
       ]
@@ -236,7 +270,12 @@
         {
           "startSec": 0,
           "endSec": 0,
-          "normalizedRect": { "x": 0.35, "y": 0.35, "width": 0.3, "height": 0.3 },
+          "normalizedRect": {
+            "x": 0.35,
+            "y": 0.35,
+            "width": 0.3,
+            "height": 0.3
+          },
           "evidenceId": "EV_PHOTO_BRACELET"
         }
       ]
@@ -250,7 +289,12 @@
         {
           "startSec": 0,
           "endSec": 0,
-          "normalizedRect": { "x": 0.25, "y": 0.25, "width": 0.5, "height": 0.5 },
+          "normalizedRect": {
+            "x": 0.25,
+            "y": 0.25,
+            "width": 0.5,
+            "height": 0.5
+          },
           "evidenceId": "EV_PHOTO_CASH_420"
         }
       ]
@@ -263,7 +307,9 @@
       "isInitial": true,
       "videoPath": "EP01/EP01_CCTV_CLIP_01.mp4",
       "displayTimestamp": "2026-11-18 01:40:12",
-      "hitboxes": []
+      "hitboxes": [
+
+      ]
     },
     {
       "clipId": "EV_CCTV_EP01_02",
@@ -275,7 +321,12 @@
         {
           "startSec": 1.0,
           "endSec": 4.2,
-          "normalizedRect": { "x": 0.32, "y": 0.40, "width": 0.14, "height": 0.14 },
+          "normalizedRect": {
+            "x": 0.32,
+            "y": 0.4,
+            "width": 0.14,
+            "height": 0.14
+          },
           "evidenceId": "EV_CAP_B_BRACELET"
         }
       ]
@@ -290,30 +341,110 @@
         {
           "startSec": 0.0,
           "endSec": 5.0,
-          "normalizedRect": { "x": 0.78, "y": 0.22, "width": 0.14, "height": 0.16 },
+          "normalizedRect": {
+            "x": 0.78,
+            "y": 0.22,
+            "width": 0.14,
+            "height": 0.16
+          },
           "evidenceId": "EV_CAP_0214_BLOOD"
         }
       ]
     }
   ],
   "mapNodes": [
-    { "nodeId": "NODE_STATION", "name": "경찰서", "x": 200, "y": 540, "isInitiallyUnlocked": true, "description": "용의자 A(김철수) 구금 및 수사 본부" },
-    { "nodeId": "NODE_STORE", "name": "편의점", "x": 580, "y": 560, "isInitiallyUnlocked": true, "description": "사건 현장 (매장 카운터 및 창고 뒷문)" },
-    { "nodeId": "NODE_SECURITY", "name": "세이프가드 보안관제센터", "x": 720, "y": 300, "isInitiallyUnlocked": true, "description": "출입 센서 로그 및 CCTV NVR 백업 관리" },
-    { "nodeId": "NODE_B_HOME", "name": "이준호(B) 신림동 원룸", "x": 920, "y": 640, "isInitiallyUnlocked": true, "description": "야간 알바생 거주지" },
-    { "nodeId": "NODE_C_OFFICE", "name": "최태식(C) 부동산 사무실", "x": 540, "y": 820, "isInitiallyUnlocked": true, "description": "상가 건물주 사무실" }
+    {
+      "nodeId": "NODE_STATION",
+      "name": "경찰서",
+      "x": 200,
+      "y": 540,
+      "isInitiallyUnlocked": true,
+      "description": "용의자 A(김철수) 구금 및 수사 본부"
+    },
+    {
+      "nodeId": "NODE_STORE",
+      "name": "편의점",
+      "x": 580,
+      "y": 560,
+      "isInitiallyUnlocked": true,
+      "description": "사건 현장 (매장 카운터 및 창고 뒷문)"
+    },
+    {
+      "nodeId": "NODE_SECURITY",
+      "name": "세이프가드 보안관제센터",
+      "x": 720,
+      "y": 300,
+      "isInitiallyUnlocked": true,
+      "description": "출입 센서 로그 및 CCTV NVR 백업 관리"
+    },
+    {
+      "nodeId": "NODE_B_HOME",
+      "name": "이준호(B) 신림동 원룸",
+      "x": 920,
+      "y": 640,
+      "isInitiallyUnlocked": true,
+      "description": "야간 알바생 거주지"
+    },
+    {
+      "nodeId": "NODE_C_OFFICE",
+      "name": "최태식(C) 부동산 사무실",
+      "x": 540,
+      "y": 820,
+      "isInitiallyUnlocked": true,
+      "description": "상가 건물주 사무실"
+    }
   ],
   "travelEdges": [
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_STORE", "minutes": 25 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_SECURITY", "minutes": 20 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_B_HOME", "minutes": 35 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_C_OFFICE", "minutes": 30 },
-    { "nodeA": "NODE_STORE", "nodeB": "NODE_SECURITY", "minutes": 15 },
-    { "nodeA": "NODE_STORE", "nodeB": "NODE_B_HOME", "minutes": 15 },
-    { "nodeA": "NODE_STORE", "nodeB": "NODE_C_OFFICE", "minutes": 20 },
-    { "nodeA": "NODE_SECURITY", "nodeB": "NODE_B_HOME", "minutes": 25 },
-    { "nodeA": "NODE_SECURITY", "nodeB": "NODE_C_OFFICE", "minutes": 25 },
-    { "nodeA": "NODE_B_HOME", "nodeB": "NODE_C_OFFICE", "minutes": 30 }
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_STORE",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_SECURITY",
+      "minutes": 20
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_B_HOME",
+      "minutes": 35
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_C_OFFICE",
+      "minutes": 30
+    },
+    {
+      "nodeA": "NODE_STORE",
+      "nodeB": "NODE_SECURITY",
+      "minutes": 15
+    },
+    {
+      "nodeA": "NODE_STORE",
+      "nodeB": "NODE_B_HOME",
+      "minutes": 15
+    },
+    {
+      "nodeA": "NODE_STORE",
+      "nodeB": "NODE_C_OFFICE",
+      "minutes": 20
+    },
+    {
+      "nodeA": "NODE_SECURITY",
+      "nodeB": "NODE_B_HOME",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_SECURITY",
+      "nodeB": "NODE_C_OFFICE",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_B_HOME",
+      "nodeB": "NODE_C_OFFICE",
+      "minutes": 30
+    }
   ],
   "actions": [
     {
@@ -323,8 +454,12 @@
       "category": "INTERROGATION",
       "baseWorkMinutes": 60,
       "reportMinutes": 15,
-      "rewardDocIds": [],
-      "rewardPhotoIds": [],
+      "rewardDocIds": [
+
+      ],
+      "rewardPhotoIds": [
+
+      ],
       "partnerReportMessage": "김철수 다시 캐물어봤는데 진술이 한 치도 안 흔들립니다. 폭력 전과도 없고, 들어갔을 때 이미 피비린내가 났다고 하네요."
     },
     {
@@ -334,8 +469,12 @@
       "category": "FORENSIC",
       "baseWorkMinutes": 90,
       "reportMinutes": 15,
-      "rewardDocIds": ["EV_DOC_EMBEZZLE_MEMO"],
-      "rewardPhotoIds": [],
+      "rewardDocIds": [
+        "EV_DOC_EMBEZZLE_MEMO"
+      ],
+      "rewardPhotoIds": [
+
+      ],
       "partnerReportMessage": "경위님, 잠긴 서랍 열었더니 대박이 나왔습니다. 점주님이 이준호 380만 원 횡령을 적발해서 오늘 아침 경찰에 신고하려던 메모가 들어 있었습니다."
     },
     {
@@ -345,8 +484,13 @@
       "category": "FORENSIC",
       "baseWorkMinutes": 90,
       "reportMinutes": 15,
-      "rewardDocIds": [],
-      "rewardPhotoIds": ["EV_PHOTO_TAPE", "EV_PHOTO_BRACELET"],
+      "rewardDocIds": [
+
+      ],
+      "rewardPhotoIds": [
+        "EV_PHOTO_TAPE",
+        "EV_PHOTO_BRACELET"
+      ],
       "partnerReportMessage": "초동팀이 대충 훑고 지나갔네요. 창고 뒷문 자석 센서 틈에 투명 테이프 조각이 붙어 있었고, 선반 아래 구석에서 끊어진 실버 체인 팔찌를 건졌습니다."
     },
     {
@@ -356,9 +500,13 @@
       "category": "EXTERNAL_AGENCY",
       "baseWorkMinutes": 60,
       "reportMinutes": 15,
-      "rewardDocIds": ["EV_DOC_SENSOR_LOG"],
+      "rewardDocIds": [
+        "EV_DOC_SENSOR_LOG"
+      ],
       "volatileBonusDocId": "EV_META_EP01_FULL_IP",
-      "rewardPhotoIds": [],
+      "rewardPhotoIds": [
+
+      ],
       "partnerReportMessage": "보안관제센터 로그 떼왔습니다. 01:50 이후 뒷문 개폐 기록이 없고, CCTV 10분 누락은 기기 오류가 아니라 LOG_WIPE_v4라는 외부 USB 툴로 지운 겁니다."
     },
     {
@@ -368,8 +516,12 @@
       "category": "INVESTIGATION",
       "baseWorkMinutes": 60,
       "reportMinutes": 15,
-      "rewardDocIds": [],
-      "rewardPhotoIds": [],
+      "rewardDocIds": [
+
+      ],
+      "rewardPhotoIds": [
+
+      ],
       "partnerReportMessage": "[특이사항 없음] 01:47 대리운전 탑승, 01:58 자택 엘리베이터 탑승 후 아침까지 외출 기록 전혀 없습니다. 최태식은 용의선상에서 지우셔도 됩니다."
     },
     {
@@ -379,29 +531,47 @@
       "category": "INVESTIGATION",
       "baseWorkMinutes": 90,
       "reportMinutes": 15,
-      "rewardDocIds": ["EV_DOC_DARKCHAT_LOG"],
-      "rewardPhotoIds": ["EV_PHOTO_CASH_420"],
+      "rewardDocIds": [
+        "EV_DOC_DARKCHAT_LOG"
+      ],
+      "rewardPhotoIds": [
+        "EV_PHOTO_CASH_420"
+      ],
       "partnerReportMessage": "원룸 침대 밑 가방에서 은행 띠지 그대로 묶인 현금 420만 원 전액 나왔습니다! 휴대폰 다크챗에서 USB 50만 원에 산 대화 로그도 올려놨습니다."
     }
   ],
   "dbEntries": [
     {
-      "keywords": ["김철수", "A"],
+      "keywords": [
+        "김철수",
+        "A"
+      ],
       "displayName": "김철수 (36세, 남)",
-      "recordText": "전과 기록: 절도 전과 3범 (전부 야간 무인점포·빈집 소액 절도). 폭력/상해 전과 0건."
+      "recordText": "전과 기록: 절도 전과 3범 (전부 야간 무인점포·빈집 소액 절도). 폭력/상해 전과 0건.",
+      "revealsSuspectId": "SUSPECT_A"
     },
     {
-      "keywords": ["이준호", "B"],
+      "keywords": [
+        "이준호",
+        "B"
+      ],
       "displayName": "이준호 (24세, 남)",
-      "recordText": "전과 기록: 없음. 주소지: 서울 관악구 신림동 원룸. 특이사항: 휴학생, 야간 편의점 아르바이트."
+      "recordText": "전과 기록: 없음. 주소지: 서울 관악구 신림동 원룸. 특이사항: 휴학생, 야간 편의점 아르바이트.",
+      "revealsSuspectId": "SUSPECT_B"
     },
     {
-      "keywords": ["최태식", "C"],
+      "keywords": [
+        "최태식",
+        "C"
+      ],
       "displayName": "최태식 (57세, 남)",
-      "recordText": "전과 기록: 단순 폭행 벌금형 1건 (10년 전). 소유 부동산: 사건 발생 상가 건물."
+      "recordText": "전과 기록: 단순 폭행 벌금형 1건 (10년 전). 소유 부동산: 사건 발생 상가 건물.",
+      "revealsSuspectId": "SUSPECT_C"
     },
     {
-      "keywords": ["박성훈"],
+      "keywords": [
+        "박성훈"
+      ],
       "displayName": "박성훈 (48세, 남)",
       "recordText": "전과 기록: 없음. 신용대출 및 최근 3개월 월세 연체 이력 확인."
     }
@@ -409,27 +579,49 @@
   "answerRule": {
     "correctCulpritId": "SUSPECT_B",
     "culpritOptions": [
-      { "id": "SUSPECT_A", "label": "김철수 (외부 절도범)", "wrongFeedback": "김철수라면 02:14에 이미 번져 있던 혈흔과 현금 띠지가 설명이 안 됩니다. CCTV #3을 확대해 보시죠." },
-      { "id": "SUSPECT_B", "label": "이준호 (야간 알바생)", "wrongFeedback": "" },
-      { "id": "SUSPECT_C", "label": "최태식 (상가 건물주)", "wrongFeedback": "최태식은 01:45 퇴장 후 대리운전 귀가 알리바이가 확실합니다." }
+      {
+        "id": "SUSPECT_A",
+        "label": "김철수 (외부 절도범)",
+        "wrongFeedback": "김철수라면 02:14에 이미 번져 있던 혈흔과 현금 띠지가 설명이 안 됩니다. CCTV #3을 확대해 보시죠."
+      },
+      {
+        "id": "SUSPECT_B",
+        "label": "이준호 (야간 알바생)",
+        "wrongFeedback": ""
+      },
+      {
+        "id": "SUSPECT_C",
+        "label": "최태식 (상가 건물주)",
+        "wrongFeedback": "최태식은 01:45 퇴장 후 대리운전 귀가 알리바이가 확실합니다."
+      }
     ],
     "slots": [
       {
         "slotId": "SLOT_REFUTE_INIT",
         "label": "초동 가설(김철수 A) 반박 증거",
-        "acceptedEvidenceIds": ["EV_CAP_0214_BLOOD"],
+        "acceptedEvidenceIds": [
+          "EV_CAP_0214_BLOOD"
+        ],
         "wrongFeedback": "김철수가 창고 강도 상해범이 아니라는 시각적 증거가 필요합니다. 김철수가 들어오기 직전 CCTV 창고 문 아래를 확대 캡처해 보세요."
       },
       {
         "slotId": "SLOT_TRICK",
         "label": "알리바이 붕괴 (뒷문 침입 트릭)",
-        "acceptedEvidenceIds": ["EV_PHOTO_TAPE", "EV_DOC_SENSOR_LOG"],
+        "acceptedEvidenceIds": [
+          "EV_PHOTO_TAPE",
+          "EV_DOC_SENSOR_LOG"
+        ],
         "wrongFeedback": "이준호는 01:50에 정문으로 퇴근했습니다. 경보도 안 울렸는데 어떻게 다시 들어왔는지 증명하는 증거가 필요합니다."
       },
       {
         "slotId": "SLOT_MOTIVE_PROOF",
         "label": "진범 특정 물증 및 범행 동기",
-        "acceptedEvidenceIds": ["EV_PHOTO_BRACELET", "EV_CAP_B_BRACELET", "EV_PHOTO_CASH_420", "EV_DOC_EMBEZZLE_MEMO"],
+        "acceptedEvidenceIds": [
+          "EV_PHOTO_BRACELET",
+          "EV_CAP_B_BRACELET",
+          "EV_PHOTO_CASH_420",
+          "EV_DOC_EMBEZZLE_MEMO"
+        ],
         "wrongFeedback": "창고에 들어간 사람이 이준호 본인이라는 물증(팔찌·현금) 또는 범행 동기(횡령 메모)를 첨부해 주십시오."
       }
     ]

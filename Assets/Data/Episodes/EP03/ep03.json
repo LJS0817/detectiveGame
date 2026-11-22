@@ -27,6 +27,9 @@
           "matchSubstring": "B구역 안쪽에서 이상한 시계 초침 같은 소리가 났다",
           "evidenceId": "EV_EP3_TAG_TIMER_SOUND"
         }
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_A"
       ]
     },
     {
@@ -42,7 +45,9 @@
         "author": "소방관제센터",
         "sourceFile": "FIRE_ALARM_1202.log"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ]
     },
     {
       "docId": "EV_EP3_DOC_EXPERT_PDF",
@@ -78,7 +83,12 @@
         "author": "화재조사계",
         "sourceFile": "STMT_HAN_A.pdf"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_A"
+      ]
     },
     {
       "docId": "EV_EP3_STATEMENT_B",
@@ -93,7 +103,12 @@
         "author": "화재조사계",
         "sourceFile": "STMT_JO_B.pdf"
       },
-      "hiddenTags": []
+      "hiddenTags": [
+
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_B"
+      ]
     },
     {
       "docId": "EV_EP3_DOC_WAREHOUSE_LAB",
@@ -157,6 +172,9 @@
           "matchSubstring": "2026-12-01 23:36:12 : 출입 승인 (사원증: 조현우 물류팀장)",
           "evidenceId": "EV_EP3_DOC_CARD_LOG"
         }
+      ],
+      "revealsSuspectIds": [
+        "SUSPECT_B"
       ]
     },
     {
@@ -206,7 +224,9 @@
       "title": "[초동] B구역 화재 잔해 전경 사진",
       "isInitial": true,
       "imagePath": "EP03/EP03_PHOTO_INIT_BZONE.png",
-      "hitboxes": []
+      "hitboxes": [
+
+      ]
     }
   ],
   "cctvClips": [
@@ -221,42 +241,154 @@
         {
           "startSec": 0.5,
           "endSec": 2.5,
-          "normalizedRect": { "x": 0.25, "y": 0.45, "width": 0.16, "height": 0.12 },
+          "normalizedRect": {
+            "x": 0.25,
+            "y": 0.45,
+            "width": 0.16,
+            "height": 0.12
+          },
           "evidenceId": "EV_EP3_CAP_VAN_PLATE"
         },
         {
           "startSec": 2.6,
           "endSec": 5.0,
-          "normalizedRect": { "x": 0.58, "y": 0.32, "width": 0.15, "height": 0.15 },
+          "normalizedRect": {
+            "x": 0.58,
+            "y": 0.32,
+            "width": 0.15,
+            "height": 0.15
+          },
           "evidenceId": "EV_EP3_CAP_LOGO"
         }
       ]
     }
   ],
   "mapNodes": [
-    { "nodeId": "NODE_STATION", "name": "경찰서", "x": 180, "y": 540, "isInitiallyUnlocked": true, "description": "대상 선택 금융 영장 집행 거점" },
-    { "nodeId": "NODE_WAREHOUSE", "name": "청명물류 제2창고", "x": 540, "y": 320, "isInitiallyUnlocked": true, "description": "화재 현장 및 뒷골목 CCTV" },
-    { "nodeId": "NODE_INSURANCE", "name": "동방화재보험 본사", "x": 420, "y": 760, "isInitiallyUnlocked": true, "description": "화재보험 24억 약관 심사 기관" },
-    { "nodeId": "NODE_CEO_OFFICE", "name": "한상철(A) 대표 사무실", "x": 280, "y": 820, "isInitiallyUnlocked": true, "description": "창고 대표 개인 사무실" },
-    { "nodeId": "NODE_SHINSUNG", "name": "신성테크 물류센터", "x": 860, "y": 360, "isInitiallyUnlocked": true, "description": "위탁 화주사 및 조현우(B) 근무지" },
-    { "nodeId": "NODE_FORENSIC_LAB", "name": "가디언 방재감정원", "x": 740, "y": 780, "isInitiallyUnlocked": true, "description": "감정사 나기철(C) 사무실" }
+    {
+      "nodeId": "NODE_STATION",
+      "name": "경찰서",
+      "x": 180,
+      "y": 540,
+      "isInitiallyUnlocked": true,
+      "description": "대상 선택 금융 영장 집행 거점"
+    },
+    {
+      "nodeId": "NODE_WAREHOUSE",
+      "name": "청명물류 제2창고",
+      "x": 540,
+      "y": 320,
+      "isInitiallyUnlocked": true,
+      "description": "화재 현장 및 뒷골목 CCTV"
+    },
+    {
+      "nodeId": "NODE_INSURANCE",
+      "name": "동방화재보험 본사",
+      "x": 420,
+      "y": 760,
+      "isInitiallyUnlocked": true,
+      "description": "화재보험 24억 약관 심사 기관"
+    },
+    {
+      "nodeId": "NODE_CEO_OFFICE",
+      "name": "한상철(A) 대표 사무실",
+      "x": 280,
+      "y": 820,
+      "isInitiallyUnlocked": true,
+      "description": "창고 대표 개인 사무실"
+    },
+    {
+      "nodeId": "NODE_SHINSUNG",
+      "name": "신성테크 물류센터",
+      "x": 860,
+      "y": 360,
+      "isInitiallyUnlocked": true,
+      "description": "위탁 화주사 및 조현우(B) 근무지"
+    },
+    {
+      "nodeId": "NODE_FORENSIC_LAB",
+      "name": "가디언 방재감정원",
+      "x": 740,
+      "y": 780,
+      "isInitiallyUnlocked": true,
+      "description": "감정사 나기철(C) 사무실"
+    }
   ],
   "travelEdges": [
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_WAREHOUSE", "minutes": 25 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_INSURANCE", "minutes": 20 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_CEO_OFFICE", "minutes": 20 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_SHINSUNG", "minutes": 35 },
-    { "nodeA": "NODE_STATION", "nodeB": "NODE_FORENSIC_LAB", "minutes": 25 },
-    { "nodeA": "NODE_WAREHOUSE", "nodeB": "NODE_INSURANCE", "minutes": 30 },
-    { "nodeA": "NODE_WAREHOUSE", "nodeB": "NODE_CEO_OFFICE", "minutes": 25 },
-    { "nodeA": "NODE_WAREHOUSE", "nodeB": "NODE_SHINSUNG", "minutes": 15 },
-    { "nodeA": "NODE_WAREHOUSE", "nodeB": "NODE_FORENSIC_LAB", "minutes": 30 },
-    { "nodeA": "NODE_INSURANCE", "nodeB": "NODE_CEO_OFFICE", "minutes": 10 },
-    { "nodeA": "NODE_INSURANCE", "nodeB": "NODE_SHINSUNG", "minutes": 40 },
-    { "nodeA": "NODE_INSURANCE", "nodeB": "NODE_FORENSIC_LAB", "minutes": 15 },
-    { "nodeA": "NODE_CEO_OFFICE", "nodeB": "NODE_SHINSUNG", "minutes": 35 },
-    { "nodeA": "NODE_CEO_OFFICE", "nodeB": "NODE_FORENSIC_LAB", "minutes": 20 },
-    { "nodeA": "NODE_SHINSUNG", "nodeB": "NODE_FORENSIC_LAB", "minutes": 35 }
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_WAREHOUSE",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_INSURANCE",
+      "minutes": 20
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_CEO_OFFICE",
+      "minutes": 20
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_SHINSUNG",
+      "minutes": 35
+    },
+    {
+      "nodeA": "NODE_STATION",
+      "nodeB": "NODE_FORENSIC_LAB",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_WAREHOUSE",
+      "nodeB": "NODE_INSURANCE",
+      "minutes": 30
+    },
+    {
+      "nodeA": "NODE_WAREHOUSE",
+      "nodeB": "NODE_CEO_OFFICE",
+      "minutes": 25
+    },
+    {
+      "nodeA": "NODE_WAREHOUSE",
+      "nodeB": "NODE_SHINSUNG",
+      "minutes": 15
+    },
+    {
+      "nodeA": "NODE_WAREHOUSE",
+      "nodeB": "NODE_FORENSIC_LAB",
+      "minutes": 30
+    },
+    {
+      "nodeA": "NODE_INSURANCE",
+      "nodeB": "NODE_CEO_OFFICE",
+      "minutes": 10
+    },
+    {
+      "nodeA": "NODE_INSURANCE",
+      "nodeB": "NODE_SHINSUNG",
+      "minutes": 40
+    },
+    {
+      "nodeA": "NODE_INSURANCE",
+      "nodeB": "NODE_FORENSIC_LAB",
+      "minutes": 15
+    },
+    {
+      "nodeA": "NODE_CEO_OFFICE",
+      "nodeB": "NODE_SHINSUNG",
+      "minutes": 35
+    },
+    {
+      "nodeA": "NODE_CEO_OFFICE",
+      "nodeB": "NODE_FORENSIC_LAB",
+      "minutes": 20
+    },
+    {
+      "nodeA": "NODE_SHINSUNG",
+      "nodeB": "NODE_FORENSIC_LAB",
+      "minutes": 35
+    }
   ],
   "actions": [
     {
@@ -266,8 +398,12 @@
       "category": "FORENSIC",
       "baseWorkMinutes": 90,
       "reportMinutes": 15,
-      "rewardDocIds": ["EV_EP3_DOC_WAREHOUSE_LAB"],
-      "rewardCctvIds": ["EV_EP3_CCTV_ALLEY"],
+      "rewardDocIds": [
+        "EV_EP3_DOC_WAREHOUSE_LAB"
+      ],
+      "rewardCctvIds": [
+        "EV_EP3_CCTV_ALLEY"
+      ],
       "partnerReportMessage": "누전차단기가 발화 11분 뒤에 떨어졌습니다! 누전이 아니라 방화고, 불탄 박스 안엔 반도체 대신 벽돌과 폐지만 가득했습니다."
     },
     {
@@ -277,7 +413,9 @@
       "category": "EXTERNAL_AGENCY",
       "baseWorkMinutes": 60,
       "reportMinutes": 15,
-      "rewardDocIds": ["EV_EP3_DOC_POLICY"],
+      "rewardDocIds": [
+        "EV_EP3_DOC_POLICY"
+      ],
       "partnerReportMessage": "약관 제14조 확인했습니다. 위탁 화물은 면책이라 한상철 대표는 불이 나면 오히려 18억 물어주고 파산합니다."
     },
     {
@@ -287,7 +425,9 @@
       "category": "INVESTIGATION",
       "baseWorkMinutes": 60,
       "reportMinutes": 15,
-      "rewardDocIds": [],
+      "rewardDocIds": [
+
+      ],
       "partnerReportMessage": "[특이사항 없음] 자금난은 맞지만 화재 직전까지 은행 대출 연장 합의서를 작성 중이었습니다. 한상철은 용의선상에서 지우셔도 됩니다."
     },
     {
@@ -297,7 +437,9 @@
       "category": "INVESTIGATION",
       "baseWorkMinutes": 60,
       "reportMinutes": 15,
-      "rewardDocIds": ["EV_EP3_DOC_CARD_LOG"],
+      "rewardDocIds": [
+        "EV_EP3_DOC_CARD_LOG"
+      ],
       "partnerReportMessage": "18시에 퇴근했다던 조현우 팀장, 전날 밤 23시 36분에 본인 사원증으로 B구역에 들어갔습니다! 게다가 다음 주가 정기 재고 실사네요."
     },
     {
@@ -307,7 +449,9 @@
       "category": "FORENSIC",
       "baseWorkMinutes": 90,
       "reportMinutes": 15,
-      "rewardDocIds": [],
+      "rewardDocIds": [
+
+      ],
       "volatileBonusDocId": "EV_META_EP03_EXPERT",
       "partnerReportMessage": "나기철 PC에서 화재 3시간 전에 작성된 누전 소견서 초안 파일 확보했습니다. 게다가 기밀 아카이브 대조 결과 2021년 서진우 선배님 파면 사건 조작 감정사와 동일인물입니다!"
     },
@@ -320,24 +464,48 @@
       "reportMinutes": 15,
       "requiresTargetSelect": true,
       "targetOptions": [
-        { "targetId": "SUSPECT_A", "label": "한상철 (창고 대표)", "rewardDocIds": [], "partnerReportMessage": "[특이사항 없음] 연체 대출 연장 서류만 확인됩니다." },
-        { "targetId": "SUSPECT_B", "label": "조현우 (신성테크 팀장)", "rewardDocIds": ["EV_EP3_DOC_BRIBE"], "partnerReportMessage": "조현우 계좌에서 암시장 장물 처분금과 나기철 감정사에게 보낸 5,000만 원 차명 송금이 포착됐습니다!" }
+        {
+          "targetId": "SUSPECT_A",
+          "label": "한상철 (창고 대표)",
+          "rewardDocIds": [
+
+          ],
+          "partnerReportMessage": "[특이사항 없음] 연체 대출 연장 서류만 확인됩니다.",
+          "isInitiallyDiscovered": false
+        },
+        {
+          "targetId": "SUSPECT_B",
+          "label": "조현우 (신성테크 팀장)",
+          "rewardDocIds": [
+            "EV_EP3_DOC_BRIBE"
+          ],
+          "partnerReportMessage": "조현우 계좌에서 암시장 장물 처분금과 나기철 감정사에게 보낸 5,000만 원 차명 송금이 포착됐습니다!",
+          "isInitiallyDiscovered": false
+        }
       ]
     }
   ],
   "dbEntries": [
     {
-      "keywords": ["58모4192", "58모 4192"],
+      "keywords": [
+        "58모4192",
+        "58모 4192"
+      ],
       "displayName": "차량 58모 4192 (말소 대포차)",
       "recordText": "차종: 회색 대형 승합차. 2025년 9월 말소 등록된 불법 대포차. 성수동 일대 유통 정황."
     },
     {
-      "keywords": ["조현우"],
+      "keywords": [
+        "조현우"
+      ],
       "displayName": "조현우 (38세, 남)",
-      "recordText": "전과: 없음. FIU 참고 기록: 최근 6개월간 해외 카지노 출입 및 고액 현금 분산 입금 의심."
+      "recordText": "전과: 없음. FIU 참고 기록: 최근 6개월간 해외 카지노 출입 및 고액 현금 분산 입금 의심.",
+      "revealsSuspectId": "SUSPECT_B"
     },
     {
-      "keywords": ["나기철"],
+      "keywords": [
+        "나기철"
+      ],
       "displayName": "나기철 (49세, 남)",
       "recordText": "가디언 방재감정원 수석 감정사. 기밀 참고: 2021년 남부항만 비자금 사건 외부 자문 이력."
     }
@@ -345,26 +513,44 @@
   "answerRule": {
     "correctCulpritId": "SUSPECT_B",
     "culpritOptions": [
-      { "id": "SUSPECT_A", "label": "한상철 (창고 대표)", "wrongFeedback": "동방화재 약관 제14조상 한상철은 불이 나면 오히려 18억을 배상하고 파산합니다." },
-      { "id": "SUSPECT_B", "label": "조현우 (신성테크 팀장 / 공범 나기철)", "wrongFeedback": "" }
+      {
+        "id": "SUSPECT_A",
+        "label": "한상철 (창고 대표)",
+        "wrongFeedback": "동방화재 약관 제14조상 한상철은 불이 나면 오히려 18억을 배상하고 파산합니다."
+      },
+      {
+        "id": "SUSPECT_B",
+        "label": "조현우 (신성테크 팀장 / 공범 나기철)",
+        "wrongFeedback": ""
+      }
     ],
     "slots": [
       {
         "slotId": "SLOT_REFUTE_ACCIDENT",
         "label": "단순 누전 반박 (전력 로그 또는 PDF 조작)",
-        "acceptedEvidenceIds": ["EV_EP3_DOC_POWER_LOG", "EV_EP3_META_PDF_TIME"],
+        "acceptedEvidenceIds": [
+          "EV_EP3_DOC_POWER_LOG",
+          "EV_EP3_META_PDF_TIME"
+        ],
         "wrongFeedback": "발화 11분 뒤에 떨어진 차단기 전력 로그나, 화재 3시간 전 작성된 소견서 PDF 메타데이터를 제시해야 합니다."
       },
       {
         "slotId": "SLOT_TRESPASS",
         "label": "야간 침입 및 방화 물증",
-        "acceptedEvidenceIds": ["EV_EP3_DOC_CARD_LOG", "EV_EP3_CAP_LOGO", "EV_EP3_CAP_VAN_PLATE"],
+        "acceptedEvidenceIds": [
+          "EV_EP3_DOC_CARD_LOG",
+          "EV_EP3_CAP_LOGO",
+          "EV_EP3_CAP_VAN_PLATE"
+        ],
         "wrongFeedback": "18시에 퇴근했다던 조현우가 그날 밤 창고에 들어갔다는 출입 기록이나 뒷골목 CCTV 캡처가 필요합니다."
       },
       {
         "slotId": "SLOT_MOTIVE",
         "label": "횡령 은폐 동기 및 공범 매수",
-        "acceptedEvidenceIds": ["EV_EP3_DOC_DEBRIS", "EV_EP3_DOC_BRIBE"],
+        "acceptedEvidenceIds": [
+          "EV_EP3_DOC_DEBRIS",
+          "EV_EP3_DOC_BRIBE"
+        ],
         "wrongFeedback": "부품 대신 벽돌·폐지만 남은 잔해 감식 결과나 나기철 매수 5,000만 원 송금 내역을 첨부해 주십시오."
       }
     ]

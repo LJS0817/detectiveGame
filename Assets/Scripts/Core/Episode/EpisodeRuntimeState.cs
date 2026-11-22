@@ -1,0 +1,283 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using ColdCaseOS.Data;
+using UnityEngine;
+
+namespace ColdCaseOS.Core
+{
+    /// <summary>
+    /// 현재 진행 중인 에피소드의 단일 진실 공급원(Single Source of Truth).
+    /// 모든 앱은 이 상태를 읽고 메서드를 통해 변경하며, 변경 시 GameEvents를 발행합니다.
+    /// </summary>
+    public class EpisodeRuntimeState
+    {
+        public EpisodeData Episode { get; private set; }
+        public int ElapsedMinutes { get; set; }
+        public bool IsOvertime { get; set; }
+        public bool VolatileDeadlineNotified { get; set; }
+        public string CurrentPartnerNodeId { get; set; }
+        public VolatileClueState CurrentVolatileClueState { get; set; } = VolatileClueState.None;
+
+        public HashSet<string> UnlockedNodeIds { get; } = new HashSet<string>();
+        public HashSet<string> UnlockedDocIds { get; } = new HashSet<string>();
+        public HashSet<string> UnlockedPhotoIds { get; } = new HashSet<string>();
+        public HashSet<string> UnlockedCctvIds { get; } = new HashSet<string>();
+        public HashSet<string> UnlockedAudioIds { get; } = new HashSet<string>();
+        public HashSet<string> DiscoveredSuspectIds { get; } = new HashSet<string>();
+        public HashSet<string> ReadItemIds { get; } = new HashSet<string>();
+        public HashSet<string> CompletedActionKeys { get; } = new HashSet<string>();
+
+        public List<UserClueCard> ClueCards { get; } = new List<UserClueCard>();
+        public List<StickyNoteData> StickyNotes { get; } = new List<StickyNoteData>();
+        public List<MessengerMessageData> MessengerLogs { get; } = new List<MessengerMessageData>();
+
+        public void InitializeNew(EpisodeData episode)
+        {
+            Episode = episode ?? throw new ArgumentNullException(nameof(episode));
+            ElapsedMinutes = 0;
+            IsOvertime = false;
+            VolatileDeadlineNotified = false;
+            CurrentPartnerNodeId = episode.startNodeId;
+            CurrentVolatileClueState = VolatileClueState.None;
+
+            UnlockedNodeIds.Clear();
+            UnlockedDocIds.Clear();
+            UnlockedPhotoIds.Clear();
+            UnlockedCctvIds.Clear();
+            UnlockedAudioIds.Clear();
+            DiscoveredSuspectIds.Clear();
+            ReadItemIds.Clear();
+            CompletedActionKeys.Clear();
+            ClueCards.Clear();
+            StickyNotes.Clear();
+            MessengerLogs.Clear();
+
+            foreach (var n in episode.mapNodes)
+                if (n.isInitiallyUnlocked) UnlockedNodeIds.Add(n.nodeId);
+
+            foreach (var d in episode.documents)
+                if (d.isInitial) UnlockedDocIds.Add(d.docId);
+
+            foreach (var p in episode.photos)
+                if (p.isInitial) UnlockedPhotoIds.Add(p.photoId);
+
+            foreach (var c in episode.cctvClips)
+                if (c.isInitial) UnlockedCctvIds.Add(c.clipId);
+
+            foreach (var a in episode.audioClips)
+                if (a.isInitial) UnlockedAudioIds.Add(a.audioId);
+
+            foreach (var act in episode.actions)
+            {
+                if (act.targetOptions == null) continue;
+                foreach (var opt in act.targetOptions)
+                    if (opt.isInitiallyDiscovered) DiscoveredSuspectIds.Add(opt.targetId);
+            }
+        }
+
+        public void RestoreFromSnapshot(EpisodeData episode, EpisodeRuntimeSnapshot snap)
+        {
+            InitializeNew(episode);
+            if (snap == null || snap.episodeId != episode.episodeId) return;
+
+            ElapsedMinutes = snap.elapsedMinutes;
+            IsOvertime = snap.isOvertime;
+            VolatileDeadlineNotified = snap.volatileDeadlineNotified;
+            CurrentPartnerNodeId = string.IsNullOrEmpty(snap.currentPartnerNodeId) ? episode.startNodeId : snap.currentPartnerNodeId;
+
+            UnlockedNodeIds.UnionWith(snap.unlockedNodeIds);
+            UnlockedDocIds.UnionWith(snap.unlockedDocIds);
+            UnlockedPhotoIds.UnionWith(snap.unlockedPhotoIds);
+            UnlockedCctvIds.UnionWith(snap.unlockedCctvIds);
+            UnlockedAudioIds.UnionWith(snap.unlockedAudioIds);
+            if (snap.discoveredSuspectIds != null) DiscoveredSuspectIds.UnionWith(snap.discoveredSuspectIds);
+            ReadItemIds.UnionWith(snap.readItemIds);
+            CompletedActionKeys.UnionWith(snap.completedActionKeys);
+
+            if (snap.clueCards != null) ClueCards.AddRange(snap.clueCards);
+            if (snap.stickyNotes != null) StickyNotes.AddRange(snap.stickyNotes);
+            if (snap.messengerLogs != null) MessengerLogs.AddRange(snap.messengerLogs);
+        }
+
+        public EpisodeRuntimeSnapshot ExportSnapshot()
+        {
+            return new EpisodeRuntimeSnapshot
+            {
+                episodeId = Episode.episodeId,
+                elapsedMinutes = ElapsedMinutes,
+                isOvertime = IsOvertime,
+                volatileDeadlineNotified = VolatileDeadlineNotified,
+                currentPartnerNodeId = CurrentPartnerNodeId,
+                unlockedNodeIds = UnlockedNodeIds.ToList(),
+                unlockedDocIds = UnlockedDocIds.ToList(),
+                unlockedPhotoIds = UnlockedPhotoIds.ToList(),
+                unlockedCctvIds = UnlockedCctvIds.ToList(),
+                unlockedAudioIds = UnlockedAudioIds.ToList(),
+                discoveredSuspectIds = DiscoveredSuspectIds.ToList(),
+                readItemIds = ReadItemIds.ToList(),
+                completedActionKeys = CompletedActionKeys.ToList(),
+                clueCards = new List<UserClueCard>(ClueCards),
+                stickyNotes = new List<StickyNoteData>(StickyNotes),
+                messengerLogs = new List<MessengerMessageData>(MessengerLogs)
+            };
+        }
+
+        public void AddClueCard(UserClueCard card)
+        {
+            if (card == null) return;
+            ClueCards.Add(card);
+            GameEvents.RaiseClueCardAdded(card);
+            GameEvents.RaiseSfxRequested("SFX_TEXT_DRAG_ADD");
+            GameEvents.RaiseToastRequested("증거판에 추가됨", card.displayTitle);
+        }
+
+        public UserClueCard GetClueCard(string cardId) => ClueCards.Find(c => c.cardId == cardId);
+
+        public void ToggleDismissCard(string cardId)
+        {
+            var card = GetClueCard(cardId);
+            if (card == null) return;
+            card.isDismissed = !card.isDismissed;
+            GameEvents.RaiseClueCardUpdated(card);
+        }
+
+        public void SetTrashState(string cardId, bool inTrash)
+        {
+            var card = GetClueCard(cardId);
+            if (card == null) return;
+            card.isInTrash = inTrash;
+            GameEvents.RaiseClueCardUpdated(card);
+        }
+
+        public void ToggleWireConnection(string cardIdA, string cardIdB)
+        {
+            if (string.IsNullOrEmpty(cardIdA) || string.IsNullOrEmpty(cardIdB) || cardIdA == cardIdB) return;
+            var a = GetClueCard(cardIdA);
+            var b = GetClueCard(cardIdB);
+            if (a == null || b == null) return;
+
+            if (a.connectedCardIds.Contains(cardIdB))
+            {
+                a.connectedCardIds.Remove(cardIdB);
+                b.connectedCardIds.Remove(cardIdA);
+            }
+            else
+            {
+                a.connectedCardIds.Add(cardIdB);
+                b.connectedCardIds.Add(cardIdA);
+            }
+
+            GameEvents.RaiseClueCardUpdated(a);
+            GameEvents.RaiseClueCardUpdated(b);
+        }
+
+        public bool DiscoverSuspect(string suspectId, string displayLabel = "")
+        {
+            if (string.IsNullOrEmpty(suspectId) || !DiscoveredSuspectIds.Add(suspectId)) return false;
+
+            string resolvedLabel = displayLabel;
+            if (string.IsNullOrEmpty(resolvedLabel) && Episode != null)
+            {
+                var culpritOpt = Episode.answerRule?.culpritOptions?.Find(c => c.id == suspectId);
+                if (culpritOpt != null) resolvedLabel = culpritOpt.label;
+                else
+                {
+                    foreach (var act in Episode.actions)
+                    {
+                        var targetOpt = act.targetOptions?.Find(t => t.targetId == suspectId);
+                        if (targetOpt != null)
+                        {
+                            resolvedLabel = targetOpt.label;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            GameEvents.RaiseSuspectDiscovered(suspectId);
+            if (!string.IsNullOrEmpty(resolvedLabel))
+                GameEvents.RaiseToastRequested("관련 인물 등록", resolvedLabel);
+            return true;
+        }
+
+        public void DiscoverSuspects(IEnumerable<string> suspectIds)
+        {
+            if (suspectIds == null) return;
+            foreach (var sid in suspectIds)
+                DiscoverSuspect(sid);
+        }
+
+        public bool UnlockNode(string nodeId)
+        {
+            if (string.IsNullOrEmpty(nodeId) || !UnlockedNodeIds.Add(nodeId)) return false;
+            var node = Episode.mapNodes.Find(n => n.nodeId == nodeId);
+            GameEvents.RaiseNodeUnlocked(nodeId);
+            GameEvents.RaiseToastRequested("신규 조사 장소 해금", node != null ? node.name : nodeId);
+            return true;
+        }
+
+        public void UnlockDocument(string docId)
+        {
+            if (!string.IsNullOrEmpty(docId) && UnlockedDocIds.Add(docId))
+                GameEvents.RaiseItemUnlocked(docId);
+        }
+
+        public void UnlockPhoto(string photoId)
+        {
+            if (!string.IsNullOrEmpty(photoId) && UnlockedPhotoIds.Add(photoId))
+                GameEvents.RaiseItemUnlocked(photoId);
+        }
+
+        public void UnlockCctv(string clipId)
+        {
+            if (!string.IsNullOrEmpty(clipId) && UnlockedCctvIds.Add(clipId))
+                GameEvents.RaiseItemUnlocked(clipId);
+        }
+
+        public void UnlockAudio(string audioId)
+        {
+            if (!string.IsNullOrEmpty(audioId) && UnlockedAudioIds.Add(audioId))
+                GameEvents.RaiseItemUnlocked(audioId);
+        }
+
+        public void MarkItemRead(string itemId)
+        {
+            if (!string.IsNullOrEmpty(itemId) && ReadItemIds.Add(itemId))
+                GameEvents.RaiseItemMarkedRead(itemId);
+        }
+
+        public static string BuildActionKey(string actionId, string targetId = "")
+            => string.IsNullOrEmpty(targetId) ? actionId : $"{actionId}::{targetId}";
+
+        public bool IsActionCompleted(string actionId, string targetId = "")
+            => CompletedActionKeys.Contains(BuildActionKey(actionId, targetId));
+
+        public void MarkActionCompleted(string actionId, string targetId = "")
+        {
+            CompletedActionKeys.Add(BuildActionKey(actionId, targetId));
+            GameEvents.RaiseActionCompleted(actionId, targetId);
+        }
+
+        public void AddMessengerMessage(
+            string sender,
+            string body,
+            string timestamp,
+            bool isSystemAlert = false,
+            List<string> revealsSuspectIds = null)
+        {
+            var msg = new MessengerMessageData
+            {
+                sender = sender,
+                body = body,
+                timestamp = timestamp,
+                isSystemAlert = isSystemAlert,
+                revealsSuspectIds = revealsSuspectIds ?? new List<string>()
+            };
+            MessengerLogs.Add(msg);
+            DiscoverSuspects(msg.revealsSuspectIds);
+            GameEvents.RaiseMessengerMessageAdded(msg);
+            GameEvents.RaiseSfxRequested("SFX_MSG_NOTIFY");
+        }
+    }
+}
