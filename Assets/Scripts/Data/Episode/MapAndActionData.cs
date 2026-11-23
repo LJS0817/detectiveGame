@@ -52,7 +52,6 @@ namespace ColdCaseOS.Data
         [JsonProperty("rewardDocIds")] public List<string> rewardDocIds = new List<string>();
         [JsonProperty("rewardPhotoIds")] public List<string> rewardPhotoIds = new List<string>();
         [JsonProperty("rewardCctvIds")] public List<string> rewardCctvIds = new List<string>();
-        [JsonProperty("rewardAudioIds")] public List<string> rewardAudioIds = new List<string>();
         [JsonProperty("volatileBonusDocId")] public string volatileBonusDocId;
         [JsonProperty("partnerReportMessage")] public string partnerReportMessage;
 

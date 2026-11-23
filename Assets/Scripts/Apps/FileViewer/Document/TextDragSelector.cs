@@ -26,6 +26,8 @@ namespace ColdCaseOS.Apps.FileViewer
         private TMP_Text _tmpText;
         private Canvas _rootCanvas;
         private DocumentData _currentDoc;
+        private string _segmentText;
+        private int _sourceStartOffset;
 
         private bool _isDragging;
         private int _startCharIdx = -1;
@@ -37,9 +39,16 @@ namespace ColdCaseOS.Apps.FileViewer
             _rootCanvas = GetComponentInParent<Canvas>();
         }
 
-        public void BindDocument(DocumentData doc)
+        public void ConfigureToolbar(FloatingClueToolbar toolbar)
+        {
+            floatingToolbar = toolbar;
+        }
+
+        public void BindDocument(DocumentData doc, string segmentText = null, int sourceStartOffset = 0)
         {
             _currentDoc = doc;
+            _segmentText = segmentText ?? doc?.bodyText ?? string.Empty;
+            _sourceStartOffset = Mathf.Max(0, sourceStartOffset);
             ClearSelection();
         }
 
@@ -112,12 +121,16 @@ namespace ColdCaseOS.Apps.FileViewer
         {
             if (_currentDoc == null || AppRoot.Instance == null) return;
 
-            string fullText = _currentDoc.bodyText ?? string.Empty;
-            int safeStart = Mathf.Clamp(minIdx, 0, fullText.Length - 1);
-            int safeLen = Mathf.Clamp(maxIdx - safeStart + 1, 1, fullText.Length - safeStart);
-            string excerpt = fullText.Substring(safeStart, safeLen).Trim();
+            string sourceText = !string.IsNullOrEmpty(_segmentText) ? _segmentText : (_currentDoc.bodyText ?? string.Empty);
+            if (string.IsNullOrEmpty(sourceText)) return;
 
-            string matchedEvidenceId = EvaluateHiddenEvidenceId(safeStart, safeStart + safeLen - 1);
+            int safeStart = Mathf.Clamp(minIdx, 0, sourceText.Length - 1);
+            int safeLen = Mathf.Clamp(maxIdx - safeStart + 1, 1, sourceText.Length - safeStart);
+            string excerpt = sourceText.Substring(safeStart, safeLen).Trim();
+
+            int globalStart = _sourceStartOffset + safeStart;
+            int globalEnd = globalStart + safeLen - 1;
+            string matchedEvidenceId = EvaluateHiddenEvidenceId(globalStart, globalEnd);
             string shortTitle = $"[{_currentDoc.title}] 발췌";
 
             var card = UserClueCard.Create(

@@ -25,7 +25,6 @@ namespace ColdCaseOS.Data
         [JsonProperty("documents")] public List<DocumentData> documents = new List<DocumentData>();
         [JsonProperty("photos")] public List<PhotoData> photos = new List<PhotoData>();
         [JsonProperty("cctvClips")] public List<CctvClipData> cctvClips = new List<CctvClipData>();
-        [JsonProperty("audioClips")] public List<AudioClipData> audioClips = new List<AudioClipData>();
 
         [JsonProperty("mapNodes")] public List<MapNodeData> mapNodes = new List<MapNodeData>();
         [JsonProperty("travelEdges")] public List<TravelEdgeData> travelEdges = new List<TravelEdgeData>();

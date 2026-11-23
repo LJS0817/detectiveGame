@@ -5,7 +5,6 @@ using ColdCaseOS.Data;
 using Cysharp.Threading.Tasks;
 using Newtonsoft.Json;
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace ColdCaseOS.Core
 {
@@ -53,36 +52,6 @@ namespace ColdCaseOS.Core
             if (File.Exists(assetsDataPath)) return assetsDataPath;
 
             return Path.Combine(Application.dataPath, "Project", "Data", "Episodes", relativePath);
-        }
-
-        public static async UniTask<AudioClip> LoadAudioClipAsync(string relativePath, CancellationToken ct = default)
-        {
-            string fullPath = GetMediaFullPath(relativePath);
-            if (!File.Exists(fullPath))
-            {
-                Debug.LogWarning($"[EpisodeLoader] 오디오 파일 없음: {fullPath}");
-                return null;
-            }
-
-            string ext = Path.GetExtension(fullPath).ToLowerInvariant();
-            AudioType audioType = ext switch
-            {
-                ".ogg" => AudioType.OGGVORBIS,
-                ".mp3" => AudioType.MPEG,
-                _ => AudioType.WAV
-            };
-
-            string uri = new Uri(fullPath).AbsoluteUri;
-            using var req = UnityWebRequestMultimedia.GetAudioClip(uri, audioType);
-            await req.SendWebRequest().WithCancellation(ct);
-
-            if (req.result != UnityWebRequest.Result.Success)
-            {
-                Debug.LogWarning($"[EpisodeLoader] 오디오 로드 실패 ({fullPath}): {req.error}");
-                return null;
-            }
-
-            return DownloadHandlerAudioClip.GetContent(req);
         }
 
         public static async UniTask<Texture2D> LoadTextureAsync(string relativePath, CancellationToken ct = default)

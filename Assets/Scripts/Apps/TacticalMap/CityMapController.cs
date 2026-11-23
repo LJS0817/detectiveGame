@@ -224,7 +224,6 @@ namespace ColdCaseOS.Apps.TacticalMap
             foreach (var id in action.rewardDocIds) state.UnlockDocument(id);
             foreach (var id in action.rewardPhotoIds) state.UnlockPhoto(id);
             foreach (var id in action.rewardCctvIds) state.UnlockCctv(id);
-            foreach (var id in action.rewardAudioIds) state.UnlockAudio(id);
 
             if (targetOption != null)
             {

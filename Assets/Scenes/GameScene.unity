@@ -6783,7 +6783,7 @@ GameObject:
   - component: {fileID: 404974597}
   - component: {fileID: 404974596}
   m_Layer: 0
-  m_Name: Image
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6821,14 +6821,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8490566, g: 0.81835175, b: 0.756942, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1404028623067837608, guid: b94ea1ae93e3e4b3f8f0d522be2fd931, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11032,7 +11032,7 @@ GameObject:
   - component: {fileID: 632456829}
   - component: {fileID: 632456828}
   m_Layer: 0
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25005,7 +25005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ColdCaseOS.Apps.FileViewer.DocumentViewer
   windowId: DocumentViewer
-  titleBarBackground: {fileID: 0}
+  titleBarBackground: {fileID: 1498295157}
   focusedTitleColor: {r: 0.173, g: 0.173, b: 0.173, a: 1}
   unfocusedTitleColor: {r: 0.353, g: 0.337, b: 0.314, a: 1}
   animDuration: 0.16
@@ -25014,12 +25014,30 @@ MonoBehaviour:
   dragSelector: {fileID: 924690689}
   floatingToolbar: {fileID: 1454963006}
   scrollRect: {fileID: 428229701}
-  toggleMetadataBarButton: {fileID: 0}
   metadataContentPanel: {fileID: 1498328949}
   createdAtButton: {fileID: 1904533863}
   modifiedAtButton: {fileID: 1664197012}
   authorButton: {fileID: 400018789}
   sourceFileButton: {fileID: 1446314377}
+  headerBoxColor: {r: 0.173, g: 0.173, b: 0.173, a: 1}
+  headerTextColor: {r: 0.965, g: 0.953, b: 0.925, a: 1}
+  investigatorBoxColor: {r: 0.894, g: 0.867, b: 0.816, a: 1}
+  investigatorAccentColor: {r: 0.173, g: 0.173, b: 0.173, a: 1}
+  witnessBoxColor: {r: 0.98, g: 0.973, b: 0.953, a: 1}
+  suspectAccentColor: {r: 0.51, g: 0.141, b: 0.141, a: 1}
+  witnessAccentColor: {r: 0.706, g: 0.525, b: 0.141, a: 1}
+  bodyInkColor: {r: 0.11, g: 0.106, b: 0.098, a: 1}
+--- !u!114 &1498295157 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 558179076409019293, guid: d8416979e0b5cf04583aa6629ca3fbb7, type: 3}
+  m_PrefabInstance: {fileID: 1498295152}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1498328949
 GameObject:
   m_ObjectHideFlags: 0

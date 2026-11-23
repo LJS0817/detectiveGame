@@ -135,7 +135,6 @@ namespace ColdCaseOS.EditorTools
             registeredWindows.Add(BuildDocumentViewerWindow(desktopRect));
             registeredWindows.Add(BuildPhotoInspectorWindow(desktopRect));
             registeredWindows.Add(BuildCctvVideoWindow(desktopRect));
-            registeredWindows.Add(BuildAudioWaveWindow(desktopRect));
             registeredWindows.Add(BuildEvidenceBoardWindow(desktopRect, clueCardPrefab, stickyNotePrefab, pinWirePrefab, actionButtonPrefab));
             registeredWindows.Add(BuildTacticalMapWindow(desktopRect, mapNodePrefab, actionButtonPrefab));
             registeredWindows.Add(BuildPoliceDbWindow(desktopRect, actionButtonPrefab));
@@ -417,16 +416,14 @@ namespace ColdCaseOS.EditorTools
             var bodyTxt = CreateText("DocBodyText", scroll.content, "", 17, TextAlignmentOptions.TopLeft, Vector2.zero, new Vector2(548, 1200), InkTextColor);
             var dragSelector = bodyTxt.gameObject.AddComponent<TextDragSelector>();
 
-            // 하단 접이식 메타데이터 바
-            var toggleMetaBtn = CreateButton("ToggleMetadataBarBtn", body, "파일 메타데이터 속성 ▾", new Vector2(0, -236), new Vector2(588, 30));
+            // 하단 상시 표시 메타데이터 바
             var metaPanel = CreateCenteredPanel("MetadataContentPanel", body, new Vector2(588, 86), TitleBarBg);
-            metaPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -296);
+            metaPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -280);
 
             var createdBtn = CreateButton("MetaCreatedBtn", metaPanel.transform, "생성: -", new Vector2(-144, 20), new Vector2(280, 32));
             var modifiedBtn = CreateButton("MetaModifiedBtn", metaPanel.transform, "수정: -", new Vector2(144, 20), new Vector2(280, 32));
             var authorBtn = CreateButton("MetaAuthorBtn", metaPanel.transform, "작성자: -", new Vector2(-144, -20), new Vector2(280, 32));
             var sourceBtn = CreateButton("MetaSourceBtn", metaPanel.transform, "원본: -", new Vector2(144, -20), new Vector2(280, 32));
-            metaPanel.SetActive(false);
 
             // 본문 드래그 & 메타데이터 클릭 공용 플로팅 툴바
             var toolbarGo = CreateCenteredPanel("FloatingClueToolbar", body, new Vector2(240, 48), TitleBarBg);
@@ -442,7 +439,6 @@ namespace ColdCaseOS.EditorTools
                 ("dragSelector", dragSelector),
                 ("floatingToolbar", toolbar),
                 ("scrollRect", scroll),
-                ("toggleMetadataBarButton", toggleMetaBtn),
                 ("metadataContentPanel", metaPanel),
                 ("createdAtButton", createdBtn),
                 ("modifiedAtButton", modifiedBtn),
@@ -557,32 +553,6 @@ namespace ColdCaseOS.EditorTools
                 ("brightnessSlider", brightSlider),
                 ("contrastSlider", contrastSlider),
                 ("captureButton", capBtn));
-            return win;
-        }
-
-        private static OSWindow BuildAudioWaveWindow(Transform parent)
-        {
-            var (win, body) = CreateOSWindow<AudioWaveAnalyzer>(parent, "AudioWave", "오디오 노이즈 필터 분석기", new Vector2(560, 420), new Vector2(220, -40));
-            var src = win.gameObject.AddComponent<AudioSource>();
-            src.playOnAwake = false;
-            var lpf = win.gameObject.AddComponent<AudioLowPassFilter>();
-
-            var titleTxt = CreateText("AudioTitle", body, "녹취 파일", 18, TextAlignmentOptions.Left, new Vector2(0, 150), new Vector2(510, 30));
-            var statusTxt = CreateText("StatusText", body, "노이즈 필터 대역", 15, TextAlignmentOptions.Left, new Vector2(0, 112), new Vector2(510, 26));
-            var slider = CreateSlider("CutoffSlider", body, new Vector2(0, 72), new Vector2(500, 24));
-            var transcriptTxt = CreateText("TranscriptText", body, "", 16, TextAlignmentOptions.TopLeft, new Vector2(0, -30), new Vector2(510, 140));
-            var playBtn = CreateButton("PlayPauseBtn", body, "재생/일시정지", new Vector2(-130, -145), new Vector2(180, 40));
-            var extractBtn = CreateButton("ExtractClueBtn", body, "증거판에 녹취록 추가", new Vector2(130, -145), new Vector2(220, 40));
-
-            SetProps(win,
-                ("audioSource", src),
-                ("lowPassFilter", lpf),
-                ("titleText", titleTxt),
-                ("statusText", statusTxt),
-                ("transcriptText", transcriptTxt),
-                ("cutoffSlider", slider),
-                ("playPauseButton", playBtn),
-                ("extractClueButton", extractBtn));
             return win;
         }
 

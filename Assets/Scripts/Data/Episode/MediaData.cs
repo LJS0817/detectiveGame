@@ -86,19 +86,6 @@ namespace ColdCaseOS.Data
     }
 
     [Serializable]
-    public class AudioClipData
-    {
-        [JsonProperty("audioId")] public string audioId;
-        [JsonProperty("title")] public string title;
-        [JsonProperty("isInitial")] public bool isInitial;
-        [JsonProperty("audioPath")] public string audioPath;
-        [JsonProperty("optimalFilterCutoff")] public float optimalFilterCutoff;
-        [JsonProperty("evidenceId")] public string evidenceId;
-        [JsonProperty("transcriptAfterFilter")] public string transcriptAfterFilter;
-        [JsonProperty("revealsSuspectIds")] public List<string> revealsSuspectIds = new List<string>();
-    }
-
-    [Serializable]
     public class VisualClueHitbox
     {
         [JsonProperty("startSec")] public float startSec;

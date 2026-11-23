@@ -1,5 +1,4 @@
 using ColdCaseOS.OS;
-using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -7,17 +6,22 @@ using UnityEngine.UI;
 public class WindowHeader : MonoBehaviour, IBeginDragHandler, IDragHandler
 {
     [SerializeField] private OSWindow _targetWindow;
-    [SerializeField] Button _minimum;
-    [SerializeField] Button _close;
+    [SerializeField] private Button _minimum;
+    [SerializeField] private Button _close;
     private Canvas _rootCanvas;
 
     private void Awake()
     {
         if (_targetWindow == null)
-            _targetWindow = transform.parent.GetComponent<OSWindow>();
+            _targetWindow = GetComponentInParent<OSWindow>();
+
         _rootCanvas = GetComponentInParent<Canvas>();
-        _minimum.onClick.AddListener(_targetWindow.Minimize);
-        _close.onClick.AddListener(_targetWindow.Close);
+
+        if (_targetWindow != null)
+        {
+            if (_minimum != null) _minimum.onClick.AddListener(_targetWindow.Minimize);
+            if (_close != null) _close.onClick.AddListener(_targetWindow.Close);
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)

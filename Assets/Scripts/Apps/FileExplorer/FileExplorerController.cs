@@ -158,16 +158,6 @@ namespace ColdCaseOS.Apps.FileExplorer
                         app.Windows?.GetWindow<CctvVideoController>()?.OpenClip(captured);
                     });
                 }
-
-                foreach (var audio in state.Episode.audioClips)
-                {
-                    if (!state.UnlockedAudioIds.Contains(audio.audioId)) continue;
-                    var captured = audio;
-                    CreateFileRow($"[녹취] {audio.title}", !state.ReadItemIds.Contains(audio.audioId), () =>
-                    {
-                        app.Windows?.GetWindow<AudioWaveAnalyzer>()?.OpenAudioAsync(captured).Forget();
-                    });
-                }
             }
         }
 

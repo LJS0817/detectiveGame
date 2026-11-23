@@ -135,6 +135,25 @@
       "revealsSuspectIds": [
         "TARGET_WEST_PORT_AND_PJT"
       ]
+    },
+    {
+      "docId": "EV_EP7_DOC_CALL_LOG",
+      "title": "성수 데이터센터 VoIP 최종 통화 녹취록 (22:48)",
+      "category": "LOG",
+      "isInitial": false,
+      "paperTemplate": "OFFICIAL_LOG",
+      "bodyText": "[성수 구 데이터센터 암호화 VoIP 게이트웨이 패킷 복호화 녹취록 — 22:48:19]\n\n서버 파기 직전 외부 선박 중계기로 발신된 12초 분량의 최종 통화 기록.\n\n[발신자(서진우)]: \"공항 쪽 미끼는 이미 던져놨어. 경찰 병력은 전부 영종도로 쏠릴 거다.\"\n[수신자(미상 선박 브로커)]: \"배는 예정대로 대기 중입니다. 차량 번호랑 도착 시각 다시 확인해 주십시오.\"\n[발신자(서진우)]: \"23시 30분, 서해 제3부두 4번 선석으로 4198 몰고 바로 들어갈 테니 시동 걸어둬.\"\n[22:48:31] (통화 종료 및 게이트웨이 자가 삭제 명령 실행)",
+      "metadata": null,
+      "hiddenTags": [
+        {
+          "matchSubstring": "23시 30분, 서해 제3부두 4번 선석으로 4198 몰고 바로 들어갈 테니 시동 걸어둬.",
+          "evidenceId": "EV_EP7_AUDIO_PORT"
+        }
+      ],
+      "revealsSuspectIds": [
+        "TARGET_AIRPORT",
+        "TARGET_WEST_PORT_AND_PJT"
+      ]
     }
   ],
   "photos": [
@@ -189,17 +208,6 @@
           "evidenceId": "EV_EP7_CAP_VAN_4198"
         }
       ]
-    }
-  ],
-  "audioClips": [
-    {
-      "audioId": "EV_EP7_AUDIO_PORT",
-      "title": "서진우 은신처 마지막 통화 백업 녹음 (12초)",
-      "isInitial": false,
-      "audioPath": "EP07/EP07_AUDIO_PORT.wav",
-      "optimalFilterCutoff": 0.68,
-      "evidenceId": "EV_EP7_AUDIO_PORT",
-      "transcriptAfterFilter": "[서진우] \"공항 쪽 미끼는 던져놨어. 23시 30분, 서해 제3부두 4번 선석으로 4198 몰고 바로 들어갈 테니 시동 걸어둬.\""
     }
   ],
   "mapNodes": [
@@ -338,10 +346,8 @@
       "baseWorkMinutes": 90,
       "reportMinutes": 15,
       "rewardDocIds": [
-        "EV_EP7_DOC_SERVER_DUMP"
-      ],
-      "rewardAudioIds": [
-        "EV_EP7_AUDIO_PORT"
+        "EV_EP7_DOC_SERVER_DUMP",
+        "EV_EP7_DOC_CALL_LOG"
       ],
       "partnerReportMessage": "서버 덤프 건졌습니다! EP 1·2 계좌(302-XXXX-9912)에서 '서해 제3부두 선박 수리소'로 8,000만 원이 갔고, 통화 백업 파일도 확보했습니다!"
     },

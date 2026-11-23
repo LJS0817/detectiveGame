@@ -72,7 +72,6 @@ namespace ColdCaseOS.Data
         [JsonProperty("unlockedDocIds")] public List<string> unlockedDocIds = new List<string>();
         [JsonProperty("unlockedPhotoIds")] public List<string> unlockedPhotoIds = new List<string>();
         [JsonProperty("unlockedCctvIds")] public List<string> unlockedCctvIds = new List<string>();
-        [JsonProperty("unlockedAudioIds")] public List<string> unlockedAudioIds = new List<string>();
         [JsonProperty("discoveredSuspectIds")] public List<string> discoveredSuspectIds = new List<string>();
         [JsonProperty("queriedDbDisplayNames")] public List<string> queriedDbDisplayNames = new List<string>();
         [JsonProperty("readItemIds")] public List<string> readItemIds = new List<string>();

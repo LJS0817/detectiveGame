@@ -24,7 +24,6 @@ namespace ColdCaseOS.Core
         public HashSet<string> UnlockedDocIds { get; } = new HashSet<string>();
         public HashSet<string> UnlockedPhotoIds { get; } = new HashSet<string>();
         public HashSet<string> UnlockedCctvIds { get; } = new HashSet<string>();
-        public HashSet<string> UnlockedAudioIds { get; } = new HashSet<string>();
         public HashSet<string> DiscoveredSuspectIds { get; } = new HashSet<string>();
         public List<string> QueriedDbDisplayNames { get; } = new List<string>();
         public HashSet<string> ReadItemIds { get; } = new HashSet<string>();
@@ -48,7 +47,6 @@ namespace ColdCaseOS.Core
             UnlockedDocIds.Clear();
             UnlockedPhotoIds.Clear();
             UnlockedCctvIds.Clear();
-            UnlockedAudioIds.Clear();
             DiscoveredSuspectIds.Clear();
             QueriedDbDisplayNames.Clear();
             ReadItemIds.Clear();
@@ -86,9 +84,6 @@ namespace ColdCaseOS.Core
             foreach (var c in Episode.cctvClips)
                 if (c.isInitial) UnlockedCctvIds.Add(c.clipId);
 
-            foreach (var a in Episode.audioClips)
-                if (a.isInitial) UnlockedAudioIds.Add(a.audioId);
-
             GameEvents.RaiseCaseFilesDownloaded(Episode.episodeId);
             GameEvents.RaiseSfxRequested("SFX_MOUSE_CLICK");
             GameEvents.RaiseToastRequested("사건 파일 다운로드 완료", $"{Episode.title} ({Episode.caseNumber})");
@@ -117,7 +112,6 @@ namespace ColdCaseOS.Core
             UnlockedDocIds.UnionWith(snap.unlockedDocIds);
             UnlockedPhotoIds.UnionWith(snap.unlockedPhotoIds);
             UnlockedCctvIds.UnionWith(snap.unlockedCctvIds);
-            UnlockedAudioIds.UnionWith(snap.unlockedAudioIds);
             if (snap.discoveredSuspectIds != null) DiscoveredSuspectIds.UnionWith(snap.discoveredSuspectIds);
             if (snap.queriedDbDisplayNames != null) QueriedDbDisplayNames.AddRange(snap.queriedDbDisplayNames);
             ReadItemIds.UnionWith(snap.readItemIds);
@@ -142,7 +136,6 @@ namespace ColdCaseOS.Core
                 unlockedDocIds = UnlockedDocIds.ToList(),
                 unlockedPhotoIds = UnlockedPhotoIds.ToList(),
                 unlockedCctvIds = UnlockedCctvIds.ToList(),
-                unlockedAudioIds = UnlockedAudioIds.ToList(),
                 discoveredSuspectIds = DiscoveredSuspectIds.ToList(),
                 queriedDbDisplayNames = new List<string>(QueriedDbDisplayNames),
                 readItemIds = ReadItemIds.ToList(),
@@ -263,12 +256,6 @@ namespace ColdCaseOS.Core
         {
             if (!string.IsNullOrEmpty(clipId) && UnlockedCctvIds.Add(clipId))
                 GameEvents.RaiseItemUnlocked(clipId);
-        }
-
-        public void UnlockAudio(string audioId)
-        {
-            if (!string.IsNullOrEmpty(audioId) && UnlockedAudioIds.Add(audioId))
-                GameEvents.RaiseItemUnlocked(audioId);
         }
 
         public void MarkItemRead(string itemId)
