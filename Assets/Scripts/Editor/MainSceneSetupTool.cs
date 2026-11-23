@@ -984,7 +984,7 @@ namespace ColdCaseOS.EditorTools
                 tbImg.type = Image.Type.Sliced;
             }
 
-            var dragHandle = tbGo.AddComponent<WindowDragHandle>();
+            var dragHandle = tbGo.AddComponent<WindowHeader>();
             SetProps(dragHandle, ("targetWindow", win));
 
             var titleTxt = CreateText("WindowTitle", tbGo.transform, title, 15, TextAlignmentOptions.Left, new Vector2(-60, 0), new Vector2(size.x - 160, 26), PaperTextColor);
