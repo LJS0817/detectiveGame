@@ -14,7 +14,7 @@ namespace ColdCaseOS.Apps.Forensic
     /// <summary>
     /// OSWindow를 직접 상속하는 Unity VideoPlayer 기반 CCTV 영상 분석기 앱 창.
     /// </summary>
-    public class CctvVideoController : OSWindow, IScrollHandler, IDragHandler
+    public class CctvVideoController : OSWindow, IScrollHandler
     {
         private static readonly int BrightnessProp = Shader.PropertyToID("_Brightness");
         private static readonly int ContrastProp = Shader.PropertyToID("_Contrast");
@@ -162,8 +162,14 @@ namespace ColdCaseOS.Apps.Forensic
             SetZoom(Mathf.Clamp(_currentZoom + eventData.scrollDelta.y * 0.25f, minZoom, maxZoom));
         }
 
-        public void OnDrag(PointerEventData eventData)
+        public override void OnDrag(PointerEventData eventData)
         {
+            if (IsResizing)
+            {
+                base.OnDrag(eventData);
+                return;
+            }
+
             if (contentRect == null || _currentZoom <= 1.01f) return;
             contentRect.anchoredPosition += eventData.delta;
             ClampContentPan();

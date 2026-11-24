@@ -15,7 +15,7 @@ namespace ColdCaseOS.Apps.FileViewer
     /// <summary>
     /// OSWindow를 직접 상속하는 정지 현장 사진 확대·캡처 앱 창.
     /// </summary>
-    public class PhotoInspectorController : OSWindow, IScrollHandler, IDragHandler
+    public class PhotoInspectorController : OSWindow, IScrollHandler
     {
         [Header("Photo Inspector UI (Layout F Loupe)")]
         [SerializeField] private RawImage photoImage;
@@ -73,8 +73,14 @@ namespace ColdCaseOS.Apps.FileViewer
             SetZoom(Mathf.Clamp(_currentZoom + eventData.scrollDelta.y * 0.25f, minZoom, maxZoom));
         }
 
-        public void OnDrag(PointerEventData eventData)
+        public override void OnDrag(PointerEventData eventData)
         {
+            if (IsResizing)
+            {
+                base.OnDrag(eventData);
+                return;
+            }
+
             if (contentRect == null || _currentZoom <= 1.01f) return;
             contentRect.anchoredPosition += eventData.delta;
             ClampContentPan();
