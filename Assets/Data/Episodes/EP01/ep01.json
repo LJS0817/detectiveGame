@@ -150,7 +150,7 @@
       "category": "LOG",
       "isInitial": false,
       "paperTemplate": "UI_DOC_PAPER_REPORT",
-      "bodyText": "[창고 뒷문 자석 접점 센서 로그]\n2026-11-18 01:48:05 : 센서 상태 CLOSED 유지 (이후 02:30까지 개폐 기록 0건 - 물리적 고정 의심)\n\n[매장 CCTV NVR 삭제 로그]\n2026-11-18 02:05:11 : 외부 USB 장치 마운트 감지\n실행 모듈: LOG_WIPE_v4 (01:55:00 ~ 02:05:00 구간 강제 덮어쓰기 삭제 - 기기 오류 아님)",
+      "bodyText": "[창고 뒷문 자석 접점 센서 로그]\n2026-11-18 01:48:05 : 센서 상태 CLOSED 유지 (이후 02:30까지 개폐 기록 0건 - 외부 자석 고정 의심)\n\n[매장 CCTV NVR 삭제 로그]\n2026-11-18 02:05:11 : 외부 USB 장치 마운트 감지\n실행 모듈: LOG_WIPE_v4 (01:55:00 ~ 02:05:00 구간 강제 덮어쓰기 삭제 - 기기 오류 아님)",
       "metadata": {
         "createdAt": "2026-11-18 11:00:00",
         "modifiedAt": "2026-11-18 11:00:00",
@@ -194,7 +194,7 @@
       "category": "LOG",
       "isInitial": false,
       "paperTemplate": "UI_DOC_PAPER_REPORT",
-      "bodyText": "[익명 암호화 메신저 '다크챗' - 2026.11.17 21:00]\n발신자: WIPE_ADMIN\n\"입금 50만 원 확인(계좌 끝자리 -9912). 퀵으로 보낸 USB 녹화기에 꽂으면 최근 10분만 기기 오류처럼 날아감. 덤으로 팁 하나 주면 창고 뒷문 자석 센서는 투명 테이프로 눌러놔라. 걸려도 내 계정은 12시간 뒤 자동 폭파된다.\"",
+      "bodyText": "[익명 암호화 메신저 '다크챗' - 2026.11.17 21:00]\n발신자: WIPE_ADMIN\n\"입금 50만 원 확인(계좌 끝자리 -9912). 퀵으로 보낸 USB 녹화기에 꽂으면 최근 10분만 기기 오류처럼 날아감. 덤으로 팁 하나 주면 창고 뒷문 문틀 자석 센서에 소형 자석을 투명 테이프로 붙여놔라. 걸려도 내 계정은 12시간 뒤 자동 폭파된다.\"",
       "metadata": {
         "createdAt": "2026-11-17 21:00:18",
         "modifiedAt": "2026-11-17 21:00:18",
@@ -207,7 +207,7 @@
           "evidenceId": "EV_DOC_DARKCHAT_LOG"
         },
         {
-          "matchSubstring": "창고 뒷문 자석 센서는 투명 테이프로 눌러놔라",
+          "matchSubstring": "창고 뒷문 문틀 자석 센서에 소형 자석을 투명 테이프로 붙여놔라",
           "evidenceId": "EV_DOC_DARKCHAT_LOG"
         }
       ]
@@ -224,9 +224,9 @@
           "startSec": 0,
           "endSec": 0,
           "normalizedRect": {
-            "x": 0.78,
-            "y": 0.02,
-            "width": 0.1,
+            "x": 0.61,
+            "y": 0.0,
+            "width": 0.11,
             "height": 0.1
           },
           "evidenceId": "EV_TAG_INIT_GLINT"
@@ -491,7 +491,7 @@
         "EV_PHOTO_TAPE",
         "EV_PHOTO_BRACELET"
       ],
-      "partnerReportMessage": "초동팀이 대충 훑고 지나갔네요. 창고 뒷문 자석 센서 틈에 투명 테이프 조각이 붙어 있었고, 선반 아래 구석에서 끊어진 실버 체인 팔찌를 건졌습니다."
+      "partnerReportMessage": "초동팀이 대충 훑고 지나갔네요. 창고 뒷문 문틀 자석 센서 본체에 자석을 붙였다 급히 떼어낸 투명 테이프 조각이 남아 있었고, 선반 아래 구석에서 끊어진 실버 체인 팔찌를 건졌습니다."
     },
     {
       "actionId": "ACT_CHECK_SECURITY",
