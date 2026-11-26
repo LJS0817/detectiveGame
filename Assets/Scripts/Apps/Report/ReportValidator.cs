@@ -36,12 +36,38 @@ namespace ColdCaseOS.Apps.Report
 
         private readonly List<CulpritOption> _visibleCulprits = new List<CulpritOption>();
         private readonly List<UserClueCard> _selectableCards = new List<UserClueCard>();
+        private readonly List<SlotBinding> _effectiveSlots = new List<SlotBinding>();
+        private TMP_Text _culpritCardLabel;
+        private TMP_Text _evidenceCardTitle;
 
         protected override void Awake()
         {
             base.Awake();
             if (submitButton != null)
                 submitButton.onClick.AddListener(SubmitReport);
+
+            CacheSceneLabels();
+        }
+
+        private void CacheSceneLabels()
+        {
+            if (culpritDropdown != null && culpritDropdown.transform.parent != null)
+            {
+                foreach (var tmp in culpritDropdown.transform.parent.GetComponentsInChildren<TMP_Text>(true))
+                {
+                    if (tmp.transform.IsChildOf(culpritDropdown.transform)) continue;
+                    _culpritCardLabel = tmp;
+                    break;
+                }
+            }
+
+            if (slotBindings.Count > 0 && slotBindings[0].clueDropdown != null && slotBindings[0].clueDropdown.transform.parent != null)
+            {
+                var cardParent = slotBindings[0].clueDropdown.transform.parent;
+                var titleTf = cardParent.Find("EvidenceCardTitle");
+                if (titleTf != null)
+                    _evidenceCardTitle = titleTf.GetComponent<TMP_Text>();
+            }
         }
 
         private void OnEnable()
@@ -91,13 +117,63 @@ namespace ColdCaseOS.Apps.Report
             RefreshSlotDropdowns();
         }
 
+        private bool UsesLegacyCulpritDropdown(ReportAnswerRule rule)
+        {
+            return culpritDropdown != null &&
+                   rule != null &&
+                   rule.culpritOptions != null &&
+                   rule.culpritOptions.Count > 0 &&
+                   !string.IsNullOrEmpty(rule.correctCulpritId);
+        }
+
+        private bool UsesBoardOnlyCulpritSlot(ReportAnswerRule rule)
+        {
+            return !UsesLegacyCulpritDropdown(rule) &&
+                   culpritDropdown != null &&
+                   rule != null &&
+                   rule.slots != null &&
+                   rule.slots.Count > slotBindings.Count;
+        }
+
+        private void RebuildEffectiveSlots(ReportAnswerRule rule)
+        {
+            _effectiveSlots.Clear();
+            if (UsesBoardOnlyCulpritSlot(rule))
+            {
+                _effectiveSlots.Add(new SlotBinding
+                {
+                    slotLabelText = _culpritCardLabel,
+                    clueDropdown = culpritDropdown
+                });
+            }
+
+            foreach (var b in slotBindings)
+                _effectiveSlots.Add(b);
+        }
+
         private void RefreshCulpritDropdown()
         {
-            if (culpritDropdown == null) return;
-
             var state = AppRoot.Instance?.RuntimeState;
             var rule = state?.Episode?.answerRule;
             if (state == null || rule == null) return;
+
+            bool useLegacy = UsesLegacyCulpritDropdown(rule);
+            bool useBoardCulpritSlot = UsesBoardOnlyCulpritSlot(rule);
+
+            if (culpritDropdown != null)
+            {
+                bool showSuspectCard = useLegacy || useBoardCulpritSlot;
+                if (culpritDropdown.transform.parent != null && culpritDropdown.transform.parent.name == "SuspectCard")
+                    culpritDropdown.transform.parent.gameObject.SetActive(showSuspectCard);
+                else
+                    culpritDropdown.gameObject.SetActive(showSuspectCard);
+            }
+
+            if (!useLegacy)
+            {
+                if (submitButton != null) submitButton.interactable = true;
+                return;
+            }
 
             string previousSelectedId = GetSelectedCulprit()?.id;
 
@@ -128,8 +204,14 @@ namespace ColdCaseOS.Apps.Report
         private void RefreshSlotDropdowns()
         {
             var state = AppRoot.Instance?.RuntimeState;
-            var slots = state?.Episode?.answerRule?.slots;
+            var rule = state?.Episode?.answerRule;
+            var slots = rule?.slots;
             if (state == null || slots == null) return;
+
+            RebuildEffectiveSlots(rule);
+
+            if (_evidenceCardTitle != null && UsesBoardOnlyCulpritSlot(rule))
+                _evidenceCardTitle.text = "범행 상세 추리 (증거판 카드 선택)";
 
             _selectableCards.Clear();
             foreach (var card in state.ClueCards)
@@ -138,13 +220,13 @@ namespace ColdCaseOS.Apps.Report
                     _selectableCards.Add(card);
             }
 
-            var optionLabels = new List<string> { "-- 증거 카드 선택 --" };
+            var optionLabels = new List<string> { "-- 증거판 카드 선택 --" };
             foreach (var card in _selectableCards)
                 optionLabels.Add(card.displayTitle);
 
-            for (int i = 0; i < slotBindings.Count; i++)
+            for (int i = 0; i < _effectiveSlots.Count; i++)
             {
-                var binding = slotBindings[i];
+                var binding = _effectiveSlots[i];
                 bool hasRule = i < slots.Count;
                 if (binding.slotLabelText != null)
                 {
@@ -160,6 +242,7 @@ namespace ColdCaseOS.Apps.Report
                     int prevIdx = binding.clueDropdown.value;
                     binding.clueDropdown.ClearOptions();
                     binding.clueDropdown.AddOptions(optionLabels);
+                    binding.clueDropdown.interactable = true;
                     binding.clueDropdown.SetValueWithoutNotify(Mathf.Clamp(prevIdx, 0, optionLabels.Count - 1));
                 }
             }
@@ -174,8 +257,8 @@ namespace ColdCaseOS.Apps.Report
 
         private UserClueCard GetSelectedCardForSlot(int slotIndex)
         {
-            if (slotIndex < 0 || slotIndex >= slotBindings.Count) return null;
-            var dd = slotBindings[slotIndex].clueDropdown;
+            if (slotIndex < 0 || slotIndex >= _effectiveSlots.Count) return null;
+            var dd = _effectiveSlots[slotIndex].clueDropdown;
             if (dd == null || dd.value <= 0) return null;
             int cardIdx = dd.value - 1;
             return (cardIdx >= 0 && cardIdx < _selectableCards.Count) ? _selectableCards[cardIdx] : null;
@@ -189,32 +272,37 @@ namespace ColdCaseOS.Apps.Report
             var rule = episode?.answerRule;
             if (app == null || state == null || episode == null || rule == null) return;
 
-            var selectedCulprit = GetSelectedCulprit();
-            if (selectedCulprit == null)
+            bool useLegacy = UsesLegacyCulpritDropdown(rule);
+            CulpritOption selectedCulprit = null;
+            if (useLegacy)
             {
-                ShowFeedback("피의자(또는 급습 대상)를 먼저 발견하고 선택해야 합니다.");
-                return;
+                selectedCulprit = GetSelectedCulprit();
+                if (selectedCulprit == null)
+                {
+                    ShowFeedback("피의자(또는 급습 대상)를 먼저 발견하고 선택해야 합니다.");
+                    return;
+                }
             }
 
-            // 1. 슬롯 미선택 및 과소 캡처(isTooSmallCapture) 우선 검증
+            // 1. 슬롯 미선택 검증 (증거판에 올려둔 카드 중에서만 선택 가능)
             for (int i = 0; i < rule.slots.Count; i++)
             {
                 var card = GetSelectedCardForSlot(i);
                 if (card == null)
                 {
-                    ShowFeedback($"[{rule.slots[i].label}] 항목에 제출할 증거 카드가 비어 있습니다.");
+                    ShowFeedback($"[{rule.slots[i].label}] 항목이 비어 있습니다. 문서나 DB에서 핵심 정보를 드래그해 증거판에 올린 뒤 선택해 주세요.");
                     return;
                 }
 
                 if (card.isTooSmallCapture)
                 {
-                    ShowFeedback($"[{rule.slots[i].label}] 캡처된 영역이 너무 작아 핵심 특징을 식별할 수 없습니다. 사진이나 CCTV를 더 확대하여 다시 캡처해 주세요.");
+                    ShowFeedback($"[{rule.slots[i].label}] 캡처된 영역이 너무 작아 핵심 특징을 식별할 수 없습니다.");
                     return;
                 }
             }
 
-            // 2. 피의자 일치 검증
-            if (selectedCulprit.id != rule.correctCulpritId)
+            // 2. 레거시 피의자 일치 검증 (EP02~EP07 호환)
+            if (useLegacy && selectedCulprit.id != rule.correctCulpritId)
             {
                 string msg = string.IsNullOrEmpty(selectedCulprit.wrongFeedback)
                     ? "지목한 피의자와 제출된 정황이 일치하지 않습니다. 진술서와 물증을 다시 대조해 주세요."

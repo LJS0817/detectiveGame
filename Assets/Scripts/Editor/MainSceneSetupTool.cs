@@ -4,10 +4,8 @@ using ColdCaseOS.Apps.EvidenceBoard;
 using ColdCaseOS.Apps.FileExplorer;
 using ColdCaseOS.Apps.FileViewer;
 using ColdCaseOS.Apps.Forensic;
-using ColdCaseOS.Apps.Messenger;
 using ColdCaseOS.Apps.PoliceDB;
 using ColdCaseOS.Apps.Report;
-using ColdCaseOS.Apps.TacticalMap;
 using ColdCaseOS.Core;
 using ColdCaseOS.OS;
 using ColdCaseOS.UI;
@@ -74,9 +72,7 @@ namespace ColdCaseOS.EditorTools
 
             // 1. 공용 런타임 UI 프리팹 생성
             var fileRowPrefab = CreateButtonPrefab("FileRowButton", new Vector2(360, 42), "파일 항목");
-            var actionButtonPrefab = CreateButtonPrefab("ActionButton", new Vector2(320, 46), "수사 지시");
-            var messageItemPrefab = CreateMessageItemPrefab();
-            var mapNodePrefab = CreateMapNodePrefab();
+            var actionButtonPrefab = CreateButtonPrefab("ActionButton", new Vector2(320, 46), "조회 항목");
             var clueCardPrefab = CreateClueCardPrefab();
             var stickyNotePrefab = CreateStickyNotePrefab();
             var pinWirePrefab = CreatePinWirePrefab();
@@ -130,15 +126,13 @@ namespace ColdCaseOS.EditorTools
             var windowManager = desktopGo.AddComponent<WindowManager>();
             var registeredWindows = new List<OSWindow>();
 
-            // 8-1. OS 앱 윈도우 10종 생성 및 바인딩 (별도 MetadataViewer 창 제거, DocumentViewer 하단 바 통합)
+            // 8-1. OS 앱 윈도우 생성 및 바인딩 (파트너 메신저·전술 지도 제거, 순수 문서 추리 7창 구성)
             registeredWindows.Add(BuildFileExplorerWindow(desktopRect, fileRowPrefab, actionButtonPrefab));
             registeredWindows.Add(BuildDocumentViewerWindow(desktopRect));
             registeredWindows.Add(BuildPhotoInspectorWindow(desktopRect));
             registeredWindows.Add(BuildCctvVideoWindow(desktopRect));
             registeredWindows.Add(BuildEvidenceBoardWindow(desktopRect, clueCardPrefab, stickyNotePrefab, pinWirePrefab, actionButtonPrefab));
-            registeredWindows.Add(BuildTacticalMapWindow(desktopRect, mapNodePrefab, actionButtonPrefab));
             registeredWindows.Add(BuildPoliceDbWindow(desktopRect, actionButtonPrefab));
-            registeredWindows.Add(BuildMessengerWindow(desktopRect, messageItemPrefab, actionButtonPrefab));
 
             var settlementView = BuildResultSettlementView(osPanelGo.transform);
             registeredWindows.Add(BuildReportWindow(desktopRect, settlementView));
@@ -291,39 +285,19 @@ namespace ColdCaseOS.EditorTools
 
             var ctrl = barGo.AddComponent<TaskbarController>();
 
-            var fileBtn = CreateButton("Btn_FileExplorer", barGo.transform, "파일 탐색기", new Vector2(-810, 0), new Vector2(130, 44));
-            var boardBtn = CreateButton("Btn_EvidenceBoard", barGo.transform, "증거판", new Vector2(-670, 0), new Vector2(120, 44));
-            var mapBtn = CreateButton("Btn_TacticalMap", barGo.transform, "전술 지도", new Vector2(-540, 0), new Vector2(120, 44));
-            var dbBtn = CreateButton("Btn_PoliceDB", barGo.transform, "경찰 DB", new Vector2(-410, 0), new Vector2(120, 44));
-            var msgBtn = CreateButton("Btn_Messenger", barGo.transform, "메신저", new Vector2(-280, 0), new Vector2(120, 44));
-            var repBtn = CreateButton("Btn_Report", barGo.transform, "송치 보고서", new Vector2(-145, 0), new Vector2(130, 44));
+            var fileBtn = CreateButton("Btn_FileExplorer", barGo.transform, "파일 탐색기", new Vector2(-810, 0), new Vector2(140, 44));
+            var boardBtn = CreateButton("Btn_EvidenceBoard", barGo.transform, "증거판", new Vector2(-655, 0), new Vector2(130, 44));
+            var dbBtn = CreateButton("Btn_PoliceDB", barGo.transform, "경찰 DB", new Vector2(-510, 0), new Vector2(130, 44));
+            var repBtn = CreateButton("Btn_Report", barGo.transform, "최종 보고서", new Vector2(-360, 0), new Vector2(140, 44));
 
-            var badgeGo = new GameObject("NewBadge", typeof(RectTransform), typeof(Image));
-            badgeGo.transform.SetParent(msgBtn.transform, false);
-            var brt = badgeGo.GetComponent<RectTransform>();
-            brt.anchorMin = brt.anchorMax = new Vector2(1f, 1f);
-            brt.anchoredPosition = new Vector2(-8f, -8f);
-            brt.sizeDelta = new Vector2(16f, 16f);
-            badgeGo.GetComponent<Image>().color = WarningColor;
-            badgeGo.SetActive(false);
-
-            var partnerTxt = CreateText("PartnerLocationText", barGo.transform, "강민호 경사: 대기", 16, TextAlignmentOptions.Right, new Vector2(210, 0), new Vector2(280, 36), PaperTextColor);
-            var volTxt = CreateText("VolatileDeadlineText", barGo.transform, "휘발성 시한 --", 16, TextAlignmentOptions.Right, new Vector2(470, 0), new Vector2(220, 36), AccentColor);
-            var subTxt = CreateText("SubmissionDeadlineText", barGo.transform, "송치 마감 --", 16, TextAlignmentOptions.Right, new Vector2(690, 0), new Vector2(210, 36), PaperTextColor);
-            var clockTxt = CreateText("ClockText", barGo.transform, "2026.11.18 09:40", 16, TextAlignmentOptions.Right, new Vector2(865, 0), new Vector2(160, 36), PaperTextColor);
+            var clockTxt = CreateText("ClockText", barGo.transform, "2026.11.18 09:00", 16, TextAlignmentOptions.Right, new Vector2(830, 0), new Vector2(220, 36), PaperTextColor);
 
             SetProps(ctrl,
                 ("clockText", clockTxt),
-                ("submissionDeadlineText", subTxt),
-                ("volatileDeadlineText", volTxt),
-                ("partnerLocationText", partnerTxt),
                 ("fileExplorerButton", fileBtn),
                 ("evidenceBoardButton", boardBtn),
-                ("tacticalMapButton", mapBtn),
                 ("policeDbButton", dbBtn),
-                ("messengerButton", msgBtn),
-                ("reportButton", repBtn),
-                ("messengerNewBadge", badgeGo));
+                ("reportButton", repBtn));
         }
 
         private static void BuildTutorialBanner(Transform parent, TutorialController tutorialCtrl)
@@ -597,54 +571,6 @@ namespace ColdCaseOS.EditorTools
             return win;
         }
 
-        private static OSWindow BuildTacticalMapWindow(Transform parent, MapNodeView nodePrefab, Button actionBtnPrefab)
-        {
-            var (win, body) = CreateOSWindow<CityMapController>(parent, "TacticalMap", "전술 현장 지도", new Vector2(980, 680), new Vector2(40, 10));
-            // 확정 B안: 좌측 인쇄 종이 구역 지도 시트(#F6F3EC) + 우측 다크 지시 패널
-            var nodeContainerGo = CreateCenteredPanel("NodeContainer", body, new Vector2(580, 580), PaperSheetBg);
-            nodeContainerGo.GetComponent<RectTransform>().anchoredPosition = new Vector2(-180, -10);
-
-            var partnerTxt = CreateText("PartnerLocation", body, "강민호 경사: 대기", 16, TextAlignmentOptions.Left, new Vector2(290, 265), new Vector2(340, 28));
-            var titleTxt = CreateText("NodeTitle", body, "장소를 선택하세요", 20, TextAlignmentOptions.Left, new Vector2(290, 225), new Vector2(340, 32));
-            var descTxt = CreateText("NodeDesc", body, "", 14, TextAlignmentOptions.TopLeft, new Vector2(290, 165), new Vector2(340, 72));
-            var actScroll = CreateScrollView("ActionScroll", body, new Vector2(290, -70), new Vector2(340, 360));
-
-            // TargetSelectModal
-            var modalGo = CreateCenteredPanel("TargetSelectModal", body, new Vector2(440, 380), PanelBg);
-            var targetModal = modalGo.AddComponent<TargetSelectModal>();
-            var mTitle = CreateText("ModalTitle", modalGo.transform, "수사 대상 선택", 20, TextAlignmentOptions.Center, new Vector2(0, 155), new Vector2(380, 32));
-            var mEmpty = CreateText("EmptyNotice", modalGo.transform, "", 15, TextAlignmentOptions.Center, Vector2.zero, new Vector2(380, 60));
-            var mScroll = CreateScrollView("OptionScroll", modalGo.transform, new Vector2(0, 10), new Vector2(380, 220));
-            var mCancel = CreateButton("CancelBtn", modalGo.transform, "취소", new Vector2(0, -145), new Vector2(140, 38));
-            SetProps(targetModal,
-                ("titleText", mTitle),
-                ("emptyNoticeText", mEmpty),
-                ("optionContainer", mScroll.content),
-                ("optionButtonPrefab", actionBtnPrefab),
-                ("cancelButton", mCancel));
-            modalGo.SetActive(false);
-
-            // TimeSkipOverlay
-            var skipGo = CreateStretchPanel("TimeSkipOverlay", body, new Color(0.11f, 0.106f, 0.098f, 0.88f));
-            var skipOverlay = skipGo.AddComponent<TimeSkipOverlay>();
-            var sStatus = CreateText("SkipStatus", skipGo.transform, "현장 수사 진행 중...", 28, TextAlignmentOptions.Center, new Vector2(0, 30), new Vector2(600, 44), PaperTextColor);
-            var sDetail = CreateText("SkipDetail", skipGo.transform, "", 18, TextAlignmentOptions.Center, new Vector2(0, -25), new Vector2(600, 36), AccentColor);
-            SetProps(skipOverlay, ("statusText", sStatus), ("elapsedDetailText", sDetail));
-            skipGo.SetActive(false);
-
-            SetProps(win,
-                ("nodeContainer", nodeContainerGo.GetComponent<RectTransform>()),
-                ("nodePrefab", nodePrefab),
-                ("selectedNodeTitleText", titleTxt),
-                ("selectedNodeDescText", descTxt),
-                ("partnerLocationText", partnerTxt),
-                ("actionListContainer", actScroll.content),
-                ("actionButtonPrefab", actionBtnPrefab),
-                ("targetSelectModal", targetModal),
-                ("timeSkipOverlay", skipOverlay));
-            return win;
-        }
-
         private static OSWindow BuildPoliceDbWindow(Transform parent, Button historyRowPrefab)
         {
             // 확정 B안: 좌측 최근 조회 이력 사이드바 + 우측 검색 바 & 종이 화이트 조회 시트
@@ -677,86 +603,43 @@ namespace ColdCaseOS.EditorTools
             return win;
         }
 
-        private static OSWindow BuildMessengerWindow(Transform parent, GameObject messageItemPrefab, Button downloadBtnPrefab)
-        {
-            // 확정 A안: 좌측 2채널 사이드바(수사심의관 / 강민호 경사) + 우측 대화창 & 파일 다운로드 첨부
-            var (win, body) = CreateOSWindow<MessengerController>(parent, "Messenger", "K-POL 내부 메신저", new Vector2(720, 600), new Vector2(500, 20));
-
-            var sidebar = CreateCenteredPanel("ChannelSidebar", body, new Vector2(204, 556), ButtonBg);
-            sidebar.GetComponent<RectTransform>().anchoredPosition = new Vector2(-252, -2);
-            CreateText("ChannelHeader", sidebar.transform, "대화 채널", 14, TextAlignmentOptions.Left, new Vector2(0, 250), new Vector2(180, 24), AccentColor);
-
-            var hqBtn = CreateButton("HqChannelBtn", sidebar.transform, "서울청 수사심의관", new Vector2(0, 198), new Vector2(184, 46));
-            var hqBadge = CreateBadgeDot("HqUnreadBadge", hqBtn.transform, new Vector2(78, 12), WarningColor);
-            hqBadge.SetActive(false);
-
-            var partnerBtn = CreateButton("PartnerChannelBtn", sidebar.transform, "강민호 경사", new Vector2(0, 140), new Vector2(184, 46));
-            var partnerBadge = CreateBadgeDot("PartnerUnreadBadge", partnerBtn.transform, new Vector2(78, 12), WarningColor);
-            partnerBadge.SetActive(false);
-
-            var headerTxt = CreateText("HeaderStatus", body, "서울청 수사심의관 — 공식 사건 배정", 15, TextAlignmentOptions.Left, new Vector2(104, 256), new Vector2(480, 28), PaperTextColor);
-            var scroll = CreateScrollView("MessageScroll", body, new Vector2(104, 18), new Vector2(480, 424));
-            scroll.GetComponent<Image>().color = PanelBg;
-            var hintBtn = CreateButton("AskHintBtn", body, "강민호 경사에게 의견 묻기", new Vector2(104, -236), new Vector2(320, 42));
-
-            SetProps(win,
-                ("hqChannelButton", hqBtn),
-                ("partnerChannelButton", partnerBtn),
-                ("hqUnreadBadge", hqBadge),
-                ("partnerUnreadBadge", partnerBadge),
-                ("messageListContainer", scroll.content),
-                ("messageItemPrefab", messageItemPrefab),
-                ("downloadButtonPrefab", downloadBtnPrefab),
-                ("scrollRect", scroll),
-                ("askPartnerHintButton", hintBtn),
-                ("headerStatusText", headerTxt));
-            return win;
-        }
-
         private static OSWindow BuildReportWindow(Transform parent, ResultSettlementView settlementView)
         {
-            // 확정 C안: 2단 모듈 종이 카드(피의자 지정 / 핵심 증거 1~3) + 하단 고정 결재 푸터 바
-            var (win, body) = CreateOSWindow<ReportValidator>(parent, "Report", "검찰 송치 보고서", new Vector2(700, 680), new Vector2(0, 10));
-            var headerTxt = CreateText("CaseHeader", body, "사건 송치 보고서", 19, TextAlignmentOptions.Left, new Vector2(0, 290), new Vector2(648, 30), PaperTextColor);
+            // 통합 4슬롯 보고서: 증거판에 드래그해 올려둔 카드 중에서만 범인·동기·흉기·수법 선택
+            var (win, body) = CreateOSWindow<ReportValidator>(parent, "Report", "최종 수사 보고서", new Vector2(720, 680), new Vector2(0, 10));
+            var headerTxt = CreateText("CaseHeader", body, "최종 수사 보고서", 19, TextAlignmentOptions.Left, new Vector2(0, 290), new Vector2(668, 30), PaperTextColor);
 
-            // 상단 카드: 피의자 지정
-            var suspectCard = CreateCenteredPanel("SuspectCard", body, new Vector2(648, 104), PaperSheetBg);
-            suspectCard.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 212);
-            CreateText("CulpritLabel", suspectCard.transform, "1. 피의자 지목 (발견된 인물)", 16, TextAlignmentOptions.Left, new Vector2(-180, 26), new Vector2(260, 26), InkTextColor);
-            var culpritDd = CreateDropdown("CulpritDropdown", suspectCard.transform, new Vector2(0, -14), new Vector2(604, 38));
-
-            // 중앙 카드: 핵심 증거 1~3
-            var evidenceCard = CreateCenteredPanel("EvidenceCard", body, new Vector2(648, 286), PaperSheetBg);
-            evidenceCard.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 6);
-            CreateText("EvidenceCardTitle", evidenceCard.transform, "2. 입증 증거 첨부 (3건)", 16, TextAlignmentOptions.Left, new Vector2(-180, 118), new Vector2(260, 26), InkTextColor);
+            var evidenceCard = CreateCenteredPanel("EvidenceCard", body, new Vector2(668, 396), PaperSheetBg);
+            evidenceCard.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 66);
+            CreateText("EvidenceCardTitle", evidenceCard.transform, "증거판 등록 카드 기반 최종 추리 (4항목)", 16, TextAlignmentOptions.Left, new Vector2(-140, 170), new Vector2(360, 26), InkTextColor);
 
             var so = new SerializedObject(win);
             so.FindProperty("caseHeaderText").objectReferenceValue = headerTxt;
-            so.FindProperty("culpritDropdown").objectReferenceValue = culpritDd;
             so.FindProperty("settlementView").objectReferenceValue = settlementView;
 
+            string[] defaultLabels = { "1. 범인", "2. 범행 동기", "3. 사용 흉기", "4. 침입·은폐 수법" };
             var slotsProp = so.FindProperty("slotBindings");
-            slotsProp.arraySize = 3;
-            for (int i = 0; i < 3; i++)
+            slotsProp.arraySize = 4;
+            for (int i = 0; i < 4; i++)
             {
-                float y = 66 - i * 80;
-                var lbl = CreateText($"SlotLabel_{i}", evidenceCard.transform, $"핵심 증거 슬롯 {i + 1}", 15, TextAlignmentOptions.Left, new Vector2(-180, y), new Vector2(240, 26), InkTextColor);
-                var dd = CreateDropdown($"SlotDropdown_{i}", evidenceCard.transform, new Vector2(88, y), new Vector2(420, 36));
+                float y = 110 - i * 84;
+                var lbl = CreateText($"SlotLabel_{i}", evidenceCard.transform, defaultLabels[i], 15, TextAlignmentOptions.Left, new Vector2(-200, y), new Vector2(220, 26), InkTextColor);
+                var dd = CreateDropdown($"SlotDropdown_{i}", evidenceCard.transform, new Vector2(96, y), new Vector2(420, 38));
                 var elem = slotsProp.GetArrayElementAtIndex(i);
                 elem.FindPropertyRelative("slotLabelText").objectReferenceValue = lbl;
                 elem.FindPropertyRelative("clueDropdown").objectReferenceValue = dd;
             }
 
             // 반려 피드백 배너
-            var fbPanel = CreateCenteredPanel("FeedbackPanel", body, new Vector2(648, 74), WarningColor);
+            var fbPanel = CreateCenteredPanel("FeedbackPanel", body, new Vector2(668, 78), WarningColor);
             fbPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -184);
-            var fbTxt = CreateText("FeedbackText", fbPanel.transform, "", 14, TextAlignmentOptions.Center, Vector2.zero, new Vector2(616, 60), PaperTextColor);
+            var fbTxt = CreateText("FeedbackText", fbPanel.transform, "", 14, TextAlignmentOptions.Center, Vector2.zero, new Vector2(636, 64), PaperTextColor);
             fbPanel.SetActive(false);
 
             // 하단 고정 결재 푸터 바
-            var footerBar = CreateCenteredPanel("ApprovalFooterBar", body, new Vector2(698, 66), TitleBarBg);
+            var footerBar = CreateCenteredPanel("ApprovalFooterBar", body, new Vector2(718, 66), TitleBarBg);
             footerBar.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -290);
-            var submitBtn = CreateButton("SubmitReportBtn", footerBar.transform, "검찰 송치 보고서 제출", new Vector2(190, 0), new Vector2(260, 42));
+            var submitBtn = CreateButton("SubmitReportBtn", footerBar.transform, "최종 수사 보고서 제출", new Vector2(190, 0), new Vector2(260, 42));
             submitBtn.GetComponent<Image>().color = AccentColor;
             var submitLabel = submitBtn.GetComponentInChildren<TMP_Text>();
             if (submitLabel != null) submitLabel.color = InkTextColor;
@@ -807,43 +690,6 @@ namespace ColdCaseOS.EditorTools
             var prefab = SaveAsPrefab(temp.gameObject, $"{PrefabDir}/{name}.prefab");
             Object.DestroyImmediate(temp.gameObject);
             return prefab.GetComponent<Button>();
-        }
-
-        private static GameObject CreateMessageItemPrefab()
-        {
-            var go = new GameObject("MessageItem", typeof(RectTransform), typeof(Image), typeof(LayoutElement));
-            go.GetComponent<RectTransform>().sizeDelta = new Vector2(430, 84);
-            go.GetComponent<Image>().color = PaperSheetBg;
-            go.GetComponent<LayoutElement>().minHeight = 72;
-            CreateText("MessageText", go.transform, "메시지 내용", 15, TextAlignmentOptions.TopLeft, Vector2.zero, new Vector2(400, 68), InkTextColor);
-
-            var prefab = SaveAsPrefab(go, $"{PrefabDir}/MessageItem.prefab");
-            Object.DestroyImmediate(go);
-            return prefab;
-        }
-
-        private static MapNodeView CreateMapNodePrefab()
-        {
-            var go = new GameObject("MapNodeView", typeof(RectTransform), typeof(Image), typeof(Button));
-            go.GetComponent<RectTransform>().sizeDelta = new Vector2(150, 52);
-            go.GetComponent<Image>().color = ButtonBg;
-            var view = go.AddComponent<MapNodeView>();
-
-            var nameTxt = CreateText("NameText", go.transform, "장소", 14, TextAlignmentOptions.Center, Vector2.zero, new Vector2(138, 40), PaperTextColor);
-            var partnerDot = CreateBadgeDot("PartnerIndicator", go.transform, new Vector2(-60, 16), AccentColor);
-            var selHl = CreateBadgeDot("SelectedHighlight", go.transform, new Vector2(0, -22), Color.cyan);
-            var pendDot = CreateBadgeDot("PendingActionDot", go.transform, new Vector2(60, 16), new Color(0.95f, 0.35f, 0.35f, 1f));
-
-            SetProps(view,
-                ("selectButton", go.GetComponent<Button>()),
-                ("nameText", nameTxt),
-                ("partnerHereIndicator", partnerDot),
-                ("selectedHighlight", selHl),
-                ("pendingActionDot", pendDot));
-
-            var prefab = SaveAsPrefab(go, $"{PrefabDir}/MapNodeView.prefab");
-            Object.DestroyImmediate(go);
-            return prefab.GetComponent<MapNodeView>();
         }
 
         private static ClueCardView CreateClueCardPrefab()

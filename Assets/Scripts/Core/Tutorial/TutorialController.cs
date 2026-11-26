@@ -6,8 +6,8 @@ using UnityEngine.UI;
 namespace ColdCaseOS.Core
 {
     /// <summary>
-    /// EP01 최초 진입 시 비침습적 4단계 수사 가이드 배너를 제공하는 튜토리얼 컨트롤러.
-    /// 1단계: 문서 드래그 단서 등록 → 2단계: 사진/CCTV 2.0x 확대 캡처 → 3단계: 현장 지도 지시 → 4단계: 송치 보고서 제출.
+    /// EP01 최초 진입 시 비침습적 3단계 수사 가이드 배너를 제공하는 튜토리얼 컨트롤러.
+    /// 1단계: 문서 드래그 단서 등록 → 2단계: 교차 분석 및 단서 수집 → 3단계: 최종 보고서 4슬롯 제출.
     /// </summary>
     public class TutorialController : MonoBehaviour
     {
@@ -35,7 +35,6 @@ namespace ColdCaseOS.Core
                 AppRoot.Instance.OnEpisodeLoaded += HandleEpisodeLoaded;
 
             GameEvents.OnClueCardAdded += HandleClueCardAdded;
-            GameEvents.OnActionCompleted += HandleActionCompleted;
             GameEvents.OnEpisodeCleared += HandleEpisodeCleared;
         }
 
@@ -45,7 +44,6 @@ namespace ColdCaseOS.Core
                 AppRoot.Instance.OnEpisodeLoaded -= HandleEpisodeLoaded;
 
             GameEvents.OnClueCardAdded -= HandleClueCardAdded;
-            GameEvents.OnActionCompleted -= HandleActionCompleted;
             GameEvents.OnEpisodeCleared -= HandleEpisodeCleared;
         }
 
@@ -70,23 +68,16 @@ namespace ColdCaseOS.Core
             }
         }
 
-        private void HandleClueCardAdded(UserClueCard card)
+        private void HandleClueCardAdded(UserClueCard _)
         {
-            if (_currentStep == 1 && card.sourceType == ClueSourceType.TextExcerpt)
+            var count = AppRoot.Instance?.RuntimeState?.ClueCards?.Count ?? 0;
+            if (_currentStep == 1 && count >= 1)
             {
                 SetStep(2);
             }
-            else if (_currentStep == 2 && (card.sourceType == ClueSourceType.PhotoCapture || card.sourceType == ClueSourceType.CctvCapture))
+            else if (_currentStep == 2 && count >= 4)
             {
                 SetStep(3);
-            }
-        }
-
-        private void HandleActionCompleted(string _, string __)
-        {
-            if (_currentStep == 3)
-            {
-                SetStep(4);
             }
         }
 
@@ -103,20 +94,16 @@ namespace ColdCaseOS.Core
             switch (step)
             {
                 case 1:
-                    SetText("수사 가이드 (1/4) — 문서 단서 발췌",
-                        "파일 탐색기에서 초동 수사 보고서나 진술서를 열고, 의심되는 문장을 드래그해 증거판에 등록하세요.");
+                    SetText("수사 가이드 (1/3) — 문서 단서 발췌",
+                        "파일 탐색기에서 보고서·진술서·이동 시간표·도면을 열고, 핵심 문장을 드래그해 증거판에 등록하세요.");
                     break;
                 case 2:
-                    SetText("수사 가이드 (2/4) — 사진·CCTV 확대 캡처",
-                        "현장 사진 또는 CCTV를 열고 마우스 휠로 2.0배 이상 확대한 뒤 [캡처] 버튼으로 증거판에 추가하세요.");
+                    SetText("수사 가이드 (2/3) — 교차 분석 및 노이즈 필터링",
+                        "경찰 DB 조회 결과와 여러 문서의 시간대·물증을 대조해 범인·동기·흉기·수법 단서를 증거판에 모으세요.");
                     break;
                 case 3:
-                    SetText("수사 가이드 (3/4) — 파트너 현장 지시",
-                        "전술 지도를 열어 강민호 경사에게 현장 조사나 감식을 지시하세요. 현장 지시 시에만 시간이 흐릅니다.");
-                    break;
-                case 4:
-                    SetText("수사 가이드 (4/4) — 검찰 송치 보고서 작성",
-                        "확보한 단서와 발견된 용의자를 바탕으로 송치 보고서를 작성해 제출하세요. 반려되어도 수정 제출할 수 있습니다.");
+                    SetText("수사 가이드 (3/3) — 최종 보고서 제출",
+                        "최종 보고서를 열어 증거판에 등록한 카드 중에서 [범인 / 범행 동기 / 사용 흉기 / 침입·은폐 수법]을 선택해 제출하세요.");
                     break;
             }
         }

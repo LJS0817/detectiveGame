@@ -159,7 +159,7 @@ namespace ColdCaseOS.Apps.PoliceDB
                 sourceId: "KPOL_DB",
                 sourceType: ClueSourceType.DbRecord,
                 displayTitle: $"[K-POL 조회] {_lastEntry.displayName}",
-                hiddenEvidenceId: "NONE",
+                hiddenEvidenceId: string.IsNullOrEmpty(_lastEntry.revealsSuspectId) ? "NONE" : _lastEntry.revealsSuspectId,
                 extractedText: _lastEntry.recordText);
 
             AppRoot.Instance.RuntimeState.AddClueCard(card);

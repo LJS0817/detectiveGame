@@ -46,8 +46,6 @@ namespace ColdCaseOS.Core
         };
 
         public AppScreenState CurrentScreen { get; private set; } = AppScreenState.Title;
-        public string PendingEpisodeId { get; private set; }
-        public bool HasPendingEpisode => !string.IsNullOrEmpty(PendingEpisodeId);
         public event Action<EpisodeData> OnEpisodeLoaded;
         public event Action<AppScreenState> OnScreenChanged;
 
@@ -131,46 +129,6 @@ namespace ColdCaseOS.Core
                 keepOpenWindowIds: null);
         }
 
-        /// <summary>
-        /// 이전 사건 정산 후 호출: 새 사건을 즉시 시작하지 않고, 메신저에 상부 새 메시지 도착 알림만 띄웁니다.
-        /// 플레이어가 메신저 창을 열어 확인하는 순간 TryStartPendingEpisodeOnMessengerOpenedAsync()가 사건을 시작합니다.
-        /// </summary>
-        public async UniTask QueueNextEpisodeNotificationAsync(string nextEpisodeId, float delaySeconds = 1.5f)
-        {
-            if (string.IsNullOrEmpty(nextEpisodeId)) return;
-
-            _loadCts?.Cancel();
-            _loadCts?.Dispose();
-            _loadCts = new CancellationTokenSource();
-
-            if (delaySeconds > 0f)
-                await UniTask.Delay(TimeSpan.FromSeconds(delaySeconds), cancellationToken: _loadCts.Token);
-
-            PendingEpisodeId = nextEpisodeId;
-            GameEvents.RaiseSfxRequested("SFX_MSG_NOTIFY");
-            GameEvents.RaiseToastRequested("서울청 수사심의관", "신규 사건 배정 메시지가 도착했습니다.");
-            GameEvents.RaiseNewCaseOrderReceived(nextEpisodeId, string.Empty, string.Empty);
-        }
-
-        /// <summary>
-        /// 플레이어가 메신저 창을 열어(Open/Focus) 상부 메시지를 확인하는 순간 호출됩니다.
-        /// 수락 버튼 없이 그 즉시 새 에피소드 파일이 로드되고 마감 시한이 시작됩니다.
-        /// </summary>
-        public async UniTask<bool> TryStartPendingEpisodeOnMessengerOpenedAsync(params string[] keepOpenWindowIds)
-        {
-            if (!HasPendingEpisode) return false;
-            string targetId = PendingEpisodeId;
-            PendingEpisodeId = null;
-
-            var episode = await LoadEpisodeInternalAsync(
-                targetId,
-                resumeSnapshot: false,
-                keepOSAlive: true,
-                keepOpenWindowIds: keepOpenWindowIds);
-
-            return episode != null;
-        }
-
         private async UniTask<EpisodeData> LoadEpisodeInternalAsync(
             string episodeId,
             bool resumeSnapshot,
@@ -197,18 +155,6 @@ namespace ColdCaseOS.Core
             else
             {
                 RuntimeState.InitializeNew(episode);
-                string orderBody = $"신규 재수사 사건 배정: {episode.caseNumber} ({episode.title})\n" +
-                                   $"{episode.briefingSummary}\n" +
-                                   $"지금 시점부터 마감 시한({TimeManager.FormatMinutesKorean(episode.submissionDeadlineMinutes)})이 적용됩니다. 아래 첨부 사건 파일을 다운로드해 즉시 착수하십시오.";
-
-                RuntimeState.AddMessengerMessage(
-                    sender: "서울청 수사심의관",
-                    body: orderBody,
-                    timestamp: Time.FormattedCurrentClock,
-                    isSystemAlert: true,
-                    channelId: "HQ",
-                    downloadableEpisodeId: episode.episodeId);
-
                 Campaign.AutoSaveActiveState(RuntimeState);
             }
 
@@ -218,7 +164,8 @@ namespace ColdCaseOS.Core
             }
 
             OnEpisodeLoaded?.Invoke(episode);
-            GameEvents.RaiseToastRequested("신규 사건 배정", $"메신저에서 [{episode.title}] 사건 파일을 다운로드하세요.");
+            windowManager?.OpenWindow("FileExplorer");
+            GameEvents.RaiseToastRequested("사건 파일 로드 완료", $"[{episode.title}] 모든 사건 문서와 도면이 파일 탐색기에 준비되었습니다.");
             return episode;
         }
 

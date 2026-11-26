@@ -39,7 +39,7 @@ namespace ColdCaseOS.Core
             ElapsedMinutes = 0;
             IsOvertime = false;
             VolatileDeadlineNotified = false;
-            IsCaseFilesDownloaded = false;
+            IsCaseFilesDownloaded = true;
             CurrentPartnerNodeId = episode.startNodeId;
             CurrentVolatileClueState = VolatileClueState.None;
 
@@ -54,6 +54,15 @@ namespace ColdCaseOS.Core
             ClueCards.Clear();
             StickyNotes.Clear();
             MessengerLogs.Clear();
+
+            foreach (var d in episode.documents)
+                if (d.isInitial) UnlockedDocIds.Add(d.docId);
+
+            foreach (var p in episode.photos)
+                if (p.isInitial) UnlockedPhotoIds.Add(p.photoId);
+
+            foreach (var c in episode.cctvClips)
+                if (c.isInitial) UnlockedCctvIds.Add(c.clipId);
 
             foreach (var n in episode.mapNodes)
                 if (n.isInitiallyUnlocked) UnlockedNodeIds.Add(n.nodeId);
