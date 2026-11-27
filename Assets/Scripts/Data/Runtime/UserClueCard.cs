@@ -12,7 +12,8 @@ namespace ColdCaseOS.Data
         CctvCapture,
         PhotoCapture,
         AudioClip,
-        DbRecord
+        DbRecord,
+        InterrogationStatement
     }
 
     /// <summary>

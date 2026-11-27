@@ -4,10 +4,10 @@
   "title": "심야 편의점 금고 털이 사건",
   "crimeType": "강도 상해 및 절도",
   "startDateTimeIso": "2026-11-18T09:00:00",
-  "volatileDeadlineMinutes": 0,
-  "submissionDeadlineMinutes": 0,
+  "volatileDeadlineMinutes": 720,
+  "submissionDeadlineMinutes": 960,
   "startNodeId": "",
-  "briefingSummary": "2026.11.18 새벽 신림동 편의점 창고에서 점주 박성훈(48)이 둔기에 맞아 의식을 잃고 비상금고 420만 원과 카운터 42만 원이 도난당했습니다. 초동 수사팀은 절도 전과 3범 김철수(36)를 긴급 체포했으나 의문점이 많습니다. 19종의 수사 기록, 도면(블루프린트), 이동 시간표, 로그와 잡문서를 교차 분석해 진범·동기·흉기·수법을 밝혀내십시오.",
+  "briefingSummary": "2026.11.18 02:30경 신림동 24시 편의점 창고에서 점주 박성훈(48)이 둔기에 맞아 의식을 잃고 비상금고 420만 원과 카운터 42만 원이 도난당했습니다. 일선 초동팀이 절도 전과 3범 김철수(36)를 02:40 긴급체포했으나 모순이 발견되어 서울청 보완수사 전담팀으로 이관되었습니다. 남은 보완수사 시한(16시간) 내에 현장수사반 지휘와 관련자 7인 전원 심문으로 진범·동기·흉기·수법을 밝혀내십시오.",
   "documents": [
     {
       "docId": "EV_DOC_INIT_REPORT",
@@ -15,7 +15,7 @@
       "category": "REPORT",
       "isInitial": true,
       "paperTemplate": "UI_DOC_PAPER_REPORT",
-      "bodyText": "[사건 개요]\n2026.11.18 02:30경 서울 관악구 신림동 24시 편의점 창고에서 점주 박성훈(48)이 후두부를 둔기에 맞아 쓰러진 채 첫 손님에게 발견됨. 창고 비상금고 현금 420만 원(은행 노란 띠지 묶음) 및 매장 카운터 현금 42만 원 도난.\n\n[초동 피의자 긴급 체포]\n02:15 매장 CCTV에 찍힌 절도 전과 3범 김철수(36)를 02:40경 인근 24시 PC방에서 긴급 체포함(현금 42만 원 압수, 나머지 420만 원은 미발견). 초동팀은 전과 이력을 근거로 김철수를 강도 상해 진범으로 잠정 추정하고 검찰 송치를 준비 중임.\n\n[현장 1차 수거 물품 및 특이사항]\n- 흉기 후보 4종 수거: 창고 바닥 3.3kg 분말 소화기, 공구함 적색 손잡이 몽키스패너, 창고 접이식 철제 의자, 매장 밖 쓰레기통 깨진 소주병.\n- 창고 우측 재고 선반 아래 바닥 구석에서 끊어진 얇은 실버 체인 팔찌 1점 수거.\n- 매장 CCTV 중 01:55 ~ 02:05 구간(10분)이 기록 누락 상태이며, 출동 당시 창고 뒷문은 정상 잠금 상태였음.",
+      "bodyText": "[사건 개요]\n2026.11.18 02:30경 서울 관악구 신림동 24시 편의점 창고에서 점주 박성훈(48)이 후두부를 둔기에 맞아 쓰러진 채 최초 방문 손님 윤서진(29)에게 발견되어 112에 신고됨. 창고 비상금고 현금 420만 원(은행 노란 띠지 묶음) 및 매장 카운터 현금 42만 원 도난.\n\n[초동 피의자 긴급 체포 및 전담팀 이관 사유]\n02:15 매장 CCTV에 찍힌 절도 전과 3범 김철수(36)를 02:40경 인근 24시 PC방에서 긴급 체포함(현금 42만 원 압수, 나머지 420만 원은 미발견). 구속영장 청구 법정 시한(48시간) 만료 전 의문점이 확인되어 09:00 서울청 보완수사 전담팀으로 이관됨(배정 시한 16시간 / 휘발성 골든 타임 12시간).\n\n[초동 파악 사건 관련자 7인 (전원 조사·심문 가능) + 피해자 1인]\n- 김철수(36, 초동 피의자 / 절도 전과 3범), 이준호(24, 야간 알바), 최태식(57, 상가 건물주), 한소라(22, 주간 알바),\n  오민석(41, 맞은편 '별밤호프' 사장), 정대호(33, 한빛물류 새벽 배송기사), 윤서진(29, 02:30 최초 발견·112 신고자).\n- 피해자 박성훈(48, 점주): 관악병원 중환자실 입원 중(급성 뇌진탕, 48시간 진술 불가).\n\n[현장 1차 수거 물품 및 특이사항]\n- 흉기 후보 4종 수거: 창고 바닥 3.3kg 분말 소화기, 공구함 적색 손잡이 몽키스패너, 창고 접이식 철제 의자, 매장 밖 쓰레기통 깨진 소주병.\n- 창고 우측 재고 선반 아래 바닥 구석에서 끊어진 얇은 실버 체인 팔찌 1점 수거.\n- 매장 CCTV 중 01:55 ~ 02:05 구간(10분)이 기록 누락 상태이며, 출동 당시 창고 뒷문은 정상 잠금 상태였음.",
       "metadata": {
         "createdAt": "2026-11-18 05:10:00",
         "modifiedAt": "2026-11-18 07:45:00",
@@ -70,38 +70,6 @@
         {
           "matchSubstring": "적색 산업용 에나멜 도료 미세 편 3점 및 극미량의 백색 분말(성분 분석 결과: 제1인산암모늄 추정)",
           "evidenceId": "EV_WEAPON_EXTINGUISHER"
-        }
-      ]
-    },
-    {
-      "docId": "EV_DOC_FORENSIC_ITEMS",
-      "title": "[감식] 현장 수거 물품 및 창고 뒷문 문틀 정밀 감식서",
-      "category": "REPORT",
-      "isInitial": true,
-      "paperTemplate": "UI_DOC_PAPER_REPORT",
-      "bodyText": "[1. 현장 수거 흉기 후보 4종 표면 감식]\n- 물증 #1 (창고 바닥 3.3kg 분말 소화기): 안전핀은 미개봉 상태이나 하단 원통 모서리 적색 도장이 약 2cm가량 긁혀 벗겨짐. 몸통 및 손잡이 표면을 천으로 급히 닦아낸 문지름 흔적 확인. 바닥 주변 미세 흰 가루 잔존.\n- 물증 #2 (공구함 적색 손잡이 몽키스패너): 금속 머리부 폭 3cm 평면, 손잡이는 적색 고무 재질. 전체에 최소 2주 이상 미사용된 균일한 먼지층 유지, 혈흔 반응 음성.\n- 물증 #3 (창고 접이식 철제 의자): 베이지색 도장, 다리 프레임에 약간의 긁힘 있으나 혈흔 반응 음성.\n- 물증 #4 (매장 밖 쓰레기통 깨진 소주병): 혈흔 반응 음성. 병목에서 건물주 최태식의 지문만 검출.\n\n[2. 창고 뒷문 문틀 및 선반 바닥 정밀 감식]\n- 창고 뒷문 좌상단 문틀 자석 접점 센서 본체(유선 측): 플라스틱 본체 우측 면에 급히 뜯어내다 찢겨 남은 투명 스카치테이프 조각(길이 1.4cm)이 부착되어 있으며, 본체 정면에 직경 1cm가량의 미세 원형 금속(자석) 긁힘 자국과 점착 잔류물 확인.\n- 창고 우측 철제 선반 하단 바닥: 끊어진 얇은 실버 체인 팔찌 1점 (걸쇠 부위가 강한 장력에 의해 찢어지며 파손됨).",
-      "metadata": {
-        "createdAt": "2026-11-18 08:25:00",
-        "modifiedAt": "2026-11-18 08:25:00",
-        "author": "관악서 과학수사팀",
-        "sourceFile": "FORENSIC_SCENE_014.pdf"
-      },
-      "hiddenTags": [
-        {
-          "matchSubstring": "물증 #1 (창고 바닥 3.3kg 분말 소화기): 안전핀은 미개봉 상태이나 하단 원통 모서리 적색 도장이 약 2cm가량 긁혀 벗겨짐",
-          "evidenceId": "EV_WEAPON_EXTINGUISHER"
-        },
-        {
-          "matchSubstring": "적색 손잡이 몽키스패너",
-          "evidenceId": "EV_WEAPON_WRENCH"
-        },
-        {
-          "matchSubstring": "찢겨 남은 투명 스카치테이프 조각(길이 1.4cm)이 부착되어 있으며, 본체 정면에 직경 1cm가량의 미세 원형 금속(자석) 긁힘 자국",
-          "evidenceId": "EV_METHOD_MAGNET_TAPE"
-        },
-        {
-          "matchSubstring": "끊어진 얇은 실버 체인 팔찌 1점",
-          "evidenceId": "EV_TAG_BROKEN_BRACELET"
         }
       ]
     },
@@ -210,17 +178,18 @@
       ]
     },
     {
-      "docId": "EV_DOC_STMT_HAN",
-      "title": "[진술서] 참고인 진술 조서 — 한소라(22, 주간 알바)",
+      "docId": "EV_DOC_STMT_HAN_INIT",
+      "title": "[진술서] 초동 참고인 1차 조서 — 한소라(22, 주간 알바)",
       "category": "STATEMENT",
       "isInitial": true,
-      "paperTemplate": "UI_DOC_PAPER_REPORT",
-      "bodyText": "[참고인 진술 조서 — 한소라(22세, 여 / 대학생, 주간 아르바이트)]\n\n수사관: 사건 전날 밤 교대 시각과 퇴근 이후 행적을 말씀해 주십시오.\n한소라: 밤 10시에 준호 오빠랑 교대하고 바로 기숙사로 돌아갔습니다. 새벽에는 기숙사 밖으로 한 발자국도 안 나갔습니다.\n수사관: 교대 당시 점주님과 이준호 씨 사이에 특이한 점은 없었습니까?\n한소라: 사실 어제 오후 내내 사장님 표정이 너무 안 좋으셨어요. 카운터에서 영수증 뭉치를 한참 들여다보시더니, 밤 10시 교대 직전에 준호 오빠를 창고 쪽으로 따로 부르시더라고요. 문이 덜 닫혀 있었는데 사장님이 '준호야, 오늘 자정까지 못 채우면 나도 어쩔 수 없다. 내일 아침 9시에 경찰서에 정식 신고할 거다'라고 하시는 걸 들었습니다.\n수사관: 이준호 씨가 어젯밤 은색 팔찌를 차고 있었습니까?\n한소라: 네, 확실히 기억해요. 교대하면서 포스기 시재 맞출 때 준호 오빠 왼쪽 손목에 그 얇은 실버 체인 팔찌가 걸려 있었어요. 며칠 전 잃어버렸다니 말도 안 됩니다.\n수사관: 창고 안 공구함 몽키스패너는 최근 사용한 적이 있습니까?\n한소라: 그 빨간 고무 손잡이 스패너는 2주 전에 선반 나사 조인 뒤로 아무도 안 건드렸어요. 소화기는 원래 창고 문 바로 안쪽 벽에 세워져 있었고요.",
+      "paperTemplate": "OFFICIAL_REPORT",
+      "bodyText": "[참고인 1차 간략 진술 조서 — 한소라(22세, 여 / 대학생, 주간 아르바이트)]\n\n수사관: 사건 전날 밤 교대 시각과 퇴근 이후 행적을 말씀해 주십시오.\n한소라: 밤 10시에 준호 오빠랑 교대하고 바로 대학교 기숙사로 돌아갔습니다. 그 뒤로는 기숙사 밖으로 한 발자국도 안 나갔어요.\n수사관: 교대 당시 점주님이나 야간 근무자 사이에 특이한 점은 없었습니까?\n한소라: 글쎄요... 저는 교대하자마자 바빠서 바로 나와 가지고 특별히 기억나는 일은 없었습니다. 사장님은 평소처럼 계산대 정리하고 계셨어요.",
       "metadata": {
-        "createdAt": "2026-11-18 06:10:00",
-        "modifiedAt": "2026-11-18 06:10:00",
-        "author": "강력2팀 조사관",
-        "sourceFile": "STMT_HAN_SORA.pdf"
+        "createdAt": "2026-11-18 07:40:00",
+        "modifiedAt": "2026-11-18 07:40:00",
+        "author": "관악서 초동수사팀",
+        "sourceFile": "STMT_HAN_INIT.pdf",
+        "metadataEvidenceId": ""
       },
       "hiddenTags": [
         {
@@ -228,16 +197,65 @@
           "evidenceId": "SUSPECT_D"
         },
         {
-          "matchSubstring": "준호 오빠",
-          "evidenceId": "SUSPECT_B"
+          "matchSubstring": "밤 10시에 준호 오빠랑 교대하고 바로 대학교 기숙사로 돌아갔습니다",
+          "evidenceId": "EV_TAG_HAN_LIE_DORM"
+        }
+      ]
+    },
+    {
+      "docId": "EV_DOC_STMT_YOON_INIT",
+      "title": "[접수 기록] 112 최초 발견·신고자 간략 조서 — 윤서진(29)",
+      "category": "STATEMENT",
+      "isInitial": true,
+      "paperTemplate": "OFFICIAL_REPORT",
+      "bodyText": "[112 최초 신고자 간략 진술 — 윤서진(29세, 여 / IT 디자이너, 인근 오피스텔 거주)]\n\n수사관: 사건 현장을 처음 발견하신 경위와 시각을 말씀해 주십시오.\n윤서진: 회사 야근 끝나고 택시 타고 집에 오다가, 야식을 사려고 02시 29분쯤 편의점에 들어갔습니다. 카운터가 비어 있어서 사장님을 불렀는데 창고 문틈으로 피가 보여서 너무 놀라 바로 02시 30분에 112에 신고했습니다.\n수사관: 신고 전후로 매장 안에서 이상한 사람이나 물건을 보셨습니까?\n윤서진: 너무 놀라서 경황이 없었습니다. 매장 안에는 저 말고 아무도 없었고 경찰 오실 때까지 밖에서 떨고 있었습니다.",
+      "metadata": {
+        "createdAt": "2026-11-18 03:20:00",
+        "modifiedAt": "2026-11-18 03:20:00",
+        "author": "관악서 신림지구대",
+        "sourceFile": "CALL_112_YOON.pdf",
+        "metadataEvidenceId": ""
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "윤서진(29세",
+          "evidenceId": "SUSPECT_YOON"
         },
         {
-          "matchSubstring": "오늘 자정까지 못 채우면 나도 어쩔 수 없다. 내일 아침 9시에 경찰서에 정식 신고할 거다",
-          "evidenceId": "EV_MOTIVE_EMBEZZLE"
+          "matchSubstring": "02시 29분쯤 편의점에 들어갔습니다",
+          "evidenceId": "EV_TAG_YOON_ARRIVAL"
+        }
+      ]
+    },
+    {
+      "docId": "EV_DOC_FORENSIC_ITEMS",
+      "title": "[감식] 현장 수거 물품 및 창고 뒷문 문틀 정밀 감식서",
+      "category": "REPORT",
+      "isInitial": false,
+      "paperTemplate": "UI_DOC_PAPER_REPORT",
+      "bodyText": "[1. 현장 수거 흉기 후보 4종 표면 감식]\n- 물증 #1 (창고 바닥 3.3kg 분말 소화기): 안전핀은 미개봉 상태이나 하단 원통 모서리 적색 도장이 약 2cm가량 긁혀 벗겨짐. 몸통 및 손잡이 표면을 천으로 급히 닦아낸 문지름 흔적 확인. 바닥 주변 미세 흰 가루 잔존.\n- 물증 #2 (공구함 적색 손잡이 몽키스패너): 금속 머리부 폭 3cm 평면, 손잡이는 적색 고무 재질. 전체에 최소 2주 이상 미사용된 균일한 먼지층 유지, 혈흔 반응 음성.\n- 물증 #3 (창고 접이식 철제 의자): 베이지색 도장, 다리 프레임에 약간의 긁힘 있으나 혈흔 반응 음성.\n- 물증 #4 (매장 밖 쓰레기통 깨진 소주병): 혈흔 반응 음성. 병목에서 건물주 최태식의 지문만 검출.\n\n[2. 창고 뒷문 문틀 및 선반 바닥 정밀 감식]\n- 창고 뒷문 좌상단 문틀 자석 접점 센서 본체(유선 측): 플라스틱 본체 우측 면에 급히 뜯어내다 찢겨 남은 투명 스카치테이프 조각(길이 1.4cm)이 부착되어 있으며, 본체 정면에 직경 1cm가량의 미세 원형 금속(자석) 긁힘 자국과 점착 잔류물 확인.\n- 창고 우측 철제 선반 하단 바닥: 끊어진 얇은 실버 체인 팔찌 1점 (걸쇠 부위가 강한 장력에 의해 찢어지며 파손됨).",
+      "metadata": {
+        "createdAt": "2026-11-18 08:25:00",
+        "modifiedAt": "2026-11-18 08:25:00",
+        "author": "관악서 과학수사팀",
+        "sourceFile": "FORENSIC_SCENE_014.pdf"
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "물증 #1 (창고 바닥 3.3kg 분말 소화기): 안전핀은 미개봉 상태이나 하단 원통 모서리 적색 도장이 약 2cm가량 긁혀 벗겨짐",
+          "evidenceId": "EV_WEAPON_EXTINGUISHER"
         },
         {
-          "matchSubstring": "왼쪽 손목에 그 얇은 실버 체인 팔찌가 걸려 있었어요",
-          "evidenceId": "EV_TAG_HAN_BRACELET"
+          "matchSubstring": "적색 손잡이 몽키스패너",
+          "evidenceId": "EV_WEAPON_WRENCH"
+        },
+        {
+          "matchSubstring": "찢겨 남은 투명 스카치테이프 조각(길이 1.4cm)이 부착되어 있으며, 본체 정면에 직경 1cm가량의 미세 원형 금속(자석) 긁힘 자국",
+          "evidenceId": "EV_METHOD_MAGNET_TAPE"
+        },
+        {
+          "matchSubstring": "끊어진 얇은 실버 체인 팔찌 1점",
+          "evidenceId": "EV_TAG_BROKEN_BRACELET"
         }
       ]
     },
@@ -245,7 +263,7 @@
       "docId": "EV_DOC_WITNESS_OH",
       "title": "[목격담] 맞은편 '별밤호프' 사장 목격 진술 — 오민석(41)",
       "category": "STATEMENT",
-      "isInitial": true,
+      "isInitial": false,
       "paperTemplate": "UI_DOC_PAPER_REPORT",
       "bodyText": "[목격자 진술 조서 — 오민석(41세, 남 / 편의점 맞은편 '별밤호프' 운영)]\n\n수사관: 11월 18일 새벽 편의점 앞에서 목격하신 내용을 시간순으로 말씀해 주십시오.\n오민석: 영업 마감 청소하면서 가게 앞 벤치에서 담배를 피우고 있었습니다. 도로 폭이 좁아서 맞은편 편의점 앞이 훤히 보입니다.\n1) 01시 45분쯤 상가 건물주 최태식 씨가 얼굴이 벌게져서 나오더니 빈 소주병을 쓰레기통에 던지고, 01시 47분쯤 도착한 대리기사 차를 타고 떠나는 걸 끝까지 봤습니다.\n2) 01시 50분 조금 넘어서 편의점 야간 알바생(이준호)이 검정 백팩을 메고 정문으로 나오더군요. 늘 왼쪽 원룸 쪽으로 걸어가던 친구가, 어젯밤에는 01시 51분쯤 주변을 두리번거리더니 오른쪽 상가 뒤편 좁은 골목(창고 뒷문 쪽)으로 쏙 들어가길래 의아했습니다.\n3) 그 뒤 한참 조용하다가 02시 14분쯤 검은 후드티를 뒤집어쓴 남자가 빈 매장 안을 기웃거리다 들어가더니, 2분 만에 헐레벌떡 뛰어나와 PC방 방향으로 도망쳤습니다.",
       "metadata": {
@@ -269,7 +287,7 @@
       "docId": "EV_DOC_WITNESS_JUNG",
       "title": "[목격담] 새벽 물류 배송기사 진술 — 정대호(33)",
       "category": "STATEMENT",
-      "isInitial": true,
+      "isInitial": false,
       "paperTemplate": "UI_DOC_PAPER_REPORT",
       "bodyText": "[참고인 진술 조서 — 정대호(33세, 남 / 한빛물류 새벽 배송기사)]\n\n수사관: 사건 당일 납품 시각과 창고 상태를 말씀해 주십시오.\n정대호: 11월 18일 01시 12분에 도착해 음료·도시락 물류 박스 6개를 창고에 내려놓고 01시 20분에 검수 서명을 받고 나갔습니다.\n수사관: 당시 창고 뒷문이나 비품에 특이사항이 있었습니까?\n정대호: 제가 뒷문으로 나갈 때 점주님이 직접 안쪽에서 문을 잠그셨습니다. 문틀 위 흰색 자석 센서에도 아무것도 안 붙어 있었고, 빨간 소화기도 문 안쪽 벽에 멀쩡히 세워져 있었습니다. 야간 알바생은 카운터 뒤에서 손이 떨릴 정도로 계속 시계랑 휴대폰만 쳐다보고 있더라고요.",
       "metadata": {
@@ -284,7 +302,7 @@
       "docId": "EV_DOC_TIMECARD",
       "title": "[로그] 편의점 직원 출퇴근 단말기 기록 (최근 5일)",
       "category": "LOG",
-      "isInitial": true,
+      "isInitial": false,
       "paperTemplate": "UI_DOC_PAPER_REPORT",
       "bodyText": "[출퇴근 단말기 출력본 — POS_TERMINAL_01]\n2026-11-14 | 한소라 (주간) | 출근 08:58:19 | 퇴근 22:00:44\n2026-11-14 | 이준호 (야간) | 출근 21:59:10 | 퇴근 01:51:08 (익일)\n2026-11-15 | 한소라 (주간) | 출근 09:00:11 | 퇴근 22:01:04\n2026-11-15 | 이준호 (야간) | 출근 21:58:42 | 퇴근 01:50:19 (익일)\n2026-11-16 | 한소라 (주간) | 출근 08:59:30 | 퇴근 22:00:52\n2026-11-16 | 이준호 (야간) | 출근 21:59:15 | 퇴근 01:51:03 (익일)\n2026-11-17 | 한소라 (주간) | 출근 09:01:05 | 퇴근 22:02:15\n2026-11-17 | 이준호 (야간) | 출근 22:00:04 | 퇴근 01:50:12 (2026-11-18 정상 퇴근 처리)\n\n※ 매장 운영 규정: 01:50 야간 알바 퇴근 후에는 점주 박성훈이 창고 정산 및 새벽 단독 근무 수행.",
       "metadata": {
@@ -304,7 +322,7 @@
       "docId": "EV_DOC_POS_AUDIT",
       "title": "[로그] POS 현금 결제 취소 감사 내역 (최근 3개월)",
       "category": "LOG",
-      "isInitial": true,
+      "isInitial": false,
       "paperTemplate": "UI_DOC_PAPER_REPORT",
       "bodyText": "[POS 본사 서버 결제 취소 정밀 감사 — 2026.08.18 ~ 2026.11.17]\n- 주간 근무자(한소라) 3개월 취소 합계: 4건 / 28,500원 (전건 1분 내 카드 재결제 확인 — 정상 오입력)\n- 점주(박성훈) 3개월 취소 합계: 2건 / 14,000원 (즉시 정정 완료)\n- 야간 근무자(이준호) 3개월 현금 결제 단독 취소 합계: 94건 / 3,800,000원 (재결제 0건, 영수증 미출력 처리로 현금 시재 횡령 정황)\n\n[최근 3일 야간 단독 취소 샘플]\n2026-11-15 00:42:18 | 담당: 이준호 | 현금취소 -45,000원 (담배 1보루)\n2026-11-16 01:11:09 | 담당: 이준호 | 현금취소 -54,000원 (주류·안주)\n2026-11-17 00:19:55 | 담당: 이준호 | 현금취소 -36,000원 (점주 경고 유예 기간 중 재차 취소)",
       "metadata": {
@@ -328,7 +346,7 @@
       "docId": "EV_DOC_CCTV_NVR",
       "title": "[로그] 매장 CCTV 타임라인 및 창고 NVR 포렌식 덤프",
       "category": "LOG",
-      "isInitial": true,
+      "isInitial": false,
       "paperTemplate": "UI_DOC_PAPER_REPORT",
       "bodyText": "[매장 본관 CCTV 이벤트 타임라인 — 2026.11.18]\n01:20:04 | 배송기사 정대호 납품 완료 후 퇴장\n01:35:18 | 건물주 최태식 입장, 카운터 앞 점주와 격한 언쟁\n01:45:03 | 최태식 정문 퇴장, 점주 창고 철문으로 이동\n01:46:40 | 이준호 문구 진열대 경유 후 재고 정리 명목으로 창고 출입 (01:48:30 카운터 복귀)\n01:50:18 | 이준호 검정 백팩 메고 정문 퇴장 (확대 판독: 좌측 손목 얇은 실버 체인 팔찌 착용 확인)\n01:55:00 ~ 02:05:00 | [SIGNAL LOST — 영상 데이터 10분 누락]\n02:14:30 | 텅 빈 매장. 검은 후드(김철수) 진입 직전 이미 우측 창고 문틈 아래로 검붉은 혈흔과 노란 은행 현금 띠지가 삐져나와 있음\n02:16:05 | 김철수 카운터 현금 42만 원만 절취 후 정문 도주 (창고 방향 이동 없음)\n\n[창고 책상 NVR 디지털 포렌식 덤프 로그]\n2026-11-18 02:05:11 | 전면 USB 포트 #1 외부 장치 마운트 감지\n실행 모듈: LOG_WIPE_v4 (01:55:00 ~ 02:05:00 구간 강제 덮어쓰기 삭제 — 기기 오류가 아닌 인위적 삭제)\n잔존 라이선스 인증 패킷: 원본 서버 IP 211.XX.104.88 / 거래 연동 계좌 끝자리 -9912",
       "metadata": {
@@ -353,34 +371,10 @@
       ]
     },
     {
-      "docId": "EV_DOC_SECURITY_ALIBI",
-      "title": "[로그] 세이프가드 뒷문 센서 및 외부 출입·PC방 교차 기록",
-      "category": "LOG",
-      "isInitial": true,
-      "paperTemplate": "UI_DOC_PAPER_REPORT",
-      "bodyText": "[1. 세이프가드 창고 뒷문 자석 접점 센서 로그]\n2026-11-18 01:20:09 | 센서 상태 CLOSED (배송기사 퇴장 후 잠금)\n2026-11-18 01:48:05 ~ 02:30:00 | 개폐 이벤트 0건 (CLOSED 상태 비정상 유지 — 외부 자석 고정 의심)\n\n[2. 관련자 외부 시스템 출입·이용 교차 조회]\n- 최태식(건물주): 대리운전 배차 01:46 호출 / 01:47 출발 / 자택 아파트 지하주차장 엘리베이터 01:58:22 탑승 (아침까지 외출 0건).\n- 김철수(전과자): 인근 24시 PC방 34번 좌석 로그인 23:40 ~ 02:08:10 / 재입장 로그인 02:22:15.\n- 한소라(주간 알바): 대학 기숙사 공동현관 카드키 00:12:08 입실 (이후 07:50까지 외출 기록 0건).\n- 이준호(야간 알바): 신림동 원룸 공동현관 카드키 02:13:40 최초 입실 태그 (01:50 ~ 02:13 사이 원룸 출입 기록 없음).",
-      "metadata": {
-        "createdAt": "2026-11-18 08:45:00",
-        "modifiedAt": "2026-11-18 08:45:00",
-        "author": "세이프가드 / 통신·출입 조회반",
-        "sourceFile": "SENSOR_ALIBI_CROSS.log"
-      },
-      "hiddenTags": [
-        {
-          "matchSubstring": "개폐 이벤트 0건 (CLOSED 상태 비정상 유지 — 외부 자석 고정 의심)",
-          "evidenceId": "EV_METHOD_MAGNET_TAPE"
-        },
-        {
-          "matchSubstring": "신림동 원룸 공동현관 카드키 02:13:40 최초 입실 태그",
-          "evidenceId": "SUSPECT_B"
-        }
-      ]
-    },
-    {
       "docId": "EV_DOC_OWNER_NOTE",
       "title": "[메모] 카운터 잠긴 서랍 속 점주 자필 수첩 & 은행 출금 전표",
       "category": "MISC",
-      "isInitial": true,
+      "isInitial": false,
       "paperTemplate": "UI_DOC_MEMO_NOTE",
       "bodyText": "[점주 박성훈 자필 수첩 발췌]\n- 2026.11.10: POS 현금 취소 내역 대조하다 준호 3개월치 380만 원 누락 발견. 처음엔 어머니 병원비 이자 때문인 줄 알았는데 통장 내역 보니 불법 스포츠 토토 빚이었다. 그래도 아직 어린 녀석이라 딱해서 한 번만 기회를 줬다. 11월 17일 자정까지 메워 넣으면 신고는 안 하겠다고 약속.\n- 2026.11.17 15:20: 오늘 새벽에도 또 현금 결제를 취소했다. 더는 못 봐준다. 내일(18일) 오전 09시 관악경찰서에 정식 횡령 신고 예정.\n\n[동봉된 은행 창구 현금 출금 전표 — 2026.11.17 14:30]\n예금주: 박성훈 / 거래 내용: 정기적금 중도 해약 현금 출금\n출금액: 4,200,000원 (5만 원권 84매, 은행 노란 띠지 묶음)\n수기 메모: '최태식 밀린 월세 1차 변제금 — 내일 아침 송금 전까지 창고 금고 보관'",
       "metadata": {
@@ -408,7 +402,7 @@
       "docId": "EV_DOC_FIRE_INSPECTION",
       "title": "[비품] 편의점 소방시설 점검표 및 창고 비품 대장",
       "category": "MISC",
-      "isInitial": true,
+      "isInitial": false,
       "paperTemplate": "UI_DOC_PAPER_REPORT",
       "bodyText": "[정기 소방시설 자체 점검표 — 2026.10.15]\n- 비치 장소: 창고 출입문 안쪽 좌측 벽면\n- 품명 및 규격: 3.3kg ABC 분말 소화기 (적색 산업용 에나멜 도장 강철 원통, 본체 직경 11cm)\n- 충전 약제 성분: 제1인산암모늄 백색 분말 (압력 게이지 정상, 안전핀 봉인 유지)\n\n[창고 공구 및 비품 대장 — 2026.11.01 갱신]\n- 공구함: 몽키스패너 1개 (적색 고무 그립, 평면 금속 폭 3cm), 십자드라이버 2개\n- 사무 비품: 간이 정산 책상 1개, 베이지색 접이식 철제 의자 1개, 비상금고 1개, CCTV 녹화기(NVR) 및 4분할 모니터 1세트\n- 부착 소품: 창고 냉장고·화이트보드 고정용 소형 원형 네오디뮴 자석 4개 (직경 1cm)",
       "metadata": {
@@ -436,7 +430,7 @@
       "docId": "EV_DOC_QUICK_RECEIPT",
       "title": "[영수증] 편의점 퀵서비스 수령 전표 및 문구 재고 실사표",
       "category": "MISC",
-      "isInitial": true,
+      "isInitial": false,
       "paperTemplate": "UI_DOC_PAPER_REPORT",
       "bodyText": "[오토바이 퀵서비스 배송 완료 전표 — 카운터 영수증철 수거]\n- 배송 일시: 2026-11-17 21:42\n- 출발지: 서울 성동구 성수동 구 공단 인근 (발송인 표기: W.A.)\n- 도착지: 신림동 24시 편의점 (수령인 서명: 이준호)\n- 물품명: 소형 전자부품(USB 메모리) / 운임 선불 완료\n\n[2026.11.18 오전 긴급 재고 실사 특이사항 — 문구·창고 소품]\n- 매장 문구 코너: 투명 스카치테이프(18mm) 전산 재고 5개 / 실재고 4개 (-1개 판매 기록 없이 분실)\n- 창고 화이트보드: 부착용 소형 원형 자석 4개 중 1개 분실 (총 3개만 잔존)",
       "metadata": {
@@ -468,7 +462,7 @@
       "docId": "EV_DOC_RENT_NOTICE",
       "title": "[잡문서] 상가 월세 체납 내용증명 및 독촉 문자",
       "category": "MISC",
-      "isInitial": true,
+      "isInitial": false,
       "paperTemplate": "UI_DOC_PAPER_REPORT",
       "bodyText": "[내용증명 — 발신: 상가 건물주 최태식 / 수신: 임차인 박성훈]\n작성일: 2026.11.10\n제목: 임대차 월세 3개월(총 660만 원) 체납 최고장\n\n귀하는 2026년 9월~11월분 월세 및 관리비를 미납 중입니다. 11월 20일까지 전액 입금하지 않을 경우 임대차 계약을 즉시 해지하고 명도 소송을 진행하겠습니다.\n\n[문자 내역 — 2026.11.17 23:40 최태식 발신]\n\"박 사장, 오늘도 안 보냈네? 내가 술 깨기 전에 가게로 찾아간다.\"",
       "metadata": {
@@ -492,7 +486,7 @@
       "docId": "EV_DOC_DAILY_NOISE",
       "title": "[잡문서] 폐기 식품 반출표·스터디카페 영수증 및 지구대 민원 일지",
       "category": "MISC",
-      "isInitial": true,
+      "isInitial": false,
       "paperTemplate": "UI_DOC_PAPER_REPORT",
       "bodyText": "[편의점 폐기 식품 처리 및 발주 기록 — 2026.11.17]\n- 22:18 | 삼각김밥 참치마요 3개, 도시락 1개 폐기 등록 (한소라 퇴근 후 무단 반출 확인 — 규정상 매장 내 폐기 원칙)\n- 23:10 | 컵라면 2박스·생수 500ml 3묶음 발주 완료 (담당: 이준호)\n\n[참고인 한소라 카드 결제 확인서 — 2026.11.17]\n- 22:35 ~ 23:55 | 신림역 '포커스 스터디카페' 2시간권 결제 및 퇴실 확인 (본인은 폐기 도시락 반출 사실이 들킬까 봐 22시 바로 귀가했다고 축소 진술함).\n\n[신림지구대 심야 민원 출동 일지 — 2026.11.18]\n- 00:40 | 신림로 14길 원룸가 주취자 고성방가 신고 (현장 계도 종결, 본 사건 무관)\n- 01:15 | 인근 코인노래방 간판 점멸 민원 (행정 안내 종결)",
       "metadata": {
@@ -502,6 +496,297 @@
         "sourceFile": "MISC_HAN_NOISE.log"
       },
       "hiddenTags": []
+    },
+    {
+      "docId": "EV_DOC_SAFEGUARD_LOG",
+      "title": "[로그] 세이프가드 창고 뒷문 자석 접점 센서 원격 기록",
+      "category": "LOG",
+      "isInitial": false,
+      "paperTemplate": "DIGITAL_LOG",
+      "bodyText": "[세이프가드 보안 시스템 원격 조회 — 신림동 편의점 창고 뒷문]\n2026-11-18 01:12:04 | 센서 상태 OPEN (새벽 물류 배송기사 납품 입실)\n2026-11-18 01:20:09 | 센서 상태 CLOSED (배송기사 퇴장 후 점주 직접 잠금)\n2026-11-18 01:48:05 ~ 02:30:00 | 개폐 이벤트 0건 (CLOSED 상태 비정상 유지 — 외부 자석 고정에 의한 접점 무력화 의심)\n\n[보안업체 기술 소견]\n자석 접점 센서는 문이 실제로 열려도 센서 본체 측면에 별도의 소형 자석을 테이프로 고정해 두면 시스템상 CLOSED 상태로 유지되며 경보가 울리지 않음.",
+      "metadata": {
+        "createdAt": "2026-11-18 10:15:00",
+        "modifiedAt": "2026-11-18 10:15:00",
+        "author": "(주)세이프가드 관제센터",
+        "sourceFile": "SAFEGUARD_BACKDOOR.log",
+        "metadataEvidenceId": ""
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "개폐 이벤트 0건 (CLOSED 상태 비정상 유지 — 외부 자석 고정에 의한 접점 무력화 의심)",
+          "evidenceId": "EV_METHOD_MAGNET_TAPE"
+        }
+      ]
+    },
+    {
+      "docId": "EV_DOC_ALIBI_KIM_PC",
+      "title": "[로그] 김철수 인근 24시 PC방 34번 좌석 이용 기록",
+      "category": "LOG",
+      "isInitial": false,
+      "paperTemplate": "DIGITAL_LOG",
+      "bodyText": "[24시 스타 PC방 좌석 접속 및 결제 로그 — 회원명: 김철수(36)]\n- 좌석 번호: 34번 (출입구 CCTV 정면 시야)\n- 2026-11-17 23:40:12 | 로그인 및 선불 4시간 결제\n- 2026-11-18 01:55 ~ 02:05 | PC방 내부 CCTV상 34번 좌석 착석 상태 연속 확인\n- 2026-11-18 02:08:10 | 자리 비움 (외출, 도보 6분 → 02:14 편의점 도착 일치)\n- 2026-11-18 02:22:15 | 34번 좌석 복귀 재로그인 (02:16 편의점 이탈 + 도보 6분 일치)",
+      "metadata": {
+        "createdAt": "2026-11-18 10:20:00",
+        "modifiedAt": "2026-11-18 10:20:00",
+        "author": "서울청 보완수사 현장반",
+        "sourceFile": "ALIBI_KIM_PC.log",
+        "metadataEvidenceId": ""
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "01:55 ~ 02:05 | PC방 내부 CCTV상 34번 좌석 착석 상태 연속 확인",
+          "evidenceId": "EV_DOC_ALIBI_KIM_PC"
+        },
+        {
+          "matchSubstring": "02:08:10 | 자리 비움",
+          "evidenceId": "EV_DOC_ALIBI_KIM_PC"
+        }
+      ]
+    },
+    {
+      "docId": "EV_DOC_ALIBI_CHOI_DRIVER",
+      "title": "[로그] 최태식 대리운전 배차 및 자택 아파트 엘리베이터 출입 기록",
+      "category": "LOG",
+      "isInitial": false,
+      "paperTemplate": "DIGITAL_LOG",
+      "bodyText": "[대리운전 배차 및 주거지 출입 교차 조회 — 최태식(57)]\n- 2026-11-18 01:26:10 | 인근 갈비집 카드 결제 (지인 술자리 종료)\n- 2026-11-18 01:46:12 | 대리운전 앱 호출 (출발지: 신림동 사건 상가 앞)\n- 2026-11-18 01:47:05 | 대리기사 배차 완료 및 출발 (차량 이동 11분 소요)\n- 2026-11-18 01:58:22 | 자택 아파트 지하주차장 도착 및 엘리베이터 단독 탑승(CCTV·카드키 일치)\n- 01:58:22 ~ 08:30:00 | 자택 아파트 외출 기록 0건.",
+      "metadata": {
+        "createdAt": "2026-11-18 10:35:00",
+        "modifiedAt": "2026-11-18 10:35:00",
+        "author": "서울청 보완수사 현장반",
+        "sourceFile": "ALIBI_CHOI_DRIVER.log",
+        "metadataEvidenceId": ""
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "01:47:05 | 대리기사 배차 완료 및 출발",
+          "evidenceId": "EV_DOC_ALIBI_CHOI_DRIVER"
+        },
+        {
+          "matchSubstring": "01:58:22 | 자택 아파트 지하주차장 도착 및 엘리베이터 단독 탑승",
+          "evidenceId": "EV_DOC_ALIBI_CHOI_DRIVER"
+        }
+      ]
+    },
+    {
+      "docId": "EV_DOC_ALIBI_HAN_DORM",
+      "title": "[로그] 한소라 대학 기숙사 공동현관 카드키 출입 기록",
+      "category": "LOG",
+      "isInitial": false,
+      "paperTemplate": "DIGITAL_LOG",
+      "bodyText": "[인근 대학교 제2생활관(기숙사) 출입 통제 기록 — 한소라(22)]\n- 2026-11-17 22:00 ~ 23:59 | 기숙사 입실 기록 없음 (본인 초동 진술 '22시 바로 귀가'와 2시간 이상 불일치)\n- 2026-11-18 00:12:08 | 제2생활관 공동현관 카드키 입실 태그 (단독 귀가, 손에 편의점 비닐봉지 소지)\n- 2026-11-18 00:12:08 ~ 07:50:00 | 기숙사 외출 기록 0건 (사건 시각 01:52~02:06 기숙사 내부 체류 확정).",
+      "metadata": {
+        "createdAt": "2026-11-18 10:40:00",
+        "modifiedAt": "2026-11-18 10:40:00",
+        "author": "서울청 보완수사 현장반",
+        "sourceFile": "ALIBI_HAN_DORM.log",
+        "metadataEvidenceId": ""
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "00:12:08 | 제2생활관 공동현관 카드키 입실 태그",
+          "evidenceId": "EV_DOC_ALIBI_HAN_DORM"
+        },
+        {
+          "matchSubstring": "본인 초동 진술 '22시 바로 귀가'와 2시간 이상 불일치",
+          "evidenceId": "EV_DOC_ALIBI_HAN_DORM"
+        }
+      ]
+    },
+    {
+      "docId": "EV_DOC_ALIBI_LEE_ONEROOM",
+      "title": "[로그] 이준호 신림동 원룸 공동현관 카드키 출입 기록",
+      "category": "LOG",
+      "isInitial": false,
+      "paperTemplate": "DIGITAL_LOG",
+      "bodyText": "[신림동 한솔빌라(원룸) 공동현관 카드키 출입 로그 — 302호 이준호(24)]\n- 2026-11-18 01:50 ~ 02:13 | 원룸 공동현관 출입 기록 0건 (본인 진술 '01시 57분 도착'과 16분 모순!)\n- 2026-11-18 02:13:40 | 302호 이준호 카드키 최초 입실 태그 (검정 백팩 착용, 숨이 찬 듯 빠르게 계단 이동)\n- 비고: 편의점 ↔ 원룸 실측 도보 7분. 02:06 편의점 골목 이탈 시 02:13 도착과 분 단위 정확 일치.",
+      "metadata": {
+        "createdAt": "2026-11-18 10:50:00",
+        "modifiedAt": "2026-11-18 10:50:00",
+        "author": "서울청 보완수사 현장반",
+        "sourceFile": "ALIBI_LEE_ONEROOM.log",
+        "metadataEvidenceId": ""
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "02:13:40 | 302호 이준호 카드키 최초 입실 태그",
+          "evidenceId": "EV_DOC_ALIBI_LEE_ONEROOM"
+        },
+        {
+          "matchSubstring": "302호 이준호(24)",
+          "evidenceId": "SUSPECT_B"
+        }
+      ]
+    },
+    {
+      "docId": "EV_DOC_ALIBI_OH_HOF",
+      "title": "[로그] 별밤호프(오민석) POS 일마감·식자재 발주 및 내부 확인서",
+      "category": "LOG",
+      "isInitial": false,
+      "paperTemplate": "DIGITAL_LOG",
+      "bodyText": "[맞은편 '별밤호프' 영업 마감 및 알리바이 검증 로그 — 대표: 오민석(41)]\n- 01:28:40 | 마지막 테이블 카드 결제 완료\n- 01:42:10 | 홀 POS 1차 마감 정산\n- 01:44 ~ 01:55 | 가게 앞 벤치 흡연 (편의점 앞 최태식·이준호 목격 구간)\n- 02:01:15 | 주방 POS 최종 일마감 버튼 입력 (본인 지문 인증 로그인)\n- 02:08:30 | 식자재 도매 앱 익일 발주 전송 (가게 와이파이 고정 IP 접속)\n- 비고: 사건 핵심 시각(01:55~02:12) 동안 별밤호프 내부 마감 업무 수행 확인. 구청 야외영업 단속 경고 이력 있음.",
+      "metadata": {
+        "createdAt": "2026-11-18 11:10:00",
+        "modifiedAt": "2026-11-18 11:10:00",
+        "author": "서울청 보완수사 현장반",
+        "sourceFile": "ALIBI_OH_HOF.log",
+        "metadataEvidenceId": ""
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "02:01:15 | 주방 POS 최종 일마감 버튼 입력",
+          "evidenceId": "EV_DOC_ALIBI_OH_HOF"
+        },
+        {
+          "matchSubstring": "02:08:30 | 식자재 도매 앱 익일 발주 전송",
+          "evidenceId": "EV_DOC_ALIBI_OH_HOF"
+        }
+      ]
+    },
+    {
+      "docId": "EV_DOC_ALIBI_JUNG_GPS",
+      "title": "[로그] 한빛물류 배송기사 정대호 새벽 GPS 및 PDA 스캔 기록",
+      "category": "LOG",
+      "isInitial": false,
+      "paperTemplate": "DIGITAL_LOG",
+      "bodyText": "[한빛물류 새벽 배송 관제 GPS & PDA 납품 스캔 로그 — 기사: 정대호(33)]\n- 01:02:14 | 봉천2호점 납품 완료 (PDA 바코드 스캔)\n- 01:12:05 ~ 01:20:03 | 신림동 사건 편의점 창고 뒷문 6박스 입고 및 점주 전자서명 완료\n- 01:36:22 | 신림역 3번출구점 납품 완료 (사건점 반경 1.4km 이동)\n- 01:54:10 | 신대방역점 납품 완료 (범행 시각에 3.2km 외부 구역 배송 확정)\n- 02:15:40 | 보라매공원점 납품 완료.",
+      "metadata": {
+        "createdAt": "2026-11-18 11:20:00",
+        "modifiedAt": "2026-11-18 11:20:00",
+        "author": "한빛물류 관제팀 회신",
+        "sourceFile": "ALIBI_JUNG_GPS.log",
+        "metadataEvidenceId": ""
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "01:54:10 | 신대방역점 납품 완료",
+          "evidenceId": "EV_DOC_ALIBI_JUNG_GPS"
+        },
+        {
+          "matchSubstring": "01:12:05 ~ 01:20:03 | 신림동 사건 편의점 창고 뒷문 6박스 입고",
+          "evidenceId": "EV_DOC_ALIBI_JUNG_GPS"
+        }
+      ]
+    },
+    {
+      "docId": "EV_DOC_ALIBI_YOON_TAXI",
+      "title": "[로그] 최초 신고자 윤서진 택시 결제·하차 CCTV 및 112 녹취",
+      "category": "LOG",
+      "isInitial": false,
+      "paperTemplate": "DIGITAL_LOG",
+      "bodyText": "[최초 발견·신고자 동선 교차 검증 — 윤서진(29)]\n- 2026-11-18 01:42:18 | 강남구 역삼동 근무 사옥 출입카드 퇴근 태그\n- 2026-11-18 01:46:30 ~ 02:24:05 | 호출 택시 탑승 및 신림동 오피스텔 앞 하차 카드 결제(도로 CCTV 하차 모습 일치)\n- 2026-11-18 02:29:12 | 사건 편의점 정문 단독 입장 (매장 CCTV 일치)\n- 2026-11-18 02:30:18 | 112 긴급 신고 접수 (음성 녹취상 극도로 놀란 호흡과 피해자 신음 소리 동시 수음)\n- 비고: 범행 시각(01:52~02:06) 동안 강남~사당 구간 택시 이동 중으로 범행 가담 가능성 0%.",
+      "metadata": {
+        "createdAt": "2026-11-18 11:25:00",
+        "modifiedAt": "2026-11-18 11:25:00",
+        "author": "서울청 보완수사 현장반",
+        "sourceFile": "ALIBI_YOON_TAXI.log",
+        "metadataEvidenceId": ""
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "01:46:30 ~ 02:24:05 | 호출 택시 탑승 및 신림동 오피스텔 앞 하차",
+          "evidenceId": "EV_DOC_ALIBI_YOON_TAXI"
+        },
+        {
+          "matchSubstring": "02:30:18 | 112 긴급 신고 접수",
+          "evidenceId": "EV_DOC_ALIBI_YOON_TAXI"
+        }
+      ]
+    },
+    {
+      "docId": "EV_DOC_FINANCE_LEE",
+      "title": "[영장 회신] 이준호(24) 금융계좌 추적 내역서 (법원 영장 집행)",
+      "category": "LOG",
+      "isInitial": false,
+      "paperTemplate": "OFFICIAL_REPORT",
+      "bodyText": "[금융거래정보 제공요구서 회신 — 명의인: 이준호(24)]\n영장 발부 근거: 편의점 POS 3개월 380만 원 현금 취소 횡령 정황\n\n[최근 3개월 주요 이상 거래 내역]\n- 2026.08 ~ 2026.11 | 불법 스포츠 도박 추정 대포 계좌로 총 41회, 합계 590만 원 이체 (잔액 현재 12,400원)\n- 2026.11.17 21:00:14 | 미상 대포 계좌(끝자리 -9912)로 현금 500,000원 즉시 송금 (성수동 퀵서비스 USB 발송 42분 전!)\n\n[분석 소견]\n계좌 끝자리(-9912)는 NVR 포렌식에서 검출된 LOG_WIPE_v4 결제 연동 계좌와 동일하며, 상부 광역 수사 아카이브 이관 대상임.",
+      "metadata": {
+        "createdAt": "2026-11-18 12:40:00",
+        "modifiedAt": "2026-11-18 12:40:00",
+        "author": "서울청 금융범죄수사지원반",
+        "sourceFile": "WARRANT_FIN_LEE.pdf",
+        "metadataEvidenceId": "EV_META_EP01_FULL_IP"
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "불법 스포츠 도박 추정 대포 계좌로 총 41회, 합계 590만 원 이체",
+          "evidenceId": "EV_MOTIVE_EMBEZZLE"
+        },
+        {
+          "matchSubstring": "미상 대포 계좌(끝자리 -9912)로 현금 500,000원 즉시 송금",
+          "evidenceId": "EV_DOC_FINANCE_LEE"
+        },
+        {
+          "matchSubstring": "이준호(24)",
+          "evidenceId": "SUSPECT_B"
+        }
+      ]
+    },
+    {
+      "docId": "EV_DOC_STMT_HAN_FULL",
+      "title": "[심문 녹취] 한소라 추가 증언 (경찰 신고 예고·팔찌·스패너)",
+      "category": "STATEMENT",
+      "isInitial": false,
+      "paperTemplate": "OFFICIAL_REPORT",
+      "bodyText": "[참고인 진술 조서 — 한소라(22세, 여 / 대학생, 주간 아르바이트)]\n\n수사관: 사건 전날 밤 교대 시각과 퇴근 이후 행적을 말씀해 주십시오.\n한소라: 밤 10시에 준호 오빠랑 교대하고 바로 기숙사로 돌아갔습니다. 새벽에는 기숙사 밖으로 한 발자국도 안 나갔습니다.\n수사관: 교대 당시 점주님과 이준호 씨 사이에 특이한 점은 없었습니까?\n한소라: 사실 어제 오후 내내 사장님 표정이 너무 안 좋으셨어요. 카운터에서 영수증 뭉치를 한참 들여다보시더니, 밤 10시 교대 직전에 준호 오빠를 창고 쪽으로 따로 부르시더라고요. 문이 덜 닫혀 있었는데 사장님이 '준호야, 오늘 자정까지 못 채우면 나도 어쩔 수 없다. 내일 아침 9시에 경찰서에 정식 신고할 거다'라고 하시는 걸 들었습니다.\n수사관: 이준호 씨가 어젯밤 은색 팔찌를 차고 있었습니까?\n한소라: 네, 확실히 기억해요. 교대하면서 포스기 시재 맞출 때 준호 오빠 왼쪽 손목에 그 얇은 실버 체인 팔찌가 걸려 있었어요. 며칠 전 잃어버렸다니 말도 안 됩니다.\n수사관: 창고 안 공구함 몽키스패너는 최근 사용한 적이 있습니까?\n한소라: 그 빨간 고무 손잡이 스패너는 2주 전에 선반 나사 조인 뒤로 아무도 안 건드렸어요. 소화기는 원래 창고 문 바로 안쪽 벽에 세워져 있었고요.",
+      "metadata": {
+        "createdAt": "2026-11-18 13:10:00",
+        "modifiedAt": "2026-11-18 13:10:00",
+        "author": "서울청 보완수사 전담팀",
+        "sourceFile": "INTERROGATION_HAN_FULL.pdf",
+        "metadataEvidenceId": ""
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "한소라(22세",
+          "evidenceId": "SUSPECT_D"
+        },
+        {
+          "matchSubstring": "준호 오빠",
+          "evidenceId": "SUSPECT_B"
+        },
+        {
+          "matchSubstring": "오늘 자정까지 못 채우면 나도 어쩔 수 없다. 내일 아침 9시에 경찰서에 정식 신고할 거다",
+          "evidenceId": "EV_MOTIVE_EMBEZZLE"
+        },
+        {
+          "matchSubstring": "왼쪽 손목에 그 얇은 실버 체인 팔찌가 걸려 있었어요",
+          "evidenceId": "EV_TAG_HAN_BRACELET"
+        }
+      ]
+    },
+    {
+      "docId": "EV_DOC_CONFESSION_LEE",
+      "title": "[심문 녹취] 이준호(24) 최종 진술 번복 및 범행 자백 조서",
+      "category": "STATEMENT",
+      "isInitial": false,
+      "paperTemplate": "OFFICIAL_REPORT",
+      "bodyText": "[보완수사 전담팀 심문 녹취 — 이준호(24세, 남 / 야간 아르바이트)]\n\n수사관: 원룸 02:13 출입 로그, 끊어진 실버 팔찌, 380만 원 POS 취소, 자석·테이프와 NVR 삭제 USB까지 전부 일치합니다. 이제 사실대로 말하십시오.\n이준호: ...죄송합니다. 도박 빚을 못 메워서 내일 아침 9시에 경찰에 신고되면 정말 인생이 끝날 것 같았습니다. 뒷문 센서에 자석이랑 투명 테이프를 붙여두고 정문으로 퇴근한 척 골목으로 돌아 들어가 '사장님' 하고 부른 뒤 소화기로 내리쳤습니다.\n수사관: 훔친 420만 원과 CCTV 삭제 USB는 어떻게 처리했습니까?\n이준호: 노란 띠지 묶인 420만 원은 신림동 원룸 옷장 안 검정 가방에 그대로 숨겨뒀습니다. 영상 지우는 USB는 전날 밤 성수동 쪽 익명 연락처(W.A.)에 50만 원 송금하고 퀵으로 받았습니다.",
+      "metadata": {
+        "createdAt": "2026-11-18 15:30:00",
+        "modifiedAt": "2026-11-18 15:30:00",
+        "author": "서울청 보완수사 전담팀",
+        "sourceFile": "CONFESSION_LEE.pdf",
+        "metadataEvidenceId": ""
+      },
+      "hiddenTags": [
+        {
+          "matchSubstring": "이준호(24세",
+          "evidenceId": "SUSPECT_B"
+        },
+        {
+          "matchSubstring": "도박 빚을 못 메워서 내일 아침 9시에 경찰에 신고되면 정말 인생이 끝날 것 같았습니다",
+          "evidenceId": "EV_MOTIVE_EMBEZZLE"
+        },
+        {
+          "matchSubstring": "소화기로 내리쳤습니다",
+          "evidenceId": "EV_WEAPON_EXTINGUISHER"
+        },
+        {
+          "matchSubstring": "뒷문 센서에 자석이랑 투명 테이프를 붙여두고",
+          "evidenceId": "EV_METHOD_MAGNET_TAPE"
+        }
+      ]
     }
   ],
   "photos": [
@@ -517,28 +802,76 @@
       "title": "[현장 사진] 창고 백룸 내부 전경",
       "isInitial": true,
       "imagePath": "EP01/EP01_PHOTO_INIT_STORAGE.png",
-      "hitboxes": []
+      "hitboxes": [
+        {
+          "startSec": 0,
+          "endSec": 0,
+          "normalizedRect": {
+            "x": 0.15,
+            "y": 0.1,
+            "width": 0.35,
+            "height": 0.45
+          },
+          "evidenceId": "EV_WEAPON_EXTINGUISHER"
+        }
+      ]
     },
     {
       "photoId": "EV_PHOTO_INIT_COUNTER",
       "title": "[현장 사진] 매장 카운터 및 잠긴 개인 서랍",
       "isInitial": true,
       "imagePath": "EP01/EP01_PHOTO_INIT_COUNTER.png",
-      "hitboxes": []
+      "hitboxes": [
+        {
+          "startSec": 0,
+          "endSec": 0,
+          "normalizedRect": {
+            "x": 0.3,
+            "y": 0.1,
+            "width": 0.4,
+            "height": 0.4
+          },
+          "evidenceId": "EV_TAG_LOCKED_DRAWER"
+        }
+      ]
     },
     {
       "photoId": "EV_PHOTO_TAPE",
       "title": "[감식 사진] 뒷문 문틀 자석 센서 투명 테이프 조각",
-      "isInitial": true,
+      "isInitial": false,
       "imagePath": "EP01/EP01_PHOTO_TAPE.png",
-      "hitboxes": []
+      "hitboxes": [
+        {
+          "startSec": 0,
+          "endSec": 0,
+          "normalizedRect": {
+            "x": 0.25,
+            "y": 0.25,
+            "width": 0.5,
+            "height": 0.5
+          },
+          "evidenceId": "EV_METHOD_MAGNET_TAPE"
+        }
+      ]
     },
     {
       "photoId": "EV_PHOTO_BRACELET",
       "title": "[감식 사진] 선반 아래 끊어진 실버 체인 팔찌",
-      "isInitial": true,
+      "isInitial": false,
       "imagePath": "EP01/EP01_PHOTO_BRACELET.png",
-      "hitboxes": []
+      "hitboxes": [
+        {
+          "startSec": 0,
+          "endSec": 0,
+          "normalizedRect": {
+            "x": 0.25,
+            "y": 0.25,
+            "width": 0.5,
+            "height": 0.5
+          },
+          "evidenceId": "EV_TAG_BROKEN_BRACELET"
+        }
+      ]
     }
   ],
   "cctvClips": [
@@ -548,51 +881,487 @@
       "isInitial": true,
       "videoPath": "EP01/EP01_CCTV_CLIP_03.mp4",
       "displayTimestamp": "2026-11-18 02:14:30",
-      "hitboxes": []
+      "hitboxes": [
+        {
+          "startSec": 0.0,
+          "endSec": 10.0,
+          "normalizedRect": {
+            "x": 0.62,
+            "y": 0.18,
+            "width": 0.32,
+            "height": 0.38
+          },
+          "evidenceId": "EV_TAG_BLOOD_BEFORE_A"
+        }
+      ]
     }
   ],
   "mapNodes": [],
   "travelEdges": [],
-  "actions": [],
+  "actions": [
+    {
+      "actionId": "ACT_FORENSIC_BACKDOOR",
+      "nodeId": "STORE",
+      "title": "창고 뒷문 문틀·수거 물품(소화기·팔찌) 정밀 재감식",
+      "category": "FORENSIC",
+      "baseWorkMinutes": 75,
+      "reportMinutes": 0,
+      "rewardDocIds": [
+        "EV_DOC_FORENSIC_ITEMS"
+      ],
+      "rewardPhotoIds": [
+        "EV_PHOTO_TAPE",
+        "EV_PHOTO_BRACELET"
+      ],
+      "rewardCctvIds": [],
+      "matchDescription": "창고 뒷문 문틀 자석 센서, 수거 흉기 후보 4종(소화기·스패너·소주병·의자), 끊어진 실버 팔찌 정밀 재감식",
+      "matchKeywords": [
+        "뒷문",
+        "문틀",
+        "재감식",
+        "감식",
+        "팔찌",
+        "소화기",
+        "스패너",
+        "물증",
+        "창고"
+      ],
+      "requiredEvidenceIds": [],
+      "rejectFeedback": "",
+      "isRecommendedChip": true,
+      "partnerReportMessage": "팀장님, 창고 뒷문 문틀과 수거 물품 정밀 재감식을 마쳤습니다. 센서 옆에 찢긴 투명 테이프 조각과 자석 긁힘, 소화기 하단 도장 긁힘 및 지문 닦임 흔적이 나왔습니다. 감식서와 접사 사진 2장 올려뒀습니다."
+    },
+    {
+      "actionId": "ACT_FORENSIC_NVR",
+      "nodeId": "STORE",
+      "title": "창고 NVR 디지털 포렌식 및 CCTV 10분 누락 복구",
+      "category": "FORENSIC",
+      "baseWorkMinutes": 75,
+      "reportMinutes": 0,
+      "rewardDocIds": [
+        "EV_DOC_CCTV_NVR"
+      ],
+      "rewardPhotoIds": [],
+      "rewardCctvIds": [],
+      "volatileBonusDocId": "EV_META_EP01_FULL_IP",
+      "matchDescription": "매장 CCTV 01:55~02:05 10분 기록 누락 원인 규명 및 창고 책상 NVR 디지털 포렌식 덤프",
+      "matchKeywords": [
+        "NVR",
+        "CCTV",
+        "누락",
+        "10분",
+        "포렌식",
+        "복구",
+        "영상",
+        "녹화기",
+        "삭제"
+      ],
+      "requiredEvidenceIds": [],
+      "rejectFeedback": "",
+      "isRecommendedChip": true,
+      "partnerReportMessage": "팀장님, 창고 NVR 포렌식 덤프가 나왔습니다. 단순 고장이 아니라 02:05:11 전면 USB 포트에 LOG_WIPE_v4라는 외부 삭제 툴을 꽂아 10분 구간을 강제 덮어쓰기했습니다. 파일 탐색기 확인해 보십시오."
+    },
+    {
+      "actionId": "ACT_SEARCH_COUNTER_DRAWER",
+      "nodeId": "STORE",
+      "title": "카운터 잠긴 점주 서랍 개방 및 소방·비품 대장 확보",
+      "category": "INVESTIGATION",
+      "baseWorkMinutes": 45,
+      "reportMinutes": 0,
+      "rewardDocIds": [
+        "EV_DOC_OWNER_NOTE",
+        "EV_DOC_FIRE_INSPECTION"
+      ],
+      "rewardPhotoIds": [],
+      "rewardCctvIds": [],
+      "matchDescription": "카운터 하단 잠긴 점주 개인 서랍 개방(수첩·은행 출금 전표) 및 편의점 소방시설 점검표·비품 대장 확보",
+      "matchKeywords": [
+        "서랍",
+        "카운터",
+        "수첩",
+        "메모",
+        "소방",
+        "비품",
+        "점검표",
+        "은행",
+        "출금"
+      ],
+      "requiredEvidenceIds": [],
+      "rejectFeedback": "",
+      "isRecommendedChip": true,
+      "partnerReportMessage": "팀장님, 점주님 가족 동의를 받아 잠긴 카운터 개인 서랍을 열었습니다. 안에서 박성훈 점주 자필 수첩, 420만 원 은행 출금 전표, 그리고 소방시설 점검표·창고 비품 대장을 확보해 올렸습니다."
+    },
+    {
+      "actionId": "ACT_AUDIT_POS_TIMECARD",
+      "nodeId": "STORE",
+      "title": "직원 출퇴근 단말기 및 POS 현금 취소 감사 내역 확보",
+      "category": "INVESTIGATION",
+      "baseWorkMinutes": 45,
+      "reportMinutes": 0,
+      "rewardDocIds": [
+        "EV_DOC_TIMECARD",
+        "EV_DOC_POS_AUDIT"
+      ],
+      "rewardPhotoIds": [],
+      "rewardCctvIds": [],
+      "matchDescription": "편의점 직원 출퇴근 단말기 최근 기록과 POS 현금 결제 취소 3개월 감사 로그 추출",
+      "matchKeywords": [
+        "POS",
+        "포스",
+        "출퇴근",
+        "단말기",
+        "취소",
+        "횡령",
+        "매출",
+        "감사",
+        "시재"
+      ],
+      "requiredEvidenceIds": [],
+      "rejectFeedback": "",
+      "isRecommendedChip": false,
+      "partnerReportMessage": "팀장님, 매장 POS 서버와 출퇴근 단말기 기록을 뽑아왔습니다. 야간 근무자 단독 현금 취소 건수가 비정상적으로 높습니다. 바로 확인해 보십시오."
+    },
+    {
+      "actionId": "ACT_CHECK_INVENTORY_QUICK",
+      "nodeId": "STORE",
+      "title": "문구·창고 소품 재고 실사 및 퀵서비스 수령 전표 확인",
+      "category": "INVESTIGATION",
+      "baseWorkMinutes": 45,
+      "reportMinutes": 0,
+      "rewardDocIds": [
+        "EV_DOC_QUICK_RECEIPT"
+      ],
+      "rewardPhotoIds": [],
+      "rewardCctvIds": [],
+      "matchDescription": "매장 문구 코너(투명 테이프)·창고 화이트보드 자석 재고 실사 및 카운터 퀵서비스·택배 영수증철 확인",
+      "matchKeywords": [
+        "재고",
+        "테이프",
+        "자석",
+        "문구",
+        "퀵",
+        "영수증",
+        "택배",
+        "USB",
+        "수령"
+      ],
+      "requiredEvidenceIds": [],
+      "rejectFeedback": "",
+      "isRecommendedChip": false,
+      "partnerReportMessage": "팀장님, 카운터 영수증철에서 전날 밤 21:42 성수동 발송 퀵서비스 USB 수령 전표를 찾았습니다. 문구 재고 실사에서도 투명 테이프 1개와 화이트보드 자석 1개가 비어 있습니다."
+    },
+    {
+      "actionId": "ACT_CHECK_SAFEGUARD",
+      "nodeId": "AGENCY",
+      "title": "보안업체 세이프가드 창고 뒷문 센서 로그 조회",
+      "category": "EXTERNAL_AGENCY",
+      "baseWorkMinutes": 30,
+      "reportMinutes": 0,
+      "rewardDocIds": [
+        "EV_DOC_SAFEGUARD_LOG"
+      ],
+      "rewardPhotoIds": [],
+      "rewardCctvIds": [],
+      "matchDescription": "보안업체 세이프가드 창고 뒷문 자석 접점 센서 원격 개폐 로그 조회",
+      "matchKeywords": [
+        "세이프가드",
+        "보안업체",
+        "보안",
+        "센서",
+        "경보",
+        "개폐"
+      ],
+      "requiredEvidenceIds": [],
+      "rejectFeedback": "",
+      "isRecommendedChip": false,
+      "partnerReportMessage": "팀장님, 세이프가드 관제 로그를 받아왔습니다. 01:20 배송기사 퇴장 이후 01:48부터 아예 개폐 이벤트가 0건으로 고정돼 있습니다. 외부 자석으로 센서를 속인 정황입니다."
+    },
+    {
+      "actionId": "ACT_CHECK_ALIBI_KIM",
+      "nodeId": "PCROOM",
+      "title": "김철수 24시 PC방 34번 좌석 로그인·CCTV 기록 확인",
+      "category": "EXTERNAL_AGENCY",
+      "baseWorkMinutes": 30,
+      "reportMinutes": 0,
+      "rewardDocIds": [
+        "EV_DOC_ALIBI_KIM_PC"
+      ],
+      "rewardPhotoIds": [],
+      "rewardCctvIds": [],
+      "matchDescription": "김철수 인근 24시 PC방 34번 좌석 로그인·외출·복귀 로그 및 내부 CCTV 알리바이 확인",
+      "matchKeywords": [
+        "김철수",
+        "PC방",
+        "피시방",
+        "34번"
+      ],
+      "requiredEvidenceIds": [],
+      "rejectFeedback": "",
+      "isRecommendedChip": false,
+      "partnerReportMessage": "팀장님, PC방 로그와 내부 CCTV를 대조했습니다. 김철수는 01:55~02:05 사건 핵심 시각에 34번 자리에 그대로 앉아 있었고 02:08에 나갔다가 02:22에 돌아왔습니다."
+    },
+    {
+      "actionId": "ACT_CHECK_ALIBI_CHOI",
+      "nodeId": "APT_CHOI",
+      "title": "최태식 대리운전 배차·아파트 출입 로그 및 내용증명 확보",
+      "category": "EXTERNAL_AGENCY",
+      "baseWorkMinutes": 45,
+      "reportMinutes": 0,
+      "rewardDocIds": [
+        "EV_DOC_ALIBI_CHOI_DRIVER",
+        "EV_DOC_RENT_NOTICE"
+      ],
+      "rewardPhotoIds": [],
+      "rewardCctvIds": [],
+      "matchDescription": "건물주 최태식 대리운전 배차 기록, 자택 아파트 엘리베이터 출입 로그, 월세 체납 내용증명·독촉 문자 확보",
+      "matchKeywords": [
+        "최태식",
+        "건물주",
+        "대리",
+        "대리운전",
+        "아파트",
+        "월세",
+        "내용증명"
+      ],
+      "requiredEvidenceIds": [],
+      "rejectFeedback": "",
+      "isRecommendedChip": false,
+      "partnerReportMessage": "팀장님, 최태식 씨 대리운전 배차 기록과 자택 아파트 출입 로그, 월세 내용증명을 확보했습니다. 01:47 대리 탑승, 01:58 자택 엘리베이터 탑승이 정확히 일치합니다."
+    },
+    {
+      "actionId": "ACT_CHECK_ALIBI_HAN",
+      "nodeId": "DORM_HAN",
+      "title": "한소라 기숙사 카드키·카드 결제·폐기 반출표 확인",
+      "category": "EXTERNAL_AGENCY",
+      "baseWorkMinutes": 45,
+      "reportMinutes": 0,
+      "rewardDocIds": [
+        "EV_DOC_ALIBI_HAN_DORM",
+        "EV_DOC_DAILY_NOISE"
+      ],
+      "rewardPhotoIds": [],
+      "rewardCctvIds": [],
+      "matchDescription": "주간 알바 한소라 대학 기숙사 공동현관 카드키 출입 로그, 스터디카페 카드 결제, 매장 폐기 식품 반출표 확인",
+      "matchKeywords": [
+        "한소라",
+        "주간",
+        "기숙사",
+        "스터디카페",
+        "폐기",
+        "도시락"
+      ],
+      "requiredEvidenceIds": [],
+      "rejectFeedback": "",
+      "isRecommendedChip": false,
+      "partnerReportMessage": "팀장님, 한소라 씨 기숙사 출입 로그에 이상한 점이 있습니다. 22시에 바로 갔다는 진술과 달리 00:12에 입실했고, 그사이 22:18 폐기 도시락 반출과 스터디카페 결제 기록이 나왔습니다. 심문에서 한 번 짚어보시죠."
+    },
+    {
+      "actionId": "ACT_CHECK_ALIBI_LEE",
+      "nodeId": "ONEROOM_LEE",
+      "title": "이준호 신림동 원룸 공동현관 카드키 출입 로그 확보",
+      "category": "EXTERNAL_AGENCY",
+      "baseWorkMinutes": 45,
+      "reportMinutes": 0,
+      "rewardDocIds": [
+        "EV_DOC_ALIBI_LEE_ONEROOM"
+      ],
+      "rewardPhotoIds": [],
+      "rewardCctvIds": [],
+      "matchDescription": "야간 알바 이준호 신림동 한솔빌라 원룸 공동현관 카드키 출입 시각 로그 조회",
+      "matchKeywords": [
+        "이준호",
+        "야간",
+        "원룸",
+        "공동현관",
+        "한솔빌라",
+        "카드키"
+      ],
+      "requiredEvidenceIds": [],
+      "rejectFeedback": "",
+      "isRecommendedChip": false,
+      "partnerReportMessage": "팀장님, 이준호 원룸 공동현관 로그가 터졌습니다. 01시 57분에 도착했다더니 실제 최초 입실 태그는 02시 13분 40초입니다. 16분이나 거짓말을 했습니다."
+    },
+    {
+      "actionId": "ACT_CHECK_ALIBI_OH",
+      "nodeId": "HOF_OH",
+      "title": "별밤호프(오민석) 현장 탐문 및 POS 마감·발주 로그 확인",
+      "category": "INVESTIGATION",
+      "baseWorkMinutes": 45,
+      "reportMinutes": 0,
+      "rewardDocIds": [
+        "EV_DOC_WITNESS_OH",
+        "EV_DOC_ALIBI_OH_HOF"
+      ],
+      "rewardPhotoIds": [],
+      "rewardCctvIds": [],
+      "matchDescription": "맞은편 별밤호프 사장 오민석 주변 탐문 목격 조서 확보 및 01:55~02:12 호프집 POS 마감·식자재 발주 알리바이 검증",
+      "matchKeywords": [
+        "오민석",
+        "별밤호프",
+        "호프집",
+        "맞은편",
+        "탐문",
+        "목격자",
+        "주변"
+      ],
+      "requiredEvidenceIds": [],
+      "rejectFeedback": "",
+      "isRecommendedChip": false,
+      "partnerReportMessage": "팀장님, 맞은편 별밤호프 오민석 사장을 탐문하고 호프집 POS 마감·발주 로그도 확인했습니다. 01:51에 이준호가 우측 뒷골목으로 들어가는 걸 봤다고 합니다. 01:55~02:12 사이 본인 마감 알리바이도 일치합니다."
+    },
+    {
+      "actionId": "ACT_CHECK_ALIBI_JUNG",
+      "nodeId": "LOGISTICS_JUNG",
+      "title": "한빛물류 정대호 새벽 배송 GPS·PDA 스캔 로그 및 탐문",
+      "category": "EXTERNAL_AGENCY",
+      "baseWorkMinutes": 30,
+      "reportMinutes": 0,
+      "rewardDocIds": [
+        "EV_DOC_WITNESS_JUNG",
+        "EV_DOC_ALIBI_JUNG_GPS"
+      ],
+      "rewardPhotoIds": [],
+      "rewardCctvIds": [],
+      "matchDescription": "새벽 물류 배송기사 정대호 한빛물류 차량 GPS, PDA 바코드 스캔 기록, 01:12~01:20 납품 당시 창고 상태 확인",
+      "matchKeywords": [
+        "정대호",
+        "배송",
+        "물류",
+        "한빛물류",
+        "기사",
+        "GPS",
+        "PDA"
+      ],
+      "requiredEvidenceIds": [],
+      "rejectFeedback": "",
+      "isRecommendedChip": false,
+      "partnerReportMessage": "팀장님, 한빛물류 정대호 기사님 GPS·PDA 로그와 탐문 조서를 받아왔습니다. 01:20에 뒷문이 정상 잠금됐고, 범행 시각인 01:54엔 3.2km 떨어진 신대방역점에서 납품 스캔이 찍혔습니다."
+    },
+    {
+      "actionId": "ACT_CHECK_ALIBI_YOON",
+      "nodeId": "OFFICE_YOON",
+      "title": "최초 신고자 윤서진 택시 결제·하차 CCTV 및 112 녹취 확인",
+      "category": "EXTERNAL_AGENCY",
+      "baseWorkMinutes": 30,
+      "reportMinutes": 0,
+      "rewardDocIds": [
+        "EV_DOC_ALIBI_YOON_TAXI"
+      ],
+      "rewardPhotoIds": [],
+      "rewardCctvIds": [],
+      "matchDescription": "02:30 최초 발견 및 112 신고자 윤서진 강남 사옥 퇴근, 택시 결제 영수증, 오피스텔 하차 CCTV 및 112 녹취 검증",
+      "matchKeywords": [
+        "윤서진",
+        "신고자",
+        "첫손님",
+        "택시",
+        "112",
+        "최초"
+      ],
+      "requiredEvidenceIds": [],
+      "rejectFeedback": "",
+      "isRecommendedChip": false,
+      "partnerReportMessage": "팀장님, 최초 신고자 윤서진 씨 동선 확인 끝났습니다. 01:42 강남 사옥 퇴근, 01:46~02:24 택시 결제와 하차 CCTV가 모두 일치해 범행 시각 알리바이는 확실합니다."
+    },
+    {
+      "actionId": "ACT_WARRANT_LEE_FINANCE",
+      "nodeId": "FINANCE",
+      "title": "이준호 금융계좌 추적 영장 신청 및 집행",
+      "category": "EXTERNAL_AGENCY",
+      "baseWorkMinutes": 60,
+      "reportMinutes": 0,
+      "rewardDocIds": [
+        "EV_DOC_FINANCE_LEE"
+      ],
+      "rewardPhotoIds": [],
+      "rewardCctvIds": [],
+      "matchDescription": "야간 알바 이준호 은행 계좌 추적, 금융 거래 내역, 도박 자금 및 USB 송금 계좌 영장 집행",
+      "matchKeywords": [
+        "계좌",
+        "금융",
+        "통장",
+        "송금",
+        "영장",
+        "도박",
+        "이체"
+      ],
+      "requiredEvidenceIds": [
+        "EV_MOTIVE_EMBEZZLE"
+      ],
+      "rejectFeedback": "팀장님, 참고인 금융계좌 추적은 법원 영장 소명 자료가 필요합니다. 먼저 이준호의 횡령이나 금전 갈등을 입증할 POS 감사 로그 또는 점주 자필 수첩 단서를 증거판에 확보해 첨부해 주십시오.",
+      "isRecommendedChip": false,
+      "partnerReportMessage": "팀장님, 확보해 주신 횡령 소명 자료로 금융영장이 즉시 떨어졌습니다. 이준호 계좌에서 최근 3개월 590만 원 불법 도박 이체와 전날 21:00 미상 계좌(-9912)로 50만 원 송금 기록이 확인됐습니다."
+    }
+  ],
   "dbEntries": [
     {
-      "keywords": ["김철수", "A"],
+      "keywords": [
+        "김철수",
+        "A"
+      ],
       "displayName": "김철수 (36세, 남)",
       "recordText": "전과 기록: 절도 전과 3범 (전부 야간 무인점포·빈집 소액 절도). 폭력·상해 전과 0건. 인근 24시 PC방 단골.",
       "revealsSuspectId": "SUSPECT_A"
     },
     {
-      "keywords": ["이준호", "B"],
+      "keywords": [
+        "이준호",
+        "B"
+      ],
       "displayName": "이준호 (24세, 남)",
-      "recordText": "전과 기록: 없음. 주소지: 관악구 신림동 원룸(편의점 좌측 도보 7분). 특이사항: 휴학생, 편의점 야간 알바. 금융 조회: 최근 3개월 불법 스포츠 도박 사이트 소액 이체 및 11월 17일 21:00 계좌 끝자리(-9912)로 50만 원 송금 이력 확인.",
+      "recordText": "전과 기록: 없음.\n주소지: 관악구 신림동 한솔빌라 302호 원룸 (편의점 좌측 도보 7분).\n특이사항: 인근 대학 경영학과 휴학생, 사건 편의점 야간 아르바이트 근무(22:00~01:50).\n※ 금융계좌·통신 내역은 개인정보 보호법에 따라 법원 영장 집행(현장수사반 지시) 시에만 조회 가능.",
       "revealsSuspectId": "SUSPECT_B"
     },
     {
-      "keywords": ["최태식", "C"],
+      "keywords": [
+        "최태식",
+        "C"
+      ],
       "displayName": "최태식 (57세, 남)",
       "recordText": "전과 기록: 단순 폭행 벌금형 1건 (10년 전). 소유 부동산: 사건 발생 상가 건물. 거주지: 편의점 차량 11분 거리 아파트.",
       "revealsSuspectId": "SUSPECT_C"
     },
     {
-      "keywords": ["한소라", "D"],
+      "keywords": [
+        "한소라",
+        "D"
+      ],
       "displayName": "한소라 (22세, 여 / 주간 알바)",
       "recordText": "전과 기록: 없음. 인근 대학교 재학생(기숙사 거주, 편의점 도보 14분). 편의점 주간 근무(09:00~22:00).",
       "revealsSuspectId": "SUSPECT_D"
     },
     {
-      "keywords": ["박성훈"],
+      "keywords": [
+        "박성훈"
+      ],
       "displayName": "박성훈 (48세, 남 / 피해자)",
       "recordText": "전과 기록: 없음. 퇴직금으로 편의점 개업. 신용대출 및 최근 3개월 월세 연체, 11월 17일 적금 해약 420만 원 출금 이력."
     },
     {
-      "keywords": ["오민석"],
+      "keywords": [
+        "오민석"
+      ],
       "displayName": "오민석 (41세, 남 / 목격자)",
       "recordText": "전과 기록: 없음. 편의점 맞은편 '별밤호프' 대표. 영업시간 18:00~02:30."
     },
     {
-      "keywords": ["정대호"],
+      "keywords": [
+        "정대호"
+      ],
       "displayName": "정대호 (33세, 남 / 배송기사)",
       "recordText": "전과 기록: 없음. 한빛물류 소속 새벽 배송 담당. 01:12~01:20 납품 GPS 일치."
+    },
+    {
+      "keywords": [
+        "윤서진",
+        "신고자",
+        "첫손님",
+        "최초발견자"
+      ],
+      "displayName": "윤서진 (29세, 여 / 최초 신고자)",
+      "recordText": "전과 기록: 없음.\n직업: 강남구 역삼동 IT 스타트업 UI 디자이너.\n주소지: 관악구 신림동 오피스텔 (편의점 도보 4분).\n특이사항: 2026.11.18 02:30:18 사건 현장 최초 발견 및 112 신고자.",
+      "unlocksNodeId": "",
+      "revealsSuspectId": "SUSPECT_YOON"
     }
   ],
   "answerRule": {
@@ -636,9 +1405,603 @@
   },
   "arrestReports": [
     {
+      "maxElapsedMinutes": 720,
+      "headline": "[현장 체포 보고 — 골든 타임 내 기습 검거] 야간 근무자 이준호(24)를 신림동 원룸에서 방심한 상태로 긴급 체포함. 침대 밑 검정 가방에서 점주의 마지막 월세금(노란 은행 띠지 420만 원)과 LOG_WIPE_v4 USB 원본을 온전히 압수함.",
+      "partnerClosing": "팀장님, 골든 타임 안에 완벽하게 잡았습니다! 김철수(36)의 강도 상해 누명은 벗겨져 단순 절도만 분리 송치됐고, 성수동 발송인(W.A.)·원본 IP(211.XX.104.88)·송금 계좌(-9912) 원본 데이터가 손상 없이 상부 미제 아카이브로 이관됐습니다."
+    },
+    {
+      "maxElapsedMinutes": 960,
+      "headline": "[현장 체포 보고 — 시한 내 검거] 도주 짐을 챙겨 신림동 원룸을 나서던 야간 근무자 이준호(24)를 현장수사반이 골목 입구에서 긴급 체포함. 백팩에서 현금 420만 원 전액 압수.",
+      "partnerClosing": "팀장님, 송치 시한 안에 검거해 김철수 씨 누명도 무사히 벗겼습니다. 다만 골든 타임이 지나 삭제 툴 서버 로그 일부가 휘발됐지만, 계좌 끝자리(-9912)와 성수동 발송 단서는 확보했습니다."
+    },
+    {
       "maxElapsedMinutes": 99999,
-      "headline": "[수사 종결 및 긴급 체포] 교차 분석 결과 야간 근무자 이준호(24)를 진범으로 특정하여 신림동 원룸에서 긴급 체포함. 침대 밑 검정 백팩에서 점주의 마지막 월세금(노란 은행 띠지 420만 원) 전액 압수.",
-      "partnerClosing": "김철수(36)의 강도 상해 누명은 벗겨져 단순 절도 혐의만 분리 송치되었습니다. 이준호가 전날 밤 성수동 발송 퀵으로 받은 LOG_WIPE_v4 USB와 송금 계좌(-9912), 원본 IP(211.XX.104.88)는 상부 미제 아카이브로 이관되었습니다."
+      "headline": "[현장 체포 보고 — 연장 수사 끝 긴급 검거] 고속버스터미널 매표소에서 지방 도주를 시도하던 야간 근무자 이준호(24)를 긴급 수배 추적 끝에 검거함. 소지 가방에서 현금 420만 원 회수.",
+      "partnerClosing": "팀장님, 연장 수사 사유서 때문에 상부에서 한 소리 들었지만 진범을 끝내 잡았습니다. 아쉽게도 디지털 흔적 상당수가 휘발돼 흑막 단서는 일부 손상 상태로 아카이브에 등록됐습니다."
+    }
+  ],
+  "interrogationSessionMinutes": 45,
+  "interrogationTurnsPerSession": 8,
+  "interrogationProfiles": [
+    {
+      "suspectId": "SUSPECT_A",
+      "displayName": "김철수",
+      "age": 36,
+      "roleLabel": "초동 피의자 (절도 전과 3범)",
+      "isInterrogatable": true,
+      "unavailableReason": "",
+      "portraitBaseKey": "CHAR_EP01_KIM",
+      "initialComposure": 60,
+      "victimCallName": "가게 주인 아저씨",
+      "personaPrompt": "36세 신림동 고시원 거주 일용직. 절도 전과 3범이지만 폭력 전과는 0건. 카운터 42만 원 절도는 인정하지만 사람까지 때린 강도 상해로 몰려 매우 억울하고 거친 말투를 씀. 팀장이 결백 가능성을 인정해 주면 솔직하고 협조적으로 바뀜.",
+      "immutableTimeline": [
+        "23:40~02:08:10 인근 24시 PC방 34번 좌석 착석(게임·컵라면)",
+        "02:08:10~02:14 PC방에서 편의점까지 도보 6분 이동(검은 후드티 착용)",
+        "02:13경 편의점 접근 중 신림동 원룸 쪽 가로등 아래로 검정 백팩 멘 젊은 남자가 빠르게 걸어가는 뒷모습 목격",
+        "02:14:30~02:16:05 빈 매장 진입, 창고 문틈 비린내·혈흔·노란 띠지에 섬뜩해 카운터 42만 원만 챙겨 도주",
+        "02:22:15 PC방 34번 좌석 복귀 / 02:40 긴급체포"
+      ],
+      "layers": [
+        {
+          "layerId": "LAYER_0",
+          "isInitial": true,
+          "requiredEvidenceIds": [],
+          "requireAllEvidence": false,
+          "requiredPriorLayers": [],
+          "minUnlockedPriorCount": 0,
+          "maxComposureRequired": 100,
+          "composurePenaltyOnUnlock": 0,
+          "triggerKeywords": [],
+          "promptDirective": "카운터 42만 원 절도는 인정하되 강도 상해와 420만 원은 결백을 강력 주장하라. 폭력 전과 0건이고 PC방 로그를 보라고 호소하라. 아직 원룸 방향 백팩 남자 목격 기억은 먼저 꺼내지 마라.",
+          "rewardEvidenceId": "",
+          "rewardDocId": "",
+          "layerBadgeLabel": "",
+          "mockDialogue": "카운터 42만 원 훔친 건 백 번 인정합니다. 근데 전 평생 사람 손댄 적 없는 놈이에요! 02시 08분까지 PC방에 있었는데 왜 저한테 강도 상해를 덮어씌웁니까?",
+          "mockEmotion": "annoyed",
+          "mockExtractableStatement": ""
+        },
+        {
+          "layerId": "LAYER_1",
+          "isInitial": false,
+          "requiredEvidenceIds": [
+            "EV_TAG_BLOOD_BEFORE_A",
+            "EV_DOC_ALIBI_KIM_PC"
+          ],
+          "requireAllEvidence": false,
+          "requiredPriorLayers": [
+            "LAYER_0"
+          ],
+          "minUnlockedPriorCount": 1,
+          "maxComposureRequired": 100,
+          "composurePenaltyOnUnlock": -15,
+          "triggerKeywords": [],
+          "promptDirective": "팀장이 PC방 로그나 진입 전 문틈 혈흔 CCTV를 보고 결백을 믿어주자 안도하며 협조적으로 전환하라. 초동팀이 묵살했던 결정적 기억—02시 13분경 편의점 쪽으로 걸어올 때 저 멀리 신림동 원룸 방향 가로등 아래로 검정 백팩을 멘 젊은 남자가 뒤를 흘끔거리며 엄청 빠르게 걸어가던 뒷모습—을 진술하라.",
+          "rewardEvidenceId": "EV_TAG_KIM_BACKPACK_HINT",
+          "rewardDocId": "",
+          "layerBadgeLabel": "결백 확인·목격 진술",
+          "mockDialogue": "하... 이제야 제 말을 들어주시네요! 아까 초동 형사들은 듣지도 않았는데, 제가 02시 13분쯤 가게 쪽으로 걸어올 때 저쪽 신림동 원룸 방향 가로등 아래로 검정 백팩 멘 젊은 남자가 뒤를 흘끔거리며 엄청 빠르게 걸어가는 걸 얼핏 봤습니다.",
+          "mockEmotion": "cooperative",
+          "mockExtractableStatement": "김철수 심문: 02:13경 신림동 원룸 방향으로 빠르게 사라진 검정 백팩 젊은 남자 목격"
+        }
+      ]
+    },
+    {
+      "suspectId": "SUSPECT_B",
+      "displayName": "이준호",
+      "age": 24,
+      "roleLabel": "야간 아르바이트 (휴학생)",
+      "isInterrogatable": true,
+      "unavailableReason": "",
+      "portraitBaseKey": "CHAR_EP01_LEE",
+      "initialComposure": 95,
+      "victimCallName": "사장님",
+      "personaPrompt": "24세 대학 휴학생, 편의점 야간 알바. 겉으로는 예의 바르고 선량한 청년을 침착하게 연기하며 피해자를 항상 '사장님'이라고 부른다. 물증이 제시되기 전까지는 절대 자백하거나 비밀을 인정하지 않는다.",
+      "immutableTimeline": [
+        "22:00:04 출근 및 한소라와 교대",
+        "01:50:12 출퇴근 단말기 정상 퇴근 태그 후 정문 퇴장",
+        "(주의: 본인이 LAYER_0에서 주장하는 귀가 시각은 01:57 원룸 도착. 실제 원룸 카드키 기록은 02:13:40)"
+      ],
+      "layers": [
+        {
+          "layerId": "LAYER_0",
+          "isInitial": true,
+          "requiredEvidenceIds": [],
+          "requireAllEvidence": false,
+          "requiredPriorLayers": [],
+          "minUnlockedPriorCount": 0,
+          "maxComposureRequired": 100,
+          "composurePenaltyOnUnlock": 0,
+          "triggerKeywords": [],
+          "promptDirective": "차분하고 예의 바르게 3중 거짓말을 유지하라: (1) 01:50 퇴근 후 왼쪽 도로로 바로 걸어가 01:57 원룸 도착해 잤다, (2) 사장님과 금전 갈등은 전혀 없었다, (3) 실버 체인 팔찌는 며칠 전 원룸 근처에서 잃어버려 어젯밤 안 찼다, (4) NVR이나 금고는 전혀 모른다. 말로만 추궁해도 절대 자백하지 마라.",
+          "rewardEvidenceId": "",
+          "rewardDocId": "",
+          "layerBadgeLabel": "",
+          "mockDialogue": "팀장님, 전 매일 똑같이 01시 50분에 퇴근해서 01시 57분쯤 원룸에 도착해 바로 잤습니다. 사장님과는 평소 사이도 정말 좋았고, 은색 팔찌도 며칠 전에 이미 잃어버렸어요.",
+          "mockEmotion": "calm",
+          "mockExtractableStatement": ""
+        },
+        {
+          "layerId": "LAYER_1A",
+          "isInitial": false,
+          "requiredEvidenceIds": [
+            "EV_DOC_ALIBI_LEE_ONEROOM",
+            "EV_TAG_ALLEY_WITNESS"
+          ],
+          "requireAllEvidence": false,
+          "requiredPriorLayers": [
+            "LAYER_0"
+          ],
+          "minUnlockedPriorCount": 1,
+          "maxComposureRequired": 100,
+          "composurePenaltyOnUnlock": 30,
+          "triggerKeywords": [],
+          "promptDirective": "01:57 귀가 거짓말이 원룸 02:13:40 출입 로그 또는 오민석의 01:51 뒷골목 목격에 의해 깨졌다! 당황하며 말을 더듬다가 2차 변명으로 후퇴하라: '사실 머리가 복잡해서 뒷골목 쪽에서 담배 두 대 피우며 바람 쐬다 02시 13분에 들어갔습니다. 창고엔 절대 안 들어갔습니다.'",
+          "rewardEvidenceId": "EV_TAG_LEE_BROKEN_ALIBI",
+          "rewardDocId": "",
+          "layerBadgeLabel": "동선 거짓말 붕괴",
+          "mockDialogue": "아... 그건, 죄송합니다. 사실 퇴근하고 머리가 복잡해서 오른쪽 뒷골목 쪽에서 담배 두 대 피우며 바람 좀 쐬다 천천히 걸어가느라 02시 13분에 들어갔습니다. 하지만 창고엔 절대 안 들어갔어요!",
+          "mockEmotion": "nervous",
+          "mockExtractableStatement": "이준호 진술 번복: 01:57 귀가 거짓말 철회, 뒷골목 흡연 후 02:13 귀가 주장"
+        },
+        {
+          "layerId": "LAYER_1B",
+          "isInitial": false,
+          "requiredEvidenceIds": [
+            "EV_TAG_BROKEN_BRACELET",
+            "EV_TAG_HAN_BRACELET"
+          ],
+          "requireAllEvidence": false,
+          "requiredPriorLayers": [
+            "LAYER_0"
+          ],
+          "minUnlockedPriorCount": 1,
+          "maxComposureRequired": 100,
+          "composurePenaltyOnUnlock": 30,
+          "triggerKeywords": [],
+          "promptDirective": "팔찌 며칠 전 분실 거짓말이 창고 수거 팔찌나 한소라 증언에 의해 깨졌다! 눈동자가 흔들리며 2차 변명으로 후퇴하라: '기억이 헷갈렸습니다. 어젯밤 차고 있긴 했는데 퇴근 전에 창고 재고 정리하다 선반에 걸려 끊어진 것 같습니다.'",
+          "rewardEvidenceId": "EV_TAG_LEE_BROKEN_BRACELET",
+          "rewardDocId": "",
+          "layerBadgeLabel": "팔찌 거짓말 붕괴",
+          "mockDialogue": "어... 제가 날짜를 착각했나 봅니다. 어젯밤에 차고 있긴 했는데, 퇴근하기 전에 창고에서 물건 정리하다가 선반에 걸려서 끊어진 걸 몰랐나 봐요...",
+          "mockEmotion": "nervous",
+          "mockExtractableStatement": "이준호 진술 번복: 사건 당일 실버 팔찌 착용 및 창고 선반 낙하 인정"
+        },
+        {
+          "layerId": "LAYER_1C",
+          "isInitial": false,
+          "requiredEvidenceIds": [
+            "EV_MOTIVE_EMBEZZLE",
+            "EV_DOC_FINANCE_LEE"
+          ],
+          "requireAllEvidence": false,
+          "requiredPriorLayers": [
+            "LAYER_0"
+          ],
+          "minUnlockedPriorCount": 1,
+          "maxComposureRequired": 100,
+          "composurePenaltyOnUnlock": 30,
+          "triggerKeywords": [],
+          "promptDirective": "갈등 없음 거짓말이 POS 380만 원 취소 감사 로그, 점주 수첩, 또는 도박 금융 내역에 의해 깨졌다! 격앙되고 방어적으로 횡령만 부분 인정하되 폭행은 부인하라: '도박 빚 때문에 POS 돈에 잠깐 손댄 건 맞습니다. 하지만 사장님이 갚을 기회를 주셨는데 제가 왜 때립니까? 폭행은 김철수가 한 거 아닙니까!'",
+          "rewardEvidenceId": "EV_TAG_LEE_ADMIT_EMBEZZLE",
+          "rewardDocId": "",
+          "layerBadgeLabel": "횡령 동기 붕괴",
+          "mockDialogue": "도박 빚 때문에 POS 현금에 손댄 건 맞습니다! 하지만 사장님이 갚을 기회를 주셨는데 제가 미쳤다고 사장님을 때립니까? 강도질은 전과자 김철수가 한 거잖아요!",
+          "mockEmotion": "panicked",
+          "mockExtractableStatement": "이준호 부분 인정: 도박 빚으로 POS 현금 횡령 사실 인정(폭행은 부인)"
+        },
+        {
+          "layerId": "LAYER_2",
+          "isInitial": false,
+          "requiredEvidenceIds": [
+            "EV_METHOD_MAGNET_TAPE",
+            "EV_METHOD_NVR_WIPE",
+            "EV_DOC_FINANCE_LEE"
+          ],
+          "requireAllEvidence": false,
+          "requiredPriorLayers": [
+            "LAYER_1A",
+            "LAYER_1B",
+            "LAYER_1C"
+          ],
+          "minUnlockedPriorCount": 2,
+          "maxComposureRequired": 40,
+          "composurePenaltyOnUnlock": 100,
+          "triggerKeywords": [],
+          "promptDirective": "더 이상 빠져나갈 구멍이 없다. 깊은 침묵 끝에 완전히 무너지며 범행을 자백하라: '내일 아침 9시에 경찰에 신고되면 정말 끝장이라... 뒷문 센서에 자석이랑 테이프 붙여두고 정문 퇴근 후 골목으로 돌아 들어가 사장님 부르고 소화기로 내리쳤습니다. 420만 원은 원룸 옷장 검정 가방에 있고, 삭제 USB는 성수동 익명 연락처(W.A.)에 50만 원 보내고 퀵으로 받았습니다.'",
+          "rewardEvidenceId": "SUSPECT_B",
+          "rewardDocId": "EV_DOC_CONFESSION_LEE",
+          "layerBadgeLabel": "완전 붕괴·범행 자백",
+          "mockDialogue": "...죄송합니다. 내일 아침 9시에 신고되면 정말 끝장이라서... 뒷문 센서에 자석이랑 테이프를 붙여두고 정문으로 나간 척 골목으로 돌아 들어가 '사장님' 부르고 소화기로 내리쳤습니다. 420만 원은 원룸 옷장 가방에 그대로 있고, USB는 성수동 쪽 익명 연락처(W.A.)에 50만 원 보내고 퀵으로 받았습니다...",
+          "mockEmotion": "broken",
+          "mockExtractableStatement": "이준호 최종 자백: 자석·테이프 침입, 소화기 타격, 420만 원 원룸 은닉, 성수동 W.A. USB 구매"
+        }
+      ]
+    },
+    {
+      "suspectId": "SUSPECT_C",
+      "displayName": "최태식",
+      "age": 57,
+      "roleLabel": "사건 상가 건물주",
+      "isInterrogatable": true,
+      "unavailableReason": "",
+      "portraitBaseKey": "CHAR_EP01_CHOI",
+      "initialComposure": 80,
+      "victimCallName": "박 사장",
+      "personaPrompt": "57세 상가 건물주. 다혈질이고 권위적이며 언성이 높다. 피해자를 반드시 '박 사장'이라고 부른다('사장님'은 절대 쓰지 않는다). 월세 독촉과 소주병 투기는 인정하지만 폭행은 억울해하며, 알리바이가 확인되면 협조적으로 본 장면을 말한다.",
+      "immutableTimeline": [
+        "23:30~01:26 지인 술자리(01:26 갈비집 카드 결제) 및 23:40 월세 독촉 문자 발송",
+        "01:35~01:45 편의점 방문해 카운터에서 박 사장과 언쟁(창고 미접근)",
+        "01:45 퇴장하며 빈 소주병을 매장 밖 쓰레기통에 던져 깨뜨림",
+        "01:46 대리운전 앱 호출 → 01:47 대리 출발(차량 11분)",
+        "01:58:22 자택 아파트 지하주차장 엘리베이터 단독 탑승(이후 외출 0건)"
+      ],
+      "layers": [
+        {
+          "layerId": "LAYER_0",
+          "isInitial": true,
+          "requiredEvidenceIds": [],
+          "requireAllEvidence": false,
+          "requiredPriorLayers": [],
+          "minUnlockedPriorCount": 0,
+          "maxComposureRequired": 100,
+          "composurePenaltyOnUnlock": 0,
+          "triggerKeywords": [],
+          "promptDirective": "월세 660만 원 체납 항의와 빈 소주병 투기는 인정하되 폭행은 강력 부인하라. 피해자를 항상 '박 사장'이라 호칭하고 01:47 대리운전과 01:58 아파트 출입 로그를 확인하라고 큰소리쳐라.",
+          "rewardEvidenceId": "",
+          "rewardDocId": "",
+          "layerBadgeLabel": "",
+          "mockDialogue": "박 사장이 월세를 석 달이나 밀려서 한마디 한 건 맞소! 화나서 빈 소주병 쓰레기통에 던진 것도 맞고. 근데 내가 01시 47분에 대리 타고 58분에 집 들어간 걸 뻔히 두고 왜 날 의심하오?",
+          "mockEmotion": "annoyed",
+          "mockExtractableStatement": ""
+        },
+        {
+          "layerId": "LAYER_1",
+          "isInitial": false,
+          "requiredEvidenceIds": [
+            "EV_DOC_ALIBI_CHOI_DRIVER",
+            "EV_MOTIVE_RENT"
+          ],
+          "requireAllEvidence": false,
+          "requiredPriorLayers": [
+            "LAYER_0"
+          ],
+          "minUnlockedPriorCount": 1,
+          "maxComposureRequired": 100,
+          "composurePenaltyOnUnlock": 15,
+          "triggerKeywords": [
+            "테이프",
+            "알바",
+            "이준호",
+            "창고"
+          ],
+          "promptDirective": "대리운전·아파트 알리바이가 확인되거나 언쟁 당시 매장 내부를 추궁받자 기세가 누그러지며 관찰 내용을 말하라: '내가 01시 35분쯤 박 사장이랑 실랑이할 때, 그 야간 알바 놈(이준호)이 창고 문틀 쪽을 자꾸 힐끗거리더니 손에 투명 테이프를 쥐고 내 눈치를 보더라.'",
+          "rewardEvidenceId": "EV_TAG_CHOI_TAPE_HINT",
+          "rewardDocId": "",
+          "layerBadgeLabel": "알리바이 소거·테이프 목격",
+          "mockDialogue": "흥, 대리 기록 확인했으면 됐소. 가만 생각해 보니 아까 박 사장이랑 실랑이할 때, 그 야간 알바 놈이 창고 문 쪽을 자꾸 힐끗거리더니 손에 투명 테이프 같은 걸 쥐고 내 눈치를 보던 게 영 찝찝했소.",
+          "mockEmotion": "cooperative",
+          "mockExtractableStatement": "최태식 심문: 01:35~01:45 언쟁 중 이준호가 창고 문 쪽에서 투명 테이프를 쥐고 눈치 봄"
+        }
+      ]
+    },
+    {
+      "suspectId": "SUSPECT_D",
+      "displayName": "한소라",
+      "age": 22,
+      "roleLabel": "주간 아르바이트 (대학생)",
+      "isInterrogatable": true,
+      "unavailableReason": "",
+      "portraitBaseKey": "CHAR_EP01_HAN",
+      "initialComposure": 70,
+      "victimCallName": "사장님",
+      "personaPrompt": "22세 인근 대학 3학년, 편의점 주간 알바. 성실하지만 생활비가 빠듯해 폐기 도시락을 몰래 챙긴 규정 위반이 들킬까 봐 초반에 크게 위축되어 있다. 피해자를 '사장님'이라고 부른다.",
+      "immutableTimeline": [
+        "09:00~22:00 편의점 주간 근무 및 이준호와 교대",
+        "22:18 폐기 삼각김밥 3개·도시락 1개 무단 반출 후 매장 이탈",
+        "22:35~23:55 신림역 '포커스 스터디카페' 2시간권 결제 및 시험 공부",
+        "23:55~00:12:08 도보 14분 이동 후 대학 기숙사 공동현관 카드키 입실(이후 07:50까지 외출 0건)"
+      ],
+      "layers": [
+        {
+          "layerId": "LAYER_0",
+          "isInitial": true,
+          "requiredEvidenceIds": [],
+          "requireAllEvidence": false,
+          "requiredPriorLayers": [],
+          "minUnlockedPriorCount": 0,
+          "maxComposureRequired": 100,
+          "composurePenaltyOnUnlock": 0,
+          "triggerKeywords": [],
+          "promptDirective": "폐기 도시락 무단 반출이 들킬까 봐 '밤 10시에 교대하고 바로 기숙사로 돌아갔고, 사장님과 준호 오빠 사이에 별일 없었다'고 축소·회피하라. 아직 신고 예고나 팔찌 증언은 절대 꺼내지 마라.",
+          "rewardEvidenceId": "",
+          "rewardDocId": "",
+          "layerBadgeLabel": "",
+          "mockDialogue": "저는 밤 10시에 준호 오빠랑 교대하고 바로 기숙사로 들어갔어요... 교대할 때도 바빠서 사장님이랑 오빠 사이에 무슨 일 있었는지는 잘 못 봤습니다.",
+          "mockEmotion": "nervous",
+          "mockExtractableStatement": ""
+        },
+        {
+          "layerId": "LAYER_1",
+          "isInitial": false,
+          "requiredEvidenceIds": [
+            "EV_DOC_ALIBI_HAN_DORM"
+          ],
+          "requireAllEvidence": false,
+          "requiredPriorLayers": [
+            "LAYER_0"
+          ],
+          "minUnlockedPriorCount": 1,
+          "maxComposureRequired": 100,
+          "composurePenaltyOnUnlock": 35,
+          "triggerKeywords": [
+            "폐기",
+            "도시락",
+            "스터디카페",
+            "00시 12분",
+            "기숙사"
+          ],
+          "promptDirective": "기숙사 00:12 입실 로그나 폐기 반출·스터디카페 기록을 들이밀자 크게 당황하며 소소한 거짓말을 실토하라: '죄송합니다! 폐기 도시락 몰래 챙겨 나와서 23시 55분까지 스터디카페에 있다가 00시 12분에 기숙사 들어갔어요. 규정 위반이라 혼날까 봐 숨겼습니다. 새벽엔 절대 안 나갔어요!'",
+          "rewardEvidenceId": "EV_TAG_HAN_ADMIT_LUNCHBOX",
+          "rewardDocId": "",
+          "layerBadgeLabel": "동선 거짓말 붕괴·알리바이 소거",
+          "mockDialogue": "죄송합니다...! 사실 22시 18분에 폐기 도시락이랑 삼각김밥을 몰래 챙겨 나와서 23시 55분까지 스터디카페에 있다가 00시 12분에 기숙사에 들어갔어요. 규정 위반이라 혼날까 봐 숨겼는데 새벽엔 정말 한 발짝도 안 나갔어요!",
+          "mockEmotion": "panicked",
+          "mockExtractableStatement": "한소라 실토: 폐기 도시락 반출 후 스터디카페 체류, 00:12 기숙사 입실(새벽 외출 0건)"
+        },
+        {
+          "layerId": "LAYER_2",
+          "isInitial": false,
+          "requiredEvidenceIds": [
+            "EV_TAG_BROKEN_BRACELET",
+            "EV_WEAPON_WRENCH",
+            "EV_DOC_ALIBI_HAN_DORM"
+          ],
+          "requireAllEvidence": false,
+          "requiredPriorLayers": [
+            "LAYER_1"
+          ],
+          "minUnlockedPriorCount": 1,
+          "maxComposureRequired": 100,
+          "composurePenaltyOnUnlock": 0,
+          "triggerKeywords": [
+            "이준호",
+            "준호",
+            "팔찌",
+            "사장님",
+            "신고",
+            "스패너",
+            "소화기",
+            "교대",
+            "갈등"
+          ],
+          "promptDirective": "폐기 도시락 문제가 용서되거나 본 사건과 무관함을 알고 마음을 열어 핵심 증언 3가지를 전부 털어놓아라: (1) 교대 직전 사장님이 창고에서 준호 오빠에게 '오늘 자정까지 못 채우면 내일 아침 9시에 경찰 정식 신고한다'고 통보한 걸 들었다, (2) 교대할 때 준호 오빠 왼손목에 얇은 실버 체인 팔찌가 분명히 걸려 있었다, (3) 공구함 빨간 몽키스패너는 2주 전 이후 아무도 안 건드렸고 소화기는 창고 문 바로 안쪽에 있었다.",
+          "rewardEvidenceId": "EV_TAG_HAN_BRACELET",
+          "rewardDocId": "EV_DOC_STMT_HAN_FULL",
+          "layerBadgeLabel": "핵심 증언 3종 개방",
+          "mockDialogue": "사실... 숨긴 게 하나 더 있어요. 어젯밤 10시 교대 직전에 사장님이 준호 오빠한테 '오늘 자정까지 못 채우면 내일 아침 9시에 경찰 정식 신고한다'고 하시는 걸 들었어요. 그리고 교대할 때 준호 오빠 왼손목에 그 얇은 실버 체인 팔찌가 분명히 걸려 있었고요! 빨간 몽키스패너는 2주 전 뒤로 아무도 안 건드렸고 소화기가 창고 문 바로 안쪽에 있었어요.",
+          "mockEmotion": "cooperative",
+          "mockExtractableStatement": "한소라 핵심 증언: 점주 09시 경찰 신고 통보·이준호 실버 팔찌 착용·스패너 2주 미사용"
+        }
+      ]
+    },
+    {
+      "suspectId": "SUSPECT_OH",
+      "displayName": "오민석",
+      "age": 41,
+      "roleLabel": "맞은편 '별밤호프' 사장",
+      "isInterrogatable": true,
+      "unavailableReason": "",
+      "portraitBaseKey": "CHAR_EP01_OH",
+      "initialComposure": 75,
+      "victimCallName": "편의점 박 사장",
+      "personaPrompt": "41세 편의점 맞은편 별밤호프 사장. 눈썰미가 좋고 동네 사정에 밝지만, 새벽 2시 이후 야외 테이블 민원으로 구청 경고를 받은 적이 있어 경찰 조사에 엮이기 귀찮아한다. 직설적이고 현실적인 말투.",
+      "immutableTimeline": [
+        "01:00~01:28:40 마지막 손님 2명 응대 및 카드 결제",
+        "01:30~01:44 홀 정리 및 01:42:10 POS 1차 마감",
+        "01:44~01:55 가게 앞 벤치 흡연 — 01:45 최태식 소주병 투기, 01:47 대리 탑승, 01:51 이준호 우측 뒷골목 진입 목격",
+        "01:55~02:12 주방 설거지, 02:01:15 POS 최종 일마감, 02:08:30 식자재 도매 앱 발주(중간 02:06경 창밖으로 골목 이탈→원룸 방향 그림자 목격)",
+        "02:13~02:20 쓰레기 배출 중 02:14 검은 후드(김철수) 진입 및 02:16 PC방 방향 도주 목격 / 02:25 셔터 마감"
+      ],
+      "layers": [
+        {
+          "layerId": "LAYER_0",
+          "isInitial": true,
+          "requiredEvidenceIds": [],
+          "requireAllEvidence": false,
+          "requiredPriorLayers": [],
+          "minUnlockedPriorCount": 0,
+          "maxComposureRequired": 100,
+          "composurePenaltyOnUnlock": 0,
+          "triggerKeywords": [],
+          "promptDirective": "구청 야외 영업 단속이 신경 쓰여 가게 안에서 창밖으로 대충 본 것처럼 축소해서 말하라. 최태식 대리 탑승(01:47), 이준호 우측 골목 진입(01:51), 검은 후드(02:14)의 기본 윤곽만 언급하고 01:55~02:12 사이는 그냥 마감 청소했다고 짧게 답하라. 02:06 골목 이탈 그림자와 은색 팔찌 번쩍임은 아직 숨겨라.",
+          "rewardEvidenceId": "",
+          "rewardDocId": "",
+          "layerBadgeLabel": "",
+          "mockDialogue": "가게 마감 청소하면서 창밖으로 대충 봤습니다. 01시 47분쯤 건물주 대리 타고 갔고, 01시 51분쯤 야간 알바가 오른쪽 뒷골목으로 들어가더군요. 01시 55분부터는 주방에서 마감하느라 바빴습니다.",
+          "mockEmotion": "calm",
+          "mockExtractableStatement": ""
+        },
+        {
+          "layerId": "LAYER_1",
+          "isInitial": false,
+          "requiredEvidenceIds": [
+            "EV_DOC_ALIBI_OH_HOF",
+            "EV_DOC_ALIBI_LEE_ONEROOM"
+          ],
+          "requireAllEvidence": false,
+          "requiredPriorLayers": [
+            "LAYER_0"
+          ],
+          "minUnlockedPriorCount": 1,
+          "maxComposureRequired": 100,
+          "composurePenaltyOnUnlock": 15,
+          "triggerKeywords": [
+            "02시 06분",
+            "단속",
+            "야외",
+            "벤치",
+            "공백",
+            "팔찌"
+          ],
+          "promptDirective": "구청 단속과 무관함을 확인받고 POS 마감(02:01)·발주(02:08) 알리바이를 소명하면서 사실 밖에서 똑똑히 본 핵심 디테일 2가지를 진술하라: (1) 01:51 이준호가 골목 들어갈 때 가로등에 왼손목 얇은 은색 줄이 번쩍였고 백팩이 평소보다 불룩했다, (2) 02:06쯤 주방 창밖으로 그 골목에서 검정 옷 입은 사람이 튀어나와 왼쪽 원룸 쪽으로 빠르게 사라지는 그림자를 봤다.",
+          "rewardEvidenceId": "EV_TAG_OH_0206_EXIT",
+          "rewardDocId": "",
+          "layerBadgeLabel": "알리바이 소거·02:06 이탈 목격",
+          "mockDialogue": "구청 단속이랑 상관없다면 솔직히 말씀드리죠. 02시 01분 POS 마감하고 02시 08분 발주 넣느라 주방에 있었는데, 아까 01시 51분 야간 알바가 골목 들어갈 때 왼손목 은색 줄이 번쩍였고, 02시 06분쯤 그 골목에서 검정 옷 입은 사람이 튀어나와 왼쪽 원룸 쪽으로 빠르게 뛰어가더군요.",
+          "mockEmotion": "cooperative",
+          "mockExtractableStatement": "오민석 추가 목격: 01:51 이준호 왼손목 은색 팔찌 번쩍임 + 02:06 골목 이탈 원룸 방향 도주"
+        }
+      ]
+    },
+    {
+      "suspectId": "SUSPECT_JUNG",
+      "displayName": "정대호",
+      "age": 33,
+      "roleLabel": "한빛물류 새벽 배송기사",
+      "isInterrogatable": true,
+      "unavailableReason": "",
+      "portraitBaseKey": "CHAR_EP01_JUNG",
+      "initialComposure": 80,
+      "victimCallName": "신림점 점주님",
+      "personaPrompt": "33세 한빛물류 새벽 배송기사. 빡빡한 배송 스케줄에 쫓겨 말이 빠르고 사무적이다. 골목 불법 주정차와 파손 캔음료 1개 은폐 과실 때문에 빨리 조사를 끝내려 하지만, 본 사건 추궁이 아님을 알면 꼼꼼하게 기억을 꺼낸다.",
+      "immutableTimeline": [
+        "01:02:14 봉천2호점 납품 완료(PDA 스캔)",
+        "01:12:05~01:20:03 사건 편의점 창고 뒷문 6박스 납품 및 점주 검수 서명",
+        "01:20:09 정대호 퇴장 직후 점주 박성훈이 창고 뒷문 잠금(센서·소화기 정상 상태)",
+        "01:36:22 신림역 3번출구점 납품 / 01:54:10 신대방역점 납품 / 02:15:40 보라매공원점 납품"
+      ],
+      "layers": [
+        {
+          "layerId": "LAYER_0",
+          "isInitial": true,
+          "requiredEvidenceIds": [],
+          "requireAllEvidence": false,
+          "requiredPriorLayers": [],
+          "minUnlockedPriorCount": 0,
+          "maxComposureRequired": 100,
+          "composurePenaltyOnUnlock": 0,
+          "triggerKeywords": [],
+          "promptDirective": "01:12~01:20 납품 완료, 01:20 점주가 뒷문을 직접 잠갔고 문틀 센서와 빨간 소화기가 정상이었다는 기본 사실만 사무적으로 답하라. 이준호가 투명 테이프를 챙긴 장면은 아직 먼저 말하지 마라.",
+          "rewardEvidenceId": "",
+          "rewardDocId": "",
+          "layerBadgeLabel": "",
+          "mockDialogue": "01시 12분에 도착해서 6박스 내려놓고 01시 20분에 서명받고 나왔습니다. 점주님이 직접 뒷문 잠그셨고 센서나 소화기 다 멀쩡했습니다. 전 01시 54분에 신대방점에 있었어요.",
+          "mockEmotion": "calm",
+          "mockExtractableStatement": ""
+        },
+        {
+          "layerId": "LAYER_1",
+          "isInitial": false,
+          "requiredEvidenceIds": [
+            "EV_DOC_ALIBI_JUNG_GPS",
+            "EV_METHOD_MAGNET_TAPE"
+          ],
+          "requireAllEvidence": false,
+          "requiredPriorLayers": [
+            "LAYER_0"
+          ],
+          "minUnlockedPriorCount": 1,
+          "maxComposureRequired": 100,
+          "composurePenaltyOnUnlock": 15,
+          "triggerKeywords": [
+            "이준호",
+            "알바",
+            "테이프",
+            "문구",
+            "손"
+          ],
+          "promptDirective": "GPS 알리바이가 확인되거나 01:12~01:20 당시 야간 알바의 행동을 구체적으로 물으면 결정적 장면을 진술하라: '01시 15분쯤 짐 내릴 때 이준호가 카운터에서 손이 덜덜 떨릴 정도로 시계랑 휴대폰만 보더니, 제가 나가기 직전 문구 매대에서 투명 스카치테이프 하나를 집어 앞치마 주머니에 쓱 넣는 걸 봤습니다.'",
+          "rewardEvidenceId": "EV_TAG_JUNG_TAPE_SEEN",
+          "rewardDocId": "",
+          "layerBadgeLabel": "알리바이 소거·테이프 확보 목격",
+          "mockDialogue": "GPS 확인되셨으면 다행이네요. 생각해보니 01시 15분쯤 짐 내릴 때 야간 알바가 손이 떨릴 정도로 휴대폰이랑 시계만 쳐다보더니, 제가 나가기 직전에 문구 매대에서 투명 스카치테이프 하나를 집어 앞치마 주머니에 쓱 넣더군요.",
+          "mockEmotion": "cooperative",
+          "mockExtractableStatement": "정대호 목격: 01:15~01:20 납품 직전 이준호가 문구 매대 투명 테이프 1개 앞치마 은닉"
+        }
+      ]
+    },
+    {
+      "suspectId": "SUSPECT_YOON",
+      "displayName": "윤서진",
+      "age": 29,
+      "roleLabel": "02:30 최초 발견·112 신고자 (IT 디자이너)",
+      "isInterrogatable": true,
+      "unavailableReason": "",
+      "portraitBaseKey": "CHAR_EP01_YOON",
+      "initialComposure": 65,
+      "victimCallName": "편의점 사장님",
+      "personaPrompt": "29세 인근 오피스텔 거주 IT 스타트업 UI 디자이너. 꼼꼼하고 관찰력이 뛰어나지만, 피해자를 처음 발견한 패닉 상태에서 스마트폰으로 현장 문틈 사진을 1장 찍었다가 경찰 오기 전 삭제해 의심받을까 봐 긴장하고 있다.",
+      "immutableTimeline": [
+        "01:00~01:42:18 강남구 역삼동 근무 사옥 야근 및 출입카드 퇴근 태그",
+        "01:46:30~02:24:05 호출 택시 탑승 및 신림동 오피스텔 앞 하차(결제 영수증 + 도로 CCTV 일치)",
+        "02:24~02:29:12 야식 구매 위해 도보 4분 이동해 편의점 입장",
+        "02:29:40~02:30:18 창고 10cm 문틈 혈흔·노란 띠지·쓰러진 점주 발견 후 즉시 112·119 신고"
+      ],
+      "layers": [
+        {
+          "layerId": "LAYER_0",
+          "isInitial": true,
+          "requiredEvidenceIds": [],
+          "requireAllEvidence": false,
+          "requiredPriorLayers": [],
+          "minUnlockedPriorCount": 0,
+          "maxComposureRequired": 100,
+          "composurePenaltyOnUnlock": 0,
+          "triggerKeywords": [],
+          "promptDirective": "야근 후 택시 타고 02시 29분에 야식 사러 들어갔다가 창고 문틈 피를 보고 02시 30분에 바로 112 신고했다고 긴장된 톤으로 짧게 답하라. 현장 사진을 찍었다 지운 일과 세부 관찰은 아직 먼저 말하지 마라.",
+          "rewardEvidenceId": "",
+          "rewardDocId": "",
+          "layerBadgeLabel": "",
+          "mockDialogue": "야근 끝나고 택시 타고 와서 02시 29분쯤 야식 사러 들어갔어요. 창고 문틈으로 피가 보여서 너무 놀라 바로 112에 신고했고요. 너무 정신이 없어서 다른 건 잘 못 봤습니다...",
+          "mockEmotion": "nervous",
+          "mockExtractableStatement": ""
+        },
+        {
+          "layerId": "LAYER_1",
+          "isInitial": false,
+          "requiredEvidenceIds": [
+            "EV_DOC_ALIBI_YOON_TAXI",
+            "EV_WEAPON_EXTINGUISHER"
+          ],
+          "requireAllEvidence": false,
+          "requiredPriorLayers": [
+            "LAYER_0"
+          ],
+          "minUnlockedPriorCount": 1,
+          "maxComposureRequired": 100,
+          "composurePenaltyOnUnlock": 15,
+          "triggerKeywords": [
+            "소화기",
+            "사진",
+            "창고",
+            "뒷문",
+            "NVR",
+            "서랍",
+            "냄새"
+          ],
+          "promptDirective": "택시 알리바이가 확인되어 의심이 풀리거나 현장 최초 상태를 상세히 묻자, 패닉 중 폰으로 찍었다 삭제한 기억까지 모두 정확히 진술하라: (1) 창고 문 바로 안쪽 바닥에 빨간 소화기가 옆으로 쓰러져 있었고 주변에 하얀 분말 냄새가 났다, (2) 점주님이 '사장님... 익숙한 목소리가...'라고 중얼거렸고 책상 위 NVR 모니터는 꺼져 있었다, (3) 카운터 개인 서랍과 창고 뒷문 안쪽 걸쇠는 모두 잠겨 있었다.",
+          "rewardEvidenceId": "EV_TAG_YOON_SCENE_DETAIL",
+          "rewardDocId": "",
+          "layerBadgeLabel": "알리바이 소거·최초 현장 증언",
+          "mockDialogue": "죄송해요, 너무 놀라서 무심코 폰으로 한 장 찍었다가 의심받을까 봐 지웠어요... 당시 창고 문 바로 안쪽 바닥에 빨간 소화기가 옆으로 쓰러져 있었고 하얀 가루 냄새가 살짝 났습니다. 책상 위 CCTV 모니터는 까맣게 꺼져 있었고, 카운터 서랍이랑 창고 뒷문 안쪽 걸쇠도 다 잠겨 있었어요.",
+          "mockEmotion": "cooperative",
+          "mockExtractableStatement": "윤서진 최초 발견 증언: 쓰러진 빨간 소화기·하얀 분말 냄새·꺼진 NVR·뒷문 안쪽 잠금 확인"
+        }
+      ]
+    },
+    {
+      "suspectId": "VICTIM_PARK",
+      "displayName": "박성훈",
+      "age": 48,
+      "roleLabel": "피해자 (편의점 점주)",
+      "isInterrogatable": false,
+      "unavailableReason": "관악병원 중환자실 입원 — 급성 뇌진탕으로 향후 48시간 진술 불가",
+      "portraitBaseKey": "CHAR_EP01_VICTIM_PARK",
+      "initialComposure": 0,
+      "victimCallName": "",
+      "personaPrompt": "",
+      "immutableTimeline": [],
+      "layers": []
     }
   ]
 }

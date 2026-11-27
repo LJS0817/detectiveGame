@@ -96,24 +96,24 @@ namespace ColdCaseOS.Core
             GameEvents.RaiseSfxRequested("SFX_CLOCK_FASTFORWARD");
             GameEvents.RaiseTimeAdvanced(deltaMinutes, _state.ElapsedMinutes);
 
-            if (!wasOverVolatile && _state.ElapsedMinutes > _state.Episode.volatileDeadlineMinutes)
+            if (!wasOverVolatile && _state.Episode.volatileDeadlineMinutes > 0 && _state.ElapsedMinutes > _state.Episode.volatileDeadlineMinutes)
             {
                 _state.VolatileDeadlineNotified = true;
                 GameEvents.RaiseVolatileDeadlinePassed();
                 _state.AddMessengerMessage(
                     "강민호 경사",
-                    "경위님, 휘발성 골든 타임이 지났습니다. 디지털 로그 일부가 덮어쓰기/삭제됐을 가능성이 높습니다.",
+                    "팀장님, 휘발성 골든 타임이 지났습니다. 디지털 로그 일부가 덮어쓰기/삭제됐을 가능성이 높습니다.",
                     FormattedCurrentClock,
                     isSystemAlert: true);
             }
 
-            if (!wasOvertime && _state.ElapsedMinutes > _state.Episode.submissionDeadlineMinutes)
+            if (!wasOvertime && _state.Episode.submissionDeadlineMinutes > 0 && _state.ElapsedMinutes > _state.Episode.submissionDeadlineMinutes)
             {
                 _state.IsOvertime = true;
                 GameEvents.RaiseOvertimeEntered();
                 _state.AddMessengerMessage(
                     "강민호 경사",
-                    "마감 시한을 넘겨 일단 송치 보류 및 연장 수사 사유서를 올렸습니다. 위에서 좀 깨지겠지만... 진범 잡을 때까지 계속 갑시다.",
+                    "팀장님, 마감 시한을 넘겨 송치 보류 및 연장 수사 사유서를 올렸습니다. 위에서 좀 깨지겠지만 진범 잡을 때까지 끝까지 갑시다.",
                     FormattedCurrentClock,
                     isSystemAlert: true);
             }

@@ -41,6 +41,26 @@ namespace ColdCaseOS.Apps.PoliceDB
                 addResultToBoardButton.onClick.AddListener(AddLastResultToBoard);
                 addResultToBoardButton.interactable = false;
             }
+            GameEvents.OnDbQuickSearchRequested += HandleQuickSearch;
+        }
+
+        private void OnDestroy()
+        {
+            GameEvents.OnDbQuickSearchRequested -= HandleQuickSearch;
+        }
+
+        private void HandleQuickSearch(string query)
+        {
+            SearchImmediate(query);
+        }
+
+        public void SearchImmediate(string query)
+        {
+            if (string.IsNullOrWhiteSpace(query)) return;
+            Open();
+            if (searchInputField != null)
+                searchInputField.text = query.Trim();
+            ExecuteSearch();
         }
 
         private void OnEnable()

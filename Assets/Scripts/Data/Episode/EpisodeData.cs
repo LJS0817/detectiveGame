@@ -31,6 +31,10 @@ namespace ColdCaseOS.Data
         [JsonProperty("actions")] public List<FieldActionData> actions = new List<FieldActionData>();
         [JsonProperty("dbEntries")] public List<PoliceDbEntry> dbEntries = new List<PoliceDbEntry>();
 
+        [JsonProperty("interrogationSessionMinutes")] public int interrogationSessionMinutes = 45;
+        [JsonProperty("interrogationTurnsPerSession")] public int interrogationTurnsPerSession = 8;
+        [JsonProperty("interrogationProfiles")] public List<InterrogationProfileData> interrogationProfiles = new List<InterrogationProfileData>();
+
         [JsonProperty("answerRule")] public ReportAnswerRule answerRule;
         [JsonProperty("arrestReports")] public List<ArrestReportTier> arrestReports = new List<ArrestReportTier>();
 

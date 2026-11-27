@@ -1,206 +1,205 @@
 # Unity (C#) 기술 아키텍처 및 전체 클래스 설계서 (12_UNITY_ARCHITECTURE_SPEC)
 
-> **문서 목적**: `ColdCaseOS`의 Unity 구현을 위한 프로젝트 구조, 이벤트 기반 아키텍처, EP 1~7 공용 JSON/C# 데이터 스키마, **3개 씬 및 7개 OS 앱의 누락 없는 전체 클래스 카탈로그(총 39개 클래스)**, 핵심 알고리즘 명세 및 단계별 개발 마일스톤을 정의합니다.
+> **문서 목적**: `ColdCaseOS`의 실제 Unity 프로젝트 구조(`Assets/Scripts/`, `Assets/Data/`)를 기준으로, **기존 구현 완료 모듈**과 **신규 추가할 LLM 현장 지휘·사건 관련자 전원 심문 모듈**의 아키텍처, 데이터 스키마, 핵심 알고리즘(Prompt Isolation·Tool Calling), 그리고 구현 로드맵을 정의합니다.
 
 ---
 
-## 1. 개발 환경 및 Unity 프로젝트 구조
+## 1. 개발 환경 및 실제 Unity 프로젝트 구조
 
-* **권장 엔진**: Unity 6 LTS (또는 Unity 2022.3 LTS) — **2D (URP)** 템플릿
-* **필수 패키지**: `TextMeshPro (TMP)`, `Newtonsoft Json (com.unity.nuget.newtonsoft-json)`, `UnityEngine.Video (VideoPlayer)`
+* **엔진**: Unity 6 LTS / 2022.3 LTS — **2D (URP)**
+* **핵심 패키지**: `TextMeshPro (TMP)`, `Newtonsoft Json`, `UniTask (Cysharp.Threading.Tasks)`, `DOTween`, `UnityEngine.Video (VideoPlayer)`, `UnityEngine.Networking (UnityWebRequest)`
 * **기준 해상도**: `1920 × 1080` (`CanvasScaler`: Scale With Screen Size, Match = `0.5`)
 
-### 전체 폴더 및 스크립트 트리 (`Assets/_Project/`)
+### 실제 폴더 및 스크립트 트리 (`Assets/`)
+*(기존 `[구현됨]`과 이번 개편으로 추가할 `[신규]`/`[확장]`을 명시합니다.)*
+
 ```text
-Assets/_Project/
-├── Data/Episodes/EP01~EP07/   # epXX.json, CCTV mp4 클립, 현장 사진 png
+Assets/
+├── Data/Episodes/EP01~EP07/           # epXX.json, 현장 사진, CCTV 클립
 ├── Scripts/
-│   ├── Core/                  # CampaignManager, GameManager, EpisodeLoader, EpisodeRuntimeState,
-│   │                          # GameEvents, TimeManager, SaveManager, AudioManager, TutorialManager
-│   ├── Data/                  # EpisodeData, DocumentData, CctvClipData, MapData,
-│   │                          # UserClueCard, CampaignSaveData (순수 C# DTO)
-│   ├── Scenes/                # TitleScreenController, CaseCabinetController
-│   ├── OS/                    # WindowManager, OSWindow, WindowDragHandle, TaskbarController,
-│   │                          # NotificationToastManager, CaseBriefingModal, SettingsModal
-│   └── Apps/
-│       ├── FileExplorer/      # FileExplorerController
-│       ├── FileViewer/        # DocumentViewer, TextDragSelector, FloatingClueToolbar,
-│       │                      # PhotoInspectorController, MetadataViewerController
-│       ├── CctvPlayer/        # CctvVideoController, CaptureRectValidator, AudioWaveAnalyzer
-│       ├── PoliceDB/          # PoliceDatabaseController
-│       ├── TacticalMap/       # CityMapManager, MapNodeView, PartnerAgentView,
-│       │                      # ActionOrderPanel, TargetSelectModal, TimeSkipOverlay
-│       ├── Messenger/         # MessengerController, HintSystem
-│       ├── EvidenceBoard/     # EvidenceBoardController, ClueCardView, PinWireRenderer,
-│       │                      # StickyNoteView, TrashBinPanel
-│       └── Report/            # ReportValidator, ReportSlotView, ResultSettlementView
-├── Shaders/                   # BrightnessContrast.shadergraph, Scanline.shadergraph
-├── Prefabs/                   # OS 창, 단서 카드, 포스트잇, 지도 노드, 핀 선 프리팹
-├── Art/ & Audio/              # 공통 OS 배경/아이콘, 리소그래프 에셋, BGM 3트랙, SFX 12종
-└── Scenes/                    # 00_Title.unity, 01_CaseCabinet.unity, 02_InvestigationOS.unity
+│   ├── Core/
+│   │   ├── Provider/                  # [구현됨] AppRoot, GameEvents [확장]
+│   │   ├── Campaign/                  # [구현됨] CampaignController, SaveManager
+│   │   ├── Episode/                   # [구현됨] EpisodeLoader, EpisodeRuntimeState [확장], TimeManager [확장]
+│   │   ├── Audio/                     # [구현됨] AudioController
+│   │   ├── Tutorial/                  # [구현됨] TutorialController [확장]
+│   │   └── LLM/                       # [신규] ILlmProvider, LlmProviderConfig, OpenAiLlmProvider,
+│   │                                  #        MockLlmProvider, FieldCommandRouter, InterrogationStateMachine
+│   ├── Data/
+│   │   ├── Episode/                   # [구현됨] EpisodeData [확장], MapAndActionData [확장], MediaData
+│   │   │                              # [신규] InterrogationData (InterrogationProfileData, SecretLayerRule)
+│   │   └── Runtime/                   # [구현됨] CampaignSaveData, UserClueCard [확장]
+│   │                                  # [신규] InterrogationRuntimeState, FieldCommandMessageData
+│   ├── OS/
+│   │   ├── Window/                    # [구현됨] WindowManager, OSWindow, WindowHeader
+│   │   ├── Taskbar/                   # [구현됨] TaskbarController [확장: 6개 앱 + 남은 시한 HUD]
+│   │   └── Notification/              # [구현됨] NotificationToastManager
+│   ├── Apps/
+│   │   ├── FileExplorer/              # [구현됨] FileExplorerController
+│   │   ├── FileViewer/
+│   │   │   ├── Document/              # [구현됨] DocumentViewer, TextDragSelector, FloatingClueToolbar [확장: 3버튼]
+│   │   │   └── Photo/                 # [구현됨] PhotoInspectorController
+│   │   ├── Forensic/
+│   │   │   ├── Capture/               # [구현됨] CaptureRectValidator
+│   │   │   └── Cctv/                  # [구현됨] CctvVideoController
+│   │   ├── PoliceDB/                  # [구현됨] PoliceDatabaseController [확장: 외부 텍스트 검색 API]
+│   │   ├── EvidenceBoard/             # [구현됨] EvidenceBoardController, ClueCardView, PinWireRenderer,
+│   │   │                              #          StickyNoteView, TrashBinPanel
+│   │   ├── FieldCommand/              # [신규] FieldCommandController, ActionConfirmCardView, HintService
+│   │   ├── Interrogation/             # [신규] InterrogationController, SuspectRosterItemView,
+│   │   │                              #        InterrogationBubbleView, EvidenceAttachSlotView
+│   │   └── Report/                    # [구현됨] ReportValidator, ResultSettlementView
+│   ├── UI/                            # [구현됨] TitleScreenController, CaseCabinetController, SettingsModal
+│   └── Editor/                        # [구현됨] MainSceneSetupTool [확장], SceneCleanupTool
 ```
 
 ---
 
-## 2. 전체 시스템 아키텍처 (SSOT + Event Bus)
+## 2. 전체 시스템 아키텍처 (SSOT + Event Bus + LLM Layer)
 
 ```mermaid
 flowchart TD
-    CAMP["CampaignManager (DontDestroyOnLoad)<br/>신뢰도 Lv 0~5 / EP 1~6 휘발성 단서 현황"] --> LOADER["EpisodeLoader<br/>epXX.json & 미디어 바인딩"]
-    LOADER --> STATE["EpisodeRuntimeState (SSOT)<br/>경과 시간 / 파트너 위치 / 수집 단서 / 해금 노드"]
-    STATE <--> BUS["GameEvents (C# Action Event Bus)"]
+    ROOT["AppRoot (Bootstrap / Provider)<br/>CampaignController · EpisodeLoader · TimeManager"] --> STATE["EpisodeRuntimeState (SSOT)<br/>경과 시간 · 해금 파일 · 단서 카드 · 완료 액션 · 7인 심문 상태"]
+    STATE <--> BUS["GameEvents (Static C# Action Bus)"]
 
-    BUS <--> CORE["TimeManager / SaveManager / AudioManager / TutorialManager"]
-    BUS <--> OS["WindowManager & OSWindow / Taskbar / Toast"]
-    BUS <--> APPS["FileExplorer / FileViewer / CctvPlayer / PoliceDB<br/>TacticalMap / Messenger / EvidenceBoard / Report"]
+    subgraph LLM_CORE["Core/LLM (결정론적 통제 + 자연어 연기/해석)"]
+        ROUTER["FieldCommandRouter<br/>Tool Calling 매핑 + 영장 근거 게이트"]
+        ISM["InterrogationStateMachine<br/>Prompt Isolation + 평정심 클램핑 + 레이어 해금"]
+        PROV["ILlmProvider<br/>OpenAiLlmProvider (기본) / MockLlmProvider"]
+        ROUTER --> PROV
+        ISM --> PROV
+    end
+
+    STATE <--> LLM_CORE
+    BUS <--> OS["WindowManager · OSWindow · TaskbarController · Toast"]
+    BUS <--> APPS["FileExplorer · DocumentViewer(3버튼 툴바) · Photo/CCTV<br/>PoliceDB · EvidenceBoard · FieldCommand · Interrogation · Report"]
+    LLM_CORE <--> APPS
 ```
 
 ---
 
-## 3. 전체 클래스 책임 카탈로그 (2차 전수 검증 완료)
+## 3. 클래스 책임 카탈로그 (기존 구현 + 신규 추가)
 
-### 3.1. 코어 & 씬 (`Scripts/Core/`, `Scripts/Scenes/`)
-| 클래스명 | 단일 책임 (SRP) |
-| :--- | :--- |
-| `CampaignManager` | `DontDestroyOnLoad` 싱글톤. 씬 전환 간 `CampaignSaveData`(신뢰도, EP 1~6 휘발성 단서, 클리어 기록) 유지 및 씬 로드 관리 |
-| `GameManager` | `02_InvestigationOS` 씬 진입/초기화 오케스트레이터(`EpisodeLoader` 호출 → 브리핑 표시 → 인게임 루프 시작) |
-| `EpisodeLoader` | `StreamingAssets/Episodes/EPxx/epXX.json` 역직렬화 및 현장 사진 `Texture2D`·`VideoPlayer.url` 경로 바인딩 |
-| `EpisodeRuntimeState` | 현재 진행 중인 에피소드의 단일 진실 공급원(경과 시간, 파트너 현재 노드, 수집된 `UserClueCard`, 열람 여부, 해금 노드/문서) |
-| `GameEvents` | 앱 간 직접 참조를 제거하는 정적 C# `Action` 이벤트 버스 (`OnTimeAdvanced`, `OnClueAdded`, `OnNodeUnlocked`, `OnOvertimeEntered` 등) |
-| `TimeManager` | 결정론적 시간 계산(`이동 + 신뢰도 보정 작업 + 보고`), 휘발성 골든 타임/송치 마감 초과 감지 및 이벤트 발행 |
-| `SaveManager` | `Application.persistentDataPath/save_data.json` 직렬화. 단서 추출·시간 보내기·에피소드 클리어 시 자동 저장 |
-| `AudioManager` | BGM 3트랙(평상시/긴장/정산) 크로스페이드 및 SFX 12종 재생 (`OnOvertimeEntered` 연동) |
-| `TutorialManager` | EP 1 초반 4단계 인게임 튜토리얼(대상 UI 외곽선 강조 + 단계 완료 이벤트 감지 + 메신저 안내) |
-| `TitleScreenController` | `00_Title` 씬 제어 (`새 수사`, `이어하기`, `설정`, `종료`) |
-| `CaseCabinetController` | `01_CaseCabinet` 씬 제어 (EP 1~7 폴더 목록, 신뢰도 표시, 휘발성 단서 뱃지, 재플레이 진입) |
+### 3.1. 코어 및 LLM 제어 레이어 (`Scripts/Core/`)
+| 영역 | 클래스명 | 상태 | 단일 책임 (SRP) |
+| :--- | :--- | :---: | :--- |
+| **부트/상태** | `AppRoot` | 구현됨 | 씬 전역 코어 인스턴스(`Campaign`, `RuntimeState`, `Time`, `Windows`, `Llm`) 제공 |
+| | `EpisodeLoader` | 구현됨 | `epXX.json` 역직렬화, 텍스트 태그 인덱스 계산, 미디어 비동기 로드 |
+| | `EpisodeRuntimeState` | **확장** | SSOT. 기존 필드 + `Dictionary<string, InterrogationRuntimeState>`, `List<FieldCommandMessageData>` 추가 및 스냅샷 저장/복원 |
+| | `TimeManager` | **확장** | 행동 기반 시간 차감(`AdvanceMinutes`), 신뢰도 보정, 휘발성(`720분`)·송치(`960분`) 초과 이벤트 발행 (강민호 알림 호칭 `"팀장님"` 통일) |
+| | `GameEvents` | **확장** | 앱 간 이벤트 버스. `OnFieldCommandRequest(string quote)`, `OnDbQuickSearchRequested(string query)`, `OnInterrogationLayerUnlocked(string suspectId, string layerId)` 추가 |
+| | `CampaignController` / `SaveManager` | 구현됨 | 신뢰도 `Lv 0~5`, 휘발성 단서 누적, `save_data.json` 자동 저장(4대 시점) |
+| | `AudioController` / `TutorialController` | **확장** | BGM 4트랙(`BGM_INTERROGATION` 추가)·SFX 15종 / 4단계 현장반·심문 튜토리얼 |
+| **LLM 코어** | `ILlmProvider` | **신규** | `UniTask<string> CompleteJsonAsync(LlmChatRequest req, CancellationToken ct)` 추상 인터페이스 |
+| | `LlmProviderConfig` | **신규** | 제공자 선택(`Gemini`/`OpenAI`/`Claude`/`Mock`), 모델명, 타임아웃, 로컬 설정/환경변수에서 API 키 로드(Git 제외) |
+| | `OpenAiLlmProvider` | **신규** | OpenAI Chat Completions API (`UnityWebRequest` + Structured Outputs `json_schema`) 호출 및 오류 핸들링 |
+| | `MockLlmProvider` | **신규** | API 키 미설정/오프라인 테스트용 결정론적 키워드 매칭·레이어 응답 시뮬레이터 |
+| | `FieldCommandRouter` | **신규** | 미완료 `FieldActionData`만 LLM 프롬프트에 노출 → 반환된 `matchedActionIds`에 대해 `requiredEvidenceIds` 선행 검증 → 확정 시 시간 차감 및 보상 해금 |
+| | `InterrogationStateMachine` | **신규** | 첨부 카드의 `hiddenEvidenceId` 대조 → 조건 충족 레이어 해금 → `immutableTimeline` + `unlockedLayers`만으로 시스템 프롬프트 조립(Prompt Isolation) → `composureDelta` 클램핑 |
 
-### 3.2. OS 윈도우 인프라 (`Scripts/OS/`)
-| 클래스명 | 단일 책임 (SRP) |
-| :--- | :--- |
-| `WindowManager` | 모든 `OSWindow` 인스턴스 레지스트리, Z-Order 최상단 포커스(`BringToFront`), 활성 창 전환 및 ESC 닫기 처리 |
-| `OSWindow` | **모든 앱 창의 기반 클래스**. 상태(`Normal`, `Minimized`, `SnappedLeft`, `SnappedRight`, `Maximized`), 복원용 `savedRect` 기억, 화면 경계 클램핑, 활성/비활성 타이틀바 강조, 생명주기 콜백(`OnFocused`, `OnMinimized`, `OnClosed`) 제공 |
-| `WindowDragHandle` | 타이틀바에 부착되어 `IBeginDragHandler`/`IDragHandler` 입력을 부모 `OSWindow` 이동으로 전달 |
-| `TaskbarController` | 상단/하단 고정 HUD(남은 시한, 휘발성 타이머, 파트너 위치, 7개 앱 최소화/복원 아이콘, `NEW` 뱃지) |
-| `NotificationToastManager` | 새 증거 수신, 신규 지도 노드 해금, 단서 추가 완료, 골든 타임 경고 등 우측 하단 알림 토스트 큐 관리 |
-| `CaseBriefingModal` | 사건 시작 시 초동 수사 개요 및 시한 안내 모달 |
-| `SettingsModal` | BGM/SFX 볼륨, 화면 모드, 단축키 안내 설정 팝업 |
-
-### 3.3. OS 앱 7종 (`Scripts/Apps/`)
-| 영역 | 클래스명 | 단일 책임 (SRP) |
-| :--- | :--- | :--- |
-| **파일 탐색기** | `FileExplorerController` | 폴더 트리(`[보고서/진술]`, `[현장 사진]`, `[보안/포렌식 로그]`, EP 7 `[EP 1~6 아카이브]`), `NEW` 뱃지 및 해당 뷰어 창 오픈 |
-| **문서/사진** | `DocumentViewer` | 스캔 종이/로그 텍스트(`TMP_Text`) 표시 및 메타데이터 뷰어 호출 버튼 |
-| | `TextDragSelector` | `TMP_TextUtilities` 기반 마우스 드래그 선택(최대 120자 제한) → 60% 겹침 `HiddenTextTag` 판별 |
-| | `FloatingClueToolbar` | 텍스트 드래그 완료 시 커서 옆 팝업(`[+ 증거판에 추가]`) |
-| | `PhotoInspectorController` | 정지 현장 사진(`EV_PHOTO_INIT_STORAGE` 등)의 `1.0x~4.0x` 팬/줌 및 영역 캡처(`CaptureRectValidator` 공용 호출) |
-| | `MetadataViewerController` | EP 3~6 핵심 포렌식용 파일 속성(`Created_At`, `Modified_At`, `Original_Author`, 메일 헤더) 표시 및 드래그 채택 지원 |
-| **CCTV/오디오** | `CctvVideoController` | `UnityEngine.Video.VideoPlayer` + `RenderTexture` 제어, 슬라이더 스크러빙, 버튼·키보드(`Space`, `←/→`), `2.0x~4.0x` 팬/줌, 명암 보정 셰이더 연동 (`OSWindow.OnMinimized` 시 자동 일시정지) |
-| | `CaptureRectValidator` | **CCTV·사진 공용 정밀 캡처 검증기**: 전체 캡처 금지(`≥ 2.0x` / 40% 이하) + Hitbox 85% 포함 + 캡처 프레임 내 최소 15% 면적 판별 |
-| | `AudioWaveAnalyzer` | EP 2·5·7 오디오 파형 표시, 저주파/고주파 노이즈 컷 슬라이더, 구간 드래그 오디오 단서 채택 |
-| **경찰 DB** | `PoliceDatabaseController` | 키워드 정규화 검색(이름/차량번호/계좌/법인) → 결과 표시 + `unlocksNodeId` 존재 시 `CityMapManager.UnlockNode` 호출 |
-| **2D 지도** | `CityMapManager` | 파트너 위치 유지, 노드 간 이동 시간 조회, 신규 노드 동적 해금, 지시 실행 오케스트레이션 |
-| | `MapNodeView` | 지도 위 개별 장소 핀 UI, 선택 강조, 미완료 액션 뱃지 |
-| | `PartnerAgentView` | 2D 지도 위 강민호 경사 현재 위치 아이콘 및 예상 이동 경로 선 표시 |
-| | `ActionOrderPanel` | 선택 노드의 지시 목록, 확정 소요 시간(`이동 + 작업 + 보고`) 미리보기 및 실행 버튼 |
-| | `TargetSelectModal` | EP 2~5 대상 선택 영장(금융/메일) 시 플레이어가 용의자 중 1명을 직접 지정하는 팝업 |
-| | `TimeSkipOverlay` | `조사 완료까지 시간 보내기` 클릭 시 1~2초 시계·지도 이동 연출 오버레이 |
-| **메신저** | `MessengerController` | 강민호 경사의 현장 보고(`특이사항 없음` 포함), 골든 타임/연장 수사 경고, 오답 피드백 대화 로그 |
-| | `HintSystem` | `[강민호 경사에게 의견 묻기]` — 미확보 필수 단서 자동 감지 후 1단계(방향) → 2단계(구체 지목) 무료 힌트 제공 |
-| **증거판** | `EvidenceBoardController` | 단서 카드 배치 캔버스, 핀-실 연결 관리, 폐기함 토글 |
-| | `ClueCardView` | 개별 `UserClueCard` UI — 하단 `TMP_InputField` 자유 메모, `[기각(취소선 후 접기)]`, `[폐기함 이동]`, 드래그 이동 |
-| | `PinWireRenderer` | 두 `ClueCardView` 상단 핀 사이를 잇는 UI 연결선 렌더링 및 카드 이동 시 실시간 갱신 |
-| | `StickyNoteView` | 증거판 빈 공간에 생성·편집·삭제하는 독립 포스트잇 메모 |
-| | `TrashBinPanel` | 폐기함으로 이동된 단서 카드 목록 및 원클릭 복구 UI |
-| **최종 보고서** | `ReportValidator` | 슬롯별 `hiddenEvidenceId` 대조, `isTooSmallCapture` 우선 안내, 맞춤형 오답 피드백, 정답 시 3단계 체포 보고 선택 |
-| | `ReportSlotView` | 증거판에서 `ClueCardView`를 드래그 앤 드롭으로 수용하는 보고서 슬롯 |
-| | `ResultSettlementView` | 정산 화면 — 경과 시간 구간별 3단계 동적 체포 보고 메시지, 휘발성 단서 상태, 신뢰도 변동, 다음 사건 버튼 |
+### 3.2. OS 앱 6종 + 뷰어 (`Scripts/Apps/`)
+| 앱 영역 | 클래스명 | 상태 | 단일 책임 (SRP) |
+| :--- | :--- | :---: | :--- |
+| **파일 탐색기** | `FileExplorerController` | 구현됨 | 해금된 문서·사진·CCTV 목록, 카테고리 필터, `NEW` 뱃지 표시 |
+| **문서/포렌식** | `DocumentViewer`, `TextDragSelector` | 구현됨 | 문서 열람 및 `TMP_TextUtilities` 기반 120자 제한 드래그·60% 겹침 판별 |
+| | `FloatingClueToolbar` | **확장** | 3버튼 팝업: `[+ 증거판 등록]`, `[K-POL DB 조회]`, `[현장반에 확인 지시]` |
+| | `PhotoInspectorController`, `CctvVideoController`, `CaptureRectValidator` | 구현됨 | `2.0x~4.0x` 확대·명암 보정·2중 검증(85% 포함 + 15% 면적) 영역 캡처 |
+| **경찰 DB** | `PoliceDatabaseController` | **확장** | 정규화 키워드 검색 + 외부 툴바에서 넘어온 텍스트 즉시 검색(`SearchImmediate(string query)`) |
+| **증거판** | `EvidenceBoardController`, `ClueCardView`, `PinWireRenderer`, `StickyNoteView`, `TrashBinPanel` | 구현됨 | 카드 배치·핀-실 연결·메모·포스트잇·기각/복구. `InterrogationStatement` 타입 카드 표시 지원 |
+| **현장수사반** | `FieldCommandController` | **신규** | `OSWindow` 상속. 채팅 로그, 자연어 입력, 증거 카드 첨부, 동적 추천 칩(3개), `[지시 확정: OO분]` 카드, 대기 연출 |
+| | `ActionConfirmCardView` | **신규** | 매핑된 액션명·예상 소요 시간 표시 및 `[확정]`/`[취소]` 버튼 |
+| | `HintService` | **신규** | `[강민호 경사에게 의견 묻기]` — 미확보 필수 단서 감지 후 0분 1단계/2단계 힌트 반환 |
+| **전원 심문** | `InterrogationController` | **신규** | `OSWindow` 상속. 관련자 전원 목록, 소환(`-45분/8턴`), 표정 연동 초상화, 평정심 게이지, 증거 첨부(최대 2장), 발췌 등록 |
+| | `SuspectRosterItemView` | **신규** | 관련자 이름·역할·소환 횟수·잠금 사유(의식불명 등) 표시 |
+| | `InterrogationBubbleView` | **신규** | 대화 말풍선 + 레이어 해금 시 `[+ 증거판 등록]` 버튼 노출 |
+| | `EvidenceAttachSlotView` | **신규** | 증거판 활성 카드 목록에서 현장반/심문 창에 첨부할 카드 선택 UI(공용) |
+| **최종 보고서** | `ReportValidator`, `ResultSettlementView` | 구현됨 | 4슬롯 `hiddenEvidenceId` 검증, 3단계 동적 체포 보고서, 신뢰도·휘발성 정산 |
 
 ---
 
-## 4. 공용 데이터 스키마 (EP 1~7 100% 데이터 드리븐)
+## 4. 공용 데이터 스키마 확장 (`Assets/Scripts/Data/`)
 
-### 4.1. 에피소드 정적 데이터 (`EpisodeData.cs`)
+### 4.1. `EpisodeData.cs` 및 `MapAndActionData.cs` 확장 필드
+```csharp
+// EpisodeData.cs 추가 필드
+[JsonProperty("interrogationSessionMinutes")] public int interrogationSessionMinutes = 45;
+[JsonProperty("interrogationTurnsPerSession")] public int interrogationTurnsPerSession = 8;
+[JsonProperty("interrogationProfiles")] public List<InterrogationProfileData> interrogationProfiles = new List<InterrogationProfileData>();
+
+// FieldActionData (MapAndActionData.cs) 추가 필드
+[JsonProperty("matchDescription")] public string matchDescription;           // LLM Tool Calling 매칭용 의도 설명
+[JsonProperty("requiredEvidenceIds")] public List<string> requiredEvidenceIds; // 영장 등 필수 선행 증거 ID
+[JsonProperty("rejectFeedback")] public string rejectFeedback;               // 근거 미충족 시 강민호 거절 대사
+[JsonProperty("isRecommendedChip")] public bool isRecommendedChip;           // 추천 칩 노출 후보 여부
+```
+
+### 4.2. 신규 `InterrogationData.cs` (전원 심문 및 Prompt Isolation DTO)
 ```csharp
 [Serializable]
-public class EpisodeData {
-    public string episodeId;                  // "EP01"
-    public string caseNumber;                 // "CASE-2026-014"
-    public string title;
-    public string startDateTimeIso;           // "2026-11-18T09:00:00"
-    public int volatileDeadlineMinutes;       // 720 (12h)
-    public int submissionDeadlineMinutes;     // 960 (16h)
-    public string startNodeId;                // "NODE_STATION"
+public class InterrogationProfileData
+{
+    [JsonProperty("suspectId")] public string suspectId;
+    [JsonProperty("displayName")] public string displayName;
+    [JsonProperty("age")] public int age;
+    [JsonProperty("roleLabel")] public string roleLabel;
+    [JsonProperty("isInterrogatable")] public bool isInterrogatable = true;
+    [JsonProperty("unavailableReason")] public string unavailableReason;
+    [JsonProperty("portraitBaseKey")] public string portraitBaseKey;
+    [JsonProperty("initialComposure")] public int initialComposure = 75;
+    [JsonProperty("victimCallName")] public string victimCallName;
+    [JsonProperty("personaPrompt")] public string personaPrompt;
+    [JsonProperty("immutableTimeline")] public List<string> immutableTimeline = new List<string>();
+    [JsonProperty("layers")] public List<SecretLayerRule> layers = new List<SecretLayerRule>();
+}
 
-    public List<DocumentData> documents;
-    public List<PhotoData> photos;            // 정지 현장 사진 (Hitbox 포함)
-    public List<CctvClipData> cctvClips;      // VideoPlayer mp4 클립 (시간 구간 Hitbox 포함)
-    public List<MapNodeData> mapNodes;
-    public List<TravelEdgeData> travelEdges;
-    public List<FieldActionData> actions;     // targetOptions 포함(대상 선택 영장 지원)
-    public List<PoliceDbEntry> dbEntries;
-    public ReportAnswerRule answerRule;
-    public List<ArrestReportTier> arrestReports; // maxElapsedMinutes별 3단계 체포 메시지
+[Serializable]
+public class SecretLayerRule
+{
+    [JsonProperty("layerId")] public string layerId;
+    [JsonProperty("isInitial")] public bool isInitial;
+    [JsonProperty("requiredEvidenceIds")] public List<string> requiredEvidenceIds = new List<string>();
+    [JsonProperty("requireAllEvidence")] public bool requireAllEvidence; // false=OR, true=AND
+    [JsonProperty("requiredPriorLayers")] public List<string> requiredPriorLayers = new List<string>();
+    [JsonProperty("minUnlockedPriorCount")] public int minUnlockedPriorCount;
+    [JsonProperty("maxComposureRequired")] public int maxComposureRequired = 100;
+    [JsonProperty("composurePenaltyOnUnlock")] public int composurePenaltyOnUnlock;
+    [JsonProperty("promptDirective")] public string promptDirective;
+    [JsonProperty("rewardEvidenceId")] public string rewardEvidenceId;
+    [JsonProperty("rewardDocId")] public string rewardDocId;
 }
 ```
 
-### 4.2. 텍스트 숨겨진 태그 & CCTV/사진 Hitbox & 단서 카드
-```csharp
-[Serializable]
-public class HiddenTextTag {
-    public int startCharIndex;
-    public int endCharIndex;
-    public string evidenceId;
-}
-
-[Serializable]
-public class VisualClueHitbox {
-    public float startSec;       // 정지 사진은 0 ~ 0 (무시), 영상은 노출 구간(초)
-    public float endSec;
-    public Rect normalizedRect;  // 0~1 정규화 좌표 (x, y, width, height)
-    public string evidenceId;
-}
-
-[Serializable]
-public class UserClueCard {
-    public string cardId;
-    public string sourceId;
-    public ClueSourceType sourceType; // TextExcerpt, CctvCapture, PhotoCapture, AudioClip, DbRecord
-    public string displayTitle;
-    public string extractedText;
-    public string capturedImagePath;
-    public string hiddenEvidenceId;   // "NONE" 또는 정답 ID
-    public bool isTooSmallCapture;    // 식별 불가 소형 캡처 여부
-    public string userMemo;
-    public Vector2 boardPosition;
-    public bool isDismissed;          // [기각(취소선 후 접기)]
-    public bool isInTrash;            // [폐기함]
-    public List<string> connectedCardIds;
-}
-```
+### 4.3. `UserClueCard.cs` 확장
+* `ClueSourceType` 열거형에 **`InterrogationStatement`** 추가.
 
 ---
 
 ## 5. 핵심 알고리즘 정밀 규격
 
-1. **시간 및 신뢰도 보정 (`TimeManager`)**:
-   * `totalMinutes = travelMinutes + Max(15, baseWorkMinutes + TrustWorkMod) + Max(5, 15 + TrustReportMod)`
-   * `elapsedMinutes > volatileDeadlineMinutes` → `OnVolatileDeadlinePassed` 발행.
-   * `elapsedMinutes > submissionDeadlineMinutes` → `isOvertime = true`, `OnOvertimeEntered` 발행 (게임오버 없음).
-2. **텍스트 드래그 판별 (`TextDragSelector`)**:
-   * 최대 선택 길이 `120자` 제한(통드래그 방지).
-   * `overlap / tagLength >= 0.6f` → 해당 `evidenceId` 숨겨진 태그 부여, 미충족 시 `"NONE"`.
-3. **CCTV/사진 캡처 2중 검증 (`CaptureRectValidator`)**:
-   * 줌 배율 `>= 2.0x` (캡처 영역 원본 40% 이하) 필수.
-   * `containedRatio = Area(inter) / Area(hitbox) >= 0.85f` AND `sizeInCapture = Area(inter) / Area(captureRect) >= 0.15f` → 정답 ID 부여.
-   * 포함은 되었으나 `sizeInCapture < 0.15f` → `isTooSmallCapture = true` 플래그 저장(보고서 제출 시 *"더 확대해 주세요"* 피드백).
+1. **Prompt Isolation & 심문 턴 판정 (`InterrogationStateMachine`)**:
+   * **Step A (C# 선행 레이어 판정)**: 첨부된 카드의 `hiddenEvidenceId` + 플레이어 보유 카드 목록을 각 미해금 `SecretLayerRule`과 대조. 조건(`requiredEvidenceIds`, `requiredPriorLayers`, `minUnlockedPriorCount`, `composure <= maxComposureRequired`) 충족 시 즉시 레이어 해금 + `composure -= composurePenaltyOnUnlock` + `rewardDocId` 자동 해금.
+   * **Step B (프롬프트 조립)**: 시스템 프롬프트에는 오직 `personaPrompt`, `victimCallName`, `immutableTimeline`, 그리고 **`unlockedLayers`에 속한 `promptDirective`만** 포함. 잠긴 레이어 문자열은 메모리에서 읽지도 않음.
+   * **Step C (평정심 클램핑)**:
+     * 이번 턴에 레이어가 해금됨 → 고정 차감 적용.
+     * 무관한 증거 카드 첨부 → `composure = Clamp(composure + 10, 0, 100)`.
+     * 증거 미첨부 일반 추궁 → LLM 반환 `composureDelta`를 `Clamp(delta, -10, 0)`으로 강제 제한.
+2. **현장수사반 Tool Calling 게이트 (`FieldCommandRouter`)**:
+   * LLM에 전달하는 액션 목록은 `!state.IsActionCompleted(act.actionId)`인 미완료 액션으로 제한.
+   * LLM이 반환한 `matchedActionIds` 중 존재하지 않는 ID는 폐기(환각 차단).
+   * `requiredEvidenceIds` 미충족 시 `rejectFeedback`을 반환하고 시간 소모 `0분` 처리.
+   * 통과된 액션만 `ActionConfirmCardView`로 전달해 플레이어가 확정 클릭 시 `TimeManager.AdvanceMinutes()` 실행.
+3. **기존 유지 알고리즘**:
+   * `TextDragSelector`: 최대 120자 제한, 60% 겹침 판별.
+   * `CaptureRectValidator`: `>= 2.0x` 줌, Hitbox 85% 포함 + 15% 면적 판별.
+   * `TimeManager`: `work = Max(15, baseWorkMinutes + TrustWorkMod)`, 휘발성(`720분`)·송치(`960분`) 이벤트 발행.
 
 ---
 
-## 6. 단계별 개발 마일스톤 (EP 1 MVP 기준)
+## 6. 구현 마일스톤 (EP 1 LLM 개편 기준)
 
 | 단계 | 목표 | 핵심 산출물 |
 | :---: | :--- | :--- |
-| **Phase 1** | 데이터·코어·OS 창 기반 | `Scripts/Data/` DTO 전체, `ep01.json` 완성본, `CampaignManager`, `EpisodeRuntimeState`, `GameEvents`, `TimeManager`, `SaveManager`, `WindowManager`, `OSWindow`, `WindowDragHandle` |
-| **Phase 2** | 분석·추리 인터랙션 | `FileExplorerController`, `DocumentViewer`, `TextDragSelector`, `FloatingClueToolbar`, `PhotoInspectorController`, `CctvVideoController`, `CaptureRectValidator`, `EvidenceBoardController` + `ClueCardView` + `PinWireRenderer` + `StickyNoteView` + `TrashBinPanel` |
-| **Phase 3** | 지도·DB·통신·검증 루프 | `CityMapManager` + `TargetSelectModal`, `PoliceDatabaseController`, `MessengerController` + `HintSystem`, `ReportValidator` + `ResultSettlementView`(3단계 체포) |
-| **Phase 4** | 아트·오디오·튜토리얼·QA | `AudioManager`, `TutorialManager`, EP 1 리소그래프 에셋·CCTV mp4 연결, 전체 플레이 테스트 |
+| **Step 1** | 데이터·DTO 개편 | `InterrogationData.cs`, `EpisodeData`/`MapAndActionData`/`UserClueCard` 확장, `ep01.json` Rev. 2 완성(초기 8종 분리, 로그 5+3종 분할, 7인 알리바이·레이어, 사진/CCTV 히트박스, 시한 `960/720분` 복원) |
+| **Step 2** | LLM 코어 & 상태 머신 | `ILlmProvider`, `LlmProviderConfig`, `OpenAiLlmProvider`, `MockLlmProvider`, `FieldCommandRouter`, `InterrogationStateMachine`, `EpisodeRuntimeState` 스냅샷 확장 |
+| **Step 3** | OS 앱 2종 & 3버튼 툴바 | `FieldCommandController`, `InterrogationController`, `EvidenceAttachSlotView`, `FloatingClueToolbar` 3버튼 연계, `TaskbarController` 6앱 + 남은 시한 HUD 갱신 |
+| **Step 4** | 씬 세팅·튜토리얼·QA | `MainSceneSetupTool` 창 프리팹 자동 배치 갱신, `TutorialController` 4단계 개편, Mock/실제 API 기반 7인 심문 탈옥 내성 및 960분 밸런스 테스트 |

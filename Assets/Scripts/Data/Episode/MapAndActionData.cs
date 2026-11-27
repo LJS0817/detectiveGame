@@ -9,7 +9,8 @@ namespace ColdCaseOS.Data
         INVESTIGATION,
         INTERROGATION,
         FORENSIC,
-        EXTERNAL_AGENCY
+        EXTERNAL_AGENCY,
+        ADVISORY
     }
 
     [Serializable]
@@ -54,6 +55,13 @@ namespace ColdCaseOS.Data
         [JsonProperty("rewardCctvIds")] public List<string> rewardCctvIds = new List<string>();
         [JsonProperty("volatileBonusDocId")] public string volatileBonusDocId;
         [JsonProperty("partnerReportMessage")] public string partnerReportMessage;
+
+        // LLM 현장수사반 지휘(Tool Calling) 및 영장 근거 검증 필드
+        [JsonProperty("matchDescription")] public string matchDescription = string.Empty;
+        [JsonProperty("matchKeywords")] public List<string> matchKeywords = new List<string>();
+        [JsonProperty("requiredEvidenceIds")] public List<string> requiredEvidenceIds = new List<string>();
+        [JsonProperty("rejectFeedback")] public string rejectFeedback = string.Empty;
+        [JsonProperty("isRecommendedChip")] public bool isRecommendedChip;
 
         public ActionCategory GetCategoryEnum()
         {

@@ -16,7 +16,7 @@ namespace ColdCaseOS.Apps.FileViewer
     public class TextDragSelector : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
     {
         public const int MaxSelectionChars = 120;
-        public const int MinSelectionChars = 4;
+        public const int MinSelectionChars = 2;
         private const float OverlapThreshold = 0.60f;
 
         [SerializeField] private FloatingClueToolbar floatingToolbar;
@@ -105,16 +105,38 @@ namespace ColdCaseOS.Apps.FileViewer
 
             if (floatingToolbar != null)
             {
+                string selectedSlice = ExtractSelectedText(minIdx, maxIdx);
                 floatingToolbar.ShowAtScreenPosition(
                     eventData.position,
                     _rootCanvas,
                     onConfirmAdd: () => CommitSelectionToBoard(minIdx, maxIdx),
-                    onCancel: ClearSelection);
+                    onCancel: ClearSelection,
+                    onSearchDb: () =>
+                    {
+                        if (!string.IsNullOrEmpty(selectedSlice))
+                            GameEvents.RaiseDbQuickSearchRequested(selectedSlice);
+                        ClearSelection();
+                    },
+                    onOrderField: () =>
+                    {
+                        if (!string.IsNullOrEmpty(selectedSlice))
+                            GameEvents.RaiseFieldCommandQuoteRequested(selectedSlice);
+                        ClearSelection();
+                    });
             }
             else
             {
                 CommitSelectionToBoard(minIdx, maxIdx);
             }
+        }
+
+        private string ExtractSelectedText(int minIdx, int maxIdx)
+        {
+            string sourceText = !string.IsNullOrEmpty(_segmentText) ? _segmentText : (_currentDoc?.bodyText ?? string.Empty);
+            if (string.IsNullOrEmpty(sourceText)) return string.Empty;
+            int safeStart = Mathf.Clamp(minIdx, 0, sourceText.Length - 1);
+            int safeLen = Mathf.Clamp(maxIdx - safeStart + 1, 1, sourceText.Length - safeStart);
+            return sourceText.Substring(safeStart, safeLen).Trim();
         }
 
         private void CommitSelectionToBoard(int minIdx, int maxIdx)

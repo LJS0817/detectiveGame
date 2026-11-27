@@ -80,6 +80,8 @@ namespace ColdCaseOS.Data
         [JsonProperty("clueCards")] public List<UserClueCard> clueCards = new List<UserClueCard>();
         [JsonProperty("stickyNotes")] public List<StickyNoteData> stickyNotes = new List<StickyNoteData>();
         [JsonProperty("messengerLogs")] public List<MessengerMessageData> messengerLogs = new List<MessengerMessageData>();
+        [JsonProperty("interrogationStates")] public List<InterrogationRuntimeState> interrogationStates = new List<InterrogationRuntimeState>();
+        [JsonProperty("fieldCommandLogs")] public List<FieldCommandMessageData> fieldCommandLogs = new List<FieldCommandMessageData>();
     }
 
     [Serializable]

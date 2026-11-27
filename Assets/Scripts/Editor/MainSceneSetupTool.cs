@@ -1,9 +1,11 @@
 #if UNITY_EDITOR
 using System.Collections.Generic;
 using ColdCaseOS.Apps.EvidenceBoard;
+using ColdCaseOS.Apps.FieldCommand;
 using ColdCaseOS.Apps.FileExplorer;
 using ColdCaseOS.Apps.FileViewer;
 using ColdCaseOS.Apps.Forensic;
+using ColdCaseOS.Apps.Interrogation;
 using ColdCaseOS.Apps.PoliceDB;
 using ColdCaseOS.Apps.Report;
 using ColdCaseOS.Core;
@@ -126,13 +128,15 @@ namespace ColdCaseOS.EditorTools
             var windowManager = desktopGo.AddComponent<WindowManager>();
             var registeredWindows = new List<OSWindow>();
 
-            // 8-1. OS 앱 윈도우 생성 및 바인딩 (파트너 메신저·전술 지도 제거, 순수 문서 추리 7창 구성)
+            // 8-1. OS 앱 윈도우 생성 및 바인딩 (문서·포렌식·증거판·DB + LLM 현장수사반·전원 심문 + 최종 보고서 9창 구성)
             registeredWindows.Add(BuildFileExplorerWindow(desktopRect, fileRowPrefab, actionButtonPrefab));
             registeredWindows.Add(BuildDocumentViewerWindow(desktopRect));
             registeredWindows.Add(BuildPhotoInspectorWindow(desktopRect));
             registeredWindows.Add(BuildCctvVideoWindow(desktopRect));
             registeredWindows.Add(BuildEvidenceBoardWindow(desktopRect, clueCardPrefab, stickyNotePrefab, pinWirePrefab, actionButtonPrefab));
             registeredWindows.Add(BuildPoliceDbWindow(desktopRect, actionButtonPrefab));
+            registeredWindows.Add(BuildFieldCommandWindow(desktopRect));
+            registeredWindows.Add(BuildInterrogationWindow(desktopRect));
 
             var settlementView = BuildResultSettlementView(osPanelGo.transform);
             registeredWindows.Add(BuildReportWindow(desktopRect, settlementView));
@@ -249,17 +253,32 @@ namespace ColdCaseOS.EditorTools
 
         private static SettingsModal BuildSettingsModal(Transform parent, AudioController audioCtrl)
         {
-            var go = CreateCenteredPanel("SettingsModal", parent, new Vector2(560, 420), PanelBg);
+            var go = CreateCenteredPanel("SettingsModal", parent, new Vector2(620, 580), PanelBg);
             var modal = go.AddComponent<SettingsModal>();
 
-            CreateText("Title", go.transform, "환경 설정", 28, TextAlignmentOptions.Center, new Vector2(0, 165), new Vector2(400, 44));
-            CreateText("BgmLabel", go.transform, "BGM 음량", 18, TextAlignmentOptions.Left, new Vector2(-170, 90), new Vector2(140, 30));
-            var bgmSlider = CreateSlider("BgmSlider", go.transform, new Vector2(60, 90), new Vector2(260, 24));
-            CreateText("SfxLabel", go.transform, "SFX 음량", 18, TextAlignmentOptions.Left, new Vector2(-170, 30), new Vector2(140, 30));
-            var sfxSlider = CreateSlider("SfxSlider", go.transform, new Vector2(60, 30), new Vector2(260, 24));
-            var fsToggle = CreateToggle("FullscreenToggle", go.transform, "전체 화면", new Vector2(0, -35));
-            var resetBtn = CreateButton("ResetTutorialButton", go.transform, "EP01 튜토리얼 초기화", new Vector2(0, -100), new Vector2(260, 42));
-            var closeBtn = CreateButton("CloseButton", go.transform, "닫기", new Vector2(0, -160), new Vector2(180, 44));
+            CreateText("Title", go.transform, "환경 설정 & OpenAI LLM", 26, TextAlignmentOptions.Center, new Vector2(0, 248), new Vector2(520, 42));
+            CreateText("BgmLabel", go.transform, "BGM 음량", 16, TextAlignmentOptions.Left, new Vector2(-190, 185), new Vector2(140, 28));
+            var bgmSlider = CreateSlider("BgmSlider", go.transform, new Vector2(60, 185), new Vector2(300, 22));
+            CreateText("SfxLabel", go.transform, "SFX 음량", 16, TextAlignmentOptions.Left, new Vector2(-190, 138), new Vector2(140, 28));
+            var sfxSlider = CreateSlider("SfxSlider", go.transform, new Vector2(60, 138), new Vector2(300, 22));
+            var fsToggle = CreateToggle("FullscreenToggle", go.transform, "전체 화면", new Vector2(-140, 86));
+            var resetBtn = CreateButton("ResetTutorialButton", go.transform, "EP01 튜토리얼 초기화", new Vector2(125, 86), new Vector2(230, 38));
+
+            // OpenAI BYOK 설정 영역
+            CreateText("LlmHeader", go.transform, "OpenAI API 연동 설정 (미입력 시 오프라인 Mock 자동 작동)", 14, TextAlignmentOptions.Left, new Vector2(0, 26), new Vector2(540, 26), AccentColor);
+            CreateText("ApiKeyLabel", go.transform, "API Key", 15, TextAlignmentOptions.Left, new Vector2(-215, -18), new Vector2(100, 28));
+            var apiKeyInput = CreateInputField("ApiKeyInput", go.transform, "sk-... (로컬 저장, Git 미포함)", new Vector2(55, -18), new Vector2(420, 38));
+            apiKeyInput.contentType = TMP_InputField.ContentType.Password;
+
+            CreateText("ModelLabel", go.transform, "모델명", 15, TextAlignmentOptions.Left, new Vector2(-215, -68), new Vector2(100, 28));
+            var modelInput = CreateInputField("ModelInput", go.transform, "gpt-4o-mini", new Vector2(-25, -68), new Vector2(260, 38));
+            var saveLlmBtn = CreateButton("SaveLlmButton", go.transform, "LLM 저장", new Vector2(190, -68), new Vector2(140, 38));
+            saveLlmBtn.GetComponent<Image>().color = AccentColor;
+            var saveLbl = saveLlmBtn.GetComponentInChildren<TMP_Text>();
+            if (saveLbl != null) saveLbl.color = InkTextColor;
+
+            var llmStatus = CreateText("LlmStatusText", go.transform, "활성 엔진: Offline Mock", 14, TextAlignmentOptions.Left, new Vector2(0, -118), new Vector2(540, 26), PaperTextColor);
+            var closeBtn = CreateButton("CloseButton", go.transform, "닫기", new Vector2(0, -230), new Vector2(180, 44));
 
             SetProps(modal,
                 ("audioController", audioCtrl),
@@ -267,6 +286,10 @@ namespace ColdCaseOS.EditorTools
                 ("sfxSlider", sfxSlider),
                 ("fullscreenToggle", fsToggle),
                 ("resetTutorialButton", resetBtn),
+                ("apiKeyInputField", apiKeyInput),
+                ("modelInputField", modelInput),
+                ("saveLlmButton", saveLlmBtn),
+                ("llmStatusText", llmStatus),
                 ("closeButton", closeBtn));
 
             return modal;
@@ -285,18 +308,25 @@ namespace ColdCaseOS.EditorTools
 
             var ctrl = barGo.AddComponent<TaskbarController>();
 
-            var fileBtn = CreateButton("Btn_FileExplorer", barGo.transform, "파일 탐색기", new Vector2(-810, 0), new Vector2(140, 44));
-            var boardBtn = CreateButton("Btn_EvidenceBoard", barGo.transform, "증거판", new Vector2(-655, 0), new Vector2(130, 44));
-            var dbBtn = CreateButton("Btn_PoliceDB", barGo.transform, "경찰 DB", new Vector2(-510, 0), new Vector2(130, 44));
-            var repBtn = CreateButton("Btn_Report", barGo.transform, "최종 보고서", new Vector2(-360, 0), new Vector2(140, 44));
+            var fileBtn = CreateButton("Btn_FileExplorer", barGo.transform, "파일 탐색기", new Vector2(-860, 0), new Vector2(126, 44));
+            var boardBtn = CreateButton("Btn_EvidenceBoard", barGo.transform, "증거판", new Vector2(-724, 0), new Vector2(118, 44));
+            var dbBtn = CreateButton("Btn_PoliceDB", barGo.transform, "경찰 DB", new Vector2(-596, 0), new Vector2(118, 44));
+            var fieldBtn = CreateButton("Btn_FieldCommand", barGo.transform, "현장수사반", new Vector2(-462, 0), new Vector2(130, 44));
+            var interrBtn = CreateButton("Btn_Interrogation", barGo.transform, "용의자 심문", new Vector2(-322, 0), new Vector2(130, 44));
+            var repBtn = CreateButton("Btn_Report", barGo.transform, "최종 보고서", new Vector2(-182, 0), new Vector2(130, 44));
 
+            var deadlineTxt = CreateText("DeadlineText", barGo.transform, "송치 마감 -16시간  |  골든타임 12시간", 15, TextAlignmentOptions.Right, new Vector2(460, 0), new Vector2(460, 36), AccentColor);
+            deadlineTxt.richText = true;
             var clockTxt = CreateText("ClockText", barGo.transform, "2026.11.18 09:00", 16, TextAlignmentOptions.Right, new Vector2(830, 0), new Vector2(220, 36), PaperTextColor);
 
             SetProps(ctrl,
                 ("clockText", clockTxt),
+                ("deadlineText", deadlineTxt),
                 ("fileExplorerButton", fileBtn),
                 ("evidenceBoardButton", boardBtn),
                 ("policeDbButton", dbBtn),
+                ("fieldCommandButton", fieldBtn),
+                ("interrogationButton", interrBtn),
                 ("reportButton", repBtn));
         }
 
@@ -399,12 +429,26 @@ namespace ColdCaseOS.EditorTools
             var authorBtn = CreateButton("MetaAuthorBtn", metaPanel.transform, "작성자: -", new Vector2(-144, -20), new Vector2(280, 32));
             var sourceBtn = CreateButton("MetaSourceBtn", metaPanel.transform, "원본: -", new Vector2(144, -20), new Vector2(280, 32));
 
-            // 본문 드래그 & 메타데이터 클릭 공용 플로팅 툴바
-            var toolbarGo = CreateCenteredPanel("FloatingClueToolbar", body, new Vector2(240, 48), TitleBarBg);
+            // 본문 드래그 & 메타데이터 클릭 공용 3버튼 플로팅 툴바 ([+ 보드 추가 | DB 조회 | 현장반 지시 | 취소])
+            var toolbarGo = CreateCenteredPanel("FloatingClueToolbar", body, new Vector2(448, 48), TitleBarBg);
+            var hlg = toolbarGo.AddComponent<HorizontalLayoutGroup>();
+            hlg.padding = new RectOffset(6, 6, 6, 6);
+            hlg.spacing = 6f;
+            hlg.childControlWidth = true;
+            hlg.childControlHeight = true;
+            hlg.childForceExpandWidth = true;
+            hlg.childForceExpandHeight = true;
+
             var toolbar = toolbarGo.AddComponent<FloatingClueToolbar>();
-            var addBtn = CreateButton("AddClueBtn", toolbarGo.transform, "보드에 추가", new Vector2(-50, 0), new Vector2(120, 36));
-            var cancelBtn = CreateButton("CancelBtn", toolbarGo.transform, "취소", new Vector2(70, 0), new Vector2(80, 36));
-            SetProps(toolbar, ("addToBoardButton", addBtn), ("cancelButton", cancelBtn));
+            var addBtn = CreateButton("AddClueBtn", toolbarGo.transform, "+ 보드 등록", Vector2.zero, new Vector2(110, 36));
+            var dbBtn = CreateButton("SearchDbBtn", toolbarGo.transform, "DB 조회", Vector2.zero, new Vector2(96, 36));
+            var fieldBtn = CreateButton("OrderFieldBtn", toolbarGo.transform, "현장반 지시", Vector2.zero, new Vector2(110, 36));
+            var cancelBtn = CreateButton("CancelBtn", toolbarGo.transform, "취소", Vector2.zero, new Vector2(72, 36));
+            SetProps(toolbar,
+                ("addToBoardButton", addBtn),
+                ("searchDbButton", dbBtn),
+                ("orderFieldButton", fieldBtn),
+                ("cancelButton", cancelBtn));
             SetProps(dragSelector, ("floatingToolbar", toolbar));
 
             SetProps(win,
@@ -600,6 +644,149 @@ namespace ColdCaseOS.EditorTools
                 ("resultTitleText", rTitle),
                 ("resultBodyText", rBody),
                 ("addResultToBoardButton", addBtn));
+            return win;
+        }
+
+        private static OSWindow BuildFieldCommandWindow(Transform parent)
+        {
+            var (win, body) = CreateOSWindow<FieldCommandController>(parent, "FieldCommand", "현장수사반 지휘 채널 — 강민호 경사", new Vector2(740, 660), new Vector2(410, 15));
+
+            var providerTxt = CreateText("ProviderStatus", body, "통신 엔진: Offline Mock", 13, TextAlignmentOptions.Left, new Vector2(-170, 290), new Vector2(360, 24), AccentColor);
+            var opinionBtn = CreateButton("AskOpinionBtn", body, "가설 검증·의견 묻기 (0분)", new Vector2(236, 290), new Vector2(210, 32));
+
+            var chatScroll = CreateScrollView("FieldChatScroll", body, new Vector2(0, 100), new Vector2(692, 330));
+            chatScroll.GetComponent<Image>().color = PaperSheetBg;
+
+            // 지시 확정 대기 액션 컨테이너
+            var pendingGo = new GameObject("PendingActionsContainer", typeof(RectTransform), typeof(VerticalLayoutGroup));
+            pendingGo.transform.SetParent(body, false);
+            var pendingRt = pendingGo.GetComponent<RectTransform>();
+            pendingRt.anchoredPosition = new Vector2(0, -104);
+            pendingRt.sizeDelta = new Vector2(692, 54);
+            var pVlg = pendingGo.GetComponent<VerticalLayoutGroup>();
+            pVlg.spacing = 4f;
+            pVlg.childControlWidth = true;
+            pVlg.childControlHeight = true;
+            pVlg.childForceExpandWidth = true;
+            pVlg.childForceExpandHeight = false;
+
+            // 추천 지시 칩 영역 (최대 3개)
+            var chipRow = new GameObject("RecommendedChips", typeof(RectTransform), typeof(HorizontalLayoutGroup));
+            chipRow.transform.SetParent(body, false);
+            var chipRt = chipRow.GetComponent<RectTransform>();
+            chipRt.anchoredPosition = new Vector2(0, -158);
+            chipRt.sizeDelta = new Vector2(692, 36);
+            var cHlg = chipRow.GetComponent<HorizontalLayoutGroup>();
+            cHlg.spacing = 6f;
+            cHlg.childControlWidth = true;
+            cHlg.childControlHeight = true;
+            cHlg.childForceExpandWidth = true;
+            cHlg.childForceExpandHeight = true;
+
+            // 증거판 카드 첨부 바 (영장 근거 등)
+            var evDropdown = CreateDropdown("FieldEvidenceDropdown", body, new Vector2(-148, -206), new Vector2(396, 36));
+            var attachBtn = CreateButton("AttachBtn", body, "근거 첨부", new Vector2(118, -206), new Vector2(110, 36));
+            var clearBtn = CreateButton("ClearAttachBtn", body, "비우기", new Vector2(232, -206), new Vector2(92, 36));
+            var attachedTxt = CreateText("AttachedText", body, "첨부 카드 없음", 13, TextAlignmentOptions.Left, new Vector2(0, -238), new Vector2(692, 22), AccentColor);
+
+            var waitTxt = CreateText("WaitingStatus", body, "", 13, TextAlignmentOptions.Left, new Vector2(0, -260), new Vector2(692, 20), PaperTextColor);
+            var inputField = CreateInputField("CommandInput", body, "현장수사반에 지시할 내용 입력 (예: 뒷문 재감식, 이준호 원룸 출입 로그 확인)...", new Vector2(-62, -290), new Vector2(568, 42));
+            var sendBtn = CreateButton("SendCommandBtn", body, "지시 전송", new Vector2(288, -290), new Vector2(116, 42));
+            sendBtn.GetComponent<Image>().color = AccentColor;
+            var sendLbl = sendBtn.GetComponentInChildren<TMP_Text>();
+            if (sendLbl != null) sendLbl.color = InkTextColor;
+
+            SetProps(win,
+                ("providerStatusText", providerTxt),
+                ("waitingStatusText", waitTxt),
+                ("askOpinionButton", opinionBtn),
+                ("chatScrollRect", chatScroll),
+                ("chatContentRoot", chatScroll.content),
+                ("pendingActionsContainer", pendingGo.transform),
+                ("recommendedChipContainer", chipRow.transform),
+                ("evidenceDropdown", evDropdown),
+                ("attachCardButton", attachBtn),
+                ("clearAttachButton", clearBtn),
+                ("attachedCardsText", attachedTxt),
+                ("commandInputField", inputField),
+                ("sendCommandButton", sendBtn));
+            return win;
+        }
+
+        private static OSWindow BuildInterrogationWindow(Transform parent)
+        {
+            var (win, body) = CreateOSWindow<InterrogationController>(parent, "Interrogation", "조사실 — 사건 관련자 전원 심문", new Vector2(980, 680), new Vector2(30, 10));
+
+            // 좌측 사건 관련자 전원 목록 (7인 + 불가 1인)
+            var rosterPanel = CreateCenteredPanel("RosterSidebar", body, new Vector2(246, 616), ButtonBg);
+            rosterPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(-354, -4);
+            CreateText("RosterHeader", rosterPanel.transform, "사건 관련자 전원 (동일 45분/8턴)", 13, TextAlignmentOptions.Left, new Vector2(0, 286), new Vector2(226, 24), AccentColor);
+            var rosterScroll = CreateScrollView("RosterScroll", rosterPanel.transform, new Vector2(0, -14), new Vector2(230, 566));
+            rosterScroll.GetComponent<Image>().color = TitleBarBg;
+
+            // 우측 상단 용의자 프로필 + 평정심 HUD
+            var headerCard = CreateCenteredPanel("ProfileHeaderCard", body, new Vector2(692, 134), TitleBarBg);
+            headerCard.GetComponent<RectTransform>().anchoredPosition = new Vector2(124, 236);
+
+            var portraitBox = CreateCenteredPanel("PortraitBox", headerCard.transform, new Vector2(104, 104), ButtonBg);
+            portraitBox.GetComponent<RectTransform>().anchoredPosition = new Vector2(-276, 0);
+            var portraitInitial = CreateText("PortraitInitial", portraitBox.transform, "?", 38, TextAlignmentOptions.Center, Vector2.zero, new Vector2(96, 96), PaperTextColor);
+            var portraitImgGo = new GameObject("PortraitRawImage", typeof(RectTransform), typeof(RawImage));
+            portraitImgGo.transform.SetParent(portraitBox.transform, false);
+            Stretch(portraitImgGo.GetComponent<RectTransform>(), Vector2.zero, Vector2.zero);
+            portraitImgGo.SetActive(false);
+
+            var nameTxt = CreateText("SuspectName", headerCard.transform, "대상 선택", 20, TextAlignmentOptions.Left, new Vector2(-80, 42), new Vector2(250, 28), PaperTextColor);
+            var roleTxt = CreateText("SuspectRole", headerCard.transform, "", 13, TextAlignmentOptions.Left, new Vector2(-80, 16), new Vector2(250, 22), AccentColor);
+            var emoTxt = CreateText("EmotionBadge", headerCard.transform, "심리 상태: 평온", 13, TextAlignmentOptions.Left, new Vector2(-80, -8), new Vector2(250, 22), PaperTextColor);
+            var compSlider = CreateSlider("ComposureSlider", headerCard.transform, new Vector2(-108, -36), new Vector2(190, 16));
+            compSlider.interactable = false;
+            var compVal = CreateText("ComposureValue", headerCard.transform, "평정심 75/100", 12, TextAlignmentOptions.Left, new Vector2(44, -36), new Vector2(106, 20), PaperTextColor);
+
+            var sessionTxt = CreateText("SessionStatus", headerCard.transform, "대기 중", 13, TextAlignmentOptions.Right, new Vector2(204, 42), new Vector2(256, 24), PaperTextColor);
+            var badgesTxt = CreateText("UnlockedBadges", headerCard.transform, "확인된 모순 없음", 12, TextAlignmentOptions.Right, new Vector2(204, 10), new Vector2(256, 36), AccentColor);
+            var startBtn = CreateButton("StartSessionBtn", headerCard.transform, "소환 심문 (-45분)", new Vector2(232, -34), new Vector2(200, 38));
+            startBtn.GetComponent<Image>().color = AccentColor;
+            var startLbl = startBtn.GetComponentInChildren<TMP_Text>();
+            if (startLbl != null) startLbl.color = InkTextColor;
+
+            // 우측 중앙 심문 대화 로그
+            var chatScroll = CreateScrollView("InterrogationChatScroll", body, new Vector2(124, -18), new Vector2(692, 344));
+            chatScroll.GetComponent<Image>().color = PaperSheetBg;
+
+            // 우측 하단 증거 카드 제시 + 질문 입력
+            var waitTxt = CreateText("WaitingStatus", body, "", 13, TextAlignmentOptions.Left, new Vector2(124, -206), new Vector2(692, 20), AccentColor);
+            var evDropdown = CreateDropdown("InterrogationEvidenceDropdown", body, new Vector2(-24, -234), new Vector2(396, 36));
+            var attachBtn = CreateButton("AttachEvidenceBtn", body, "증거 제시", new Vector2(242, -234), new Vector2(110, 36));
+            var clearBtn = CreateButton("ClearEvidenceBtn", body, "비우기", new Vector2(356, -234), new Vector2(92, 36));
+            var attachedTxt = CreateText("AttachedEvidenceText", body, "제시할 증거 없음", 12, TextAlignmentOptions.Left, new Vector2(124, -264), new Vector2(692, 20), PaperTextColor);
+
+            var qInput = CreateInputField("QuestionInput", body, "심문할 질문을 자유롭게 입력하세요 (증거판 카드를 첨부해 추궁 가능)...", new Vector2(62, -296), new Vector2(568, 42));
+            var sendBtn = CreateButton("SendQuestionBtn", body, "질문 전송", new Vector2(412, -296), new Vector2(116, 42));
+            sendBtn.GetComponent<Image>().color = WarningColor;
+
+            SetProps(win,
+                ("rosterListContainer", rosterScroll.content),
+                ("portraitImage", portraitImgGo.GetComponent<RawImage>()),
+                ("portraitFallbackBg", portraitBox.GetComponent<Image>()),
+                ("portraitInitialText", portraitInitial),
+                ("suspectNameText", nameTxt),
+                ("suspectRoleText", roleTxt),
+                ("emotionBadgeText", emoTxt),
+                ("composureSlider", compSlider),
+                ("composureValueText", compVal),
+                ("sessionStatusText", sessionTxt),
+                ("unlockedBadgesText", badgesTxt),
+                ("startSessionButton", startBtn),
+                ("chatScrollRect", chatScroll),
+                ("chatContentRoot", chatScroll.content),
+                ("waitingStatusText", waitTxt),
+                ("evidenceDropdown", evDropdown),
+                ("attachCardButton", attachBtn),
+                ("clearAttachButton", clearBtn),
+                ("attachedCardsText", attachedTxt),
+                ("questionInputField", qInput),
+                ("sendQuestionButton", sendBtn));
             return win;
         }
 

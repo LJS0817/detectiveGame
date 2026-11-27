@@ -6,18 +6,23 @@ using UnityEngine.UI;
 namespace ColdCaseOS.Apps.FileViewer
 {
     /// <summary>
-    /// 문서 텍스트 드래그 완료 시 마우스 커서 근처에 뜨는 플로팅 툴바 ([+ 증거판에 추가]).
+    /// 문서 텍스트 드래그 완료 시 마우스 커서 근처에 뜨는 3버튼 플로팅 툴바.
+    /// [+ 증거판 등록] / [K-POL DB 조회] / [현장반 지시] + [취소].
     /// </summary>
     [RequireComponent(typeof(RectTransform), typeof(CanvasGroup))]
     public class FloatingClueToolbar : MonoBehaviour
     {
         [SerializeField] private Button addToBoardButton;
+        [SerializeField] private Button searchDbButton;
+        [SerializeField] private Button orderFieldButton;
         [SerializeField] private Button cancelButton;
-        [SerializeField] private Vector2 screenOffset = new Vector2(0f, 36f);
+        [SerializeField] private Vector2 screenOffset = new Vector2(0f, 40f);
 
         private RectTransform _rect;
         private CanvasGroup _group;
         private Action _onConfirmAdd;
+        private Action _onSearchDb;
+        private Action _onOrderField;
         private Action _onCancel;
 
         private void Awake()
@@ -27,16 +32,31 @@ namespace ColdCaseOS.Apps.FileViewer
 
             if (addToBoardButton != null)
                 addToBoardButton.onClick.AddListener(HandleConfirm);
+            if (searchDbButton != null)
+                searchDbButton.onClick.AddListener(HandleSearchDb);
+            if (orderFieldButton != null)
+                orderFieldButton.onClick.AddListener(HandleOrderField);
             if (cancelButton != null)
                 cancelButton.onClick.AddListener(HandleCancel);
 
             HideImmediate();
         }
 
-        public void ShowAtScreenPosition(Vector2 screenPos, Canvas rootCanvas, Action onConfirmAdd, Action onCancel = null)
+        public void ShowAtScreenPosition(
+            Vector2 screenPos,
+            Canvas rootCanvas,
+            Action onConfirmAdd,
+            Action onCancel = null,
+            Action onSearchDb = null,
+            Action onOrderField = null)
         {
             _onConfirmAdd = onConfirmAdd;
+            _onSearchDb = onSearchDb;
+            _onOrderField = onOrderField;
             _onCancel = onCancel;
+
+            if (searchDbButton != null) searchDbButton.gameObject.SetActive(onSearchDb != null);
+            if (orderFieldButton != null) orderFieldButton.gameObject.SetActive(onOrderField != null);
 
             gameObject.SetActive(true);
             transform.SetAsLastSibling();
@@ -75,6 +95,20 @@ namespace ColdCaseOS.Apps.FileViewer
         private void HandleConfirm()
         {
             var cb = _onConfirmAdd;
+            Hide();
+            cb?.Invoke();
+        }
+
+        private void HandleSearchDb()
+        {
+            var cb = _onSearchDb;
+            Hide();
+            cb?.Invoke();
+        }
+
+        private void HandleOrderField()
+        {
+            var cb = _onOrderField;
             Hide();
             cb?.Invoke();
         }

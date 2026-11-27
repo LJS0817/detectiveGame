@@ -1,6 +1,6 @@
 # 나노바나나 2D 아트 컨셉 시안 및 EP 1 에셋 명세서 (11_EP01_ART_ASSET_SPEC)
 
-> **문서 목적**: `K-POL OS` 기반 2D 추리 게임의 비주얼 컨셉 시안 5가지를 비교 제안하고, EP 1(MVP) 구현에 필요한 전체 2D 스프라이트·CCTV·현장 사진·초상화 에셋 목록(총 23종)과 나노바나나(Nano Banana) 일관성 유지용 프롬프트 가이드를 정의합니다.
+> **문서 목적**: `K-POL OS` 기반 2D 추리 게임의 비주얼 컨셉 시안 5가지를 비교 제안하고, EP 1(MVP) 구현에 필요한 전체 2D 스프라이트·CCTV·현장 사진·**사건 관련자 전원 초상화(9인 + 심문 표정 변형)** 에셋 목록(기본 27종)과 나노바나나(Nano Banana) 일관성 유지용 프롬프트 가이드를 정의합니다.
 
 ---
 
@@ -37,7 +37,7 @@
 
 ---
 
-## 3. EP 1 (MVP) 전체 2D 아트 에셋 체크리스트 (총 23종)
+## 3. EP 1 (MVP) 전체 2D 아트 에셋 체크리스트 (기본 27종 + 심문 표정 변형)
 
 ### 3.1. 공통 OS & UI 배경 (5종)
 | 파일명 | 해상도 | 용도 및 묘사 |
@@ -48,14 +48,20 @@
 | `UI_DOC_MEMO_NOTE.png` | 768×1024 | 점주 자필 메모용 누런 수첩 찢긴 종이 텍스처 (글자 없음) |
 | `UI_BOARD_GRID_BG.png` | 1920×1080 | 디지털 증거판 전용 어두운 청회색 미세 격자 보드 배경 |
 
-### 3.2. 인물 초상화 (5종 — `512 × 512`)
-| 파일명 | 대상 | 표정 및 복장 포인트 |
-| :--- | :--- | :--- |
-| `CHAR_PARTNER_MINHO.png` | 강민호 경사 (파트너) | 30대 후반, 피곤하지만 믿음직한 눈빛, 어두운 점퍼 차림, 경찰청 신분증 배경 |
-| `CHAR_EP01_VICTIM.png` | 박성훈 (48, 점주) | 성실한 40대 후반 남성, 단정한 평상복, 주민등록증/증명사진 톤 |
-| `CHAR_EP01_SUSPECT_A.png` | 김철수 (36, 용의자 A) | 초췌하고 억울한 표정, 어두운 후드티, 경찰 유치장 촬영(머그샷) 톤 |
-| `CHAR_EP01_SUSPECT_B.png` | 이준호 (24, 용의자 B) | 평범하고 선해 보이는 20대 초반 남성, 편의점 조끼 또는 평상복 증명사진 |
-| `CHAR_EP01_SUSPECT_C.png` | 최태식 (57, 용의자 C) | 고집스럽고 다혈질 인상, 정장 재킷, 증명사진 |
+### 3.2. 인물 초상화 (기본 9종 — `512 × 512` + 심문 표정 바리에이션)
+> **심문 감정(`emotion`) 연출 규격**: 심문 가능 7인(`김철수·이준호·최태식·한소라·오민석·정대호·윤서진`)은 기본 초상화 1장(`_CALM.png`)을 Base로 생성한 뒤, 나노바나나 Image Edit 기능으로 **`_NERVOUS.png` (동요·식은땀·시선 회피)** 및 **`_BROKEN.png` (붕괴·격앙·실토)** 2종 변형을 추가 추출해 LLM `emotion` 태그(`calm / annoyed / nervous / panicked / broken / cooperative`)에 1:1 매핑합니다. (초기 프로토타입에서는 기본 1장 + UI 틴트/흔들림 연출로 먼저 가동 후 표정 컷을 순차 교체 가능)
+
+| 파일명 | 대상 | 구분 | 표정 및 복장 포인트 |
+| :--- | :--- | :---: | :--- |
+| `CHAR_FIELD_MINHO.png` | 강민호 경사 (39, 현장수사반 반장) | 현장반 | 피곤하지만 믿음직한 눈빛, 어두운 유틸리티 점퍼 차림, 경찰청 신분증 배경 |
+| `CHAR_EP01_VICTIM_PARK.png` | 박성훈 (48, 점주 / 피해자) | 심문 불가 | 성실한 40대 후반 남성, 단정한 평상복, 증명사진 톤 *(심문창 잠금 표시용)* |
+| `CHAR_EP01_KIM.png` | 김철수 (36, 초동 피의자) | 심문 가능 | 초췌하고 억울한 표정, 어두운 후드티, 경찰 유치장 촬영(머그샷) 톤 |
+| `CHAR_EP01_LEE.png` | 이준호 (24, 야간 알바 / 진범) | 심문 가능 | 평범하고 선해 보이는 20대 초반 휴학생, 어두운 맨투맨/편의점 조끼 |
+| `CHAR_EP01_CHOI.png` | 최태식 (57, 상가 건물주) | 심문 가능 | 고집스럽고 다혈질 인상, 짙은 정장 재킷, 굳은 입매 |
+| `CHAR_EP01_HAN.png` | 한소라 (22, 주간 알바) | 심문 가능 | 다소 위축되고 눈치 보는 20대 초반 대학생, 니트 가디건·단정한 단발/묶음머리 |
+| `CHAR_EP01_OH.png` | 오민석 (41, 맞은편 '별밤호프' 사장) | 심문 가능 | 동네 자영업자 인상, 짙은 앞치마·편한 셔츠, 눈썰미가 날카롭지만 귀찮은 듯한 눈빛 |
+| `CHAR_EP01_JUNG.png` | 정대호 (33, 한빛물류 배송기사) | 심문 가능 | 새벽 배송에 지친 피곤한 인상, 무지 작업복 점퍼·야구모자 착용, 사무적 표정 |
+| `CHAR_EP01_YOON.png` | 윤서진 (29, 최초 발견·112 신고자) | 심문 가능 | 야근 후 지치고 충격받은 20대 후반 IT 디자이너, 안경·어두운 코트/머플러 |
 
 ### 3.3. 매장 정면 CCTV 시퀀스 (Base 1장 + 편집 5장 = 6종, `1920 × 1080`)
 *(컷 4 `01:55~02:05 SIGNAL LOST`는 Unity 노이즈 UI로 구현)*
@@ -81,7 +87,7 @@
 | 파일명 | 해상도 | 용도 |
 | :--- | :---: | :--- |
 | `EP01_BLUEPRINT_STORE.png` | 1920×1080 | 편의점 매장(정문·카운터·진열대·냉장고) + 창고 백룸(책상/NVR·두꺼비집·금고·선반·뒷문 자석 센서) + 상가 뒤편 우회 골목이 한눈에 보이는 2D 건축 평면도(블루프린트) |
-| `UI_OS_ICONS_SHEET.png` | 1024×256 | 미니멀 다크 라인 아트 스타일 OS 앱 아이콘 (파일 탐색기, 증거판, 경찰 DB, 최종 보고서) |
+| `UI_OS_ICONS_SHEET.png` | 1024×256 | 미니멀 다크 라인 아트 스타일 OS 앱 아이콘 6종 (파일 탐색기, 디지털 증거판, 경찰 DB, 현장수사반, 용의자 심문, 최종 보고서) |
 
 * **⑤ `EP01_BLUEPRINT_STORE.png` (건물 평면도 / 블루프린트 프롬프트 — 스타일 크롭 참조)**:
   > `Clean top-down 2D architectural floorplan blueprint of a small Korean convenience store and attached backroom storage office, showing the exact spatial layout: front sliding glass entrance on the upper-left, L-shaped checkout counter with POS monitors along the left wall, central double-sided snack shelving aisle, beverage coolers along the upper-right back wall, an interior steel door leading right into a cramped rectangular backroom (containing a small desk with CCTV monitor/NVR and safe on its upper/left wall, steel shelving rack along its right wall, and a rear alley exit door on its back wall), plus the narrow exterior service alley wrapping from the front street around to the rear alley door. Indie risograph print and technical ink architectural drawing style matching the attached style reference: crisp hand-drawn dark charcoal ink blueprint lines, muted slate-teal structural walls, aged newsprint cream paper background with subtle technical grid and fine ink speckles, zero 3D perspective, strictly orthographic top-down 2D plan, no readable text, no real brand logos. 16:9 aspect ratio.`
@@ -108,5 +114,7 @@
   > `Static locked-off high-angle CCTV security camera footage, zero camera movement, completely frozen background. Maintain the exact hand-drawn indie risograph print illustration style, bold ink outlines, coarse paper texture, and muted realistic natural colors from the starting image. The glass entrance door on the left is ALREADY ajar and does not move. Keeping hands inside hoodie pockets with zero hand-to-object contact, the dark hooded figure walks slowly three steps forward from the entrance gap toward the empty checkout counter, pauses, and turns his head left and right. Every background object—stocked shelves, refrigerators, POS terminal, and the closed grey metal storage door on the far right with the dark red bloodstain and muted yellow blank cash strap motionless on the floor tiles beneath the gap—remains 100% rigid and static. No morphing, no flickering objects, 5 seconds.`
 * **③ `EP01_PHOTO_TAPE.png` (뒷문 자석 센서 투명 테이프 클로즈업)**:
   > `Close-up police forensic evidence photograph of a white magnetic door security sensor mounted on a grey metal backdoor frame, indie risograph screenprint illustration style, bold hand-drawn ink outlines, coarse paper texture, muted realistic natural colors under cool camera flash. A piece of clear scotch tape is stuck over the magnetic contact to jam it open. Sharp focus on the tape edges, matte dry ink finish, zero glossy AI shine, no text, 16:9.`
-* **④ `CHAR_PARTNER_MINHO.png` (파트너 형사 프로필)**:
+* **④ `CHAR_FIELD_MINHO.png` (현장수사반 반장 강민호 경사 프로필)**:
   > `Portrait of a 39-year-old Korean male detective, indie risograph print illustration style, bold ink outlines, visible paper grain texture, muted realistic natural skin tones and dark olive/charcoal utility jacket over a light grey collared shirt, slightly tired but trustworthy sharp eyes, neutral muted warm-grey police ID background, matte dry ink finish, no text.`
+* **⑤ 신규 심문 대상 4인 공통 초상화 베이스 템플릿 (`HAN / OH / JUNG / YOON` 공통 스타일 앵커)**:
+  > `Portrait of a {age}-year-old Korean {gender} {role_clothing}, {expression}, indie risograph screenprint illustration style matching CHAR_FIELD_MINHO, bold hand-drawn dark ink outlines, coarse newsprint paper grain texture, muted realistic natural skin and clothing tones, neutral desaturated slate-grey interrogation room / ID backdrop, matte dry ink finish, zero glossy AI shine, no readable text, 1:1 square aspect ratio.`

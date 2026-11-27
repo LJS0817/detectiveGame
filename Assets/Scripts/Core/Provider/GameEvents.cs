@@ -31,6 +31,12 @@ namespace ColdCaseOS.Core
         public static event Action<string, string> OnToastRequested;  // (title, message)
         public static event Action<string> OnSfxRequested;            // SFX key (예: "SFX_HIGHLIGHTER")
 
+        // 3버튼 툴바 연계 & LLM 현장수사반 / 전원 심문 이벤트
+        public static event Action<string> OnDbQuickSearchRequested;                 // query
+        public static event Action<string> OnFieldCommandQuoteRequested;             // quoted text
+        public static event Action<string, string> OnInterrogationLayerUnlocked;     // (suspectId, layerId)
+        public static event Action<string> OnInterrogationSessionChanged;            // suspectId
+
         // 보고서 및 정산 / 다음 사건 배정 이벤트
         public static event Action<ArrestReportTier, int, VolatileClueState> OnEpisodeCleared;
         public static event Action<string, string, string> OnNewCaseOrderReceived; // (nextEpisodeId, caseNumber, summary)
@@ -63,6 +69,18 @@ namespace ColdCaseOS.Core
         public static void RaiseCaseFilesDownloaded(string episodeId)
             => OnCaseFilesDownloaded?.Invoke(episodeId);
 
+        public static void RaiseDbQuickSearchRequested(string query)
+            => OnDbQuickSearchRequested?.Invoke(query);
+
+        public static void RaiseFieldCommandQuoteRequested(string quote)
+            => OnFieldCommandQuoteRequested?.Invoke(quote);
+
+        public static void RaiseInterrogationLayerUnlocked(string suspectId, string layerId)
+            => OnInterrogationLayerUnlocked?.Invoke(suspectId, layerId);
+
+        public static void RaiseInterrogationSessionChanged(string suspectId)
+            => OnInterrogationSessionChanged?.Invoke(suspectId);
+
         public static void ClearAll()
         {
             OnTimeAdvanced = null;
@@ -82,6 +100,10 @@ namespace ColdCaseOS.Core
             OnEpisodeCleared = null;
             OnNewCaseOrderReceived = null;
             OnCaseFilesDownloaded = null;
+            OnDbQuickSearchRequested = null;
+            OnFieldCommandQuoteRequested = null;
+            OnInterrogationLayerUnlocked = null;
+            OnInterrogationSessionChanged = null;
         }
     }
 }

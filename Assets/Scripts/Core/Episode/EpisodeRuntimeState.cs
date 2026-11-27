@@ -32,6 +32,8 @@ namespace ColdCaseOS.Core
         public List<UserClueCard> ClueCards { get; } = new List<UserClueCard>();
         public List<StickyNoteData> StickyNotes { get; } = new List<StickyNoteData>();
         public List<MessengerMessageData> MessengerLogs { get; } = new List<MessengerMessageData>();
+        public Dictionary<string, InterrogationRuntimeState> InterrogationStates { get; } = new Dictionary<string, InterrogationRuntimeState>();
+        public List<FieldCommandMessageData> FieldCommandLogs { get; } = new List<FieldCommandMessageData>();
 
         public void InitializeNew(EpisodeData episode)
         {
@@ -54,6 +56,8 @@ namespace ColdCaseOS.Core
             ClueCards.Clear();
             StickyNotes.Clear();
             MessengerLogs.Clear();
+            InterrogationStates.Clear();
+            FieldCommandLogs.Clear();
 
             foreach (var d in episode.documents)
                 if (d.isInitial) UnlockedDocIds.Add(d.docId);
@@ -73,6 +77,74 @@ namespace ColdCaseOS.Core
                 foreach (var opt in act.targetOptions)
                     if (opt.isInitiallyDiscovered) DiscoveredSuspectIds.Add(opt.targetId);
             }
+
+            if (episode.interrogationProfiles != null)
+            {
+                foreach (var prof in episode.interrogationProfiles)
+                {
+                    if (prof == null || string.IsNullOrEmpty(prof.suspectId)) continue;
+                    DiscoveredSuspectIds.Add(prof.suspectId);
+                    InterrogationStates[prof.suspectId] = CreateInitialInterrogationState(prof);
+                }
+            }
+        }
+
+        private static InterrogationRuntimeState CreateInitialInterrogationState(InterrogationProfileData prof)
+        {
+            var st = new InterrogationRuntimeState
+            {
+                suspectId = prof.suspectId,
+                composure = prof.initialComposure,
+                sessionsUsed = 0,
+                turnsRemainingInSession = 0,
+                isSessionActive = false,
+                lastEmotion = "calm"
+            };
+            if (prof.layers != null)
+            {
+                foreach (var layer in prof.layers)
+                {
+                    if (layer != null && layer.isInitial)
+                        st.UnlockLayer(layer.layerId);
+                }
+            }
+            return st;
+        }
+
+        public InterrogationRuntimeState GetOrCreateInterrogationState(InterrogationProfileData prof)
+        {
+            if (prof == null || string.IsNullOrEmpty(prof.suspectId)) return null;
+            if (!InterrogationStates.TryGetValue(prof.suspectId, out var st) || st == null)
+            {
+                st = CreateInitialInterrogationState(prof);
+                InterrogationStates[prof.suspectId] = st;
+            }
+            return st;
+        }
+
+        public List<UserClueCard> GetActiveClueCards()
+        {
+            var list = new List<UserClueCard>();
+            foreach (var c in ClueCards)
+            {
+                if (c != null && !c.isInTrash && !c.isDismissed)
+                    list.Add(c);
+            }
+            return list;
+        }
+
+        public bool HasEvidenceIdInActiveCards(string evidenceId)
+        {
+            if (string.IsNullOrEmpty(evidenceId)) return false;
+            foreach (var c in ClueCards)
+            {
+                if (c != null && !c.isInTrash && !c.isDismissed &&
+                    string.Equals(c.hiddenEvidenceId, evidenceId, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         /// <summary>
@@ -129,6 +201,15 @@ namespace ColdCaseOS.Core
             if (snap.clueCards != null) ClueCards.AddRange(snap.clueCards);
             if (snap.stickyNotes != null) StickyNotes.AddRange(snap.stickyNotes);
             if (snap.messengerLogs != null) MessengerLogs.AddRange(snap.messengerLogs);
+            if (snap.fieldCommandLogs != null) FieldCommandLogs.AddRange(snap.fieldCommandLogs);
+            if (snap.interrogationStates != null)
+            {
+                foreach (var ist in snap.interrogationStates)
+                {
+                    if (ist != null && !string.IsNullOrEmpty(ist.suspectId))
+                        InterrogationStates[ist.suspectId] = ist;
+                }
+            }
         }
 
         public EpisodeRuntimeSnapshot ExportSnapshot()
@@ -151,7 +232,9 @@ namespace ColdCaseOS.Core
                 completedActionKeys = CompletedActionKeys.ToList(),
                 clueCards = new List<UserClueCard>(ClueCards),
                 stickyNotes = new List<StickyNoteData>(StickyNotes),
-                messengerLogs = new List<MessengerMessageData>(MessengerLogs)
+                messengerLogs = new List<MessengerMessageData>(MessengerLogs),
+                interrogationStates = InterrogationStates.Values.ToList(),
+                fieldCommandLogs = new List<FieldCommandMessageData>(FieldCommandLogs)
             };
         }
 

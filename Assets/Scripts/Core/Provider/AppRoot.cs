@@ -1,5 +1,6 @@
 using System;
 using System.Threading;
+using ColdCaseOS.Core.LLM;
 using ColdCaseOS.Data;
 using ColdCaseOS.OS;
 using Cysharp.Threading.Tasks;
@@ -37,6 +38,10 @@ namespace ColdCaseOS.Core
         public CampaignController Campaign { get; private set; }
         public EpisodeRuntimeState RuntimeState { get; private set; }
         public TimeManager Time { get; private set; }
+        public LlmProviderConfig LlmConfig { get; private set; }
+        public ILlmProvider LlmProvider { get; private set; }
+        public FieldCommandRouter FieldRouter { get; private set; }
+        public InterrogationStateMachine Interrogation { get; private set; }
         public WindowManager Windows => windowManager;
         public NotificationToastManager Toasts => toastManager;
 
@@ -63,9 +68,18 @@ namespace ColdCaseOS.Core
             Campaign = new CampaignController();
             RuntimeState = new EpisodeRuntimeState();
             Time = new TimeManager(RuntimeState, () => Campaign.SaveData.trustLevel);
+            LlmConfig = new LlmProviderConfig();
+            RebuildLlmProvider();
+            FieldRouter = new FieldCommandRouter(() => RuntimeState, () => Time, () => LlmProvider);
+            Interrogation = new InterrogationStateMachine(() => RuntimeState, () => Time, () => LlmProvider);
 
             SubscribeAutoSaveEvents();
             SetScreenImmediate(AppScreenState.Title);
+        }
+
+        public void RebuildLlmProvider()
+        {
+            LlmProvider = LlmConfig.CreateActiveProvider(RuntimeState);
         }
 
         private void OnDestroy()
@@ -81,16 +95,22 @@ namespace ColdCaseOS.Core
         {
             GameEvents.OnClueCardAdded += HandleAutoSaveClue;
             GameEvents.OnActionCompleted += HandleAutoSaveAction;
+            GameEvents.OnInterrogationLayerUnlocked += HandleAutoSaveInterrogationLayer;
+            GameEvents.OnInterrogationSessionChanged += HandleAutoSaveInterrogationSession;
         }
 
         private void UnsubscribeAutoSaveEvents()
         {
             GameEvents.OnClueCardAdded -= HandleAutoSaveClue;
             GameEvents.OnActionCompleted -= HandleAutoSaveAction;
+            GameEvents.OnInterrogationLayerUnlocked -= HandleAutoSaveInterrogationLayer;
+            GameEvents.OnInterrogationSessionChanged -= HandleAutoSaveInterrogationSession;
         }
 
         private void HandleAutoSaveClue(UserClueCard _) => Campaign.AutoSaveActiveState(RuntimeState);
         private void HandleAutoSaveAction(string _, string __) => Campaign.AutoSaveActiveState(RuntimeState);
+        private void HandleAutoSaveInterrogationLayer(string _, string __) => Campaign.AutoSaveActiveState(RuntimeState);
+        private void HandleAutoSaveInterrogationSession(string _) => Campaign.AutoSaveActiveState(RuntimeState);
 
         public async UniTask SwitchScreenAsync(AppScreenState target)
         {
@@ -165,7 +185,8 @@ namespace ColdCaseOS.Core
 
             OnEpisodeLoaded?.Invoke(episode);
             windowManager?.OpenWindow("FileExplorer");
-            GameEvents.RaiseToastRequested("사건 파일 로드 완료", $"[{episode.title}] 모든 사건 문서와 도면이 파일 탐색기에 준비되었습니다.");
+            windowManager?.OpenWindow("FieldCommand");
+            GameEvents.RaiseToastRequested("사건 이관 완료", $"[{episode.title}] 초동 자료가 도착했습니다. 현장수사반 지휘와 관련자 심문을 시작하십시오.");
             return episode;
         }
 
